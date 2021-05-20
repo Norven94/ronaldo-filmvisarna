@@ -1,48 +1,69 @@
 const Show = require("../models/Show");
 const Movie = require("../models/Movie");
 const Salon = require("../models/Salon");
-
-const getDateArray = (start, end) => {
-  let arr = new Array();
-  let dt = new Date(start);
-  while (dt <= end) {
-      arr.push(new Date(dt));
-      dt.setDate(dt.getDate() + 1);
-  }
-  return arr;
-}
+const utils = require("../core/utilities");
 
 const createShows = async (req, res) => {
-    let movies = await Movie.find().exec();
-    let salons = await Salon.find().exec();
-    const times = ["10:00-14:00", "14:00-18:00", "18:00-22:00"]
-    
-    let startDate = new Date("2021-05-01");
-    let endDate = new Date("2021-05-31");
-    let dates = getDateArray(startDate, endDate)
+  let movies = await Movie.find().exec();
+  let salons = await Salon.find().exec();
 
-    dates.map(date => {
-      salons.map(salon => {        
-        times.map(time => {
-          movies.map(movie => {
+  //Send a start and an endDate with the post request to generate dates to loop through 
+  let startDate = new Date(req.body.startDate);
+  let endDate = new Date(req.body.endDate);
+  let dates = utils.getDateArray(startDate, endDate)
+  let k = 0
+  
+  //Use a while loop in order to restart the movies array when all 20 movies have already been used at least one day
+  while (k < dates.length) {
+    //Loop through dates to create 6 shows for each day 3 for each salon
+    dates.map(date => {      
+      salons.map(salon => {
+        //Reset the startTime for every salon so that the shows always start after 15:00
+        let startTime = new Date(2021, 4, 20, 15, 0, 0)
+        for (let i = 1; i <= 3; i++) {
+          k++
+          //Convert dates to only hh:mm and add the movies length in order to set end time for the movie
+          movieTime = parseInt(movies[k % movies.length].timeLength);
+          let movieStart = startTime.toTimeString().split(" ")[0]
+          startTime = new Date(startTime.getTime() + movieTime*60000)
+          let movieEnd = startTime.toTimeString().split(" ")[0]          
 
-          })
-        })
+          //Add 30min before next movie can start
+          startTime = new Date(startTime.getTime() + 30*60000)
+
+          let show = {
+            salonId: salon._id,
+            movieId: movies[k % movies.length]._id,
+            time: `${movieStart} - ${movieEnd}`,
+            date: utils.formatDate(date)
+          }
+
+          console.log(show)
+          /*
+          let show = await Show.create({
+            salonId: salon._id,
+            movieId: movies[k % movies.length]._id,
+            time: i,
+            date: date
+          });
+          */
+        }
       })
     })
+  }
 
-    /*
-    let show = await Show.create({
-        salonId: req.body.salonId,
-        movieId: req.body.movieId,
-        time: req.body.time,
-        date: req.body.date
-      });
-      console.log("New show: ", show);
-    */
-    res.send("Ok");
+  /*
+  let show = await Show.create({
+      salonId: req.body.salonId,
+      movieId: req.body.movieId,
+      time: req.body.time,
+      date: req.body.date
+    });
+    console.log("New show: ", show);
+  */
+  res.send("Ok");
 }
 
 module.exports = {
-    createShows,
-  };
+  createShows,
+};
