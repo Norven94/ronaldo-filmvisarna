@@ -15,6 +15,7 @@ const movieSchema = new Schema({
     coverImage: { type: String },
     timeLength: { type: String },
     age: { type: String },
+    imdbRating : {type : String}
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
