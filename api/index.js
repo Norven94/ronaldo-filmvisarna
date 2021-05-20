@@ -9,6 +9,7 @@ const userRoutes = require("./routes/UserRoutes");
 
 const port = 3001;
 
+
 //-------------------------
 //-------MIDDLEWARE--------
 //-------------------------
