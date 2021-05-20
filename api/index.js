@@ -1,13 +1,25 @@
 //Node stuff
 const express = require("express");
 const session = require("express-session");
+const mongoose = require("mongoose");
 const app = express();
 
 //File imports
 const userRoutes = require("./routes/UserRoutes");
 
-
+//Variables
 const port = 3001;
+const uri = ""
+
+// Mongo DB Atlas Setup
+mongoose
+  .connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err));
 
 
 //-------------------------
