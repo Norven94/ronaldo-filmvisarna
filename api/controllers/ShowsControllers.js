@@ -6,62 +6,52 @@ const utils = require("../core/utilities");
 const createShows = async (req, res) => {
   let movies = await Movie.find().exec();
   let salons = await Salon.find().exec();
+  let startDateTaken = await Show.exists({ date: req.body.startDate });
+  let endDateTaken = await Show.exists({ date: req.body.endDate });
+  let allShows = [];
 
-  //Send a start and an endDate with the post request to generate dates to loop through 
-  let startDate = new Date(req.body.startDate);
-  let endDate = new Date(req.body.endDate);
-  let dates = utils.getDateArray(startDate, endDate)
-  let k = 0
-  
-  //Use a while loop in order to restart the movies array when all 20 movies have already been used at least one day
-  while (k < dates.length) {
-    //Loop through dates to create 6 shows for each day 3 for each salon
-    dates.map(date => {      
-      salons.map(salon => {
-        //Reset the startTime for every salon so that the shows always start after 15:00
-        let startTime = new Date(2021, 4, 20, 15, 0, 0)
-        for (let i = 1; i <= 3; i++) {
-          k++
-          //Convert dates to only hh:mm and add the movies length in order to set end time for the movie
-          movieTime = parseInt(movies[k % movies.length].timeLength);
-          let movieStart = startTime.toTimeString().split(" ")[0]
-          startTime = new Date(startTime.getTime() + movieTime*60000)
-          let movieEnd = startTime.toTimeString().split(" ")[0]          
-
-          //Add 30min before next movie can start
-          startTime = new Date(startTime.getTime() + 30*60000)
-
-          let show = {
-            salonId: salon._id,
-            movieId: movies[k % movies.length]._id,
-            time: `${movieStart} - ${movieEnd}`,
-            date: utils.formatDate(date)
-          }
-
-          console.log(show)
-          /*
-          let show = await Show.create({
-            salonId: salon._id,
-            movieId: movies[k % movies.length]._id,
-            time: i,
-            date: date
-          });
-          */
-        }
-      })
-    })
+  if (startDateTaken || endDateTaken) {
+    return res.json({ error: "Dates already have shows" })
   }
+  else {
+    //Send a start and an endDate with the post request to generate dates to loop through 
+    let startDate = new Date(req.body.startDate);
+    let endDate = new Date(req.body.endDate);
+    let dates = utils.getDateArray(startDate, endDate)
+    let k = 0
 
-  /*
-  let show = await Show.create({
-      salonId: req.body.salonId,
-      movieId: req.body.movieId,
-      time: req.body.time,
-      date: req.body.date
-    });
-    console.log("New show: ", show);
-  */
-  res.send("Ok");
+    //Use a while loop in order to restart the movies array when all 20 movies have already been used at least one day
+    while (k < dates.length) {
+      //Loop through dates to create 6 shows for each day 3 for each salon
+      dates.map(date => {
+        salons.map(salon => {
+          //Reset the startTime for every salon so that the shows always start after 15:00
+          let startTime = new Date(2021, 4, 20, 15, 0, 0)
+          for (let i = 1; i <= 3; i++) {
+            k++
+            //Convert dates to only hh:mm and add the movies length in order to set end time for the movie
+            movieTime = parseInt(movies[k % movies.length].timeLength);
+            let movieStart = startTime.toTimeString().split(" ")[0]
+            startTime = new Date(startTime.getTime() + movieTime * 60000)
+            let movieEnd = startTime.toTimeString().split(" ")[0]
+
+            //Add 30min before next movie can start
+            startTime = new Date(startTime.getTime() + 30 * 60000)
+
+            allShows.push({
+              salonId: salon._id,
+              movieId: movies[k % movies.length]._id,
+              time: `${movieStart}-${movieEnd}`,
+              date: utils.formatDate(date)
+            });
+          }
+        })
+      })
+    }
+    console.log(allShows)
+    await Show.create(allShows)
+    res.send("Ok");
+  }
 }
 
 module.exports = {
