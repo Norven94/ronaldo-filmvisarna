@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const showSchema = new Schema({
-salon: {type: Schema.Types.ObjectId, ref:"Salon"},
+salonId: {type: Schema.Types.ObjectId, ref:"Salon"},
 movieId: {type: Schema.Types.ObjectId, ref:"Movie"},
-date: {type: Date},
+date: {type: String},
 time: {type: String},
 });
 
