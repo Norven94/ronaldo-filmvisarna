@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext";
 import "../scss/Login.scss";
 
 const Login = () => {
-    const { setShowLogin, loginUser } = useContext(UserContext);
+    const { setShowLogin, loginUser, loginError, setLoginError } = useContext(UserContext);
 
     const submitLoginHandler = (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ const Login = () => {
     const closeLogin = (e) => {
         if (e.target.className === `overlay`) {
             setShowLogin(false)
-            // setLoginError(false)
+            setLoginError(false)
         }
     }
 
@@ -31,6 +31,7 @@ const Login = () => {
                         <input type="email" id="loginEmail" required />
                         <label htmlFor="loginPassword">Password:</label>
                         <input type="text" id="loginPassword" required />
+                        {loginError && <p className="error">Bad credentials</p>}
                         <button>Login</button>
                     </form>
                 </div>
