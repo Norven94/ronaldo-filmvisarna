@@ -5,8 +5,20 @@ const whoami = (req, res) => {
     res.json(req.session.user || null);
 };
 
-const login = (req, res) => {
-    res.json("login response")
+const login = async (req, res) => {
+    let userExists = await User.exists({ email: req.body.email });
+    if (userExists) {
+        let user = await User.findOne({ email: req.body.email }).exec()
+
+        if (user.password === encrypt(req.body.password)) {
+            req.session.user = user;
+            req.session.user.password = undefined;
+            user.password = undefined;
+            return res.json({ message: "Login successful", loggedInUser: user })
+        }
+    }
+
+    return res.status(401).json({ error: "Bad credentials" })
 }
 
 const logout = (req, res) => {
@@ -32,9 +44,15 @@ const registerUser = async (req, res) => {
     return res.status(200).json("New user created: ", newUser);
 }
 
+//TEST METHOD - REMOVE FOR PRODUCTION
+const getAllUsers = (req, res) => {
+    User.find().exec().then(response => res.status(200).json(response))
+}
+
 module.exports = {
     whoami,
     login,
     logout,
     registerUser,
+    getAllUsers,
 }
