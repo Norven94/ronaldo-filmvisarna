@@ -8,7 +8,7 @@ const UserProvider = (props) => {
     const [loginError, setLoginError] = useState(false);
 
     const loginUser = (loginInfo) => {
-        fetch("/api/users/login", {
+        fetch("/api/v1/users/login", {
             method: "POST",
             headers: { "content-type": "application/json", },
             body: JSON.stringify(loginInfo),
