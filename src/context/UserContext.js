@@ -30,7 +30,9 @@ const UserProvider = (props) => {
         setCurrentUser,
         showLogin,
         setShowLogin,
-        loginUser
+        loginUser,
+        loginError,
+        setLoginError
     }
 
     return (
