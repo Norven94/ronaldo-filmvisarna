@@ -14,7 +14,7 @@ const login = async (req, res) => {
             req.session.user = user;
             req.session.user.password = undefined;
             user.password = undefined;
-            return res.json({ message: "Login successful", loggedInUser: user })
+            return res.json({ message: "Login successful", currentUser: user })
         }
     }
 

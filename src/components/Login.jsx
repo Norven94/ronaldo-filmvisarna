@@ -3,27 +3,35 @@ import { UserContext } from "../context/UserContext";
 import "../scss/Login.scss";
 
 const Login = () => {
-    const { setShowLogin } = useContext(UserContext);
+    const { setShowLogin, loginUser } = useContext(UserContext);
 
-    const loginClickHandler = () => {
-        setShowLogin(false)
+    const submitLoginHandler = (e) => {
+        e.preventDefault();
+        const loginInfo = {
+            email: document.getElementById("loginEmail").value,
+            password: document.getElementById("loginPassword").value
+        }
+        loginUser(loginInfo);
     }
 
-    const submitLoginHandler = () => {
-
+    const closeLogin = (e) => {
+        if (e.target.className === `overlay`) {
+            setShowLogin(false)
+            // setLoginError(false)
+        }
     }
 
     return (
-        <div className="login" onClick={loginClickHandler}>
+        <div className="login" onClick={closeLogin}>
             <div className="overlay">
                 <div className="loginDiv">
-                    <h2>Log in</h2>
+                    <h2>Login</h2>
                     <form action="submit" onSubmit={submitLoginHandler}>
                         <label htmlFor="loginEmail">E-mail:</label>
                         <input type="email" id="loginEmail" required />
                         <label htmlFor="loginPassword">Password:</label>
                         <input type="text" id="loginPassword" required />
-                        <button>Log in</button>
+                        <button>Login</button>
                     </form>
                 </div>
             </div>
