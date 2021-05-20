@@ -6,7 +6,7 @@ const showSchema = new Schema({
 salon: {type: Schema.Types.ObjectId, ref:"Salon"},
 movieId: {type: Schema.Types.ObjectId, ref:"Movie"},
 date: {type: Date},
-time: {type: Number},
+time: {type: String},
 });
 
 const Show = mongoose.model("Show", showSchema);
