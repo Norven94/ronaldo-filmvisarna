@@ -14,20 +14,6 @@
         "Country": "USA",
         "Awards": "Nominated for 7 Oscars. Another 21 wins & 36 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "9.3/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "91%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "80/100"
-            }
-        ],
         "Metascore": "80",
         "imdbRating": "9.3",
         "imdbVotes": "2,381,013",
@@ -54,20 +40,6 @@
         "Country": "USA",
         "Awards": "Won 4 Oscars. Another 38 wins & 51 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.7/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "88%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "73/100"
-            }
-        ],
         "Metascore": "73",
         "imdbRating": "8.7",
         "imdbVotes": "1,702,966",
@@ -94,20 +66,6 @@
         "Country": "USA, UK",
         "Awards": "Won 1 Oscar. Another 8 wins & 26 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "7.5/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "71%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "69/100"
-            }
-        ],
         "Metascore": "69",
         "imdbRating": "7.5",
         "imdbVotes": "343,300",
@@ -134,20 +92,6 @@
         "Country": "USA, Malta, UK",
         "Awards": "Nominated for 1 Oscar. Another 5 wins & 22 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTk5MzU1MDMwMF5BMl5BanBnXkFtZTcwNjczODMzMw@@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "7.3/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "54%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "56/100"
-            }
-        ],
         "Metascore": "56",
         "imdbRating": "7.3",
         "imdbVotes": "493,593",
@@ -174,20 +118,6 @@
         "Country": "USA",
         "Awards": "11 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTc1Njk1NTE3NF5BMl5BanBnXkFtZTgwNjAyMzcxMTE@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "7.2/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "42%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "56/100"
-            }
-        ],
         "Metascore": "56",
         "imdbRating": "7.2",
         "imdbVotes": "108,232",
@@ -214,20 +144,6 @@
         "Country": "USA",
         "Awards": "Won 2 Oscars. Another 22 wins & 61 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.3/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "98%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "70/100"
-            }
-        ],
         "Metascore": "70",
         "imdbRating": "8.3",
         "imdbVotes": "878,800",
@@ -254,20 +170,6 @@
         "Country": "USA, Hong Kong",
         "Awards": "Won 4 Oscars. Another 93 wins & 141 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.5/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "90%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "85/100"
-            }
-        ],
         "Metascore": "85",
         "imdbRating": "8.5",
         "imdbVotes": "1,207,564",
@@ -294,20 +196,6 @@
         "Country": "USA",
         "Awards": "Won 4 Oscars. Another 63 wins & 86 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTkxNzA1NDQxOV5BMl5BanBnXkFtZTcwNTkyMTIzMw@@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.1/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "90%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "86/100"
-            }
-        ],
         "Metascore": "86",
         "imdbRating": "8.1",
         "imdbVotes": "643,504",
@@ -334,20 +222,6 @@
         "Country": "USA",
         "Awards": "Nominated for 3 Oscars. Another 17 wins & 10 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "9.0/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "100%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "96/100"
-            }
-        ],
         "Metascore": "96",
         "imdbRating": "9.0",
         "imdbVotes": "702,744",
@@ -374,20 +248,6 @@
         "Country": "USA",
         "Awards": "Won 7 Oscars. Another 85 wins & 49 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.9/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "98%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "94/100"
-            }
-        ],
         "Metascore": "94",
         "imdbRating": "8.9",
         "imdbVotes": "1,235,435",
@@ -414,20 +274,6 @@
         "Country": "USA",
         "Awards": "Won 1 Oscar. Another 43 wins & 38 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.7/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "96%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "90/100"
-            }
-        ],
         "Metascore": "90",
         "imdbRating": "8.7",
         "imdbVotes": "1,036,661",
@@ -454,20 +300,6 @@
         "Country": "USA, UK",
         "Awards": "Won 4 Oscars. Another 153 wins & 220 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.8/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "87%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "74/100"
-            }
-        ],
         "Metascore": "74",
         "imdbRating": "8.8",
         "imdbVotes": "2,112,329",
@@ -494,20 +326,6 @@
         "Country": "USA",
         "Awards": "Won 5 Oscars. Another 64 wins & 51 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.6/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "96%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "85/100"
-            }
-        ],
         "Metascore": "85",
         "imdbRating": "8.6",
         "imdbVotes": "1,290,523",
@@ -534,20 +352,6 @@
         "Country": "Italy",
         "Awards": "Won 3 Oscars. Another 69 wins & 52 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.6/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "80%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "59/100"
-            }
-        ],
         "Metascore": "59",
         "imdbRating": "8.6",
         "imdbVotes": "634,121",
@@ -574,20 +378,6 @@
         "Country": "USA",
         "Awards": "Nominated for 4 Oscars. Another 15 wins & 33 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.6/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "78%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "61/100"
-            }
-        ],
         "Metascore": "61",
         "imdbRating": "8.6",
         "imdbVotes": "1,166,243",
@@ -614,20 +404,6 @@
         "Country": "USA, UK, Canada",
         "Awards": "Won 1 Oscar. Another 43 wins & 148 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.6/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "72%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "74/100"
-            }
-        ],
         "Metascore": "74",
         "imdbRating": "8.6",
         "imdbVotes": "1,557,240",
@@ -654,20 +430,6 @@
         "Country": "USA, UK, Malta, Morocco",
         "Awards": "Won 5 Oscars. Another 54 wins & 106 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.5/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "77%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "67/100"
-            }
-        ],
         "Metascore": "67",
         "imdbRating": "8.5",
         "imdbVotes": "1,365,267",
@@ -694,20 +456,6 @@
         "Country": "France",
         "Awards": "Nominated for 1 Golden Globe. Another 38 wins & 39 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.5/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "75%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "57/100"
-            }
-        ],
         "Metascore": "57",
         "imdbRating": "8.5",
         "imdbVotes": "773,755",
@@ -734,12 +482,6 @@
         "Country": "Turkey",
         "Awards": "N/A",
         "Poster": "https://m.media-amazon.com/images/M/MV5BNDMyMTI4MDMwN15BMl5BanBnXkFtZTgwNzAxMTkxMzE@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "7.7/10"
-            }
-        ],
         "Metascore": "N/A",
         "imdbRating": "7.7",
         "imdbVotes": "4,009",
@@ -766,16 +508,6 @@
         "Country": "Turkey",
         "Awards": "14 wins & 7 nominations.",
         "Poster": "https://m.media-amazon.com/images/M/MV5BNjAzMzEwYzctNjc1MC00Nzg5LWFmMGItMTgzYmMyNTY2OTQ4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.3/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "97%"
-            }
-        ],
         "Metascore": "N/A",
         "imdbRating": "8.3",
         "imdbVotes": "80,572",
