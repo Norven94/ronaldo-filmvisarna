@@ -1,6 +1,8 @@
 import { useContext, useEffect } from 'react';
 import { MovieContext } from "../context/MovieContext";
 
+import styles from "../scss/MoviesPage.scss";
+
 const MoviesPage = () => {
     const { movies, getAllMovies } = useContext(MovieContext);
 
@@ -17,7 +19,7 @@ const MoviesPage = () => {
             <div>
             <h1>All movies</h1>
             {movies.map((movie) => [
-                <div>
+                <div className="moviesPage">
                     <h3>
                         {movie.title}   
                     </h3>
@@ -30,7 +32,7 @@ const MoviesPage = () => {
         content = "no movies available"
     );
 
-    return <div>
+    return <div >
         {content}
     </div>
 }
