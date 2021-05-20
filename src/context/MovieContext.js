@@ -5,13 +5,16 @@ export const MovieContext = createContext();
 const MovieProvider = (props) => {
     const [movies, setMovies] = useState(null);
 
+    useEffect(() => {
+        fetchAllMovies();
+    })
+
     const fetchAllMovies = async () => {
         let movies = await fetch("/api/v1/movies");
         movies = await movies.json();
         setMovies(movies);
     };
 
-    
 
     const values = {
         movies,

@@ -1,18 +1,21 @@
 import { useContext, useEffect } from 'react';
-import { MovieContext } from "../context/MovieContext";
+import MovieProvider, { MovieContext } from "../context/MovieContext";
 
 const MoviesPage = () => {
-    const { movies, fetchAllMovies } = useContext(MovieContext);
+    // const { movies, fetchAllMovies } = useContext(MovieContext);
 
-    useEffect(() => {
-        fetchAllMovies();
-    }, []);
- 
+    // useEffect(() => {
+    //     fetchAllMovies();
+    //     // eslint-disable-next-line
+    // }, []);
+
+    let movies = true;
+
 
     let content = "";
     if (movies) {
         content = (
-            <h1>All movies</h1>
+            <h1>List of all movies coming soon...</h1>
         ); 
     } else (
         content = "no movies available"
