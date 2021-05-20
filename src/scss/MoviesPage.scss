@@ -1,5 +1,13 @@
 @import "./variables.scss";
 
 .moviesPage {
-    background-color: $background-gradient;
+    background-color: $black;
+}
+
+.movieTitle {
+    color: $white;
+}
+
+.movieInfo {
+    color: $white;
 }
