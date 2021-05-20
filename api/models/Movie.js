@@ -13,8 +13,9 @@ const movieSchema = new Schema({
     price: { type: Number },
     trailerUrl: { type: String },
     coverImage: { type: String },
-    timeLength: { type: String },
+    timeLength: { type: Number },
     age: { type: String },
+    imdbRating : {type : String}
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
