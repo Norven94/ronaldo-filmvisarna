@@ -13,6 +13,7 @@ function App() {
           <Route exact path="/register" component={RegisterPage}/>
         </UserProvider>
       </BrowserRouter>
+      <main className="main"></main>
     </div>
   );
 }
