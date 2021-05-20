@@ -25,12 +25,21 @@ const UserProvider = (props) => {
             })
     }
 
+    const logoutUser = () => {
+        fetch("/api/v1/users/logout")
+            .then(response => response.json())
+            .then(result => { console.log(result) });
+
+        setCurrentUser(null);
+    }
+
     const values = {
         currentUser,
         setCurrentUser,
         showLogin,
         setShowLogin,
         loginUser,
+        logoutUser,
         loginError,
         setLoginError
     }

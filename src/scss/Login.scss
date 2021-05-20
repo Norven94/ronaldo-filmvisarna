@@ -62,6 +62,19 @@
         padding: 0.5rem;
     }
 
+    .register{
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        width: 60%;
+        margin: 1rem auto;
+    }
+
+    span{
+        color: $yellow;
+        font-weight: bold;
+    }
+
     input, label, .register{
         min-width: 250px;
     }
