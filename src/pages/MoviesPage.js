@@ -2,13 +2,12 @@ import { useContext, useEffect } from 'react';
 import { MovieContext } from "../context/MovieContext";
 
 const MoviesPage = () => {
-    // const { movies, fetchAllMovies } = useContext(MovieContext);
+    const { movies, fetchAllMovies } = useContext(MovieContext);
 
-    // useEffect(() => {
-    //     fetchAllMovies();
-    // }, []);
-
-    let movies = "dummy-movies"
+    useEffect(() => {
+        fetchAllMovies();
+    }, []);
+ 
 
     let content = "";
     if (movies) {

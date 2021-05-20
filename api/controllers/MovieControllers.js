@@ -1,13 +1,8 @@
-// This module allows me to make frontend fetches from my backend.
-const fetch = require("node-fetch");
-const json = "format=json";
+const Movie = require("../models/Movie");
 
 // get all movies
 const getAllMovies = async (req, res) => {
-    let movies = await fetch(
-        // api link comes here
-    );
-    movies = await movies.json();
+    let movies = await Movie.find().exec();
     res.json(movies);
 }
 
