@@ -19,11 +19,9 @@ const logout = (req, res) => {
 }
 
 const registerUser = async (req, res) => {
-    console.log("Log check")
     //Checking if user exists
     let userExists = await User.exists({ email: req.body.email });
     if (userExists) return res.status(400).json({ error: "User with that email already exists." });
-    console.log("Log check 2")
 
     //Encryption line
     req.body.password = encrypt(req.body.password);
@@ -31,7 +29,7 @@ const registerUser = async (req, res) => {
     //Creating user
     let newUser = await User.create(req.body);
     newUser.password = undefined;
-    return res.json("New user created: ", newUser);
+    return res.status(200).json("New user created: ", newUser);
 }
 
 module.exports = {

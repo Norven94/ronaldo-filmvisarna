@@ -9,7 +9,7 @@ const userRoutes = require("./routes/UserRoutes");
 
 //Variables
 const port = 3001;
-const uri = ""
+const uri = "mongodb+srv://Norven94:ronaldoFilmvisarna@cluster0.56eqp.mongodb.net/Filmvisarna?retryWrites=true&w=majority";
 
 // Mongo DB Atlas Setup
 mongoose
