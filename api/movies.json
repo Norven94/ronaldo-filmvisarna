@@ -1,0 +1,790 @@
+[
+    {
+        "Title": "The Shawshank Redemption",
+        "Year": "1994",
+        "Rated": "R",
+        "Released": "14 Oct 1994",
+        "Runtime": "142 min",
+        "Genre": "Drama",
+        "Director": "Frank Darabont",
+        "Writer": "Stephen King (short story \"Rita Hayworth and Shawshank Redemption\"), Frank Darabont (screenplay)",
+        "Actors": "Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler",
+        "Plot": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "Language": "English",
+        "Country": "USA",
+        "Awards": "Nominated for 7 Oscars. Another 21 wins & 36 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "91%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "80/100"
+            }
+        ],
+        "Metascore": "80",
+        "imdbRating": "9.3",
+        "imdbVotes": "2,381,013",
+        "imdbID": "tt0111161",
+        "Type": "movie",
+        "DVD": "15 Aug 2008",
+        "BoxOffice": "$28,699,976",
+        "Production": "Columbia Pictures, Castle Rock Entertainment",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Matrix",
+        "Year": "1999",
+        "Rated": "R",
+        "Released": "31 Mar 1999",
+        "Runtime": "136 min",
+        "Genre": "Action, Sci-Fi",
+        "Director": "Lana Wachowski, Lilly Wachowski",
+        "Writer": "Lilly Wachowski, Lana Wachowski",
+        "Actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving",
+        "Plot": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+        "Language": "English",
+        "Country": "USA",
+        "Awards": "Won 4 Oscars. Another 38 wins & 51 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "88%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "73/100"
+            }
+        ],
+        "Metascore": "73",
+        "imdbRating": "8.7",
+        "imdbVotes": "1,702,966",
+        "imdbID": "tt0133093",
+        "Type": "movie",
+        "DVD": "01 Jan 2009",
+        "BoxOffice": "$171,479,930",
+        "Production": "Village Roadshow Prod., Silver Pictures",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Batman",
+        "Year": "1989",
+        "Rated": "PG-13",
+        "Released": "23 Jun 1989",
+        "Runtime": "126 min",
+        "Genre": "Action, Adventure",
+        "Director": "Tim Burton",
+        "Writer": "Bob Kane (Batman characters), Sam Hamm (story), Sam Hamm (screenplay), Warren Skaaren (screenplay)",
+        "Actors": "Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl",
+        "Plot": "The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker.",
+        "Language": "English, French, Spanish",
+        "Country": "USA, UK",
+        "Awards": "Won 1 Oscar. Another 8 wins & 26 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "71%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "69/100"
+            }
+        ],
+        "Metascore": "69",
+        "imdbRating": "7.5",
+        "imdbVotes": "343,300",
+        "imdbID": "tt0096895",
+        "Type": "movie",
+        "DVD": "24 Jul 2014",
+        "BoxOffice": "$251,348,343",
+        "Production": "Warner Brothers, Guber-Peters Company, PolyGram Filmed Entertainment",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Troy",
+        "Year": "2004",
+        "Rated": "R",
+        "Released": "14 May 2004",
+        "Runtime": "163 min",
+        "Genre": "Drama, History",
+        "Director": "Wolfgang Petersen",
+        "Writer": "Homer (poem), David Benioff (screenplay)",
+        "Actors": "Julian Glover, Brian Cox, Nathan Jones, Adoni Maropis",
+        "Plot": "An adaptation of Homer's great epic, the film follows the assault on Troy by the united Greek forces and chronicles the fates of the men involved.",
+        "Language": "English",
+        "Country": "USA, Malta, UK",
+        "Awards": "Nominated for 1 Oscar. Another 5 wins & 22 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTk5MzU1MDMwMF5BMl5BanBnXkFtZTcwNjczODMzMw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "54%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "56/100"
+            }
+        ],
+        "Metascore": "56",
+        "imdbRating": "7.3",
+        "imdbVotes": "493,593",
+        "imdbID": "tt0332452",
+        "Type": "movie",
+        "DVD": "01 Mar 2013",
+        "BoxOffice": "$133,378,256",
+        "Production": "Plan B Films, Radiant Pictures, Village Roadshow Prod., Warner Brothers",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Men of Honor",
+        "Year": "2000",
+        "Rated": "R",
+        "Released": "10 Nov 2000",
+        "Runtime": "129 min",
+        "Genre": "Biography, Drama",
+        "Director": "George Tillman Jr.",
+        "Writer": "Scott Marshall Smith",
+        "Actors": "Robert De Niro, Cuba Gooding Jr., Charlize Theron, Aunjanue Ellis",
+        "Plot": "The story of Carl Brashear, the first African-American U.S. Navy Diver, and the man who trained him.",
+        "Language": "English",
+        "Country": "USA",
+        "Awards": "11 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTc1Njk1NTE3NF5BMl5BanBnXkFtZTgwNjAyMzcxMTE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.2/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "42%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "56/100"
+            }
+        ],
+        "Metascore": "56",
+        "imdbRating": "7.2",
+        "imdbVotes": "108,232",
+        "imdbID": "tt0203019",
+        "Type": "movie",
+        "DVD": "25 Nov 2015",
+        "BoxOffice": "$48,818,921",
+        "Production": "Fox 2000 Pictures, State Street Pictures",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Good Will Hunting",
+        "Year": "1997",
+        "Rated": "R",
+        "Released": "09 Jan 1998",
+        "Runtime": "126 min",
+        "Genre": "Drama, Romance",
+        "Director": "Gus Van Sant",
+        "Writer": "Matt Damon, Ben Affleck",
+        "Actors": "Matt Damon, Ben Affleck, Stellan Skarsgård, John Mighton",
+        "Plot": "Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.",
+        "Language": "English",
+        "Country": "USA",
+        "Awards": "Won 2 Oscars. Another 22 wins & 61 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "98%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "70/100"
+            }
+        ],
+        "Metascore": "70",
+        "imdbRating": "8.3",
+        "imdbVotes": "878,800",
+        "imdbID": "tt0119217",
+        "Type": "movie",
+        "DVD": "14 Apr 2016",
+        "BoxOffice": "$138,433,435",
+        "Production": "Miramax Films, Be Gentlemen Limited Partnership, Lawrence Bender Productions",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Departed",
+        "Year": "2006",
+        "Rated": "R",
+        "Released": "06 Oct 2006",
+        "Runtime": "151 min",
+        "Genre": "Crime, Drama, Thriller",
+        "Director": "Martin Scorsese",
+        "Writer": "William Monahan (screenplay), Alan Mak, Felix Chong",
+        "Actors": "Leonardo DiCaprio, Matt Damon, Jack Nicholson, Mark Wahlberg",
+        "Plot": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.",
+        "Language": "English, Cantonese",
+        "Country": "USA, Hong Kong",
+        "Awards": "Won 4 Oscars. Another 93 wins & 141 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "90%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "85/100"
+            }
+        ],
+        "Metascore": "85",
+        "imdbRating": "8.5",
+        "imdbVotes": "1,207,564",
+        "imdbID": "tt0407887",
+        "Type": "movie",
+        "DVD": "24 Oct 2008",
+        "BoxOffice": "$132,384,315",
+        "Production": "Plan B Entertainment, Warner Bros., Initial Entertainment Group, Vertigo",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Million Dollar Baby",
+        "Year": "2004",
+        "Rated": "PG-13",
+        "Released": "28 Jan 2005",
+        "Runtime": "132 min",
+        "Genre": "Drama, Sport",
+        "Director": "Clint Eastwood",
+        "Writer": "Paul Haggis (screenplay), F.X. Toole (stories)",
+        "Actors": "Clint Eastwood, Hilary Swank, Morgan Freeman, Jay Baruchel",
+        "Plot": "A determined woman works with a hardened boxing trainer to become a professional.",
+        "Language": "English, Irish",
+        "Country": "USA",
+        "Awards": "Won 4 Oscars. Another 63 wins & 86 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTkxNzA1NDQxOV5BMl5BanBnXkFtZTcwNTkyMTIzMw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.1/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "90%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "86/100"
+            }
+        ],
+        "Metascore": "86",
+        "imdbRating": "8.1",
+        "imdbVotes": "643,504",
+        "imdbID": "tt0405159",
+        "Type": "movie",
+        "DVD": "14 Jan 2016",
+        "BoxOffice": "$100,492,203",
+        "Production": "Malpaso Company",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "12 Angry Men",
+        "Year": "1957",
+        "Rated": "Approved",
+        "Released": "10 Apr 1957",
+        "Runtime": "96 min",
+        "Genre": "Crime, Drama",
+        "Director": "Sidney Lumet",
+        "Writer": "Reginald Rose (story), Reginald Rose (screenplay)",
+        "Actors": "Martin Balsam, John Fiedler, Lee J. Cobb, E.G. Marshall",
+        "Plot": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
+        "Language": "English",
+        "Country": "USA",
+        "Awards": "Nominated for 3 Oscars. Another 17 wins & 10 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.0/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "100%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "96/100"
+            }
+        ],
+        "Metascore": "96",
+        "imdbRating": "9.0",
+        "imdbVotes": "702,744",
+        "imdbID": "tt0050083",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "N/A",
+        "Production": "Orion-Nova Pictures",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Schindler's List",
+        "Year": "1993",
+        "Rated": "R",
+        "Released": "04 Feb 1994",
+        "Runtime": "195 min",
+        "Genre": "Biography, Drama, History",
+        "Director": "Steven Spielberg",
+        "Writer": "Thomas Keneally (book), Steven Zaillian (screenplay)",
+        "Actors": "Liam Neeson, Ben Kingsley, Ralph Fiennes, Caroline Goodall",
+        "Plot": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "Language": "English, Hebrew, German, Polish, Latin",
+        "Country": "USA",
+        "Awards": "Won 7 Oscars. Another 85 wins & 49 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.9/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "98%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "94/100"
+            }
+        ],
+        "Metascore": "94",
+        "imdbRating": "8.9",
+        "imdbVotes": "1,235,435",
+        "imdbID": "tt0108052",
+        "Type": "movie",
+        "DVD": "05 Mar 2013",
+        "BoxOffice": "$96,898,818",
+        "Production": "Universal Pictures, Amblin Entertainment",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Goodfellas",
+        "Year": "1990",
+        "Rated": "R",
+        "Released": "21 Sep 1990",
+        "Runtime": "146 min",
+        "Genre": "Biography, Crime, Drama",
+        "Director": "Martin Scorsese",
+        "Writer": "Nicholas Pileggi (book), Nicholas Pileggi (screenplay), Martin Scorsese (screenplay)",
+        "Actors": "Robert De Niro, Ray Liotta, Joe Pesci, Lorraine Bracco",
+        "Plot": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
+        "Language": "English, Italian",
+        "Country": "USA",
+        "Awards": "Won 1 Oscar. Another 43 wins & 38 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.7/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "96%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "90/100"
+            }
+        ],
+        "Metascore": "90",
+        "imdbRating": "8.7",
+        "imdbVotes": "1,036,661",
+        "imdbID": "tt0099685",
+        "Type": "movie",
+        "DVD": "15 Aug 2008",
+        "BoxOffice": "$46,836,214",
+        "Production": "Warner Brothers",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Inception",
+        "Year": "2010",
+        "Rated": "PG-13",
+        "Released": "16 Jul 2010",
+        "Runtime": "148 min",
+        "Genre": "Action, Adventure, Sci-Fi, Thriller",
+        "Director": "Christopher Nolan",
+        "Writer": "Christopher Nolan",
+        "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy",
+        "Plot": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+        "Language": "English, Japanese, French",
+        "Country": "USA, UK",
+        "Awards": "Won 4 Oscars. Another 153 wins & 220 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.8/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "87%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
+        ],
+        "Metascore": "74",
+        "imdbRating": "8.8",
+        "imdbVotes": "2,112,329",
+        "imdbID": "tt1375666",
+        "Type": "movie",
+        "DVD": "20 Jun 2013",
+        "BoxOffice": "$292,576,195",
+        "Production": "Syncopy, Warner Bros.",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Silence of the Lambs",
+        "Year": "1991",
+        "Rated": "R",
+        "Released": "14 Feb 1991",
+        "Runtime": "118 min",
+        "Genre": "Crime, Drama, Thriller",
+        "Director": "Jonathan Demme",
+        "Writer": "Thomas Harris (based on the novel by), Ted Tally (screenplay by)",
+        "Actors": "Jodie Foster, Lawrence A. Bonney, Kasi Lemmons, Lawrence T. Wrentz",
+        "Plot": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
+        "Language": "English, Latin",
+        "Country": "USA",
+        "Awards": "Won 5 Oscars. Another 64 wins & 51 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "96%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "85/100"
+            }
+        ],
+        "Metascore": "85",
+        "imdbRating": "8.6",
+        "imdbVotes": "1,290,523",
+        "imdbID": "tt0102926",
+        "Type": "movie",
+        "DVD": "27 Aug 2015",
+        "BoxOffice": "$130,742,922",
+        "Production": "Orion Pictures",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Life Is Beautiful",
+        "Year": "1997",
+        "Rated": "PG-13",
+        "Released": "20 Dec 1997",
+        "Runtime": "116 min",
+        "Genre": "Comedy, Drama, Romance, War",
+        "Director": "Roberto Benigni",
+        "Writer": "Vincenzo Cerami (story by), Roberto Benigni (story by), Vincenzo Cerami (screenplay by), Roberto Benigni (screenplay by)",
+        "Actors": "Roberto Benigni, Nicoletta Braschi, Giorgio Cantarini, Giustino Durano",
+        "Plot": "When an open-minded Jewish librarian and his son become victims of the Holocaust, he uses a perfect mixture of will, humor, and imagination to protect his son from the dangers around their camp.",
+        "Language": "Italian, German, English",
+        "Country": "Italy",
+        "Awards": "Won 3 Oscars. Another 69 wins & 52 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "80%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "59/100"
+            }
+        ],
+        "Metascore": "59",
+        "imdbRating": "8.6",
+        "imdbVotes": "634,121",
+        "imdbID": "tt0118799",
+        "Type": "movie",
+        "DVD": "25 Oct 2016",
+        "BoxOffice": "$57,563,264",
+        "Production": "Miramax, Cecchi Gori Group Tiger Cinema",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Green Mile",
+        "Year": "1999",
+        "Rated": "R",
+        "Released": "10 Dec 1999",
+        "Runtime": "189 min",
+        "Genre": "Crime, Drama, Fantasy, Mystery",
+        "Director": "Frank Darabont",
+        "Writer": "Stephen King (novel), Frank Darabont (screenplay)",
+        "Actors": "Tom Hanks, David Morse, Bonnie Hunt, Michael Clarke Duncan",
+        "Plot": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
+        "Language": "English, French",
+        "Country": "USA",
+        "Awards": "Nominated for 4 Oscars. Another 15 wins & 33 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "78%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "61/100"
+            }
+        ],
+        "Metascore": "61",
+        "imdbRating": "8.6",
+        "imdbVotes": "1,166,243",
+        "imdbID": "tt0120689",
+        "Type": "movie",
+        "DVD": "15 Aug 2008",
+        "BoxOffice": "$136,801,374",
+        "Production": "Castle Rock Entertainment, Darkwoods Productions, Warner Brothers",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Interstellar",
+        "Year": "2014",
+        "Rated": "PG-13",
+        "Released": "07 Nov 2014",
+        "Runtime": "169 min",
+        "Genre": "Adventure, Drama, Sci-Fi",
+        "Director": "Christopher Nolan",
+        "Writer": "Jonathan Nolan, Christopher Nolan",
+        "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+        "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        "Language": "English",
+        "Country": "USA, UK, Canada",
+        "Awards": "Won 1 Oscar. Another 43 wins & 148 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.6/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "72%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "74/100"
+            }
+        ],
+        "Metascore": "74",
+        "imdbRating": "8.6",
+        "imdbVotes": "1,557,240",
+        "imdbID": "tt0816692",
+        "Type": "movie",
+        "DVD": "24 May 2016",
+        "BoxOffice": "$188,020,017",
+        "Production": "Syncopy, Lynda Obst Productions",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Gladiator",
+        "Year": "2000",
+        "Rated": "R",
+        "Released": "05 May 2000",
+        "Runtime": "155 min",
+        "Genre": "Action, Adventure, Drama",
+        "Director": "Ridley Scott",
+        "Writer": "David Franzoni (story), David Franzoni (screenplay), John Logan (screenplay), William Nicholson (screenplay)",
+        "Actors": "Russell Crowe, Joaquin Phoenix, Connie Nielsen, Oliver Reed",
+        "Plot": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+        "Language": "English",
+        "Country": "USA, UK, Malta, Morocco",
+        "Awards": "Won 5 Oscars. Another 54 wins & 106 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "77%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "67/100"
+            }
+        ],
+        "Metascore": "67",
+        "imdbRating": "8.5",
+        "imdbVotes": "1,365,267",
+        "imdbID": "tt0172495",
+        "Type": "movie",
+        "DVD": "01 Aug 2013",
+        "BoxOffice": "$187,705,427",
+        "Production": "Universal Pictures, Scott Free Productions, DreamWorks Pictures",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "The Intouchables",
+        "Year": "2011",
+        "Rated": "R",
+        "Released": "02 Nov 2011",
+        "Runtime": "112 min",
+        "Genre": "Biography, Comedy, Drama",
+        "Director": "Olivier Nakache, Éric Toledano",
+        "Writer": "Olivier Nakache, Philippe Pozzo di Borgo (adapted from his autobiographical tale Le Second Souffle), Éric Toledano",
+        "Actors": "François Cluzet, Omar Sy, Anne Le Ny, Audrey Fleurot",
+        "Plot": "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
+        "Language": "French, English",
+        "Country": "France",
+        "Awards": "Nominated for 1 Golden Globe. Another 38 wins & 39 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "75%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "57/100"
+            }
+        ],
+        "Metascore": "57",
+        "imdbRating": "8.5",
+        "imdbVotes": "773,755",
+        "imdbID": "tt1675434",
+        "Type": "movie",
+        "DVD": "21 Oct 2015",
+        "BoxOffice": "$10,198,820",
+        "Production": "Chaocorp, Canal+, Gaumont, Ten Films, TF1 Films Production, Quad Productions, CinéCinéma, TF1",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "Two Hearts as One",
+        "Year": "2014",
+        "Rated": "N/A",
+        "Released": "24 Oct 2014",
+        "Runtime": "126 min",
+        "Genre": "Drama, History",
+        "Director": "Hasan Kiraç",
+        "Writer": "Özge Aras, Serkan Birlik",
+        "Actors": "Serkan Senalp, Hande Soral, Fikret Hakan, Yagmur Kasifoglu",
+        "Plot": "A look inside the story of two newlyweds who are parted from each other and spend the next half-century of their lives trying to reunite.",
+        "Language": "Turkish, German, Russian",
+        "Country": "Turkey",
+        "Awards": "N/A",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNDMyMTI4MDMwN15BMl5BanBnXkFtZTgwNzAxMTkxMzE@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.7/10"
+            }
+        ],
+        "Metascore": "N/A",
+        "imdbRating": "7.7",
+        "imdbVotes": "4,009",
+        "imdbID": "tt4148400",
+        "Type": "movie",
+        "DVD": "N/A",
+        "BoxOffice": "N/A",
+        "Production": "Ser Film",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    {
+        "Title": "My Father and My Son",
+        "Year": "2005",
+        "Rated": "N/A",
+        "Released": "18 Nov 2005",
+        "Runtime": "112 min",
+        "Genre": "Drama, Family",
+        "Director": "Çagan Irmak",
+        "Writer": "Çagan Irmak",
+        "Actors": "Eser Sariyar, Çetin Tekindor, Fikret Kuskan, Hümeyra",
+        "Plot": "The family of a left-wing journalist is torn apart after the military coup of Turkey in 1980.",
+        "Language": "Turkish",
+        "Country": "Turkey",
+        "Awards": "14 wins & 7 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNjAzMzEwYzctNjc1MC00Nzg5LWFmMGItMTgzYmMyNTY2OTQ4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "8.3/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "97%"
+            }
+        ],
+        "Metascore": "N/A",
+        "imdbRating": "8.3",
+        "imdbVotes": "80,572",
+        "imdbID": "tt0476735",
+        "Type": "movie",
+        "DVD": "01 May 2018",
+        "BoxOffice": "N/A",
+        "Production": "N/A",
+        "Website": "N/A",
+        "Response": "True"
+    }
+]
