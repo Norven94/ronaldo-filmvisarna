@@ -8,7 +8,7 @@ const MovieCard = (props) => {
         <div className="movieCard" >
 
             <div className="imageContainer">
-                <img src={props.movie.coverImage} />
+                <img src={props.movie.coverImage} alt="movie poster" />
             </div>
 
             <div className="movieTitle">

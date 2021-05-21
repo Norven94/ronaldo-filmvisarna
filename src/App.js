@@ -1,12 +1,12 @@
 import {BrowserRouter, Route} from "react-router-dom";
 
 import MovieProvider from "./context/MovieContext";
-import MoviesPage from "./pages/MoviesPage";
 
 import './App.scss';
 import UserProvider from "./context/UserContext";
 import Navbar from "./components/Navbar";
 import RegisterPage from './pages/RegisterPage';
+import MoviesPage from "./pages/MoviesPage";
 import AboutPage from './pages/AboutPage';
 
 function App() {

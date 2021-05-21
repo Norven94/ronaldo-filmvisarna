@@ -7,10 +7,9 @@ import "../scss/MoviesPage.scss";
 const MoviesPage = () => {
   const { movies } = useContext(MovieContext);
 
-  console.log(movies);
-
   return (
     <div className="moviesPage">
+      
       {movies && (
         <div className="movieCards" >
           {movies.map((movie) => (
