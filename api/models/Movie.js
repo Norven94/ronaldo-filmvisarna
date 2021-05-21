@@ -7,14 +7,15 @@ const movieSchema = new Schema({
     description: { type: String },
     genre: [{ type: String }],
     year: { type: String },
-    language: { type: String },
-    director: { type: String },
+    language: [{ type: String }],
+    director: [{ type: String }],
     artists: [{ type: String }],
     price: { type: Number },
     trailerUrl: { type: String },
     coverImage: { type: String },
     timeLength: { type: Number },
     age: { type: String },
+    date : [{ type: String}],
     imdbRating : {type : String}
 });
 
