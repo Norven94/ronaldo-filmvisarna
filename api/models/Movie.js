@@ -15,7 +15,7 @@ const movieSchema = new Schema({
     coverImage: { type: String },
     timeLength: { type: Number },
     age: { type: String },
-    date : { type: String},
+    date : [{ type: String}],
     imdbRating : {type : String}
 });
 

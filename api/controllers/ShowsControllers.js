@@ -45,6 +45,7 @@ const createShows = async (req, res) => {
               date: utils.formatDate(date)
             });
 
+            //Add the show dates to the movies in the movie collection 
             Movie.findById(movies[k % movies.length]._id).exec(async (err, result) => {
               if (err) {
                 res.status(400).json({ error: "Something went wrong" });
@@ -56,22 +57,18 @@ const createShows = async (req, res) => {
                   .json({ error: `Movie with id ${movies[k % movies.length]._id} does not exist` });
                 return;
               }
-              
+                            
               let newdate = utils.formatDate(date)
               let movie = result;
-              Object.assign(movie, {
-                date: newdate
-              });
-              console.log("Updated movie: ", movie);
-              return;
-              //await movie.save();
+              movie.date.push(newdate)
+              await movie.save();
             });
           }
         })
       })
     }
     console.log(allShows)
-    //await Show.create(allShows)
+    await Show.create(allShows)
     res.send("Ok");
   }
 }
