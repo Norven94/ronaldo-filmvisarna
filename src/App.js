@@ -11,11 +11,12 @@ function App() {
       <BrowserRouter>
         <UserProvider>
           <Navbar />
-          <Route exact path="/register" component={RegisterPage}/>
-          <Route exact path="/about" component={AboutPage}/>
+          <main className="main">
+            <Route exact path="/register" component={RegisterPage} />
+            <Route exact path="/about" component={AboutPage} />
+          </main>
         </UserProvider>
       </BrowserRouter>
-      <main className="main"></main>
     </div>
   );
 }

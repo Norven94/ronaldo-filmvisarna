@@ -1,11 +1,35 @@
 @import "./variables.scss";
 
 .registerPage{
-    // background-color: black;
-    height: 100vh; //Edit this when navbar has set height.
-    
-    .gradient{
-        background: $background-gradient;
+    height: 100%;
+    background: $background-gradient;
+
+    h1{
+        text-align: center;
+    }
+
+    input, label, p {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    input{
+        height: 26px;
+        margin-bottom: 1rem;
+    }
+
+    button{
+        display: block;
+        margin: 0 auto;
+        background-color: $yellow;
+        cursor: pointer;
+        height: 2rem;
+        width: 8rem;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none
     }
 }
 
