@@ -4,8 +4,10 @@ import MovieProvider from "./context/MovieContext";
 import MoviesPage from "./pages/MoviesPage";
 
 import './App.scss';
-import Navbar from "./components/Navbar";
 import UserProvider from "./context/UserContext";
+import Navbar from "./components/Navbar";
+import RegisterPage from './pages/RegisterPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -16,9 +18,12 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Route exact path = "/movies" component={MoviesPage} />
-        </BrowserRouter>    
-          
-      </UserProvider>
+          <main className="main">
+            <Route exact path="/register" component={RegisterPage} />
+            <Route exact path="/about" component={AboutPage} />
+          </main>
+        </UserProvider>
+      </BrowserRouter>
       </MovieProvider>
     </div>
   );

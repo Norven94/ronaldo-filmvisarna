@@ -1,9 +1,11 @@
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import "../scss/Login.scss";
 
 const Login = () => {
     const { setShowLogin, loginUser, loginError, setLoginError } = useContext(UserContext);
+    const history = useHistory();
 
     const submitLoginHandler = (e) => {
         e.preventDefault();
@@ -21,6 +23,11 @@ const Login = () => {
         }
     }
 
+    const registerRouter = () => {
+        setShowLogin(false)
+        history.push("/register")
+    }
+
     return (
         <div className="login" onClick={closeLogin}>
             <div className="overlay">
@@ -33,6 +40,7 @@ const Login = () => {
                         <input type="text" id="loginPassword" required />
                         {loginError && <p className="error">Bad credentials</p>}
                         <button>Login</button>
+                        <p className="register" onClick={registerRouter}>Click <span>HERE</span> to register an account.</p>
                     </form>
                 </div>
             </div>
