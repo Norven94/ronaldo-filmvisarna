@@ -20,13 +20,14 @@
         border-radius: 5px;
         width: 100%;
         max-width: 600px;
-        min-height: 350px;
+        min-height: 380px;
         color: white;
         cursor: initial;
         box-shadow: 2px 2px 5px black;
     }
 
     h2{
+        margin-top: 1rem;
         text-align: center;
     }
 
@@ -45,6 +46,7 @@
     }
 
     button{
+        font-family: "poppins", sans-serif;
         background-color: $yellow;
         cursor: pointer;
         display: block;
@@ -54,6 +56,10 @@
         font-weight: bold;
         border-radius: 5px;
         border: none;
+    }
+
+    button:active{
+        background-color: $yellow-dark;
     }
 
     .error{
