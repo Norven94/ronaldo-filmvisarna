@@ -12,7 +12,7 @@ const MoviesPage = () => {
   return (
     <div className="moviesPage">
       {movies && (
-        <div className="movieCard" >
+        <div className="movieCards" >
           {movies.map((movie) => (
             <MovieCard movie={movie} key={movie._id} />
           ))}

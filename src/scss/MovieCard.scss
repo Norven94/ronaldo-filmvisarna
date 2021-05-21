@@ -1,13 +1,26 @@
 @import "./variables.scss";
 
+.movieCard {
+    // border: 1px green solid;
+    margin-bottom: 4rem;
+}
+
 .movieTitle {
     color: $white;
+    font-size: $mobile-tablet-h2;
+    // font-weight: semibold;
+    
 }
 
 .movieInfo {
     color: $white;
+    font-size: $mobile-tablet-big;
 }
 
 .imageContainer {
-    width: 250px;
+    max-width: 90%;
+}
+
+img {
+    max-width: 100%;
 }
