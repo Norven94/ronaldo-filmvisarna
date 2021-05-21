@@ -35,9 +35,9 @@ const Login = () => {
                     <h2>Login</h2>
                     <form action="submit" onSubmit={submitLoginHandler}>
                         <label htmlFor="loginEmail">E-mail:</label>
-                        <input type="email" id="loginEmail" required />
+                        <input type="email" id="loginEmail" required onChange={()=>setLoginError(false)}/>
                         <label htmlFor="loginPassword">Password:</label>
-                        <input type="text" id="loginPassword" required />
+                        <input type="text" id="loginPassword" required onChange={()=>setLoginError(false)}/>
                         {loginError && <p className="error">Bad credentials</p>}
                         <button>Login</button>
                         <p className="register" onClick={registerRouter}>Click <span>HERE</span> to register an account.</p>
