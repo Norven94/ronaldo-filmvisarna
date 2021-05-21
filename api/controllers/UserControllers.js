@@ -41,7 +41,7 @@ const registerUser = async (req, res) => {
     //Creating user
     let newUser = await User.create(req.body);
     newUser.password = undefined;
-    return res.status(200).json("New user created: ", newUser);
+    return res.status(200).json({message: "New user created!", user: newUser});
 }
 
 //TEST METHOD - REMOVE FOR PRODUCTION
