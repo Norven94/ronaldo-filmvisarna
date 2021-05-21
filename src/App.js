@@ -17,13 +17,14 @@ function App() {
 
         <BrowserRouter>
           <Navbar />
-          <Route exact path = "/movies" component={MoviesPage} />
           <main className="main">
+            <Route exact path = "/movies" component={MoviesPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/about" component={AboutPage} />
           </main>
-        </UserProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+
+      </UserProvider>
       </MovieProvider>
     </div>
   );
