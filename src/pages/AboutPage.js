@@ -1,4 +1,6 @@
 import '../scss/AboutPage.scss' ;
+// import { ReactComponent as Map } from '../assets/filmvisarna-adress.png';
+import map from '../assets/filmvisarna-adress.png';
 
 
 
@@ -38,7 +40,7 @@ const AboutPage = () => {
             </div>
 
             <div className="aboutInfo-3">
-                Google Map
+                <img  className="map" src={map} alt="map" />
             </div>
             
         </div>
