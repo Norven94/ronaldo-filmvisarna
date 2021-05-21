@@ -1,5 +1,6 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
+const Show = require("../models/Show");
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
@@ -49,10 +50,32 @@ const getAllUsers = (req, res) => {
     User.find().exec().then(response => res.status(200).json(response))
 }
 
+const addBooking = async (req, res) => {
+
+}
+
+const addBookingToUser = async (req, res) => {
+    let user;
+    let booking;
+
+    try {
+        user = await User.findById(req);
+        booking = await Show.findById(req);
+    }
+    catch (err) {
+        res.send("Something went wrong!")
+    }
+    user.bookings.push(booking._id);
+
+
+}
+
 module.exports = {
     whoami,
     login,
     logout,
     registerUser,
     getAllUsers,
+    addBooking,
+    addBookingToUser
 }
