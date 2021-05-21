@@ -1,16 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const MovieContext = createContext();
 
 const MovieProvider = (props) => {
     const [movies, setMovies] = useState(null);
 
+    useEffect(() => {
+        getAllMovies();
+        // eslint-disable-next-line
+    }, []);
+
     const getAllMovies = async () => {
         let movies = await fetch("/api/v1/movies");
         movies = await movies.json();
         setMovies(movies);
     };
-
 
     const values = {
         movies,

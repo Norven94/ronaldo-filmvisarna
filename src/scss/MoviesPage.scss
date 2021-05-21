@@ -2,12 +2,13 @@
 
 .moviesPage {
     background-color: $black;
+    max-width: 100%;
 }
 
-.movieTitle {
-    color: $white;
+.movieCard {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.movieInfo {
-    color: $white;
-}
+
+
