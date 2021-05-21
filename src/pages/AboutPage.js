@@ -1,10 +1,10 @@
-
+import '../scss/AboutPage.scss' ;
 
 
 
 const AboutPage = () => {
     return ( 
-        <div>
+        <div className="aboutContainer">
             <div>
                 <h1>Filmvisarna AB</h1>
                 <h3>About Us</h3>
@@ -18,7 +18,7 @@ const AboutPage = () => {
                 </p>
             </div>
 
-            <div>
+            <div className="aboutInfo-2">
                 <div>
                     <h3>Contact</h3>
                     <p>info@filmvisarnaab.com</p>
