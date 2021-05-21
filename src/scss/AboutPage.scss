@@ -1,3 +1,6 @@
+@import "./variables.scss";
+
+
 .aboutContainer {
     display: flex;
     flex-direction: column;
@@ -6,29 +9,33 @@
     width: 300px;
     margin: 0 auto;
 
+    h1{
+        text-align:center;
+    }
+    @media (min-width: 576px) {
+        width: 500px;
+    }
     @media (min-width: 768px) {
         width: 700px;
-      }
-      @media (min-width: 992px) {
-        width: 1280px;
-      }
+    }
+    @media (min-width: 992px) {
+        width: 900px;
+    }
+    @media (min-width: 1200px) {
+        width: 1000px;
+    }
+     
+}
+
+.aboutInfo-1 {
+    margin-bottom: 2rem;
 }
 
 .aboutInfo-2 {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-.main {
-    width: 300px;
-    margin: 0 auto;
-    height: 90vh; 
-   
-    @media (min-width: 768px) {
-      width: 700px;
-    }
-    @media (min-width: 992px) {
-      width: 1280px;
-    }
-  }
+
   
