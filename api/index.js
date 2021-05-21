@@ -42,6 +42,7 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/shows", showsRoutes);
 app.use("/api/v1/movies", movieRoutes);
 
+
 //Port Connection
 app.listen(port, err => {
     if (err) return console.log(err);

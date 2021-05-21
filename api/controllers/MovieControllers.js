@@ -20,6 +20,14 @@ const filterMovies = async (req, res) => {
     res.json(movies);
 }
 
+// get all movies
+const getAllMovies = async (req, res) => {
+
+    let movies = await Movie.find().exec();
+    res.json(movies);
+}
+
 module.exports = {
     filterMovies
+    getAllMovies
 }
