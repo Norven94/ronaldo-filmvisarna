@@ -8,15 +8,17 @@ $gray-medium: #737373;
 $gray-dark: #27282A;
 
 //Font sizes
-$mobile-tablet-small: 0.5rem; //font weight should be light
+$mobile-tablet-small: 0.5rem; //for span/labels/paragraphs. Font weight should be light
 $mobile-tablet-big: 0.75rem; //font weight should be light
 $mobile-tablet-h1: 2.5rem; //font weight should be bold
 $mobile-tablet-h2: 1.56rem; //font weight should be semibold
-$desktop-small: 1rem; //font weight can be semibold or regular
+$desktop-small: 1rem;  //for span/labels/paragraphs. Font weight can be semibold or regular
 $desktop-big: 1.25rem; //font weight can be semibold or regular
 $desktop-h1: 3.125rem; //font weight should be bold
 $desktop-h2: 2.5rem; //font weight should be semibold
 $all-h3: 1.5rem; //font weight should be medium
 
 //Background
-$background-gradient: linear-gradient(180deg, #FFFFFF 0%, #808080 30%);
+$background-gradient:linear-gradient( #151515, #27282A);
+
+
