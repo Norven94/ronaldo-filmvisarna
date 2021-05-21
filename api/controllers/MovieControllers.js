@@ -2,6 +2,9 @@ const Movie = require("../models/Movie");
 
 //Should filter price, genre, age, length, date, language and searchString
 const filterMovies = async (req, res) => {
+    if (req.body.genre.length === 0) {
+        req.body.genre = null
+    }
     let movies = await Movie.find({
         ...req.body.price ? { "price": { $lte: req.body.price } } : {},
         ...req.body.timeLength ? { "timeLength": { $lte: req.body.timeLength } } : {},
@@ -22,12 +25,11 @@ const filterMovies = async (req, res) => {
 
 // get all movies
 const getAllMovies = async (req, res) => {
-
     let movies = await Movie.find().exec();
     res.json(movies);
 }
 
 module.exports = {
-    filterMovies
+    filterMovies,
     getAllMovies
 }

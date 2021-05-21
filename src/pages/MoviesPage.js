@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { MovieContext } from "../context/MovieContext";
+import Filter from "../components/Filter"
 
 import "../scss/MoviesPage.scss";
 
@@ -17,6 +18,7 @@ const MoviesPage = () => {
     if (movies) {
         allMovies = (
             <div>
+                <Filter />                
                     {movies.map((movie) => [
                     <div>
                         <img src={movie.coverImage} />

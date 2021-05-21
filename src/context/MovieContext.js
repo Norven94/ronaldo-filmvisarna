@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const MovieContext = createContext();
 
@@ -11,10 +11,24 @@ const MovieProvider = (props) => {
         setMovies(movies);
     };
 
+    const filterMovies = async (filterSettings) => {
+        console.log(filterSettings)
+        let filterResult = await fetch("/api/v1/movies", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(filterSettings)
+        })
+        filterResult = await filterResult.json();
+        console.log(filterResult)
+        setMovies(filterResult);
+    }
 
     const values = {
         movies,
-        getAllMovies
+        getAllMovies,
+        filterMovies
     };
 
     return (
