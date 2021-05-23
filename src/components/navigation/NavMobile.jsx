@@ -37,38 +37,37 @@ const NavMobile = () => {
   };
 
   return (
-    <nav className="nav">
-      <div className="logo">
-        <NavLink to="/home">FILMVISARNA</NavLink>
-      </div>
+    <div>
+      <nav className="nav">
+        <div className="logo">
+          <NavLink to="/home">FILMVISARNA</NavLink>
+        </div>
 
-      <Burger className={burger} handleMouseUp={toggleMenu} />
-      <div onMouseUp={toggleMenu} className={`${showMenu} flyoutMenu`}>
-        {currentUser ? (
-          <div onMouseUp={toggleMenu}>
-            <Links activeClassName={"active"} className={"items"}></Links>
-            <UserLinks
-             activeClassName={"active"}
-              onClick={logoutButtonHandler}
-              className={"items userItems"}
-              btnName={"LOGOUT"}
-              btnClassName={"btn"}
-            ></UserLinks>
-          </div>
-        ) : (
-          <div
-            onMouseUp={toggleMenu}
-            className={`flyoutMenu ${showMenu}`}
-          >
-            <Links className={"items"}></Links> 
-            <button className="btn" onClick={loginButtonHandler}>
-              LOGIN
-            </button>
-          </div>
-        )}
-      </div>
-      {showLogin && <Login />}
-    </nav>
+        <Burger className={burger} handleMouseUp={toggleMenu} />
+        <div onMouseUp={toggleMenu} className={`${showMenu} flyoutMenu`}>
+          {currentUser ? (
+            <div onMouseUp={toggleMenu}>
+              <Links activeClassName={"active"} className={"items"}></Links>
+              <UserLinks
+                activeClassName={"active"}
+                onClick={logoutButtonHandler}
+                className={"items userItems"}
+                btnName={"LOGOUT"}
+                btnClassName={"btn"}
+              ></UserLinks>
+            </div>
+          ) : (
+            <div onMouseUp={toggleMenu} className={`flyoutMenu ${showMenu}`}>
+              <Links className={"items"}></Links>
+              <button className="btn" onClick={loginButtonHandler}>
+                LOGIN
+              </button>
+            </div>
+          )}
+        </div>
+      </nav>
+      <Login />
+    </div>
   );
 };
 

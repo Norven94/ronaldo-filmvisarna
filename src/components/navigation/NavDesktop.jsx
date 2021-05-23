@@ -40,31 +40,33 @@ const NavDesktop = () => {
   };
 
   return (
-    <nav className="navWrapper">
-      <div className="logo">
-        <NavLink to="/home">FILMVISARNA</NavLink>
-      </div>
-      <Links activeClassName={"active"} className={"navItems"}></Links>
-      {currentUser ? (
-        <div className="dropdown">
-          <h3 onMouseUp={toggleMenu}>
-            {currentUser.name} {smiley}
-          </h3>
-          <UserLinks
-            onMouseUp={toggleMenu}
-            onClick={logoutButtonHandler}
-            className={`${visibility} dropdownContent`}
-            btnName={"LOGOUT"}
-            btnClassName={"logout"}
-          ></UserLinks>
+    <div>
+      <nav className="navWrapper">
+        <div className="logo">
+          <NavLink to="/home">FILMVISARNA</NavLink>
         </div>
-      ) : (
-        <button className={"login"} onClick={loginButtonHandler}>
-          LOGIN
-        </button>
-      )}
-      {showLogin && <Login />}
-    </nav>
+        <Links activeClassName={"active"} className={"navItems"}></Links>
+        {currentUser ? (
+          <div className="dropdown">
+            <h3 onMouseUp={toggleMenu}>
+              {currentUser.name} {smiley}
+            </h3>
+            <UserLinks
+              onMouseUp={toggleMenu}
+              onClick={logoutButtonHandler}
+              className={`${visibility} dropdownContent`}
+              btnName={"LOGOUT"}
+              btnClassName={"logout"}
+            ></UserLinks>
+          </div>
+        ) : (
+          <button className={"login"} onClick={loginButtonHandler}>
+            LOGIN
+          </button>
+        )}
+      </nav>
+      <Login />
+    </div>
   );
 };
 
