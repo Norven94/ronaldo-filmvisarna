@@ -17,7 +17,7 @@ const Links = (props) => {
   ];
 
   const renderItems = () => {
-    return items.map((item) => <NavLink to={item.to}>{item.name}</NavLink>);
+    return items.map((item) => <NavLink exact activeClassName={props.activeClassName}  to={item.to}>{item.name}</NavLink>);
   };
 
   return (

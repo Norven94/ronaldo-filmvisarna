@@ -13,13 +13,19 @@ const userLinks = (props) => {
   ];
 
   const renderItems = () => {
-    return items.map((item) => <NavLink to={item.to}>{item.name}</NavLink>);
+    return items.map((item) => (
+      <NavLink exakt activeClassName={props.activeClassName} to={item.to}>
+        {item.name}
+      </NavLink>
+    ));
   };
 
   return (
     <div className={props.className}>
       {renderItems()}
-      <button className={props.btnClassName} onClick={props.onClick}>{props.btnName}</button>
+      <button className={props.btnClassName} onClick={props.onClick}>
+        {props.btnName}
+      </button>
     </div>
   );
 };

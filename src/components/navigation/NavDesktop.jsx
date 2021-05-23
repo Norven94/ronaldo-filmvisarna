@@ -8,10 +8,10 @@ import UserLinks from "./NavLinks/UserLinks";
 
 import "../../scss/navigation/NavDesktop.scss";
 
-import { faSmile } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSmile } from "@fortawesome/free-solid-svg-icons";
 
-const smiley = <FontAwesomeIcon className="icon" icon={faSmile} />;
+const smiley = <FontAwesomeIcon icon={faSmile} />;
 
 const NavDesktop = () => {
   const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(
@@ -25,7 +25,7 @@ const NavDesktop = () => {
   if (visible) {
     visibility = "show";
   }
-  
+
   // Functions
   const loginButtonHandler = () => {
     setShowLogin(true);
@@ -42,9 +42,9 @@ const NavDesktop = () => {
   return (
     <nav className="navWrapper">
       <div className="logo">
-        <NavLink to="/">FILMVISARNA</NavLink>
+        <NavLink to="/home">FILMVISARNA</NavLink>
       </div>
-      <Links className={"navItems"}></Links>
+      <Links activeClassName={"active"} className={"navItems"}></Links>
       {currentUser ? (
         <div className="dropdown">
           <h3 onMouseUp={toggleMenu}>
@@ -55,11 +55,11 @@ const NavDesktop = () => {
             onClick={logoutButtonHandler}
             className={`${visibility} dropdownContent`}
             btnName={"LOGOUT"}
-            btnClassName={"btn"}
+            btnClassName={"logout"}
           ></UserLinks>
         </div>
       ) : (
-        <button className={"btn"} onClick={loginButtonHandler}>
+        <button className={"login"} onClick={loginButtonHandler}>
           LOGIN
         </button>
       )}

@@ -39,15 +39,16 @@ const NavMobile = () => {
   return (
     <nav className="nav">
       <div className="logo">
-        <NavLink to="/">FILMVISARNA</NavLink>
+        <NavLink to="/home">FILMVISARNA</NavLink>
       </div>
 
       <Burger className={burger} handleMouseUp={toggleMenu} />
       <div onMouseUp={toggleMenu} className={`${showMenu} flyoutMenu`}>
         {currentUser ? (
           <div onMouseUp={toggleMenu}>
-            <Links className={"items"}></Links>
+            <Links activeClassName={"active"} className={"items"}></Links>
             <UserLinks
+             activeClassName={"active"}
               onClick={logoutButtonHandler}
               className={"items userItems"}
               btnName={"LOGOUT"}
