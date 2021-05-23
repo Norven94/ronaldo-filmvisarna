@@ -6,6 +6,7 @@ import Navbar from "./components/navigation/Navbar";
 import RegisterPage from "./pages/RegisterPage";
 import AboutPage from "./pages/AboutPage";
 import MoviesPage from "./pages/MoviesPage";
+import MovieDetailPage from "./pages/MovieDetailPage";
 
 function App() {
   return (
