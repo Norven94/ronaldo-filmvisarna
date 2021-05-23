@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const UserContext = createContext();
 
@@ -6,6 +6,7 @@ const UserProvider = (props) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [showLogin, setShowLogin] = useState(false);
     const [loginError, setLoginError] = useState(false);
+
 
     const loginUser = (loginInfo) => {
         fetch("/api/v1/users/login", {
@@ -28,10 +29,17 @@ const UserProvider = (props) => {
     const logoutUser = () => {
         fetch("/api/v1/users/logout")
             .then(response => response.json())
-            .then(result => { console.log(result) });
+            // .then(result => { console.log(result) })
 
         setCurrentUser(null);
     }
+
+    useEffect(() => {
+        fetch("/api/v1/users/whoami")
+        .then(response => response.json())
+        .then(result => setCurrentUser(result))
+    },[])
+
 
     const values = {
         currentUser,
@@ -41,7 +49,7 @@ const UserProvider = (props) => {
         loginUser,
         logoutUser,
         loginError,
-        setLoginError
+        setLoginError,
     }
 
     return (
