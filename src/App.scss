@@ -1,13 +1,8 @@
-
-.main {
-  width: 300px;
+.App {
+  width:85vw;
   margin: 0 auto;
-  height:85vh;
 
-  @media (min-width: 768px) {
-    width: 700px;
-  }
-  @media (min-width: 992px) {
-    width: 1280px;
-  }
+  @media (min-width: 992px) { 
+    width:75vw;
+   } 
 }
