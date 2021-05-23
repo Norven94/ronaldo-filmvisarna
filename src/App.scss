@@ -1,12 +1,9 @@
-.App {
-  overflow-x: hidden;
-}
 
 .main {
   width: 300px;
   margin: 0 auto;
-  height: 80vh; 
- 
+  height:85vh;
+
   @media (min-width: 768px) {
     width: 700px;
   }

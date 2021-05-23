@@ -5,10 +5,9 @@
   flex-direction: row;
   text-align: center;
   align-items: center;
-  justify-content: space-evenly;
-  height: 20vh;
+  justify-content: space-around;
   width: 100%;
-
+ 
   a {
     color: $white;
     text-decoration: none;
@@ -21,7 +20,7 @@
   }
 
   .navItems a {
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
 
   .dropdown {
