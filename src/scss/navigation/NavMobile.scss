@@ -4,12 +4,7 @@
   display: flex;
   justify-content:space-between;
   align-items: center;
-  width: 300px;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    width: 700px;
-  }
+  width: 100%;
 
   a {
     color: $white;
