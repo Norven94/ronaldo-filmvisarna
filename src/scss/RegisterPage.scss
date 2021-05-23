@@ -1,8 +1,7 @@
 @import "./variables.scss";
 
 .registerPage{
-    // background-color: black;
-    height: 100vh; //Edit this when navbar has set height.
+    height: 100%;
     
     .gradient{
         background: $background-gradient;
