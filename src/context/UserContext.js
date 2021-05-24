@@ -29,17 +29,26 @@ const UserProvider = (props) => {
     const logoutUser = () => {
         fetch("/api/v1/users/logout")
             .then(response => response.json())
-            // .then(result => { console.log(result) })
+        // .then(result => { console.log(result) })
 
         setCurrentUser(null);
+    }
+
+    const editUser = (editInfo) => {
+        fetch("/api/v1/users/update", {
+            method: "PUT",
+            headers: { "content-type": "application/json", },
+            body: JSON.stringify(editInfo),
+        })
+            .then(response => response.json())
     }
 
     //Checks the session on hard reload and updates login status.
     useEffect(() => {
         fetch("/api/v1/users/whoami")
-        .then(response => response.json())
-        .then(result => setCurrentUser(result))
-    },[])
+            .then(response => response.json())
+            .then(result => setCurrentUser(result))
+    }, [])
 
 
     const values = {
