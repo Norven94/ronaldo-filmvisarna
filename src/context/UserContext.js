@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const UserContext = createContext();
 
@@ -6,7 +6,7 @@ const UserProvider = (props) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [showLogin, setShowLogin] = useState(false);
     const [loginError, setLoginError] = useState(false);
-    const [registerError, setRegisterError] = useState(false);
+
 
     const loginUser = (loginInfo) => {
         fetch("/api/v1/users/login", {
@@ -29,27 +29,17 @@ const UserProvider = (props) => {
     const logoutUser = () => {
         fetch("/api/v1/users/logout")
             .then(response => response.json())
-            .then(result => { console.log(result) });
+            // .then(result => { console.log(result) })
 
         setCurrentUser(null);
     }
 
-    const registerUser = (newUserInfo) => {
-        fetch("/api/v1/users/register", {
-            method: "POST",
-            headers: { "content-type": "application/json", },
-            body: JSON.stringify(newUserInfo),
-        })
-            .then(response => response.json())
-            .then(result => {
-                if (result.hasOwnProperty("error")) {
-                    setRegisterError(true)
-                } else {
-                    setCurrentUser(result.currentUser)
-                    setRegisterError(false)
-                }
-            })
-    }
+    useEffect(() => {
+        fetch("/api/v1/users/whoami")
+        .then(response => response.json())
+        .then(result => setCurrentUser(result))
+    },[])
+
 
     const values = {
         currentUser,
@@ -58,11 +48,8 @@ const UserProvider = (props) => {
         setShowLogin,
         loginUser,
         logoutUser,
-        registerUser,
         loginError,
         setLoginError,
-        registerError,
-        setRegisterError,
     }
 
     return (
