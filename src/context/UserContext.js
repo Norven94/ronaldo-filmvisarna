@@ -41,7 +41,12 @@ const UserProvider = (props) => {
             body: JSON.stringify(editInfo),
         })
             .then(response => response.json())
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result)
+                if (!result.hasOwnProperty("error")) {
+                    whoami()
+                }
+            })
     }
 
     const whoami = () => {
