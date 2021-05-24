@@ -1,19 +1,34 @@
 @import "./variables.scss";
 
 .hero {
-    height: 70vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/hero-images/the-departed.jpg);
+    // max-height: 30vh;
+    // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/hero-images/the-departed.jpg);
 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // position: relative;
+    // width: 100%;
 }
 
-.heroContent {
-    padding: 1rem;
+.carouselWrapper {
+    width: 100%;
 }
 
-.showsAndTickets {
-    margin-top: 1rem;
+.carouselItem {
+
 }
+
+.carouselImage {
+    max-height: 70vh;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+// .heroContent {
+//     padding: 1rem;
+// }
+
+// .showsAndTickets {
+//     margin-top: 1rem;
+// }
