@@ -1,8 +1,5 @@
 import '../scss/AboutPage.scss' ;
-// import { ReactComponent as Map } from '../assets/filmvisarna-adress.png';
 import map from '../assets/filmvisarna-adress.png';
-
-
 
 const AboutPage = () => {
     return ( 
