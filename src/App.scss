@@ -1,12 +1,8 @@
-.main {
-  width: 300px;
+.main{
+  width:85vw;
   margin: 0 auto;
-  height: 90vh; 
- 
-  @media (min-width: 768px) {
-    width: 700px;
-  }
-  @media (min-width: 992px) {
-    width: 1280px;
-  }
+  padding: 3rem 0rem;
+  @media (min-width: 992px) { 
+    width:75vw;
+   } 
 }
