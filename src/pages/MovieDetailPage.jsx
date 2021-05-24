@@ -25,36 +25,46 @@ const MovieDetailPage = (props) => {
             <div className="cover">
               <img src={movie.coverImage} alt={movie.title} />
             </div>
+            <div className="info">
+              <div className="title">
+                <h1>{movie.title}</h1>
+                <span>{movie.genre[0]} / </span>
+                <span>{movie.genre[1]} / </span>
+                <span>{movie.timeLength} min / </span>
+                <span>{movie.age}</span>
+              </div>
 
-            <h1>{movie.title}</h1>
+              <div className="desc">
+                <p>{movie.description}</p>
+              </div>
 
-            <div className="overview">
-              <span>{movie.genre[0]} / </span>
-              <span>{movie.genre[1]} / </span>
-              <span>{movie.timeLength} min / </span>
-              <span>{movie.age}</span>
+              <div className="details">
+                <p>
+                  <span>Director: </span>
+                  {movie.director}
+                </p>
+                <p>
+                  <span>Language: </span>
+                  {movie.language}
+                </p>
+                <p>
+                  <span>Stars: </span>
+                  {movie.artists}
+                </p>
+              </div>
+              <button>TICKETS</button>
             </div>
-
-            <div className="desc">
-              <p>{movie.description}</p>
+            <div className="trailer">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/pWfjJ6bOy7w"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
-
-            <div className="details">
-              <p>
-                <span>Director: </span>
-                {movie.director}
-              </p>
-              <p>
-                <span>Language: </span>
-                {movie.language}
-              </p>
-              <p>
-                <span>Stars: </span>
-                {movie.artists}
-              </p>
-            </div>
-
-            <div> TRAILER GOES HERE</div>
           </div>
         );
       } else {
@@ -64,7 +74,7 @@ const MovieDetailPage = (props) => {
   };
 
   const renderShowsInfo = () => {
-    return currentShows.map((show, i) => {
+    return currentShows.map((show) => {
       if (show.movieId._id === movieId) {
         return (
           <div key={show._id} className="showDetails">
@@ -89,6 +99,8 @@ const MovieDetailPage = (props) => {
     <div>
       {loading && <div>LOADING...</div>}
       {movies && renderMovieInfo()}
+
+      <h3 className="showsTitle">Shows</h3>
       {currentShows && renderShowsInfo()}
     </div>
   );
