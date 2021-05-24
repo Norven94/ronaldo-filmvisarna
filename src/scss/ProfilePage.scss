@@ -10,7 +10,7 @@
         flex-grow: 1;
     }
 
-    .profileInfo{
+    .profileInfo {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -22,7 +22,7 @@
         text-align: center;
     }
 
-    .title{
+    .title {
         margin-bottom: 1rem;
     }
 
@@ -55,6 +55,22 @@
         margin-bottom: 0;
     }
 
+    .errorBorder {
+        border: $error solid 3px;
+    }
+
+    .errorText {
+        margin-top: -20px;
+        text-align: end;
+        color: $error-light;
+    }
+
+    .editSuccess{
+        background-color: green;
+        padding: 0.5rem;
+        text-align: center;
+    }
+
     button {
         font-family: "poppins", sans-serif;
         display: block;
@@ -68,11 +84,11 @@
         border: none;
     }
 
-    .logout{
+    .logout {
         background-color: $error;
     }
 
-    .logout:active{
+    .logout:active {
         background-color: $error-dark;
     }
 

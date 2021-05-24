@@ -34,20 +34,7 @@ const UserProvider = (props) => {
         setCurrentUser(null);
     }
 
-    const editUser = (editInfo) => {
-        fetch("/api/v1/users/update", {
-            method: "PUT",
-            headers: { "content-type": "application/json", },
-            body: JSON.stringify(editInfo),
-        })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result)
-                if (!result.hasOwnProperty("error")) {
-                    whoami()
-                }
-            })
-    }
+
 
     const whoami = () => {
         fetch("/api/v1/users/whoami")
@@ -68,7 +55,6 @@ const UserProvider = (props) => {
         setShowLogin,
         loginUser,
         logoutUser,
-        editUser,
         whoami,
         loginError,
         setLoginError,

@@ -47,11 +47,10 @@ const registerUser = async (req, res) => {
 const editUser = async (req, res) => {
     //Checking if email exists
     let userWithEmail = await User.findOne({ email: req.body.email });
-    // console.log(userWithEmail._id);
-    // console.log(req.body.userId);
+
+    //User with your email exists but your id don't match? ERROR!
     if (userWithEmail !== null && userWithEmail._id != req.body.userId) return res.status(400).json({ error: "User with that email already exists." });
-    
-    // res.send({ mess: "great" })
+
     //Encryption line
     req.body.password = encrypt(req.body.password);
 
