@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { NavLink } from "react-router-dom";
 
 import Login from "../Login";
 import Links from "./NavLinks/Links";
@@ -14,7 +13,7 @@ import { faSmile } from "@fortawesome/free-solid-svg-icons";
 const smiley = <FontAwesomeIcon icon={faSmile} />;
 
 const NavDesktop = () => {
-  const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(
+  const {  setShowLogin, currentUser, logoutUser } = useContext(
     UserContext
   );
 

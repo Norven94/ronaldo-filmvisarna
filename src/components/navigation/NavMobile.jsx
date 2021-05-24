@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { NavLink } from "react-router-dom";
 
 import Login from "../Login";
 import Burger from "./Burger";
@@ -10,7 +9,7 @@ import UserLinks from "./NavLinks/UserLinks";
 import "../../scss/navigation/NavMobile.scss";
 
 const NavMobile = () => {
-  const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(
+  const { setShowLogin, currentUser, logoutUser } = useContext(
     UserContext
   );
 
