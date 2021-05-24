@@ -56,7 +56,7 @@ const RegisterPage = () => {
                 clearInterval(timer)
             }
         }
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [registerConfirmation])
 
     return (
