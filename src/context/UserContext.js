@@ -34,6 +34,7 @@ const UserProvider = (props) => {
         setCurrentUser(null);
     }
 
+    //Checks the session on hard reload and updates login status.
     useEffect(() => {
         fetch("/api/v1/users/whoami")
         .then(response => response.json())

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import "../scss/RegisterPage.scss"
+import "../scss/RegisterPage.scss";
 
 const RegisterPage = () => {
     const history = useHistory();

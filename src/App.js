@@ -4,6 +4,7 @@ import UserProvider from "./context/UserContext";
 import Navbar from "./components/navigation/Navbar";
 import RegisterPage from "./pages/RegisterPage";
 import AboutPage from "./pages/AboutPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <div className="main">
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/settings" component={ProfilePage} />
           </div>
         </UserProvider>
       </BrowserRouter>
