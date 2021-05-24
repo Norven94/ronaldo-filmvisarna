@@ -7,6 +7,7 @@ $white: #F2F2F2;
 $gray-light: #D5D5D5;
 $gray-medium: #737373;
 $gray-dark: #27282A;
+$hoverLink: #e7e5e5;
 
 //Font sizes
 $mobile-tablet-small: 0.5rem; //for span/labels/paragraphs. Font weight should be light
@@ -20,6 +21,5 @@ $desktop-h2: 2.5rem; //font weight should be semibold
 $all-h3: 1.5rem; //font weight should be medium
 
 //Background
-$background-gradient:linear-gradient( #151515, #27282A);
-
+$background-gradient:linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
 
