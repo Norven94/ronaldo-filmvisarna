@@ -6,6 +6,7 @@ const app = express();
 
 //File imports
 const userRoutes = require("./routes/UserRoutes");
+const movieRoutes = require("./routes/MovieRoutes");
 const showsRoutes = require("./routes/ShowsRoutes");
 
 //Variables
@@ -38,7 +39,9 @@ app.use(
 
 //Routes
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/movies", movieRoutes);
 app.use("/api/v1/shows", showsRoutes);
+
 
 //Port Connection
 app.listen(port, err => {

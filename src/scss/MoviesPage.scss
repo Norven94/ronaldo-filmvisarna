@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.moviesPage {
+    // background-color: $black;
+    max-width: 95%;
+    height: 100%;
+    font-family: Poppins;
+    margin: auto;
+}
+
+.movieCards {
+    display: flex;
+    flex-wrap: wrap;
+    // margin: auto;
+    justify-content: center;
+    // margin-bottom: 1rem;
+    // border: 1px green solid;
+}
+
+
+
