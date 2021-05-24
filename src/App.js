@@ -8,6 +8,7 @@ import Navbar from "./components/navigation/Navbar";
 import RegisterPage from './pages/RegisterPage';
 import MoviesPage from "./pages/MoviesPage";
 import AboutPage from './pages/AboutPage';
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <main className="main">
+            <Route exact path = "/" component={HomePage} />
+            <Route exact path = "/home" component={HomePage} />
             <Route exact path = "/movies" component={MoviesPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/about" component={AboutPage} />
