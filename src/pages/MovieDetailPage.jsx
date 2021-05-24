@@ -40,9 +40,18 @@ const MovieDetailPage = (props) => {
             </div>
 
             <div className="details">
-              <p>Director: {movie.director}</p>
-              <p>Language: {movie.language}</p>
-              <p>Stars: {movie.artists}</p>
+              <p>
+                <span>Director: </span>
+                {movie.director}
+              </p>
+              <p>
+                <span>Language: </span>
+                {movie.language}
+              </p>
+              <p>
+                <span>Stars: </span>
+                {movie.artists}
+              </p>
             </div>
 
             <div> TRAILER GOES HERE</div>
@@ -59,12 +68,12 @@ const MovieDetailPage = (props) => {
       if (show.movieId._id === movieId) {
         return (
           <div key={show._id} className="showDetails">
-            <div className="date">
-              <p>{show.salonId.name}</p>
-              <p>{show.date}</p>
+            <div>
+              <h2>{show.salonId.name}</h2>
+              <h2>{show.date}</h2>
             </div>
 
-            <div className="time">
+            <div>
               <p>{show.time}</p>
               <button>Book</button>
             </div>
