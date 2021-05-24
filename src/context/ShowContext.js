@@ -6,14 +6,8 @@ const ShowProvider = (props) => {
   const [currentShows, setCurrentShows] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    getAllShowsByMovieId();
- 
-   
-}, []);
-
   const getAllShowsByMovieId = async (movieId) => {
-    let shows = await fetch(`api/v1/shows/${movieId}`);
+    let shows = await fetch(`/api/v1/shows/${movieId}`);
     shows = await shows.json();
     setCurrentShows(shows);
     setLoading(false);
