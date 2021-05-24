@@ -4,7 +4,7 @@ import MovieProvider from "./context/MovieContext";
 
 import './App.scss';
 import UserProvider from "./context/UserContext";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navigation/Navbar";
 import RegisterPage from './pages/RegisterPage';
 import MoviesPage from "./pages/MoviesPage";
 import AboutPage from './pages/AboutPage';
