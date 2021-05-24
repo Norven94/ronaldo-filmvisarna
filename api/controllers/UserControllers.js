@@ -50,8 +50,8 @@ const getAllUsers = (req, res) => {
     User.find().exec().then(response => res.status(200).json(response))
 }
 
-const addBooking = async (req, res) => {
-
+const addBooking = ( req, res) => {
+    
 }
 
 const addBookingToUser = async (req, res) => {
@@ -76,6 +76,6 @@ module.exports = {
     logout,
     registerUser,
     getAllUsers,
-    addBooking,
-    addBookingToUser
+    addBookingToUser,
+    addBooking
 }

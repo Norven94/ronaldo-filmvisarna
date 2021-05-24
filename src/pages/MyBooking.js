@@ -1,20 +1,29 @@
 import { useContext } from "react";
 
-// import {UserContext} from '../context/UserContext' ;
+import {UserContext} from '../context/UserContext' ;
 import {BookingContext} from '../context/BookingContext' ;
 
 const MyBooking = () => {
 
     const { bookings } = useContext(BookingContext);
-    // const { usersBooking } = useContext(UserContext);
-
-    return ( <div>
+    const { currentUser } = useContext(UserContext);
+    console.log(currentUser);
+    return ( 
+    
+    <div>
+        <p>{currentUser && currentUser.email}</p>
+        <h3>Your bookings</h3>
+        
         {bookings && bookings.map( booking => (
-            <ul>
-                <li>{booking.name}</li>
-            </ul>
+            <div>
+                <div>{booking.name}</div>
+            </div>
         ))}
-    </div> );
+
+       <h3>Old bookings</h3>
+    </div> 
+    
+    );
 }
  
 export default MyBooking;
