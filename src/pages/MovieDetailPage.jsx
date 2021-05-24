@@ -1,7 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import { MovieContext } from "../context/MovieContext";
 import { ShowContext } from "../context/ShowContext";
+
+import "../scss/MovieDetailPage.scss";
 
 const MovieDetailPage = (props) => {
   const { movies } = useContext(MovieContext);
@@ -13,15 +15,37 @@ const MovieDetailPage = (props) => {
 
   useEffect(() => {
     getAllShowsByMovieId(movieId);
-  }, []);
+  });
 
   const renderMovieInfo = () => {
     return movies.map((movie, i) => {
-      if (movie._id == movieId) {
+      if (movie._id === movieId) {
         return (
-          <div key={movie._id}>
-            <p>{movie.title}</p>
-            <p>{movie.genre}</p>
+          <div className="movieDetails" key={movie._id}>
+            <div className="cover">
+              <img src={movie.coverImage} alt={movie.title} />
+            </div>
+
+            <h1>{movie.title}</h1>
+
+            <div className="overview">
+              <span>{movie.genre[0]} / </span>
+              <span>{movie.genre[1]} / </span>
+              <span>{movie.timeLength} min / </span>
+              <span>{movie.age}</span>
+            </div>
+
+            <div className="desc">
+              <p>{movie.description}</p>
+            </div>
+
+            <div className="details">
+              <p>Director: {movie.director}</p>
+              <p>Language: {movie.language}</p>
+              <p>Stars: {movie.artists}</p>
+            </div>
+
+            <div> TRAILER GOES HERE</div>
           </div>
         );
       } else {
@@ -32,11 +56,18 @@ const MovieDetailPage = (props) => {
 
   const renderShowsInfo = () => {
     return currentShows.map((show, i) => {
-      if (show.movieId._id == movieId) {
+      if (show.movieId._id === movieId) {
         return (
-          <div>
-            <p>{show.salonId.name}</p>
-            <p>{show.date}</p>
+          <div key={show._id} className="showDetails">
+            <div className="date">
+              <p>{show.salonId.name}</p>
+              <p>{show.date}</p>
+            </div>
+
+            <div className="time">
+              <p>{show.time}</p>
+              <button>Book</button>
+            </div>
           </div>
         );
       } else {
@@ -48,8 +79,8 @@ const MovieDetailPage = (props) => {
   return (
     <div>
       {loading && <div>LOADING...</div>}
-      {currentShows && renderShowsInfo()}
       {movies && renderMovieInfo()}
+      {currentShows && renderShowsInfo()}
     </div>
   );
 };

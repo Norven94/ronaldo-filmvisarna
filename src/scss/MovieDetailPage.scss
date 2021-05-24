@@ -1,0 +1,43 @@
+@import "./variables.scss";
+
+.movieDetails {
+  width: 100%;
+  height: 100%;
+
+  & > * {
+    padding-bottom: 1rem;
+  }
+
+  .cover {
+    img {
+      width: 100%;
+      height: 350px;
+      object-fit: fill;
+    }
+  }
+
+  .overview {
+    
+  }
+
+  .desc {
+    p {
+      font-size: $mobile-tablet-big;
+    }
+  }
+
+  .details {
+    & > * {
+      padding-bottom: 0.5rem;
+    }
+    p {
+      font-size: $mobile-tablet-big;
+    }
+  }
+}
+
+.showDetails {
+  width: 100%;
+  height: 100%;
+
+}

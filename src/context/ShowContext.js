@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 export const ShowContext = createContext();
 
@@ -11,13 +11,12 @@ const ShowProvider = (props) => {
     shows = await shows.json();
     setCurrentShows(shows);
     setLoading(false);
-    console.log(currentShows);
   };
 
   const values = {
     getAllShowsByMovieId,
     currentShows,
-    loading
+    loading,
   };
 
   return (
