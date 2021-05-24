@@ -3,23 +3,27 @@ import { UserContext } from "../context/UserContext";
 import "../scss/ProfilePage.scss";
 
 const ProfilePage = () => {
-    const { currentUser, logoutUser } = useContext(UserContext);
+    const { currentUser, logoutUser, editUser } = useContext(UserContext);
 
     useEffect(() => {
         console.log(currentUser);
     }, [currentUser]);
 
     const editSubmitHandler = (e) => {
-        e.preventDefault();
-        let editUserInfo = {};
-        document.querySelectorAll("input").forEach(field => editUserInfo[field.name] = field.value);
+        if (currentUser) {
+            e.preventDefault();
+            let editUserInfo = { userId: currentUser._id };
+            document.querySelectorAll("input").forEach(field => editUserInfo[field.name] = field.value);
+
+            editUser(editUserInfo);
+        }
     }
 
     return (
         <div className="profilePage">
             <div className="profileInfo">
                 <div>
-                    <h2 className="title">Profile of</h2>
+                    <h2>Profile of</h2>
                     <h2>{currentUser?.name}</h2>
                     <h3>{currentUser?.email}</h3>
                 </div>
@@ -27,7 +31,7 @@ const ProfilePage = () => {
             </div>
             <hr />
             <div className="profileEdit">
-                <h2>Edit information</h2>
+                <h2 className="title">Edit information</h2>
                 <form action="submit" onSubmit={editSubmitHandler}>
                     <label htmlFor="editName">Full name:</label>
                     <input type="text" id="editName" name="name" required defaultValue={currentUser?.name} />

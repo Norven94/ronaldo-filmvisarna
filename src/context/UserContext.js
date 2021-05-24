@@ -41,13 +41,18 @@ const UserProvider = (props) => {
             body: JSON.stringify(editInfo),
         })
             .then(response => response.json())
+            .then(result => console.log(result))
+    }
+
+    const whoami = () => {
+        fetch("/api/v1/users/whoami")
+            .then(response => response.json())
+            .then(result => setCurrentUser(result))
     }
 
     //Checks the session on hard reload and updates login status.
     useEffect(() => {
-        fetch("/api/v1/users/whoami")
-            .then(response => response.json())
-            .then(result => setCurrentUser(result))
+        whoami()
     }, [])
 
 
@@ -58,6 +63,8 @@ const UserProvider = (props) => {
         setShowLogin,
         loginUser,
         logoutUser,
+        editUser,
+        whoami,
         loginError,
         setLoginError,
     }
