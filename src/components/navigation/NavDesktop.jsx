@@ -43,7 +43,7 @@ const NavDesktop = () => {
     <div>
       <nav className="navWrapper">
         <div className="logo">
-          <NavLink to="/home">FILMVISARNA</NavLink>
+          <a href="/">FILMVISARNA</a>
         </div>
         <Links activeClassName={"active"} className={"navItems"}></Links>
         {currentUser ? (

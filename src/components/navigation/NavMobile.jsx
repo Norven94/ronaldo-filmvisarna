@@ -40,7 +40,7 @@ const NavMobile = () => {
     <div>
       <nav className="nav">
         <div className="logo">
-          <NavLink to="/home">FILMVISARNA</NavLink>
+          <a href="/">FILMVISARNA</a>
         </div>
 
         <Burger className={burger} handleMouseUp={toggleMenu} />
