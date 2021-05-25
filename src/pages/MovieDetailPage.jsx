@@ -7,7 +7,6 @@ import "../scss/MovieDetailPage.scss";
 
 const MovieDetailPage = (props) => {
   const { movies } = useContext(MovieContext);
-
   const { currentShows, loading, getAllShowsByMovieId } = useContext(
     ShowContext
   );
@@ -25,15 +24,15 @@ const MovieDetailPage = (props) => {
   };
 
   const renderMovieInfo = () => {
-    return movies.map((movie, i) => {
+    return movies.map((movie) => {
       if (movie._id === movieId) {
         return (
-          <div className="movieDetails" key={movie._id}>
+          <section className="movieDetails" key={movie._id}>
             <div className="cover">
               <img src={movie.coverImage} alt={movie.title} />
             </div>
             <div className="info">
-              <div className="title">
+              <div>
                 <h1>{movie.title}</h1>
                 <span>{movie.genre.join(" / ")} / </span>
                 <span>{movie.timeLength} min / </span>
@@ -71,10 +70,10 @@ const MovieDetailPage = (props) => {
                 allowFullScreen
               ></iframe>
             </div>
-          </div>
+          </section>
         );
       } else {
-        return;
+        return null;
       }
     });
   };
@@ -83,34 +82,34 @@ const MovieDetailPage = (props) => {
     return currentShows.map((show) => {
       if (show.movieId._id === movieId) {
         return (
-          <div key={show._id} className="showDetails">
+          <section key={show._id} className="showDetails">
             <div>
-              <h2>{show.salonId.name}</h2>
-              <h2>{show.date}</h2>
+              <h3>{show.salonId.name}</h3>
+              <h3>{show.date}</h3>
             </div>
 
             <div>
               <p>{show.time}</p>
-              <button>Book</button>
+              <button>BOOK</button>
             </div>
-          </div>
+          </section>
         );
       } else {
-        return;
+        return null;
       }
     });
   };
 
   return (
-    <div>
+    <article>
       {loading && <div>LOADING...</div>}
       {movies && renderMovieInfo()}
 
-      <h3 ref={goToShowsRef} className="showsTitle">
+      <h2 ref={goToShowsRef} className="showsTitle">
         Shows
-      </h3>
+      </h2>
       {currentShows && renderShowsInfo()}
-    </div>
+    </article>
   );
 };
 
