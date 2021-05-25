@@ -157,7 +157,7 @@ export default function Filter() {
                 <input type="range" min="1" max="200" value={price} class="slider" onChange={handlePriceChange} />
                 <span>{price}</span>
                 <label>Length</label>
-                <input type="range" min="1" max="500" value={timeLength} class="slider" onChange={handleTimeChange} />                
+                <input type="range" min="1" max="400" value={timeLength} class="slider" onChange={handleTimeChange} />                
                 <span>{timeLength}</span>
                 </div>
                 <div>
