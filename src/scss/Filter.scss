@@ -114,6 +114,24 @@
                 }
             }
         }
+
+        .datepicker-container {
+            margin-top: 10px;
+
+            label {
+                display: block;
+            }
+        }
+        
+        .clearFilter {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid $white;
+            color: $white;
+            font-size: $mobile-tablet-big;
+            width: 55px;
+            margin-top: 10px;
+        }
     }
 
     .openFilter {

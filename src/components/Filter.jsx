@@ -2,6 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { MovieContext } from "../context/MovieContext";
 import "../scss/Filter.scss";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 export default function Filter() {
     const { filterMovies, getAllMovies, allGenres } = useContext(MovieContext);
     const [price, setPrice] = useState(200);
@@ -9,10 +12,11 @@ export default function Filter() {
     const [genre, setGenre] = useState([]);
     const [age, setAge] = useState("");
     const [language, setLanguage] = useState("");
-    const [date, setDate] = useState("");
     const [searchString, setSearchString] = useState("");
     const [activateFilter, setActivateFilter] = useState(false);
     const [filterOpen, setFilterOpen] = useState(false);
+    const [date, setDate] = useState("");
+    const [startDate, setStartDate] = useState(new Date());
 
     const handlePriceChange = (e) => {
         setPrice(parseInt(e.target.value));
@@ -44,14 +48,27 @@ export default function Filter() {
         setActivateFilter(true);
     }
 
-    const handleDateChange = (e) => {
-        setDate(e.target.value);
-        setActivateFilter(true);
-    }
-
     const handleSearchChange = (e) => {
         setSearchString(e.target.value);
         setActivateFilter(true);
+    }
+
+    const handleDateChange = (newDate) => {
+        setDate(formatDate(newDate))
+        setStartDate(newDate)
+        setActivateFilter(true);
+    }
+
+    const formatDate = (date) => {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+    
+        return [year, month, day].join('-');
     }
 
     const clearFilter = (e) => {
@@ -127,8 +144,11 @@ export default function Filter() {
                         </select>
                     </div>
                 </div>
-                <label>Date</label>
-                <button onClick={clearFilter}>Clear filter</button>
+                <div className="datepicker-container">
+                    <label>Date</label>
+                    <DatePicker className="datepicker" selected={startDate} onChange={newDate => handleDateChange(newDate)} />
+                </div>
+                <button className="clearFilter" onClick={clearFilter}>Clear filter</button>
             </form>
         );
     } else {
