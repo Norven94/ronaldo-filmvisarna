@@ -12,6 +12,7 @@ const MoviesPage = () => {
 
   const handleClickToMovieId = (movieId) => {
     history.push(`/movie/${movieId}`);
+    window.scrollTo(0, 0);
   };
 
   return (

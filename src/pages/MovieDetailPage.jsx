@@ -36,7 +36,7 @@ const MovieDetailPage = (props) => {
               <div className="title">
                 <h1>{movie.title}</h1>
                 <span>{movie.genre.join(" / ")} / </span>
-                <span>{movie.timeLength} min /</span>
+                <span>{movie.timeLength} min / </span>
                 <span>{movie.age}</span>
               </div>
 
