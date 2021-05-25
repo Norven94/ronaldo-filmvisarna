@@ -11,7 +11,10 @@ const HomePage = () => {
     return (
         <div className="homePage">
             {/* send down data to Hero with props */}
-            <Hero data={movies} />
+
+            {movies && (
+                <Hero data={movies} />
+            )}
         </div>
     );
 };

@@ -7,7 +7,13 @@ import theMatrix from "../assets/hero-images/the-matrix.jpg";
 
 const Hero = (props) => {
     // receive props from parent Home component for movie data
-    console.log(props.data[6].title);
+    // console.log(props.data[]);
+
+    let theDepartedData = props.data[6];
+    let theIntouchablesData = props.data[17];
+    let theMatrixData = props.data[1];
+
+    // console.log(theDepartedData)
 
     return(
         <div className="hero">
@@ -19,12 +25,12 @@ const Hero = (props) => {
                     alt="First slide"
                     />
                     <Carousel.Caption className="carouselCaption">
-                        {/* <h2>The Departed</h2> */}
-                        <h2> {props.data[6].title} </h2>
-                        <span> {props.data[6].genre} / </span>
-                        <span> {props.data[6].timeLength} min / </span>
-                        <span> {props.data[6].price} kr </span>
-
+                        <h2> {theDepartedData.title} </h2>
+                        <span> {theDepartedData.genre[0]},  </span>
+                        <span> {theDepartedData.genre[1]},  </span>
+                        <span> {theDepartedData.genre[2]} / </span>
+                        <span> {theDepartedData.timeLength} min / </span>
+                        <span> {theDepartedData.price} kr </span>
                     </Carousel.Caption>
                 </Carousel.Item>
                 
@@ -35,8 +41,12 @@ const Hero = (props) => {
                     alt="Second slide"
                     />
                     <Carousel.Caption className="carouselCaption">
-                        <h2>The Intouchables</h2>
-                        <span>Genre / Length / Price </span>
+                        <h2> {theIntouchablesData.title} </h2>
+                        <span> {theIntouchablesData.genre[0]}, </span>
+                        <span> {theIntouchablesData.genre[1]}, </span>
+                        <span> {theIntouchablesData.genre[2]} / </span>
+                        <span> {theIntouchablesData.timeLength} min / </span>
+                        <span> {theIntouchablesData.price} kr </span>
                     </Carousel.Caption>
                 </Carousel.Item>
 
@@ -47,8 +57,11 @@ const Hero = (props) => {
                     alt="Third slide"
                     />
                     <Carousel.Caption className="carouselCaption">
-                        <h2>The Matrix</h2>
-                        <span>Genre / Length / Price </span>
+                        <h2> {theMatrixData.title} </h2>
+                        <span> {theMatrixData.genre[0]}, </span>
+                        <span> {theMatrixData.genre[1]} / </span>
+                        <span> {theMatrixData.timeLength} min / </span>
+                        <span> {theMatrixData.price} kr </span>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
