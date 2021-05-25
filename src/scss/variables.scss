@@ -26,3 +26,9 @@ $all-h3: 1.5rem; //font weight should be medium
 //Background
 $background-gradient:linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
 
+//Responsive sizes
+$sm: #{"only screen and (min-width: 576px)"};
+$md: #{"only screen and (min-width: 768px)"};
+$lg: #{"only screen and (min-width: 992px)"};
+$xl: #{"only screen and (min-width: 1200px)"};
+
