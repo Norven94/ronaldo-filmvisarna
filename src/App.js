@@ -20,25 +20,14 @@ function App() {
   return (
     <div className="App">
       <UserProvider>
-
-        <BrowserRouter>
-          <Navbar />
-          <main className="main">
-            <Route exact path = "/" component={HomePage} />
-            <Route exact path = "/home" component={HomePage} />
-            <Route exact path = "/movies" component={MoviesPage} />
-            <Route exact path="/register" component={RegisterPage} />
-            <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/settings" component={ProfilePage} />
-          </main>
-        </BrowserRouter>
-
         <MovieProvider>
           <ShowProvider>
             <BookingProvider>
               <BrowserRouter>
                 <Navbar />
                 <main className="main">
+                  <Route exact path = "/" component={HomePage} />
+                  <Route exact path = "/home" component={HomePage} />
                   <Route exact path = "/movies" component={MoviesPage} />
                       <Route
                         exact
