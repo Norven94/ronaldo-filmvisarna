@@ -19,6 +19,8 @@ const userLinks = (props) => {
         exakt
         activeClassName={props.activeClassName}
         to={item.to}
+        onClick={props.linkHandler}
+   
       >
         {item.name}
       </NavLink>

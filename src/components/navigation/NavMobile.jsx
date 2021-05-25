@@ -9,9 +9,9 @@ import UserLinks from "./NavLinks/UserLinks";
 import "../../scss/navigation/NavMobile.scss";
 
 const NavMobile = () => {
-  const { setShowLogin, currentUser, logoutUser } = useContext(
-    UserContext
-  );
+  const { setShowLogin, currentUser, logoutUser } = useContext(UserContext);
+
+  const [open, setOpen] = useState(false);
 
   const loginButtonHandler = () => {
     setShowLogin(true);
@@ -21,19 +21,15 @@ const NavMobile = () => {
     logoutUser();
   };
 
-  const [visible, setVisible] = useState(false);
-
-  let showMenu = "hide";
-  let burger = "";
-
-  if (visible) {
-    showMenu = "show";
-    burger = "show";
-  }
-
   const toggleMenu = () => {
-    setVisible(!visible);
+    setOpen(!open);
   };
+
+  let animateBurger = "";
+
+  if (open) {
+    animateBurger = "animate";
+  }
 
   return (
     <div>
@@ -42,11 +38,12 @@ const NavMobile = () => {
           <a href="/">FILMVISARNA</a>
         </div>
 
-        <Burger className={burger} handleMouseUp={toggleMenu} />
-        <div onMouseUp={toggleMenu} className={`${showMenu} flyoutMenu`}>
-          {currentUser ? (
-            <div onMouseUp={toggleMenu}>
-              <Links activeClassName={"active"} className={"items"}></Links>
+        <Burger className={animateBurger} handleOnClick={toggleMenu} />
+
+        {open ? (
+          <div onClick={toggleMenu} className={"flyoutMenu"}>
+            <Links activeClassName={"active"} className={"items"}></Links>
+            {currentUser ? ( //If user is logged in this dropdown will show
               <UserLinks
                 activeClassName={"active"}
                 onClick={logoutButtonHandler}
@@ -54,16 +51,14 @@ const NavMobile = () => {
                 btnName={"LOGOUT"}
                 btnClassName={"btn"}
               ></UserLinks>
-            </div>
-          ) : (
-            <div onMouseUp={toggleMenu} className={`flyoutMenu ${showMenu}`}>
-              <Links className={"items"}></Links>
+            ) : (
+              //If user is logged out this menu will show will show
               <button className="btn" onClick={loginButtonHandler}>
                 LOGIN
               </button>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        ) : null}
       </nav>
       <Login />
     </div>
