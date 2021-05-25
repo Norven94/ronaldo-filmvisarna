@@ -86,8 +86,7 @@ const ProfilePage = () => {
                             : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true)} />}
                     </div>
                     <p>8-24 letters. At least one lower case, one upper case letter, one number, one special character.</p>
-                    {editSuccess && <p className="editSuccess">Your information updated successfully!</p>}
-                    <button>Save</button>
+                    {editSuccess ? <p className="editSuccess">Your information updated successfully!</p> : <button>Save</button>}
                 </form>
             </div>
         </div>
