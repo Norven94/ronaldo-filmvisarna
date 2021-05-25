@@ -52,10 +52,12 @@ const ProfilePage = () => {
         }, 3000)
     }
 
+    //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
         if (currentUser === null) {
             history.push("/");
         }
+        // eslint-disable-next-line
     }, [currentUser])
 
     return (

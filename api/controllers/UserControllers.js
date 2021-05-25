@@ -60,13 +60,6 @@ const editUser = async (req, res) => {
     return res.status(200).json(updatedUser);
 }
 
-//TEST METHOD - REMOVE FOR PRODUCTION
-const getAllUsers = (req, res) => {
-    User.find().exec().then(response => res.status(200).json(response))
-}
-
-
-
 const addBooking = async (req, res) => {
     let user;   
        User.findById(req.params.userId).exec((err, result) => {
@@ -96,6 +89,5 @@ module.exports = {
     logout,
     registerUser,
     editUser,
-    getAllUsers,
-    addBooking
+    addBooking,
 }
