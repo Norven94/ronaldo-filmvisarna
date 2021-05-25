@@ -1,33 +1,35 @@
-import {BrowserRouter, Route} from "react-router-dom";
-
+import { BrowserRouter, Route } from "react-router-dom";
 import MovieProvider from "./context/MovieContext";
-
-import './App.scss';
 import UserProvider from "./context/UserContext";
+import ShowProvider from "./context/ShowContext";
 import Navbar from "./components/navigation/Navbar";
 import RegisterPage from "./pages/RegisterPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import MoviesPage from "./pages/MoviesPage";
+import MovieDetailPage from "./pages/MovieDetailPage";
+
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <MovieProvider>
       <UserProvider>
-
-        <BrowserRouter>
-          <Navbar />
-          <main className="main">
-            <Route exact path = "/movies" component={MoviesPage} />
-            <Route exact path="/register" component={RegisterPage} />
-            <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/settings" component={ProfilePage} />
-          </main>
-        </BrowserRouter>
-
+        <MovieProvider>
+          <ShowProvider>
+            <BrowserRouter>
+              <Navbar />
+              <main className="main">
+                <Route exact path="/movies" component={MoviesPage} />
+                <Route exact path="/register" component={RegisterPage} />
+                <Route exact path="/about" component={AboutPage} />
+                <Route exact path="/settings" component={ProfilePage} />
+                <Route path="/movie/:movieId" component={MovieDetailPage} />
+              </main>
+            </BrowserRouter>
+          </ShowProvider>
+        </MovieProvider>
       </UserProvider>
-      </MovieProvider>
     </div>
   );
 }
