@@ -12,6 +12,7 @@ const MyBooking = () => {
     
     <div>
         <p>{currentUser && currentUser.email}</p>
+        
         <h3>Your bookings</h3>
         
         {bookings && bookings.map( booking => (

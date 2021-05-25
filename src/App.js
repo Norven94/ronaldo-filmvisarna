@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import MoviesPage from "./pages/MoviesPage";
+import MyBooking from "./pages/MyBooking";
 import MovieDetailPage from "./pages/MovieDetailPage";
 
 
@@ -25,12 +26,12 @@ function App() {
                 <Navbar />
                 <main className="main">
                   <Route exact path = "/movies" component={MoviesPage} />
-                  <Route exact path="/movies" component={MoviesPage} />
                       <Route
                         exact
                         path="/movie/:movieId"
                         component={MovieDetailPage}
                       />
+                  <Route exact path="/bookings" component={MyBooking} />
                   <Route exact path="/register" component={RegisterPage} />
                   <Route exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />

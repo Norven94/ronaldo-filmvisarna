@@ -1,6 +1,6 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
-const Show = require("../models/Show");
+//const Show = require("../models/Show");
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
