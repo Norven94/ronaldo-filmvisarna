@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { MovieContext } from "../context/MovieContext";
 import Filter from "../components/Filter"
 
+import MovieCard from "../components/MovieCard";
 import "../scss/MoviesPage.scss";
 
 const MoviesPage = () => {
@@ -19,21 +20,14 @@ const MoviesPage = () => {
         allMovies = (
             <div>
                 <Filter />                
-                    {movies.map((movie) => [
-                    <div>
-                        <img src={movie.coverImage} />
-                        <h3 className="movieTitle">
-                            {movie.title}   
-                        </h3>
-
-                        <div className="movieInfo">
-                            <span>{movie.genre} / </span>
-                            <span>{movie.timeLength} min / </span>
-                            <span>{movie.price} kr</span>
-                        </div>
+                {movies && (
+                    <div className="movieCards" >
+                    {/* send down data to MovieCard with props, and render one MovieCard for every movie. */}
+                    {movies.map((movie) => (
+                        <MovieCard movie={movie} key={movie._id} />
+                    ))}
                     </div>
-                ])}
-                
+                )}                
             </div>
         ); 
     } else (
