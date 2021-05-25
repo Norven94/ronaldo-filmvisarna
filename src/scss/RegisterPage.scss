@@ -2,7 +2,6 @@
 
 .registerPage{
     height: 100%;
-    background: $background-gradient;
 
     h1{
         text-align: center;
@@ -12,7 +11,7 @@
         display: block;
         margin: 0 auto;
         width: 100%;
-        max-width: 600px;
+        max-width: 500px;
     }
 
     input{
@@ -29,7 +28,7 @@
     button{
         font-family: "poppins", sans-serif;
         display: block;
-        margin: 1rem auto 0 auto;
+        margin: 2rem auto 0 auto;
         background-color: $yellow;
         cursor: pointer;
         height: 2rem;

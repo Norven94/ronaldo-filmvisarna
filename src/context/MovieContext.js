@@ -7,6 +7,11 @@ const MovieProvider = (props) => {
     const [movies, setMovies] = useState(null);
     const [allGenres, setAllGenres] = useState([])
 
+    useEffect(() => {
+        getAllMovies();
+        // eslint-disable-next-line
+    }, []);
+
     const getAllMovies = async () => {
         let movies = await fetch("/api/v1/movies");
         movies = await movies.json();
