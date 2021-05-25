@@ -42,7 +42,22 @@ const registerUser = async (req, res) => {
     //Creating user
     let newUser = await User.create(req.body);
     newUser.password = undefined;
-    return res.status(200).json({message: "New user created!", user: newUser});
+    return res.status(200).json({ message: "New user created!", user: newUser });
+}
+
+const editUser = async (req, res) => {
+    //Checking if email exists
+    let userWithEmail = await User.findOne({ email: req.body.email });
+
+    //User with your email exists but your id don't match? ERROR!
+    if (userWithEmail !== null && userWithEmail._id != req.body.userId) return res.status(400).json({ error: "User with that email already exists." });
+
+    //Encryption line
+    req.body.password = encrypt(req.body.password);
+
+    //Edit user
+    let updatedUser = await User.findByIdAndUpdate(req.body.userId, req.body, {new: true}).exec();
+    return res.status(200).json(updatedUser);
 }
 
 //TEST METHOD - REMOVE FOR PRODUCTION
@@ -80,6 +95,7 @@ module.exports = {
     login,
     logout,
     registerUser,
+    editUser,
     getAllUsers,
     addBooking
 }
