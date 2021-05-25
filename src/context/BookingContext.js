@@ -12,7 +12,7 @@ const BookingProvider = (props) => {
     });
 
     const getMyBookings = async () => {
-        let data = await fetch("/api/user/bookings");
+        let data = await fetch("/api/v1/users/bookings");
         data = await data.json();
         setBookings(data);
     }

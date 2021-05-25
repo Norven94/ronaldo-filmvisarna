@@ -50,25 +50,30 @@ const getAllUsers = (req, res) => {
     User.find().exec().then(response => res.status(200).json(response))
 }
 
-const addBooking = ( req, res) => {
-    
+
+
+const addBooking = async (req, res) => {
+    let user;   
+       User.findById(req.params.userId).exec((err, result) => {
+        if (err) {
+            res.status(400).json({error: "Something went wrong"});
+            return;
+        }
+        if(!result) {
+            res.status(404).json({error: `User with id ${req.params.userId} does not exist`})
+            return;
+        }
+        
+        User.find().populate("bookings").exec();
+        user = result;
+        user.bookings.push(req.body.showId);
+        user.save();  
+        res.json(user);  
+
+    });
+
 }
 
-const addBookingToUser = async (req, res) => {
-    let user;
-    let booking;
-
-    try {
-        user = await User.findById(req);
-        booking = await Show.findById(req);
-    }
-    catch (err) {
-        res.send("Something went wrong!")
-    }
-    user.bookings.push(booking._id);
-
-
-}
 
 module.exports = {
     whoami,
@@ -76,6 +81,5 @@ module.exports = {
     logout,
     registerUser,
     getAllUsers,
-    addBookingToUser,
     addBooking
 }

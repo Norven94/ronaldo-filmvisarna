@@ -9,7 +9,7 @@ router.get("/logout", userControllers.logout);
 router.post("/register", userControllers.registerUser);
 router.get("", userControllers.getAllUsers); //Only for testing, remove for production.
 
-router.put("/add/:userId" , userControllers.addBooking);
+router.post("/add/:userId" , userControllers.addBooking);
 
 
 module.exports = router
