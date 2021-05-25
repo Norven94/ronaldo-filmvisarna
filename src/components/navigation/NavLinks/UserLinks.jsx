@@ -13,8 +13,15 @@ const userLinks = (props) => {
   ];
 
   const renderItems = () => {
-    return items.map((item) => (
-      <NavLink exakt activeClassName={props.activeClassName} to={item.to}>
+    return items.map((item, i) => (
+      <NavLink
+        key={i}
+        exakt
+        activeClassName={props.activeClassName}
+        to={item.to}
+        onClick={props.linkHandler}
+   
+      >
         {item.name}
       </NavLink>
     ));
