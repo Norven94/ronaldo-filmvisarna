@@ -24,6 +24,11 @@
     font-family: "Poppins";
     position: absolute;
     top: 40%;
+    color: $gray-light;
+}
+
+.carouselCaption:hover {
+    color: $white;
 }
 
 h2 {

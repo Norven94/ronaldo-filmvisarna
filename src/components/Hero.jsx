@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "../scss/Hero.scss";
 import Carousel from 'react-bootstrap/Carousel';
 
+// receive props from parent Home component for movie data
 const Hero = (props) => {
-    // receive props from parent Home component for movie data
 
     // creating an array with the popular movies
     let movies = props.data;
