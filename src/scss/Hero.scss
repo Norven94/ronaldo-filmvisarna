@@ -1,0 +1,44 @@
+@import "./variables.scss";
+
+.hero {
+    width: 100%;
+}
+
+.carouselWrapper {
+    width: 100%;
+}
+
+.carouselItem {
+    width: 100%;
+    border: none;
+}
+
+.carouselImage {
+    height: 70vh;
+    min-width: 100%;
+    object-fit: cover;
+    filter: brightness(55%);
+}
+
+.carouselCaption {
+    font-family: "Poppins";
+    position: absolute;
+    top: 40%;
+    color: $gray-light;
+}
+
+.carouselCaption:hover {
+    color: $white;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .carouselCaption {
+        top: 60%;
+        left: -30%;
+    }
+}
+
