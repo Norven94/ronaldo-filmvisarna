@@ -1,26 +1,48 @@
-import { useContext } from "react";
+import { useContext, useEffect } from 'react';
 import { MovieContext } from "../context/MovieContext";
+import Filter from "../components/Filter"
 
-import MovieCard from "../components/MovieCard";
 import "../scss/MoviesPage.scss";
 
 const MoviesPage = () => {
-  const { movies } = useContext(MovieContext);
-  // get all movies from context
+    const { movies, getAllMovies } = useContext(MovieContext);
 
-  return (
-    <div className="moviesPage">
-      
-      {movies && (
-        <div className="movieCards" >
-          {/* send down data to MovieCard with props, and render one MovieCard for every movie. */}
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie._id} />
-          ))}
-        </div>
-      )}
+    useEffect(() => {
+        getAllMovies();
+        // eslint-disable-next-line
+    }, []);
+
+    // console.log(movies);
+
+    let allMovies = "";
+    if (movies) {
+        allMovies = (
+            <div>
+                <Filter />                
+                    {movies.map((movie) => [
+                    <div>
+                        <img src={movie.coverImage} />
+                        <h3 className="movieTitle">
+                            {movie.title}   
+                        </h3>
+
+                        <div className="movieInfo">
+                            <span>{movie.genre} / </span>
+                            <span>{movie.timeLength} min / </span>
+                            <span>{movie.price} kr</span>
+                        </div>
+                    </div>
+                ])}
+                
+            </div>
+        ); 
+    } else (
+        allMovies = "no movies available"
+    );
+
+    return <div className="moviesPage">
+        {allMovies}
     </div>
-  );
-};
+}
 
 export default MoviesPage;
