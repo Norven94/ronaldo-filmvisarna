@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-import fetch from 'node-fetch';
 
 export const BookingContext = createContext();
 
