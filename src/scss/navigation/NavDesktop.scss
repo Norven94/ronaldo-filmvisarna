@@ -1,6 +1,6 @@
 @import "../variables.scss";
 
-.navWrapper {
+.wrapper {
   display: flex;
   flex-direction: row;
   width: 85vw;
@@ -63,7 +63,6 @@
 }
 
 .dropdownContent {
-  display: none;
   position: absolute;
   top: 3rem;
   right: -30px;
@@ -85,10 +84,6 @@
       background-color: $hoverLink;
     }
   }
-}
-
-.show {
-  display: block;
 }
 
 .active {
