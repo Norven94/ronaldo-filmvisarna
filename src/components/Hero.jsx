@@ -7,14 +7,12 @@ import theMatrix from "../assets/hero-images/the-matrix.jpg";
 
 const Hero = (props) => {
     // receive props from parent Home component for movie data
-    // console.log(props.data[]);
-
+    
     let theDepartedData = props.data[6];
     let theIntouchablesData = props.data[17];
     let theMatrixData = props.data[1];
 
-    // console.log(theDepartedData)
-
+    
     return(
         <div className="hero">
             <Carousel className="carouselWrapper" >
