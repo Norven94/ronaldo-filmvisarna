@@ -55,6 +55,19 @@
         margin-bottom: 0;
     }
 
+    .eyeconDiv {
+        position: relative;
+    }
+
+    .eyecon {
+        position: absolute;
+        height: 24px;
+        width: 43px;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
     .errorBorder {
         border: $error solid 3px;
     }
@@ -65,10 +78,12 @@
         color: $error-light;
     }
 
-    .editSuccess{
-        background-color: green;
+    .editSuccess {
+        background-color: $success;
         padding: 0.5rem;
         text-align: center;
+        margin-top: 1rem;
+        border-radius: 5px;
     }
 
     button {

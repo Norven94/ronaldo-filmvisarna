@@ -1,8 +1,9 @@
-.main{
-  width:85vw;
-  margin: 0 auto;
+.main {
+  width: 85vw;
   padding: 3rem 0rem;
-  @media (min-width: 992px) { 
-    width:75vw;
-   } 
+  margin: 0 auto;
+  height: 100%;
+  @media (min-width: 992px) {
+    width: 75vw;
+  }
 }
