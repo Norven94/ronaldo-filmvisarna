@@ -4,10 +4,7 @@
     // max-height: 30vh;
     // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/hero-images/the-departed.jpg);
 
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // position: relative;
+
     width: 100%;
 }
 
@@ -17,10 +14,47 @@
 
 .carouselItem {
     width: 100%;
+    border: none;
 }
 
 .carouselImage {
     height: 70vh;
     min-width: 100%;
     object-fit: cover;
+    filter: brightness(55%);
 }
+
+.carouselCaption {
+    font-family: "Poppins";
+    // position: relative;
+    // bottom: 0;
+    // border: 1px solid red;
+    position: absolute;
+    top: 40%;
+    // left: -15%;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .carouselCaption {
+        top: 60%;
+        left: -30%;
+    }
+}
+
+// @media screen and (min-width: 992px) {
+//     .carouselCaption {
+//         top: 60%;
+//         left: -30%;
+//     }
+// }
+
+// @media screen and (min-width: 1200px) { 
+//     .carouselCaption {
+        
+//     }
+// }
+

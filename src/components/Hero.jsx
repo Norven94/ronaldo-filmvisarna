@@ -17,7 +17,7 @@ const Hero = () => {
                     alt="First slide"
                     />
                     <Carousel.Caption className="carouselCaption">
-                        <h3>The Departed</h3>
+                        <h2>The Departed</h2>
                         <span>Genre / Length / Price </span>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -29,7 +29,7 @@ const Hero = () => {
                     alt="Second slide"
                     />
                     <Carousel.Caption className="carouselCaption">
-                        <h3>The Intouchables</h3>
+                        <h2>The Intouchables</h2>
                         <span>Genre / Length / Price </span>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -41,7 +41,7 @@ const Hero = () => {
                     alt="Third slide"
                     />
                     <Carousel.Caption className="carouselCaption">
-                        <h3>The Matrix</h3>
+                        <h2>The Matrix</h2>
                         <span>Genre / Length / Price </span>
                     </Carousel.Caption>
                 </Carousel.Item>
