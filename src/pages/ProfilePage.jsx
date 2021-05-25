@@ -1,18 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import { useHistory } from "react-router";
 import { ReactComponent as Eyecon } from "../assets/eyecon.svg"
 import { ReactComponent as Eyeclosed } from "../assets/eyeclosed.svg"
 import "../scss/ProfilePage.scss";
 
 const ProfilePage = () => {
     const { currentUser, setCurrentUser, logoutUser, eyeconStateHandler } = useContext(UserContext);
+    const history = useHistory();
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
-
-    useEffect(() => {
-        console.log("current user: ", currentUser);
-    }, [currentUser]);
 
     const editUser = (editInfo) => {
         fetch("/api/v1/users/update", {
@@ -42,7 +40,6 @@ const ProfilePage = () => {
         }
     }
 
-
     const removeErrors = () => {
         setEmailTaken(false);
         document.getElementById("editEmail").classList.remove("errorBorder");
@@ -54,6 +51,12 @@ const ProfilePage = () => {
             setEditSuccess(false)
         }, 3000)
     }
+
+    useEffect(() => {
+        if (currentUser === null) {
+            history.push("/");
+        }
+    }, [currentUser])
 
     return (
         <div className="profilePage">
