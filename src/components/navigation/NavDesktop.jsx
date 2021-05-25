@@ -28,7 +28,7 @@ const NavDesktop = () => {
   };
 
   const handleClickOutside = (e) => {
-    if (!ref.current.contains(e.target)) {
+    if (ref?.current && !ref.current.contains(e.target)) {
       setOpen(false);
     }
   };
