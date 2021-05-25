@@ -5,7 +5,9 @@ import MovieProvider from "./context/MovieContext";
 import './App.scss';
 import UserProvider from "./context/UserContext";
 import Navbar from "./components/navigation/Navbar";
-import RegisterPage from './pages/RegisterPage';
+import RegisterPage from "./pages/RegisterPage";
+import AboutPage from "./pages/AboutPage";
+import ProfilePage from "./pages/ProfilePage";
 import MoviesPage from "./pages/MoviesPage";
 import AboutPage from './pages/AboutPage';
 import HomePage from "./pages/HomePage";
@@ -24,6 +26,7 @@ function App() {
             <Route exact path = "/movies" component={MoviesPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/settings" component={ProfilePage} />
           </main>
         </BrowserRouter>
 
