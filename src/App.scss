@@ -1,0 +1,9 @@
+.main {
+  width: 85vw;
+  padding: 3rem 0rem;
+  margin: 0 auto;
+  height: 100%;
+  @media (min-width: 992px) {
+    width: 75vw;
+  }
+}

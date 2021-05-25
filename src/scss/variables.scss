@@ -1,22 +1,35 @@
 //Colors
 $yellow: #FFC045;
 $yellow-light: #FFE3AC;
+$yellow-dark: #c29233;
 $black: #151515;
 $white: #F2F2F2;
 $gray-light: #D5D5D5;
 $gray-medium: #737373;
 $gray-dark: #27282A;
+$hoverLink: #e7e5e5;
+$error: #ff6d6d;
+$error-light: #ff9797;
+$error-dark: #bd4e4e;
+$success: #2c962c;
 
 //Font sizes
-$mobile-tablet-small: 0.5rem; //font weight should be light
-$mobile-tablet-big: 0.75rem; //font weight should be light
+$mobile-tablet-small: 0.75rem; //for span/labels/paragraphs. Font weight should be light
+$mobile-tablet-big: 1rem; //font weight should be light
 $mobile-tablet-h1: 2.5rem; //font weight should be bold
 $mobile-tablet-h2: 1.56rem; //font weight should be semibold
-$desktop-small: 1rem; //font weight can be semibold or regular
+$desktop-small: 1rem;  //for span/labels/paragraphs. Font weight can be semibold or regular
 $desktop-big: 1.25rem; //font weight can be semibold or regular
 $desktop-h1: 3.125rem; //font weight should be bold
 $desktop-h2: 2.5rem; //font weight should be semibold
 $all-h3: 1.5rem; //font weight should be medium
 
 //Background
-$background-gradient: linear-gradient(180deg, #FFFFFF 0%, #808080 30%);
+$background-gradient:linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
+
+//Responsive sizes
+$sm: #{"only screen and (min-width: 576px)"};
+$md: #{"only screen and (min-width: 768px)"};
+$lg: #{"only screen and (min-width: 992px)"};
+$xl: #{"only screen and (min-width: 1200px)"};
+
