@@ -5,6 +5,7 @@ const filterMovies = async (req, res) => {
     if (req.body.genre.length === 0) {
         req.body.genre = null
     }
+    console.log(req.body)
     let movies = await Movie.find({
         ...req.body.price ? { "price": { $lte: req.body.price } } : {},
         ...req.body.timeLength ? { "timeLength": { $lte: req.body.timeLength } } : {},

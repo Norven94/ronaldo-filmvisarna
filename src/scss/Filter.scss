@@ -1,0 +1,127 @@
+@import "./variables.scss";
+
+.filter {
+    form {
+        margin-top: 10px;
+        display: grid;
+        background-color: transparent;
+
+        label {
+            font-size: $mobile-tablet-big;
+            font-weight: 200;
+        }
+
+        span {
+            font-size: $mobile-tablet-small;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            background-color: $gray-light;
+            border-radius: 8px;
+            height: 10px;
+            margin: 10px 0;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 25px;
+            border: 1px solid $black;
+            border-radius: 4px;
+            background: $white;
+            cursor: pointer;
+          }
+          .slider::-webkit-slider-thumb:hover {
+            background: $yellow;
+          }
+          .slider::-moz-range-thumb {
+            width: 15px;
+            height: 25px;
+            background: $white;
+            cursor: pointer;
+          }
+          .slider::-moz-range-thumb:hover {
+            background: $yellow;
+          }
+        
+        .genres-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .box {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                user-select: none;
+                label {
+                    position: absolute;
+                    z-index: 10;
+                    padding-left: 25px;
+                    cursor: pointer;
+                }
+                input {
+                    opacity: 0;
+                    visibility: hidden;
+                    position: absolute;
+            
+                    &:checked {
+            
+                        ~ .check {
+                            border-color: $yellow;
+                            box-shadow: 0px 0px 0px 15px $yellow inset;
+            
+                            &::after {
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+                .check {
+                    width: 15px;
+                    height: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    background-color: #FFF;
+                    border: none;
+                    box-shadow: 0px 0px 0px 0px $yellow inset;
+                    transition: all 0.15s cubic-bezier(0, 1.05, 0.72, 1.07);
+            
+                    &::after {
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        z-index: 4;
+                        position: absolute;
+                        transform: scale(0);
+                        transition-delay: 0.2s !important;
+                        transition: all 0.25s cubic-bezier(0, 1.05, 0.72, 1.07);
+                    }
+                }
+            }            
+        }
+
+        .dropdowns-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            .dropdown {
+                label {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .openFilter {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $white;
+        color: $white;
+        font-size: $mobile-tablet-big;
+        margin-left: 10px;
+    }
+}
