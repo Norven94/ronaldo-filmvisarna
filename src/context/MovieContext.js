@@ -6,6 +6,8 @@ const MovieProvider = (props) => {
     const [allMovies, setAllMovies] = useState(null);
     const [movies, setMovies] = useState(null);
     const [allGenres, setAllGenres] = useState([])
+    const [allAges, setAllAges] = useState([])
+    const [allLanguages, setAllLanguages] = useState([])
 
     useEffect(() => {
         getAllMovies();
@@ -36,11 +38,15 @@ const MovieProvider = (props) => {
     useEffect(() => {
         if(allMovies) {                        
             const genres = allMovies.map(movie => movie.genre).flat(1);
+            const ages = allMovies.map(movie => movie.age).flat(1);
+            const languages = allMovies.map(movie => movie.language).flat(1);
 
             const distinct = (value, index, self) => {
                 return self.indexOf(value) === index
             }
-            setAllGenres(genres.filter(distinct));           
+            setAllGenres(genres.filter(distinct));
+            setAllAges(ages.filter(distinct));
+            setAllLanguages(languages.filter(distinct));
         }      
     },[allMovies])
 
@@ -48,7 +54,9 @@ const MovieProvider = (props) => {
         movies,
         getAllMovies,
         filterMovies,
-        allGenres
+        allGenres,
+        allLanguages,
+        allAges
     };
 
     return (
