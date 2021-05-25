@@ -30,7 +30,7 @@ const Links = (props) => {
   };
 
   return (
-    <div onMouseUp={props.onMouseUp} className={props.className}>
+    <div className={props.className}>
       {renderItems()}
     </div>
   );

@@ -18,20 +18,6 @@ const NavDesktop = () => {
 
   const ref = useRef();
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref]);
-
   const loginButtonHandler = () => {
     setShowLogin(true);
     setOpen(false);
@@ -40,6 +26,20 @@ const NavDesktop = () => {
   const logoutButtonHandler = () => {
     logoutUser();
   };
+
+  const handleClickOutside = (e) => {
+    if (!ref.current.contains(e.target)) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // Unbind the event listener
+    };
+  }, [ref]);
 
   return (
     <div>
@@ -62,7 +62,7 @@ const NavDesktop = () => {
                 className={"dropdownContent"}
                 btnName={"LOGOUT"}
                 btnClassName={"logout"}
-                linkHandler={() => setOpen(!open)}
+                linkHandler={() => setOpen(false)}
               ></UserLinks>
             ) : null}
           </div>
