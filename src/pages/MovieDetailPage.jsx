@@ -7,21 +7,22 @@ import "../scss/MovieDetailPage.scss";
 
 const MovieDetailPage = (props) => {
   const { movies } = useContext(MovieContext);
+
   const { currentShows, loading, getAllShowsByMovieId } = useContext(
     ShowContext
   );
 
-  const { movieId } = props.match.params;
-
   const goToShowsRef = useRef(null);
 
-  const goToShow = () => {
-    goToShowsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const { movieId } = props.match.params;
 
   useEffect(() => {
     getAllShowsByMovieId(movieId);
   });
+
+  const goToShow = () => {
+    goToShowsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const renderMovieInfo = () => {
     return movies.map((movie, i) => {
@@ -34,9 +35,8 @@ const MovieDetailPage = (props) => {
             <div className="info">
               <div className="title">
                 <h1>{movie.title}</h1>
-                <span>{movie.genre[0]} / </span>
-                <span>{movie.genre[1]} / </span>
-                <span>{movie.timeLength} min / </span>
+                <span>{movie.genre.join(" / ")} / </span>
+                <span>{movie.timeLength} min /</span>
                 <span>{movie.age}</span>
               </div>
 
@@ -55,7 +55,7 @@ const MovieDetailPage = (props) => {
                 </p>
                 <p>
                   <span>Stars: </span>
-                  {movie.artists}
+                  {movie.artists.join(", ")}
                 </p>
               </div>
               <button onClick={goToShow}> TICKETS</button>
