@@ -9,7 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import MoviesPage from "./pages/MoviesPage";
-import AboutPage from './pages/AboutPage';
+
 
 import "./App.scss";
 
