@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import { MovieContext } from "../context/MovieContext";
 import { ShowContext } from "../context/ShowContext";
@@ -12,6 +12,12 @@ const MovieDetailPage = (props) => {
   );
 
   const { movieId } = props.match.params;
+
+  const goToShowsRef = useRef(null);
+
+  const goToShow = () => {
+    goToShowsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     getAllShowsByMovieId(movieId);
@@ -52,13 +58,13 @@ const MovieDetailPage = (props) => {
                   {movie.artists}
                 </p>
               </div>
-              <button>TICKETS</button>
+              <button onClick={goToShow}> TICKETS</button>
             </div>
             <div className="trailer">
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/pWfjJ6bOy7w"
+                src={movie.trailerUrl}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -100,7 +106,9 @@ const MovieDetailPage = (props) => {
       {loading && <div>LOADING...</div>}
       {movies && renderMovieInfo()}
 
-      <h3 className="showsTitle">Shows</h3>
+      <h3 ref={goToShowsRef} className="showsTitle">
+        Shows
+      </h3>
       {currentShows && renderShowsInfo()}
     </div>
   );

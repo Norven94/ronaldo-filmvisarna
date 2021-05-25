@@ -184,11 +184,6 @@
       }
     }
 
-    iframe {
-      height: 40vh;
-      margin: 0rem;
-    }
-
     .details {
       & > * {
         padding: 0.5rem 0rem;
@@ -197,6 +192,11 @@
 
     .trailer {
       grid-area: trailer;
+      iframe {
+        margin: 0rem;
+        padding: 0rem;
+        height: 100%;
+      }
     }
   }
   .showsTitle {
