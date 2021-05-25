@@ -14,8 +14,8 @@ $error-dark: #bd4e4e;
 $success: #2c962c;
 
 //Font sizes
-$mobile-tablet-small: 0.5rem; //for span/labels/paragraphs. Font weight should be light
-$mobile-tablet-big: 0.75rem; //font weight should be light
+$mobile-tablet-small: 0.75rem; //for span/labels/paragraphs. Font weight should be light
+$mobile-tablet-big: 1rem; //font weight should be light
 $mobile-tablet-h1: 2.5rem; //font weight should be bold
 $mobile-tablet-h2: 1.56rem; //font weight should be semibold
 $desktop-small: 1rem;  //for span/labels/paragraphs. Font weight can be semibold or regular
@@ -26,4 +26,10 @@ $all-h3: 1.5rem; //font weight should be medium
 
 //Background
 $background-gradient:linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
+
+//Responsive sizes
+$sm: #{"only screen and (min-width: 576px)"};
+$md: #{"only screen and (min-width: 768px)"};
+$lg: #{"only screen and (min-width: 992px)"};
+$xl: #{"only screen and (min-width: 1200px)"};
 
