@@ -8,7 +8,7 @@
     // background-repeat: no-repeat;
     // background-size: cover;
     // position: relative;
-    // width: 100%;
+    width: 100%;
 }
 
 .carouselWrapper {
@@ -16,19 +16,11 @@
 }
 
 .carouselItem {
-
+    width: 100%;
 }
 
 .carouselImage {
-    max-height: 70vh;
+    height: 70vh;
     min-width: 100%;
     object-fit: cover;
 }
-
-// .heroContent {
-//     padding: 1rem;
-// }
-
-// .showsAndTickets {
-//     margin-top: 1rem;
-// }

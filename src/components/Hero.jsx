@@ -16,33 +16,33 @@ const Hero = () => {
                     src={theDeparted}
                     alt="First slide"
                     />
-                    <Carousel.Caption>
-                    <h3>The Departed</h3>
-
+                    <Carousel.Caption className="carouselCaption">
+                        <h3>The Departed</h3>
+                        <span>Genre / Length / Price </span>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                
+                <Carousel.Item className="carouselItem">
                     <img
                     className="carouselImage"
                     src={theIntouchables}
                     alt="Second slide"
                     />
-
-                    <Carousel.Caption>
-                    <h3>The Intouchables</h3>
-
+                    <Carousel.Caption className="carouselCaption">
+                        <h3>The Intouchables</h3>
+                        <span>Genre / Length / Price </span>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+
+                <Carousel.Item className="carouselItem">
                     <img
                     className="carouselImage"
                     src={theMatrix}
                     alt="Third slide"
                     />
-
-                    <Carousel.Caption>
-                    <h3>The Matrix</h3>
-
+                    <Carousel.Caption className="carouselCaption">
+                        <h3>The Matrix</h3>
+                        <span>Genre / Length / Price </span>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
