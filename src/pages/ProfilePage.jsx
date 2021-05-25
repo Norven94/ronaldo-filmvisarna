@@ -5,7 +5,7 @@ import { ReactComponent as Eyeclosed } from "../assets/eyeclosed.svg"
 import "../scss/ProfilePage.scss";
 
 const ProfilePage = () => {
-    const { currentUser, setCurrentUser, logoutUser } = useContext(UserContext);
+    const { currentUser, setCurrentUser, logoutUser, eyeconStateHandler } = useContext(UserContext);
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
@@ -49,15 +49,10 @@ const ProfilePage = () => {
     }
 
     const renderSuccess = () => {
-        setEditSuccess(true)
+        setEditSuccess(true);
         setTimeout(() => {
             setEditSuccess(false)
         }, 3000)
-    }
-
-    const eyeconStateHandler = (type, state) => {
-        setEyeconState(state)
-        document.getElementById("editPassword").type = type
     }
 
     return (
@@ -82,8 +77,8 @@ const ProfilePage = () => {
                     <label htmlFor="editPassword">Password:</label>
                     <div className="eyeconDiv">
                         <input type="password" id="editPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required />
-                        {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false)} />
-                            : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true)} />}
+                        {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false, setEyeconState, "editPassword")} />
+                            : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true, setEyeconState, "editPassword")} />}
                     </div>
                     <p>8-24 letters. At least one lower case, one upper case letter, one number, one special character.</p>
                     {editSuccess ? <p className="editSuccess">Your information updated successfully!</p> : <button>Save</button>}
