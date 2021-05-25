@@ -1,21 +1,36 @@
-import { createContext, useState, useEffect } from "react";
-import fetch from 'node-fetch';
+import { createContext, useState, useEffect, useContext } from "react";
+import {UserContext} from '../context/UserContext';
 
 export const BookingContext = createContext();
 
 const BookingProvider = (props) => {
-
+    const { currentUser} = useContext(UserContext);
     const [bookings, setBookings]= useState([]);
+    
+    
 
     useEffect(() => {
-        getMyBookings()
+        getUsersBookingList()
     });
 
-    const getMyBookings = async () => {
-        let data = await fetch("/api/v1/users/bookings");
-        data = await data.json();
-        setBookings(data);
+
+    const addBookingToUser = async () => {
+        await fetch(`/api/v1/users/add${currentUser.id}` , {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify()
+        });
     }
+
+    const getUsersBookingList = async (userId) => {
+        userId = currentUser._id ;
+        let bookingList = await fetch(`/api/v1/users/booking/${userId}`);
+        setBookings(bookingList);
+    }
+
+
 
     const deleteBooking = async (bookingId) => {
         let result = await fetch(`/api/v1/users/bookings/${bookingId}`, {
@@ -29,9 +44,14 @@ const BookingProvider = (props) => {
         return result;
     }
 
+
+    
+
     const values = {
         bookings,
-        deleteBooking
+        deleteBooking,
+        getUsersBookingList,
+        addBookingToUser
     }
 
     return (

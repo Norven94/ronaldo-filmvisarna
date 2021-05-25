@@ -8,19 +8,17 @@ const MyBooking = () => {
     const { bookings } = useContext(BookingContext);
     const { currentUser } = useContext(UserContext);
     console.log(currentUser);
+    console.log(bookings);
     return ( 
     
     <div>
-        <p>{currentUser && currentUser.email}</p>
+        {bookings && bookings.map((booking) => (
+            <div>{booking}</div>
+        ))}
         
         <h3>Your bookings</h3>
         
-        {bookings && bookings.map( booking => (
-            <div>
-                <div>{booking.name}</div>
-            </div>
-        ))}
-
+        
        <h3>Old bookings</h3>
     </div> 
     

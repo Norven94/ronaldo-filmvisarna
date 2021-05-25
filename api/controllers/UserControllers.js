@@ -1,6 +1,6 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
-//const Show = require("../models/Show");
+const Show = require("../models/Show");
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
@@ -79,14 +79,25 @@ const addBooking = async (req, res) => {
             return;
         }
         
-        User.find().populate("bookings").exec();
         user = result;
         user.bookings.push(req.body.showId);
         user.save();  
         res.json(user);  
 
     });
+}
 
+const getBookingList = async ( req , res) => {
+    let bookingId ;
+    await User.findById(req.params.userId).exec((err, result) => {
+        if (err) {
+            res.status(400).json({error: "Something went wrong"});
+            return;
+        }
+        bookingId = result.bookings;
+        res.json(bookingId);
+        
+    }); 
 }
 
 
@@ -97,5 +108,6 @@ module.exports = {
     registerUser,
     editUser,
     getAllUsers,
-    addBooking
+    addBooking,
+    getBookingList
 }
