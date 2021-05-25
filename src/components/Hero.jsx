@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "../scss/Hero.scss";
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -8,8 +10,7 @@ const Hero = (props) => {
     let movies = props.data;
     let popularMovies = "";
     if (movies) {popularMovies = movies.filter((movie) => movie.popular === true);}
-
-    // console.log(popularMovies);
+    
 
     return(
         <div className="hero">
@@ -18,12 +19,14 @@ const Hero = (props) => {
                     return (
                         <Carousel.Item className="carouselItem">
                                 <img className="carouselImage" src={popularMovie.heroImage} alt={popularMovie.title} />
-                            <Carousel.Caption className="carouselCaption">
-                                <h2> {popularMovie.title} </h2>
-                                <span> {popularMovie.genre} /</span>
-                                <span> {popularMovie.timeLength} min /</span>
-                                <span> {popularMovie.price} kr</span>
-                            </Carousel.Caption>
+                            <Link to={`/movie/${popularMovie._id}`} >
+                                <Carousel.Caption className="carouselCaption">
+                                    <h2> {popularMovie.title} </h2>
+                                    <span> {popularMovie.genre} /</span>
+                                    <span> {popularMovie.timeLength} min /</span>
+                                    <span> {popularMovie.price} kr</span>
+                                </Carousel.Caption>
+                            </Link>
                         </Carousel.Item>
                     );
                 })}
