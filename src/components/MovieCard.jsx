@@ -3,6 +3,8 @@ import React from "react";
 import "../scss/MovieCard.scss";
 
 const MovieCard = (props) => {
+  // use props to get the correct movie data, and then show image, title, genres, length and price in every MovieCard.
+
   return (
     <div onClick={props.onClick} className="movieCard">
       <div className="imageContainer">
