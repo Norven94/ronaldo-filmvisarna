@@ -43,7 +43,7 @@ export const RecommendedMovies = (props) => {
 
     return (
         <div className="recommendedMovies">
-            <h3>Recommended</h3>
+            <h3>Filmvisarnas favorites</h3>
             <Carousel 
                 responsive={responsive}
                 infinite={true}
