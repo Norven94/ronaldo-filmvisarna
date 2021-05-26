@@ -7,9 +7,9 @@ const BookingProvider = (props) => {
   const [totalTickets, setTotalTickets] = useState([
     { name: "Ordinary", quantity: 0 },
 
-    { name: "Children", quantity: 0 },
-
     { name: "Senior", quantity: 0 },
+
+    { name: "Children", quantity: 0 },
   ]);
 
   const [totalSum, setTotalSum] = useState(0);

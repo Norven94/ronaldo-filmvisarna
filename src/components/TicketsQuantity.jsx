@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 
 import { BookingContext } from "../context/BookingContext";
 
@@ -26,16 +26,15 @@ const TicketsQuantity = () => {
     }
 
     setTotalTickets(addTickets);
-
     calculateTotal();
   };
 
   const calculateTotal = () => {
     const totalPrice = totalTickets.reduce((total, ticket) => {
-      if (ticket.name == "Senior") {
+      if (ticket.name === "Senior") {
         return total + ticket.quantity * price * 0.8;
       }
-      if (ticket.name == "Children") {
+      if (ticket.name === "Children") {
         return total + ticket.quantity * price * 0.7;
       } else {
         return total + ticket.quantity * price;
@@ -46,10 +45,10 @@ const TicketsQuantity = () => {
   };
 
   const calculateTicketType = (type) => {
-    if (type.name == "Senior") {
+    if (type.name === "Senior") {
       return type.quantity * price * 0.8;
     }
-    if (type.name == "Children") {
+    if (type.name === "Children") {
       return type.quantity * price * 0.7;
     } else {
       return type.quantity * price;
@@ -58,11 +57,11 @@ const TicketsQuantity = () => {
 
   const ticketsCounter = () => {
     return (
-      <div>
+      <div className="ticketsCounterWrapper">
         {totalTickets.map((type, index) => (
-          <div key={index} className="ticketsCounter">
+          <div key={index} className="flex counter">
             <p>{type.name}</p>
-            <div className="btnWrapper">
+            <div className="flex">
               <span onClick={() => handleDecrease(index)}>-</span>
               <span>{type.quantity}</span>
               <span onClick={() => handleIncrease(index)}>+</span>
@@ -79,19 +78,21 @@ const TicketsQuantity = () => {
         {totalTickets.map((type, index) => (
           <div key={index}>
             {type.quantity > 0 ? (
-              <div className="ticketsOverview">
+              <div className="flex ticketsOverview">
                 <div className="quantity">
                   <p>{type.quantity}</p>
                   <p>{type.name}</p>
                 </div>
                 <div>
-                  <p>{calculateTicketType(type)}</p>
+                  <p>{calculateTicketType(type)},-</p>
                 </div>
               </div>
             ) : null}
           </div>
         ))}
-        <div>Total: {totalSum}</div>
+        <div className="flex total">
+          <p>Total:</p> <p>{totalSum},-</p>
+        </div>
       </div>
     );
   };
