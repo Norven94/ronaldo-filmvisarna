@@ -8,6 +8,7 @@ const app = express();
 const userRoutes = require("./routes/UserRoutes");
 const movieRoutes = require("./routes/MovieRoutes");
 const showsRoutes = require("./routes/ShowsRoutes");
+const salonRoutes = require("./routes/SalonRoutes");
 
 //Variables
 const port = 3001;
@@ -41,6 +42,7 @@ app.use(
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/movies", movieRoutes);
 app.use("/api/v1/shows", showsRoutes);
+app.use("/api/v1/salons", salonRoutes);
 
 
 //Port Connection

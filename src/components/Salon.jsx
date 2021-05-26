@@ -1,38 +1,15 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { BookingContext } from "../context/BookingContext";
 import "../scss/Salon.scss";
 
-export default function Salon() {
-    const [rows] = useState([8, 5, 5, 6]);
-    const [seatingMap, setSeatingMap] = useState([]);
-
-    const [booked, setBooked] = useState([{ row: 2, seatNumber: 9 }, { row: 4, seatNumber: 24 }]);
-    const [selected, setSelected] = useState([]);
+export default function Salon(props) {
+    const { seatingMap, makeSeatingMap, selected, setSelected, booked } = useContext(BookingContext);    
 
     useEffect(() => {
-        makeSeatingMap();
-    }, []);
-
-    const makeSeatingMap = () => {
-        let seatingMap = [];
-        let currentSeatnumber = 1;
-
-        for (let i = 0; i < rows.length; i++) {
-            let row = []
-
-            // make a loop for every row create a seat object
-            for (let k = 0; k < rows[i]; k++) {
-                let seat = {
-                    row: i + 1,
-                    seatNumber: currentSeatnumber
-                }
-                currentSeatnumber = currentSeatnumber + 1
-                row.push(seat)
-            }
-            seatingMap.push(row)
-        }
-
-        setSeatingMap(seatingMap);
-    };
+        //Temporary, this should be props.salonId later on that should be send down from booking page
+        let salonId = "60a65887fbb2a56a9a327a82";
+        makeSeatingMap(salonId);
+    }, []);    
 
     // Functions to select and deselect multiple seats 
     const selectSeat = (row, seatNumber) => {
