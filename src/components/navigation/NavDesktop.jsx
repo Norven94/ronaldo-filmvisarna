@@ -13,7 +13,7 @@ import { faSmile } from "@fortawesome/free-solid-svg-icons";
 const smiley = <FontAwesomeIcon icon={faSmile} />;
 
 const NavDesktop = () => {
-  const { setShowLogin, currentUser, logoutUser } = useContext(UserContext);
+  const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
   const ref = useRef();
@@ -73,7 +73,7 @@ const NavDesktop = () => {
           </button>
         )}
       </nav>
-      <Login />
+      {showLogin && <Login />}
     </div>
   );
 };
