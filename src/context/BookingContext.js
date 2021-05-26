@@ -1,36 +1,32 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import {UserContext} from '../context/UserContext';
+import {UserContext} from '../context/UserContext' ;
 
 export const BookingContext = createContext();
 
 const BookingProvider = (props) => {
-    const { currentUser} = useContext(UserContext);
-    const [bookings, setBookings]= useState([]);
-    
+
+    const { currentUser } = useContext(UserContext);
+    const [bookingsId, setBookingsId]= useState([]);
     
 
     useEffect(() => {
-        getUsersBookingList()
-    });
+        if( currentUser) {
+            setBookingsId(currentUser.bookings)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    
 
+
+
+
+    const getMyBookings = async () => {
+        
+    }
 
     const addBookingToUser = async () => {
-        await fetch(`/api/v1/users/add${currentUser.id}` , {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify()
-        });
+
     }
-
-    const getUsersBookingList = async (userId) => {
-        userId = currentUser._id ;
-        let bookingList = await fetch(`/api/v1/users/booking/${userId}`);
-        setBookings(bookingList);
-    }
-
-
 
     const deleteBooking = async (bookingId) => {
         let result = await fetch(`/api/v1/users/bookings/${bookingId}`, {
@@ -44,13 +40,10 @@ const BookingProvider = (props) => {
         return result;
     }
 
-
-    
-
     const values = {
-        bookings,
+        bookingsId,
         deleteBooking,
-        getUsersBookingList,
+        getMyBookings,
         addBookingToUser
     }
 

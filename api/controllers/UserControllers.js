@@ -1,6 +1,6 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
-const Show = require("../models/Show");
+//const Show = require("../models/Show");
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
@@ -68,37 +68,30 @@ const getAllUsers = (req, res) => {
 
 
 const addBooking = async (req, res) => {
-    let user;   
-       User.findById(req.params.userId).exec((err, result) => {
-        if (err) {
-            res.status(400).json({error: "Something went wrong"});
-            return;
+     
+    let user;
+    try {
+        user = await User.findById(req.params.userId)
+        //.populate("bookings")
+        .exec();
+
+        if (!user) {
+        res
+            .status(404)
+            .json({ error: `User with id ${req.params.userId} doesn't exist` });
+        return;
         }
-        if(!result) {
-            res.status(404).json({error: `User with id ${req.params.userId} does not exist`})
-            return;
-        }
-        
-        user = result;
+
         user.bookings.push(req.body.showId);
-        user.save();  
-        res.json(user);  
+        user.save(); 
+        res.json(user);
 
-    });
-}
+    } catch (err) {
+        res.status(400).json({ error: "Something went wrong.." });
+    }
+};
 
-const getBookingList = async ( req , res) => {
-    let bookingId ;
-    await User.findById(req.params.userId).exec((err, result) => {
-        if (err) {
-            res.status(400).json({error: "Something went wrong"});
-            return;
-        }
-        bookingId = result.bookings;
-        res.json(bookingId);
-        
-    }); 
-}
+
 
 
 module.exports = {
@@ -108,6 +101,5 @@ module.exports = {
     registerUser,
     editUser,
     getAllUsers,
-    addBooking,
-    getBookingList
+    addBooking
 }
