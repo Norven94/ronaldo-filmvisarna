@@ -12,6 +12,7 @@ import MoviesPage from "./pages/MoviesPage";
 import HomePage from "./pages/HomePage";
 import MyBooking from "./pages/MyBooking";
 import MovieDetailPage from "./pages/MovieDetailPage";
+import Salon from "./components/Salon";
 
 import TicketsQuantity from "./components/TicketsQuantity"; // Only here for edit
 
@@ -39,8 +40,9 @@ function App() {
                   <Route exact path="/register" component={RegisterPage} />
                   <Route exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
-                  <Route exact path="/t" component={TicketsQuantity} /> {/* // NOTE:
-                  Only here for edit purpose */}
+                  {/*Temporary route, remove later */}
+                  <Route exact path="/salon" component={Salon} />
+                  <Route exact path="/t" component={TicketsQuantity} /> {/* NOTE: Remove later */ }
                 </main>
               </BrowserRouter>
             </BookingProvider>

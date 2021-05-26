@@ -16,10 +16,7 @@ const MovieCard = (props) => {
       </div>
 
       <div className="movieInfo">
-        <span>{props.movie.genre[0]} </span>
-        <span>{props.movie.genre[1]} </span>
-        <span>{props.movie.genre[2]} </span>
-        <span>{props.movie.genre[3]} / </span>
+        <span>{props.movie.genre.join(", ")} / </span>
         <span>{props.movie.timeLength} min / </span>
         <span>{props.movie.price} kr</span>
       </div>
