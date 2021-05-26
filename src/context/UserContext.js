@@ -34,13 +34,16 @@ const UserProvider = (props) => {
         setCurrentUser(null);
     }
 
-
-
     const whoami = () => {
         fetch("/api/v1/users/whoami")
             .then(response => response.json())
             .then(result => setCurrentUser(result))
     }
+
+    const eyeconStateHandler = (type, state, setState, elementId) => {
+        setState(state);
+        document.getElementById(elementId).type = type;
+      }
 
     //Checks the session on hard reload and updates login status.
     useEffect(() => {
@@ -58,6 +61,7 @@ const UserProvider = (props) => {
         whoami,
         loginError,
         setLoginError,
+        eyeconStateHandler,
     }
 
     return (

@@ -5,6 +5,12 @@ const filterMovies = async (req, res) => {
     if (req.body.genre.length === 0) {
         req.body.genre = null
     }
+
+    let querySearch = new RegExp(
+        `${req.body.searchString ? req.body.searchString : ""}\\w*`,
+        "gi"
+      );
+
     console.log(req.body)
     let movies = await Movie.find({
         ...req.body.price ? { "price": { $lte: req.body.price } } : {},
@@ -13,11 +19,11 @@ const filterMovies = async (req, res) => {
         ...req.body.age ? { "age": req.body.age } : {},
         ...req.body.language ? { "language": req.body.language } : {},
         ...req.body.date ? { "date": req.body.date } : {},
-        ...req.body.searchString ? {
+        ...querySearch ? {
             $or: [
-                { "artists": { $in: req.body.searchString } },
-                { "director": { $in: req.body.searchString } },
-                { "title": { $in: req.body.searchString } }
+                { "artists": { $in: querySearch } },
+                { "director": { $in: querySearch } },
+                { "title": { $in: querySearch } }
             ]
         } : {},
     }).exec();
