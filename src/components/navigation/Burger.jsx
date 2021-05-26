@@ -3,7 +3,7 @@ import "../../scss/navigation/Burger.scss";
 const Burger = (props) => {
   return (
     <div
-      onMouseUp={props.handleMouseUp}
+      onClick={props.handleOnClick}
       className={`${"burger"} ${props.className}`}
     >
       <span></span>

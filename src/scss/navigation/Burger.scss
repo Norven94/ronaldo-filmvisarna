@@ -2,10 +2,7 @@
 
 .burger {
   width: 1.25rem;
-  height: 1rem;
   position: relative;
-  transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
   cursor: pointer;
   z-index: 3000;
 
@@ -38,17 +35,17 @@
   }
 }
 
-.burger.show span:nth-child(1) {
+.burger.animate span:nth-child(1) {
   transform: rotate(45deg);
-  top: -0.3rem;
+  top: -0.25rem;
   left: 0.2rem;
 }
 
-.burger.show span:nth-child(2) {
+.burger.animate span:nth-child(2) {
   opacity: 0;
 }
 
-.burger.show span:nth-child(3) {
+.burger.animate span:nth-child(3) {
   transform: rotate(-45deg);
   top: 0.6rem;
   left: 0.2rem;
