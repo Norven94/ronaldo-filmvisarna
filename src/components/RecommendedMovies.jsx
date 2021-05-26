@@ -17,20 +17,24 @@ export const RecommendedMovies = (props) => {
 
     const responsive = {
         superLargeDesktop: {
-          breakpoint: { max: 4000, min: 3000 },
+          breakpoint: { max: 4000, min: 1800 },
           items: 5
         },
         desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
+          breakpoint: { max: 1800, min: 1024 },
+          items: 4
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
+          breakpoint: { max: 1024, min: 500 },
+          items: 3
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
+          breakpoint: { max: 500, min: 350 },
+          items: 2
+        },
+        extraSmall: {
+            breakpoint: { max: 350, min: 0 },
+            items: 1
         }
     };
 
@@ -38,23 +42,19 @@ export const RecommendedMovies = (props) => {
 
     return (
         <div className="recommendedMovies">
-            <h3>Recommended movies</h3>
+            <h3>Recommended</h3>
             <Carousel 
                 responsive={responsive}
                 infinite={true}
+                draggable={false}
             >
                 {recommendedMovies.map((recommendedMovie) => {
                     return (
-                        <div> <img src={recommendedMovie.coverImage}/> </div>
+                        <div className="recommendedMovieCard" >
+                            <img className="recommendedMovieCardImage" src={recommendedMovie.coverImage} alt={recommendedMovie.title}/>
+                        </div>
                     )
                 })}
-
-
-
-                {/* <div className="item">Item 1</div>
-                <div className="item">Item 2</div>
-                <div className="item">Item 3</div>
-                <div className="item">Item 4</div> */}
             </Carousel>
         </div>
     )

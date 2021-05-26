@@ -1,14 +1,16 @@
 @import "./variables.scss";
 
 .recommendedMovies {
-    margin-top: 4rem;
+    margin-top: 6rem;
     margin-bottom: 4rem;
 }
 
-.item {
-    color: black;
-    background-color: aliceblue;
-    // border: 1rem solid black;
-    // padding: 1rem;
-    margin: 0rem 0rem;
+.recommendedMovieCard {
+    height: 100%;
+}
+
+.recommendedMovieCardImage {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
