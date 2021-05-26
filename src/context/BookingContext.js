@@ -74,6 +74,10 @@ const BookingProvider = (props) => {
     selected,
     setSelected,
     booked,
+    totalTickets,
+    setTotalTickets,
+    totalSum,
+    setTotalSum,
   };
 
   return (
