@@ -12,7 +12,7 @@ import MoviesPage from "./pages/MoviesPage";
 import HomePage from "./pages/HomePage";
 import MyBooking from "./pages/MyBooking";
 import MovieDetailPage from "./pages/MovieDetailPage";
-import OrderConfirmationPage from "./pages/OrderConfirmationPage";
+import BookingConfirmationPage from "./pages/BookingConfirmationPage";
 
 import "./App.scss";
 
@@ -34,7 +34,7 @@ function App() {
                   <Route exact path="/register" component={RegisterPage} />
                   <Route exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
-                  <Route exact path="/confirmation" component={OrderConfirmationPage} />
+                  <Route exact path="/confirmation" component={BookingConfirmationPage} />
                 </main>
               </BrowserRouter>
             </BookingProvider>

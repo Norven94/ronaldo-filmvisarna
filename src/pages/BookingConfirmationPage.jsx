@@ -1,8 +1,10 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 import { UserContext } from "../context/UserContext";
+import "../scss/BookingConfirmationPage.scss";
+import { ReactComponent as Ticket } from "../assets/ticket.svg"
 
-const OrderConfirmationPage = () => {
+const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
     const history = useHistory();
 
@@ -13,10 +15,13 @@ const OrderConfirmationPage = () => {
     }, [currentUser])
 
     return (
-        <div className="orderConfirmation">
-
+        <div className="bookingConfirmation">
+            <h1>Booking confirmation</h1>
+            <h2>Payment is still required at the Filmvisarna theatre.<br/>
+            You can view your bookings  under “Bookings” in the user tab.</h2>
+            <Ticket/>
         </div>
     );
 }
 
-export default OrderConfirmationPage;
+export default BookingConfirmationPage;
