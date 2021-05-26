@@ -1,12 +1,11 @@
 @import "./variables.scss";
 
-
 .aboutContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 100%;
     margin: 0 auto;
 
     h1{
@@ -23,8 +22,12 @@
     }
     @media (min-width: 1200px) {
         width: 1000px;
-    }
-     
+    } 
+}
+
+p {
+    color: $gray-light;
+    line-height: 2;
 }
 
 .aboutInfo-1 {
@@ -33,26 +36,40 @@
 
 .aboutInfo-2 {
     width: 100%;
-    display: flex;
+    // display: flex;
     justify-content: space-around;
     margin-bottom: 2rem;
 }
 
-.aboutInfo-2 {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
 .aboutInfo-3 {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
+.openingHours {
+    margin-top: 1rem;
+}
+
+.contact {
+    margin-top: 1rem;
+}
+
+.adress {
+    margin-top: 1rem;
+}
+
 .map {
     width: 50%;
     height: auto;
     min-width: 300px;
+}
+
+@media (min-width: 768px) {
+    .aboutInfo-2 {
+        display: flex;
+        // border: 1px solid green;
+    }
 }
 
 
