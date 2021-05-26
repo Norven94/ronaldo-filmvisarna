@@ -5,12 +5,18 @@ import 'react-multi-carousel/lib/styles.css';
 import  "../scss/RecommendedMovies.scss";
 
 
+// receive props from parent Home component for movie data
+export const RecommendedMovies = (props) => {
 
-export const RecommendedMovies = () => {
+    // create array with the recommended movies
+    let movies = props.data;
+    let recommendedMovies = "";
+    if (movies) {recommendedMovies = movies.filter((movie) => movie.recommended === true);}
+
+    console.log(recommendedMovies);
 
     const responsive = {
         superLargeDesktop: {
-          // the naming can be any, depends on you.
           breakpoint: { max: 4000, min: 3000 },
           items: 5
         },
@@ -32,11 +38,23 @@ export const RecommendedMovies = () => {
 
     return (
         <div className="recommendedMovies">
-            <Carousel responsive={responsive}>
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
+            <h3>Recommended movies</h3>
+            <Carousel 
+                responsive={responsive}
+                infinite={true}
+            >
+                {recommendedMovies.map((recommendedMovie) => {
+                    return (
+                        <div> <img src={recommendedMovie.coverImage}/> </div>
+                    )
+                })}
+
+
+
+                {/* <div className="item">Item 1</div>
+                <div className="item">Item 2</div>
+                <div className="item">Item 3</div>
+                <div className="item">Item 4</div> */}
             </Carousel>
         </div>
     )
