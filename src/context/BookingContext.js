@@ -70,7 +70,7 @@ const BookingProvider = (props) => {
         bookingsId,
         deleteBooking,
         getMyBookings,
-        addBookingToUser
+        addBookingToUser,
         bookings,
         seatingMap,
         makeSeatingMap,

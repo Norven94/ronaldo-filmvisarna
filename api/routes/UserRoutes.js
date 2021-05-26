@@ -11,7 +11,5 @@ router.put("/update", userControllers.editUser);
 router.get("", userControllers.getAllUsers); //Only for testing, remove for production.
 
 router.post("/add/:userId" , userControllers.addBooking);
-router.get("/bookings/:userId", userControllers.getBookingList);
-
 
 module.exports = router
