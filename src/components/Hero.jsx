@@ -22,7 +22,7 @@ const Hero = (props) => {
                             <Link to={`/movie/${popularMovie._id}`} >
                                 <Carousel.Caption className="carouselCaption">
                                     <h2> {popularMovie.title} </h2>
-                                    <span> {popularMovie.genre} /</span>
+                                    <span> {popularMovie.genre.join(", ")} /</span>
                                     <span> {popularMovie.timeLength} min /</span>
                                     <span> {popularMovie.price} kr</span>
                                 </Carousel.Caption>
