@@ -54,9 +54,7 @@ const ProfilePage = () => {
 
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
-        if (currentUser === null) {
-            history.push("/");
-        }
+        if (currentUser === null) history.push("/")
         // eslint-disable-next-line
     }, [currentUser])
 
@@ -70,7 +68,7 @@ const ProfilePage = () => {
                 </div>
                 <button className="logout" onClick={logoutUser}>Logout</button>
             </div>
-            <hr />
+            <div className="hr"></div>
             <div className="profileEdit">
                 <h2 className="title">Edit information</h2>
                 <form action="submit" onSubmit={editSubmitHandler}>

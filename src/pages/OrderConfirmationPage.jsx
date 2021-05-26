@@ -8,9 +8,7 @@ const OrderConfirmationPage = () => {
 
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
-        if (currentUser === null) {
-            history.push("/");
-        }
+        if (currentUser === null) history.push("/")
         // eslint-disable-next-line
     }, [currentUser])
 
