@@ -13,4 +13,10 @@
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+    filter: brightness(70%);
+    transition: 0.5s;
+}
+
+.recommendedMovieCardImage:hover {
+    filter: brightness(100%);
 }
