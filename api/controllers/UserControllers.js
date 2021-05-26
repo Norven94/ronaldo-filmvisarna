@@ -85,6 +85,11 @@ const addBooking = async (req, res) => {
     });
 };
 
+const getUserBookings = async (req, res) => {
+    let user = await User.findById(req.params.userId).populate("bookings").exec(); 
+    res.json(user);         
+}
+
 module.exports = {
     whoami,
     login,
@@ -92,5 +97,6 @@ module.exports = {
     registerUser,
     editUser,
     getAllUsers,
-    addBooking
+    addBooking,
+    getUserBookings
 }
