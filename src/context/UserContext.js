@@ -29,16 +29,26 @@ const UserProvider = (props) => {
     const logoutUser = () => {
         fetch("/api/v1/users/logout")
             .then(response => response.json())
-            // .then(result => { console.log(result) })
+        // .then(result => { console.log(result) })
 
         setCurrentUser(null);
     }
 
-    useEffect(() => {
+    const whoami = () => {
         fetch("/api/v1/users/whoami")
-        .then(response => response.json())
-        .then(result => setCurrentUser(result))
-    },[])
+            .then(response => response.json())
+            .then(result => setCurrentUser(result))
+    }
+
+    const eyeconStateHandler = (type, state, setState, elementId) => {
+        setState(state);
+        document.getElementById(elementId).type = type;
+      }
+
+    //Checks the session on hard reload and updates login status.
+    useEffect(() => {
+        whoami()
+    }, [])
 
 
     const values = {
@@ -48,8 +58,10 @@ const UserProvider = (props) => {
         setShowLogin,
         loginUser,
         logoutUser,
+        whoami,
         loginError,
         setLoginError,
+        eyeconStateHandler,
     }
 
     return (

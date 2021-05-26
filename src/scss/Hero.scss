@@ -1,19 +1,44 @@
 @import "./variables.scss";
 
 .hero {
+    width: 100%;
+}
+
+.carouselWrapper {
+    width: 100%;
+}
+
+.carouselItem {
+    width: 100%;
+    border: none;
+}
+
+.carouselImage {
     height: 70vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/hero-images/the-departed.jpg);
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    min-width: 100%;
+    object-fit: cover;
+    filter: brightness(55%);
 }
 
-.heroContent {
-    padding: 1rem;
+.carouselCaption {
+    font-family: "Poppins";
+    position: absolute;
+    top: 40%;
+    color: $gray-light;
 }
 
-.showsAndTickets {
-    margin-top: 1rem;
+.carouselCaption:hover {
+    color: $white;
 }
+
+h2 {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+    .carouselCaption {
+        top: 60%;
+        left: -30%;
+    }
+}
+
