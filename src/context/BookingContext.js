@@ -4,7 +4,14 @@ export const BookingContext = createContext();
 
 const BookingProvider = (props) => {
   const [bookings, setBookings] = useState([]);
-  const [totalTickets, setTotalTickets] = useState(0);
+  const [totalTickets, setTotalTickets] = useState([
+    { name: "Ordinary", quantity: 0 },
+
+    { name: "Children", quantity: 0 },
+
+    { name: "Senior", quantity: 0 },
+  ]);
+
   const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
