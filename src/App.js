@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import MyBooking from "./pages/MyBooking";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import BookingConfirmationPage from "./pages/BookingConfirmationPage";
+import Salon from "./components/Salon";
 
 import "./App.scss";
 
@@ -35,6 +36,8 @@ function App() {
                   <Route exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
                   <Route exact path="/confirmation" component={BookingConfirmationPage} />
+                  {/*Temporary route, remove later */}
+                  <Route exact path="/salon" component={Salon} />
                 </main>
               </BrowserRouter>
             </BookingProvider>

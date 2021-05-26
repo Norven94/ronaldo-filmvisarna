@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .row {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid black;
+        width: 1200px;
+        margin: 20px 0;
+
+        .seat {
+            background-color: $gray-medium; 
+            margin: 10px;
+            width: 50px;
+            text-align: center;
+            cursor: pointer;
+
+            &.taken {
+                background-color: $black;
+            }
+
+            &.selected {
+                background-color: $yellow-light;
+                color: $black;
+            }
+        }
+    }
+}
