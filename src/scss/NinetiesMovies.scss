@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+.ninetiesMovies {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.ninetiesMovieCard {
+    height: 100%;
+}
+
+.ninetiesMovieCardImage {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+    transition: 0.5s;
+}
+
+.ninetiesMovieCardImage:hover {
+    filter: brightness(100%);
+}

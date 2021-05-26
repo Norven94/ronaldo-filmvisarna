@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import  "../scss/RecommendedMovies.scss";
-
+import "../scss/NinetiesMovies.scss";
 
 // receive props from parent Home component for movie data
-export const RecommendedMovies = (props) => {
+export const NinetiesMovies = (props) => {
 
-    // create array with the recommended movies
+
+    // create array with all movies from the 1990s
     let movies = props.data;
-    let recommendedMovies = "";
-    if (movies) {recommendedMovies = movies.filter((movie) => movie.recommended === true);}
+    let ninetiesMovies = "";
+    if (movies) {ninetiesMovies = movies.filter((movie) => movie.year.startsWith("199") );}
+
+    console.log(ninetiesMovies);
 
     const responsive = {
         superLargeDesktop: {
@@ -38,18 +40,18 @@ export const RecommendedMovies = (props) => {
     };
 
     return (
-        <div className="recommendedMovies">
-            <h3>Filmvisarnas favorites</h3>
+        <div className="ninetiesMovies">
+            <h3>Back to the 1990s</h3>
             <Carousel 
                 responsive={responsive}
                 infinite={true}
                 draggable={false}
             >
-                {recommendedMovies.map((recommendedMovie) => {
+                {ninetiesMovies.map((ninetiesMovie) => {
                     return (
-                        <div className="recommendedMovieCard" >
-                            <Link to={`/movie/${recommendedMovie._id}`}>
-                                <img className="recommendedMovieCardImage" src={recommendedMovie.coverImage} alt={recommendedMovie.title}/>
+                        <div className="ninetiesMovieCard" >
+                            <Link to={`/movie/${ninetiesMovie._id}`}>
+                                <img className="ninetiesMovieCardImage" src={ninetiesMovie.coverImage} alt={ninetiesMovie.title}/>
                             </Link>
                         </div>
                     )
@@ -57,6 +59,7 @@ export const RecommendedMovies = (props) => {
             </Carousel>
         </div>
     )
+
 }
 
-export default RecommendedMovies;
+export default NinetiesMovies;
