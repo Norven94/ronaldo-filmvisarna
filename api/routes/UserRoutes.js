@@ -4,7 +4,7 @@ const router = express.Router();
 const userControllers = require("../controllers/UserControllers.js");
 
 
-router.post("/add/:userId" , userControllers.addBooking);
+router.post("/add" , userControllers.addBooking);
 router.post("/login", userControllers.login);
 router.post("/register", userControllers.registerUser);
 
