@@ -33,10 +33,22 @@ const BookingPage = (props) => {
     getCurrentShow();
   }, []);
 
-/*   const newBooking = (showId) => {
-    addBookingToUser(showId)
+  const addNewBooking = () => {
+    let info = {
+      showId: showId,
+      tickets: [
+        {
+          ticketType: "Children",
+          rowNumber: 2, 
+          seatNumber: 2,
+        },
+      ],
+    };
+    addBookingToUser(info);
+    console.log(info);
+    return;
   };
- */
+
   return (
     <div className="wrapper">
       {currentShows.map((show) => {
@@ -52,7 +64,9 @@ const BookingPage = (props) => {
               </div>
               <div className="ticket">
                 <TicketsQuantity totalSum={totalSum}></TicketsQuantity>
-                <button>RESERVE TICKETS</button>
+                <button onClick={() => addNewBooking(show._id)}>
+                  RESERVE TICKETS
+                </button>
               </div>
               <div className="salon"> Salon Goes here</div>
             </section>
