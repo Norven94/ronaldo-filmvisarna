@@ -27,7 +27,9 @@ export default function BookingCard (props) {
         <div className="bookingContainer">
             {console.log(props.booking)}
             <div className="bookingDescription">
-                <h3>{props.booking.showId.movieId.title}</h3><span> - {props.booking.showId.date}</span>
+                <div>
+                <h3>{props.booking.showId.movieId.title}</h3><span className="date"> - {props.booking.showId.date}</span>
+                </div>
                 {props.old ? "" : <span className="removeBtn" onClick={() => removeBooking(props.booking._id)}>{cross}</span>}
                 <p>{props.booking.showId.time}</p>
                 <span className="moreDetails" onClick={toggleMoreDetails}>Details {moreDetails ? arrowUp : arrowDown}</span>

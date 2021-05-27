@@ -5,16 +5,9 @@ import BookingCard from "../components/BookingCard";
 
 import "../scss/MyBookings.scss";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-
-const cross = <FontAwesomeIcon icon={faTimes} size={"2x"}/>;
-const arrowDown = <FontAwesomeIcon icon={faChevronDown} size={"1x"}/>;
-const arrowUp = <FontAwesomeIcon icon={faChevronUp} size={"1x"}/>;
-
 const MyBooking = () => {
-    const { userBookings, userBookingsOld, getMyBookings } = useContext(BookingContext);
-    const { currentUser } = useContext(UserContext);    
+    const { userBookings, userBookingsOld, userBookingsNew, getMyBookings } = useContext(BookingContext);
+    const { currentUser } = useContext(UserContext);
 
     useEffect(() => {
         if (currentUser) {
@@ -25,12 +18,12 @@ const MyBooking = () => {
     let newBookings;
 
     console.log(userBookings)
-    if (userBookings.length !== 0) {
+    if (userBookingsNew.length !== 0) {
         newBookings = (
             <div className="currentBookings">
                 <h2>Your bookings</h2>
-                {userBookings.bookings.map((booking, i) => (                    
-                    <BookingCard booking={booking} key={i}/> 
+                {userBookingsNew.map((booking, i) => (
+                    <BookingCard booking={booking} key={i} />
                 ))}
             </div>
         )
@@ -51,7 +44,7 @@ const MyBooking = () => {
             <div>
                 <h2>Old bookings</h2>
                 {userBookingsOld.map((booking, i) => (
-                    <BookingCard booking={booking} key={i} old={true}/> 
+                    <BookingCard booking={booking} key={i} old={true} />
                 ))}
             </div>
         )
@@ -66,8 +59,8 @@ const MyBooking = () => {
 
     return (
         <div className="bookings">
-        {newBookings}
-        {oldBookings}
+            {newBookings}
+            {oldBookings}
         </div>
     );
 }

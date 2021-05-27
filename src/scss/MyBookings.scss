@@ -1,5 +1,11 @@
 @import "./variables.scss";
 
+.bookings {
+    @media #{$md} {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+}
 .currentBookings {
     margin-bottom: 30px;
 }
