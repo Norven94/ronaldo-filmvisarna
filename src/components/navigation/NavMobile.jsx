@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 
 import Login from "../Login";
@@ -35,7 +36,7 @@ const NavMobile = () => {
     <div>
       <nav className="nav">
         <div className="logo">
-          <a href="/">FILMVISARNA</a>
+          <Link to="/">FILMVISARNA</Link>
         </div>
 
         <Burger className={animateBurger} handleOnClick={toggleMenu} />
