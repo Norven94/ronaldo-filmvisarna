@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-
+import { useHistory } from "react-router-dom";
 import { MovieContext } from "../context/MovieContext";
 import { ShowContext } from "../context/ShowContext";
 
@@ -10,7 +10,8 @@ const MovieDetailPage = (props) => {
   const { currentShows, loading, getAllShowsByMovieId } = useContext(
     ShowContext
   );
-
+  const history = useHistory();
+  
   const goToShowsRef = useRef(null);
 
   const { movieId } = props.match.params;
@@ -21,6 +22,10 @@ const MovieDetailPage = (props) => {
 
   const goToShow = () => {
     goToShowsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleClickToShowId = (showId) => {
+    history.push(`/booking/${showId}`);
   };
 
   const renderMovieInfo = () => {
@@ -90,7 +95,9 @@ const MovieDetailPage = (props) => {
 
             <div>
               <p>{show.time}</p>
-              <button>BOOK</button>
+              <button onClick={() => handleClickToShowId(show._id)}>
+                BOOK
+              </button>
             </div>
           </section>
         );
