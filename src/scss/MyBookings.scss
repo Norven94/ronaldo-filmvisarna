@@ -14,6 +14,10 @@
     h2 {
         font-size: $mobile-tablet-h2;
         text-align: center;
+
+        @media #{$md} {
+            font-size: $desktop-h2;
+        }
     }
 
     .bookingContainer {
@@ -26,6 +30,10 @@
             h3 {
                 font-size: $mobile-h3;
                 display: inline;
+
+                @media #{$md} {
+                    font-size: $all-h3;
+                }
             }
             .removeBtn {                
                 margin-right: 10px;
@@ -40,6 +48,10 @@
             }
             .moreDetails {                
                 font-size: $mobile-tablet-small;
+
+                @media #{$md} {
+                    font-size: $desktop-small;
+                }
             }
             .fa-sort-down, .fa-sort-up {
                 height: 18px;
@@ -54,6 +66,10 @@
             .ticketType {
                 font-size: $mobile-tablet-small;
                 display: block;
+                
+                @media #{$md} {
+                    font-size: $desktop-small;
+                }
             }
             p {
                 margin: 0;
