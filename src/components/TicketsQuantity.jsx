@@ -5,10 +5,13 @@ import { BookingContext } from "../context/BookingContext";
 import "../scss/TicketsQuantity.scss";
 
 const TicketsQuantity = (props) => {
-  const { price, totalTickets, setTotalTickets, totalSum, setTotalSum } = useContext(
-    BookingContext
-  );
-
+  const {
+    price,
+    totalTickets,
+    setTotalTickets,
+    totalSum,
+    setTotalSum,
+  } = useContext(BookingContext);
 
   const handleIncrease = (index) => {
     const addTickets = [...totalTickets];
@@ -40,7 +43,7 @@ const TicketsQuantity = (props) => {
       }
     }, 0);
 
-    setTotalSum(totalPrice);
+    setTotalSum(Math.round(totalPrice));
   };
 
   const calculateTicketType = (type) => {
@@ -48,7 +51,7 @@ const TicketsQuantity = (props) => {
       return type.quantity * price * 0.8;
     }
     if (type.name === "Children") {
-      return type.quantity * price * 0.7;
+      return Math.round(type.quantity * price * 0.7);
     } else {
       return type.quantity * price;
     }
