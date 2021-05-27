@@ -1,21 +1,42 @@
 import { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+/* import { useHistory } from "react-router-dom"; */
 
 import { ShowContext } from "../context/ShowContext";
 import { BookingContext } from "../context/BookingContext";
+import { UserContext } from "../context/UserContext";
 
 import TicketsQuantity from "../components/TicketsQuantity";
 
 import "../scss/BookingPage.scss";
 
 const BookingPage = (props) => {
-  const { currentShows, getAllShowsByMovieId } = useContext(ShowContext);
-  const { totalSum } = useContext(BookingContext);
+  const { currentShows } = useContext(ShowContext);
+  const { setPrice, totalSum, totalTickets, addBookingToUser } = useContext(
+    BookingContext
+  );
+  const { currentUser, showLogin } = useContext(UserContext);
   const [currentShow, setCurrentShow] = useState();
-  const [price, setPrice] = useState();
 
   const { showId } = props.match.params;
 
+  const getCurrentShow = () => {
+    currentShows.map((show) => {
+      if (show._id === showId) {
+        setCurrentShow(show);
+        setPrice(show.movieId.price);
+      }
+      return;
+    });
+  };
+
+  useEffect(() => {
+    getCurrentShow();
+  }, []);
+
+/*   const newBooking = (showId) => {
+    addBookingToUser(showId)
+  };
+ */
   return (
     <div className="wrapper">
       {currentShows.map((show) => {
@@ -31,6 +52,7 @@ const BookingPage = (props) => {
               </div>
               <div className="ticket">
                 <TicketsQuantity totalSum={totalSum}></TicketsQuantity>
+                <button>RESERVE TICKETS</button>
               </div>
               <div className="salon"> Salon Goes here</div>
             </section>

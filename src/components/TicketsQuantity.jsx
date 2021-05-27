@@ -5,11 +5,10 @@ import { BookingContext } from "../context/BookingContext";
 import "../scss/TicketsQuantity.scss";
 
 const TicketsQuantity = (props) => {
-  const { totalTickets, setTotalTickets, totalSum, setTotalSum } = useContext(
+  const { price, totalTickets, setTotalTickets, totalSum, setTotalSum } = useContext(
     BookingContext
   );
 
-  let price = 100; // Temporary - This must change and price should come from booking context/current movie price
 
   const handleIncrease = (index) => {
     const addTickets = [...totalTickets];
