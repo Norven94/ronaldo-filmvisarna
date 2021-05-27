@@ -51,7 +51,7 @@ const BookingPage = (props) => {
       return;
     } else {
       setShowLogin(true);
-      showLogin && <Login></Login>;
+      return <Login></Login>;
     }
   };
 
