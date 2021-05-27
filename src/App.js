@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import MyBooking from "./pages/MyBooking";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import Salon from "./components/Salon";
+import BookingPage from "./pages/BookingPage";
 
 import "./App.scss";
 
@@ -26,22 +27,27 @@ function App() {
               <BrowserRouter>
                 <Navbar />
                 <main className="main">
-                  <Route exact path = "/" component={HomePage} />
-                  <Route exact path = "/home" component={HomePage} />
-                  <Route exact path = "/movies" component={MoviesPage} />
-                      <Route
-                        exact
-                        path="/movie/:movieId"
-                        component={MovieDetailPage}
-                      />
+                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/home" component={HomePage} />
+                  <Route exact path="/movies" component={MoviesPage} />
+                  <Route
+                    exact
+                    path="/movie/:movieId"
+                    component={MovieDetailPage}
+                  />
                   <Route exact path="/bookings" component={MyBooking} />
                   <Route exact path="/register" component={RegisterPage} />
                   <Route exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
                   {/*Temporary route, remove later */}
                   <Route exact path="/salon" component={Salon} />
+
+                  <Route
+                    exact
+                    path="/booking/:showId"
+                    component={BookingPage}
+                  />
                 </main>
-                
               </BrowserRouter>
             </BookingProvider>
           </ShowProvider>
