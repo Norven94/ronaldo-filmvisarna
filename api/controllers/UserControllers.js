@@ -1,6 +1,12 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
-//const Show = require("../models/Show");
+const Booking = require("../models/Booking");
+const Show = require("../models/Show");
+
+const validatePassword = (password) => {
+    if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/.test(password)) return true;
+    return false;
+}
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
@@ -32,6 +38,9 @@ const logout = (req, res) => {
 }
 
 const registerUser = async (req, res) => {
+    //Checking if password is ok
+    if (!validatePassword(req.body.password)) return res.status(400).json({ failed: "Password not valid" })
+
     //Checking if user exists
     let userExists = await User.exists({ email: req.body.email });
     if (userExists) return res.status(400).json({ error: "User with that email already exists." });
@@ -56,7 +65,7 @@ const editUser = async (req, res) => {
     req.body.password = encrypt(req.body.password);
 
     //Edit user
-    let updatedUser = await User.findByIdAndUpdate(req.body.userId, req.body, {new: true}).exec();
+    let updatedUser = await User.findByIdAndUpdate(req.body.userId, req.body, { new: true }).exec();
     return res.status(200).json(updatedUser);
 }
 
@@ -65,11 +74,28 @@ const getAllUsers = (req, res) => {
     User.find().exec().then(response => res.status(200).json(response))
 }
 
-
-
 const addBooking = async (req, res) => {
-    let user;   
-       User.findById(req.params.userId).exec((err, result) => {
+    let newBooking = await Booking.create(req.body);
+    console.log(newBooking)
+    let user;
+    User.findById(req.params.userId).exec((err, result) => {
+        if (err) {
+            res.status(400).json({ error: "Something went wrong" });
+            return;
+        }
+        if (!result) {
+            res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
+            return;
+        }
+        user = result;  
+        user.bookings.push(newBooking._id);
+        user.save();  
+        res.json(user);         
+    });
+};
+
+const getUserBookings = async (req, res) => {
+    await User.findById(req.params.userId).populate({path: "bookings", populate: {path: "showId", populate: {path: "movieId"}}}).exec((err, result) => {
         if (err) {
             res.status(400).json({error: "Something went wrong"});
             return;
@@ -78,17 +104,10 @@ const addBooking = async (req, res) => {
             res.status(404).json({error: `User with id ${req.params.userId} does not exist`})
             return;
         }
-        
-        User.find().populate("bookings").exec();
-        user = result;
-        user.bookings.push(req.body.showId);
-        user.save();  
-        res.json(user);  
-
-    });
-
+        console.log(result)
+        res.json(result);         
+    }); 
 }
-
 
 module.exports = {
     whoami,
@@ -96,6 +115,7 @@ module.exports = {
     logout,
     registerUser,
     editUser,
+    addBooking,
+    getUserBookings
     getAllUsers,
-    addBooking
 }

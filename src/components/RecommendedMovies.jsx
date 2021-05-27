@@ -47,7 +47,7 @@ export const RecommendedMovies = (props) => {
             >
                 {recommendedMovies.map((recommendedMovie) => {
                     return (
-                        <div className="recommendedMovieCard" >
+                        <div className="recommendedMovieCard" key={recommendedMovie._id}>
                             <Link to={`/movie/${recommendedMovie._id}`}>
                                 <img className="recommendedMovieCardImage" src={recommendedMovie.coverImage} alt={recommendedMovie.title}/>
                             </Link>

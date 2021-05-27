@@ -1,35 +1,47 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 export const BookingContext = createContext();
 
 const BookingProvider = (props) => {
   const [seatingMap, setSeatingMap] = useState([]);
-  const [bookings, setBookings] = useState([]);
+  const [userBookings, setUserBookings] = useState();
+  const [userBookingsOld, setUserBookingsOld] = useState();
   const [booked, setBooked] = useState([
     { row: 2, seatNumber: 9 },
     { row: 4, seatNumber: 24 },
   ]);
   const [selected, setSelected] = useState([]);
+  const [bookingsId, setBookingsId] = useState([]);
+  const today = new Date();
+
+  const [totalSum, setTotalSum] = useState(0);
+  const [price, setPrice] = useState();
   const [totalTickets, setTotalTickets] = useState([
     { name: "Ordinary", quantity: 0 },
 
     { name: "Senior", quantity: 0 },
-
     { name: "Children", quantity: 0 },
   ]);
 
-  const [totalSum, setTotalSum] = useState(0);
-  const [price, setPrice]= useState();
+  const getMyBookings = async (userId) => {
+    let bookingsData = await fetch(`/api/v1/users/bookings/${userId}`);
+    bookingsData = await bookingsData.json();
+    console.log(bookingsData);
+    setUserBookings(bookingsData);
+  };
 
   useEffect(() => {
-    getMyBookings();
-  }); 
+    if (userBookings) {
+      setUserBookingsOld(
+        userBookings.bookings.filter((booking) => {
+          console.log(today);
+          return booking.showId.date < today;
+        })
+      );
+    }
+  }, [userBookings]);
 
-  const getMyBookings = async () => {
-    let data = await fetch("/api/v1/users/bookings");
-    data = await data.json();
-    setBookings(data);
-  }; 
+  const addBookingToUser = async () => {};
 
   const deleteBooking = async (bookingId) => {
     let result = await fetch(`/api/v1/users/bookings/${bookingId}`, {
@@ -42,7 +54,6 @@ const BookingProvider = (props) => {
     result = result.json();
     return result;
   };
-
 
   const makeSeatingMap = async (salonId) => {
     let rows = await fetch(`/api/v1/salons/${salonId}`);
@@ -69,18 +80,23 @@ const BookingProvider = (props) => {
   };
 
   const values = {
-    bookings,
+    bookingsId,
     deleteBooking,
+    getMyBookings,
+    addBookingToUser,
+    userBookings,
+    userBookingsOld,
     seatingMap,
     makeSeatingMap,
     selected,
     setSelected,
     booked,
-    totalTickets,
-    setTotalTickets,
+    setBooked,
     totalSum,
     setTotalSum,
-    price, 
+    totalTickets,
+    setTotalTickets,
+    price,
     setPrice
   };
 
