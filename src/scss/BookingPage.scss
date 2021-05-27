@@ -15,30 +15,26 @@
   .movie {
     grid-area: movie;
 
-    h1{
+    h1 {
       font-size: $desktop-big;
     }
 
-    p{
+    p {
       color: $gray-medium;
     }
 
     img {
       width: 100%;
     }
-
   }
 
   .ticket {
-    background-color: pink;
     grid-area: ticket;
- 
   }
 
   .salon {
     background-color: orange;
     grid-area: salon;
-
   }
 }
 

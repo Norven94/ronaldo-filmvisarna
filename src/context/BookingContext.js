@@ -10,6 +10,15 @@ const BookingProvider = (props) => {
     { row: 4, seatNumber: 24 },
   ]);
   const [selected, setSelected] = useState([]);
+  const [totalTickets, setTotalTickets] = useState([
+    { name: "Ordinary", quantity: 0 },
+
+    { name: "Senior", quantity: 0 },
+
+    { name: "Children", quantity: 0 },
+  ]);
+
+  const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
     getMyBookings();
@@ -30,6 +39,18 @@ const BookingProvider = (props) => {
       body: JSON.stringify(),
     });
     result = result.json();
+    return result;
+  };
+  const addBookingToUser = async (newShowId, currentUser) => {
+    let result = await fetch(`/api/v1/users/add/${currentUser.id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newShowId),
+    });
+    result = await result.json();
+    getMyBookings();
     return result;
   };
 
@@ -57,19 +78,6 @@ const BookingProvider = (props) => {
     setSeatingMap(seatingMap);
   };
 
-  const addBookingToUser = async (newShowId, currentUser) => {
-    let result = await fetch(`/api/v1/users/add/${currentUser.id}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newShowId),
-    });
-    result = await result.json();
-    getMyBookings();
-    return result;
-  };
-
   const values = {
     bookings,
     deleteBooking,
@@ -78,7 +86,10 @@ const BookingProvider = (props) => {
     selected,
     setSelected,
     booked,
-    addBookingToUser,
+    totalTickets,
+    setTotalTickets,
+    totalSum,
+    setTotalSum,
   };
 
   return (
