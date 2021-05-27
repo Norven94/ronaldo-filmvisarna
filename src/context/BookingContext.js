@@ -25,7 +25,7 @@ const BookingProvider = (props) => {
                 return booking.showId.date < today
             }))
         }                
-    },[userBookings])
+    },[userBookings]) //eslint-disable-line
 
     const addBookingToUser = async () => {
 
