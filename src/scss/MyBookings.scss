@@ -1,0 +1,63 @@
+@import "./variables.scss";
+
+.currentBookings {
+    margin-bottom: 30px;
+}
+
+.bookings{
+    h2 {
+        font-size: $mobile-tablet-h2;
+        text-align: center;
+    }
+
+    .bookingContainer {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;     
+        border-right: 2px solid $white;   
+
+        .bookingDescription {
+            h3 {
+                font-size: $mobile-h3;
+                display: inline;
+            }
+            .removeBtn {                
+                margin-right: 10px;
+                float: right;
+                .fa-times {
+                    height: 20px;
+                    color: #ff6d6d;
+                }
+            }
+            p {
+                margin: 0;
+            }
+            .moreDetails {                
+                font-size: $mobile-tablet-small;
+            }
+            .fa-sort-down, .fa-sort-up {
+                height: 18px;
+            }        
+        }            
+
+        .ticketDetailsBox {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 5px;
+            .ticketType {
+                font-size: $mobile-tablet-small;
+                display: block;
+            }
+            p {
+                margin: 0;
+            }
+        }        
+    }
+    
+    .noBookings {
+        p {
+            text-align: center;
+        }
+    }
+}
