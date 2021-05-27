@@ -11,7 +11,7 @@ const MyBooking = () => {
         if (currentUser) {
             getMyBookings(currentUser._id)
         }
-    }, [currentUser])
+    }, [currentUser]) //eslint-disable-line
 
     let newBookings;
 
