@@ -90,6 +90,11 @@ const addBooking = async (req, res) => {
 
 }
 
+const getMyBookings = (req, res) => {
+    //Just added this to remove error messages.
+    res.send({})
+}
+
 module.exports = {
     whoami,
     login,
@@ -97,4 +102,5 @@ module.exports = {
     registerUser,
     editUser,
     addBooking,
+    getMyBookings
 }
