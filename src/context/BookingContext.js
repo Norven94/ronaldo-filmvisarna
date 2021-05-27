@@ -78,7 +78,8 @@ const BookingProvider = (props) => {
         makeSeatingMap,
         selected, 
         setSelected,
-        booked
+        booked,
+        setBooked,
     }
 
     return (

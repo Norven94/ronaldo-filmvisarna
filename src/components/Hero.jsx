@@ -17,7 +17,7 @@ const Hero = (props) => {
             <Carousel className="carouselWrapper">
                 {popularMovies.map((popularMovie) => {
                     return (
-                        <Carousel.Item className="carouselItem">
+                        <Carousel.Item className="carouselItem" key={popularMovie._id}>
                                 <img className="carouselImage" src={popularMovie.heroImage} alt={popularMovie.title} />
                             <Link to={`/movie/${popularMovie._id}`} >
                                 <Carousel.Caption className="carouselCaption">

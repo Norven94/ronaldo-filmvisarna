@@ -49,7 +49,7 @@ export const NinetiesMovies = (props) => {
             >
                 {ninetiesMovies.map((ninetiesMovie) => {
                     return (
-                        <div className="ninetiesMovieCard" >
+                        <div className="ninetiesMovieCard" key={ninetiesMovie._id}>
                             <Link to={`/movie/${ninetiesMovie._id}`}>
                                 <img className="ninetiesMovieCardImage" src={ninetiesMovie.coverImage} alt={ninetiesMovie.title}/>
                             </Link>
