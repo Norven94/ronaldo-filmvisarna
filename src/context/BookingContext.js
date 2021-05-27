@@ -1,15 +1,29 @@
 import { createContext, useState, useEffect, useContext } from "react";
+import { UserContext } from '../context/UserContext';
 
 export const BookingContext = createContext();
 
 const BookingProvider = (props) => {
     const [seatingMap, setSeatingMap] = useState([]);
-    const [userBookings, setUserBookings]= useState();
-    const [userBookingsOld, setUserBookingsOld]= useState();
+    const [userBookings, setUserBookings]= useState([]);
+    const [userBookingsOld, setUserBookingsOld]= useState([]);
     const [booked, setBooked] = useState([{ row: 2, seatNumber: 9 }, { row: 4, seatNumber: 24 }]);
     const [selected, setSelected] = useState([]);    
     const [bookingsId, setBookingsId]= useState([]);
-    const today = new Date();
+    const { currentUser } = useContext(UserContext);
+    let today = new Date();
+
+    const formatDate = (date) => {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+    
+        return [year, month, day].join('-');
+    }
 
     const getMyBookings = async (userId) => {
         let bookingsData = await fetch(`/api/v1/users/bookings/${userId}`);
@@ -19,28 +33,29 @@ const BookingProvider = (props) => {
     }
 
     useEffect(() => {
-        if (userBookings) {
+        if (userBookings.length !== 0) {
+            console.log(userBookings)
+            today = formatDate(today);
             setUserBookingsOld(userBookings.bookings.filter(booking => {
-                console.log(today)
-                return booking.showId.date < today
+                return booking.showId.date < formatDate(today)
             }))
+            /*
+            setUserBookings(userBookings.bookings.filter(booking => {
+                console.log(booking)
+                return booking.showId.date >= formatDate(today)
+            }))
+            */
         }                
     },[userBookings]) //eslint-disable-line
 
-    const addBookingToUser = async () => {
-
-    }
-
-    const deleteBooking = async (bookingId) => {
-        let result = await fetch(`/api/v1/users/bookings/${bookingId}`, {
+    const deleteBooking = async (bookingId, userId) => {
+        await fetch(`/api/v1/users/${bookingId}/${userId}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify()
         });
-        result = result.json();
-        return result;
+        getMyBookings(currentUser._id)
     }
 
     const makeSeatingMap = async (salonId) => {        
@@ -71,7 +86,6 @@ const BookingProvider = (props) => {
         bookingsId,
         deleteBooking,
         getMyBookings,
-        addBookingToUser,
         userBookings,
         userBookingsOld,
         seatingMap,

@@ -3,9 +3,8 @@ import { BookingContext } from '../context/BookingContext';
 import { UserContext } from '../context/UserContext';
 
 const MyBooking = () => {
-    const { userBookings, userBookingsOld, getMyBookings } = useContext(BookingContext);
+    const { userBookings, userBookingsOld, getMyBookings, deleteBooking } = useContext(BookingContext);
     const { currentUser } = useContext(UserContext);
-    console.log(currentUser)
 
     useEffect(() => {
         if (currentUser) {
@@ -13,14 +12,20 @@ const MyBooking = () => {
         }
     }, [currentUser]) //eslint-disable-line
 
+    const removeBooking = (bookingId) => {
+        deleteBooking(bookingId, currentUser._id)
+    }
+
     let newBookings;
 
-    if (userBookings ) {
+    console.log(userBookings)
+    if (userBookings.length !== 0) {
         newBookings = (
             <div>
                 <h3>Your bookings</h3>
-                {userBookings.bookings.map((booking, i) => (
+                {userBookings.bookings.map((booking, i) => (                    
                     <div key={i}>
+                        {console.log(booking)}
                         <span>{booking.showId.movieId.title} - {booking.showId.date}</span>
                         <p>{booking.showId.time}</p>
                         {booking.tickets.map((ticket, i) => (
@@ -28,6 +33,7 @@ const MyBooking = () => {
                                 <span>Row {ticket.rowNumber} / Seat {ticket.seatNumber}</span>
                             </div>
                         ))}
+                        <button onClick={() => removeBooking(booking._id)}>Remove</button>
                     </div>
                 ))}
             </div>
@@ -35,13 +41,15 @@ const MyBooking = () => {
     } else {
         newBookings = (
             <div>
-                <span>No content</span>
+                <h3>Your bookings</h3>
+                <p>You don't have any upcoming bookings</p>
             </div>
         )
     }
 
     let oldBookings;
-    if (userBookingsOld) {
+    console.log(userBookingsOld)
+    if (userBookingsOld.length !== 0) {
         console.log(userBookingsOld)
         oldBookings = (
             <div>
@@ -62,7 +70,8 @@ const MyBooking = () => {
     } else {
         oldBookings = (
             <div>
-                <span>No content</span>
+                <h3>Old bookings</h3>
+                <p>You dont have any old bookings registered</p>
             </div>
         )
     }
