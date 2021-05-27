@@ -6,6 +6,7 @@ export const BookingContext = createContext();
 const BookingProvider = (props) => {
     const [seatingMap, setSeatingMap] = useState([]);
     const [userBookings, setUserBookings]= useState([]);
+    const [userBookingsNew, setUserBookingsNew]= useState([]);
     const [userBookingsOld, setUserBookingsOld]= useState([]);
     const [booked, setBooked] = useState([{ row: 2, seatNumber: 9 }, { row: 4, seatNumber: 24 }]);
     const [selected, setSelected] = useState([]);    
@@ -39,12 +40,12 @@ const BookingProvider = (props) => {
             setUserBookingsOld(userBookings.bookings.filter(booking => {
                 return booking.showId.date < formatDate(today)
             }))
-            /*
-            setUserBookings(userBookings.bookings.filter(booking => {
+            
+            setUserBookingsNew(userBookings.bookings.filter(booking => {
                 console.log(booking)
                 return booking.showId.date >= formatDate(today)
             }))
-            */
+            
         }                
     },[userBookings]) //eslint-disable-line
 
@@ -88,6 +89,7 @@ const BookingProvider = (props) => {
         getMyBookings,
         userBookings,
         userBookingsOld,
+        userBookingsNew,
         seatingMap,
         makeSeatingMap,
         selected, 
