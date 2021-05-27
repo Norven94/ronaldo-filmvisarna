@@ -57,7 +57,7 @@ const BookingProvider = (props) => {
     setSeatingMap(seatingMap);
   };
 
-  const addBookingToUser = async (newShowId) => {
+  const addBookingToUser = async (newShowId, currentUser) => {
     let result = await fetch(`/api/v1/users/add/${currentUser.id}`, {
       method: "POST",
       headers: {
