@@ -6,6 +6,7 @@ import { BookingContext } from "../context/BookingContext";
 import { UserContext } from "../context/UserContext";
 
 import TicketsQuantity from "../components/TicketsQuantity";
+import Login from "../components/Login";
 
 import "../scss/BookingPage.scss";
 
@@ -14,7 +15,7 @@ const BookingPage = (props) => {
   const { setPrice, totalSum, totalTickets, addBookingToUser } = useContext(
     BookingContext
   );
-  const { currentUser, showLogin } = useContext(UserContext);
+  const { currentUser, showLogin, setShowLogin } = useContext(UserContext);
   const [currentShow, setCurrentShow] = useState();
 
   const { showId } = props.match.params;
@@ -34,19 +35,24 @@ const BookingPage = (props) => {
   }, []);
 
   const addNewBooking = () => {
-    let info = {
-      showId: showId,
-      tickets: [
-        {
-          ticketType: "Children",
-          rowNumber: 2, 
-          seatNumber: 2,
-        },
-      ],
-    };
-    addBookingToUser(info);
-    console.log(info);
-    return;
+    if (currentUser) {
+      let info = {
+        showId: showId,
+        tickets: [
+          {
+            ticketType: "Children",
+            rowNumber: 3,
+            seatNumber: 3,
+          },
+        ],
+      };
+      addBookingToUser(info);
+      console.log(info);
+      return;
+    } else {
+      setShowLogin(true);
+      showLogin && <Login></Login>;
+    }
   };
 
   return (
