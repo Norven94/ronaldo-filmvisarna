@@ -116,6 +116,5 @@ module.exports = {
     registerUser,
     editUser,
     addBooking,
-    getUserBookings
-    getAllUsers,
+    getUserBookings,
 }
