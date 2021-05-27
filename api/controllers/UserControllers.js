@@ -1,6 +1,7 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
-//const Show = require("../models/Show");
+const Booking = require("../models/Booking");
+const Show = require("../models/Show");
 
 const validatePassword = (password) => {
     if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/.test(password)) return true;
@@ -68,7 +69,14 @@ const editUser = async (req, res) => {
     return res.status(200).json(updatedUser);
 }
 
+//TEST METHOD - REMOVE FOR PRODUCTION
+const getAllUsers = (req, res) => {
+    User.find().exec().then(response => res.status(200).json(response))
+}
+
 const addBooking = async (req, res) => {
+    let newBooking = await Booking.create(req.body);
+    console.log(newBooking)
     let user;
     User.findById(req.params.userId).exec((err, result) => {
         if (err) {
@@ -79,20 +87,26 @@ const addBooking = async (req, res) => {
             res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
             return;
         }
-
-        User.find().populate("bookings").exec();
-        user = result;
-        user.bookings.push(req.body.showId);
-        user.save();
-        res.json(user);
-
+        user = result;  
+        user.bookings.push(newBooking._id);
+        user.save();  
+        res.json(user);         
     });
+};
 
-}
-
-const getMyBookings = (req, res) => {
-    //Just added this to remove error messages.
-    res.send({})
+const getUserBookings = async (req, res) => {
+    await User.findById(req.params.userId).populate({path: "bookings", populate: {path: "showId", populate: {path: "movieId"}}}).exec((err, result) => {
+        if (err) {
+            res.status(400).json({error: "Something went wrong"});
+            return;
+        }
+        if(!result) {
+            res.status(404).json({error: `User with id ${req.params.userId} does not exist`})
+            return;
+        }
+        console.log(result)
+        res.json(result);         
+    }); 
 }
 
 module.exports = {
@@ -102,5 +116,6 @@ module.exports = {
     registerUser,
     editUser,
     addBooking,
-    getMyBookings
+    getUserBookings
+    getAllUsers,
 }
