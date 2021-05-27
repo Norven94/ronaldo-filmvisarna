@@ -126,7 +126,7 @@ export default function Filter() {
                             checked={false}
                         />
                         <span className="check"></span>
-                        <label for={genre}>{genre}</label>
+                        <label htmlFor={genre}>{genre}</label>
                     </div>
                 ))}
             </div>
@@ -143,7 +143,7 @@ export default function Filter() {
                             onChange={handleGenreChange}
                         />
                         <span className="check"></span>
-                        <label for={genre}>{genre}</label>
+                        <label htmlFor={genre}>{genre}</label>
                     </div>
                 ))}
             </div>
@@ -156,10 +156,10 @@ export default function Filter() {
             <form>
                 <div className="range-container">
                     <label>Price</label>
-                    <input type="range" min="1" max="200" value={price} class="slider" onChange={handlePriceChange} />
+                    <input type="range" min="1" max="200" value={price} className="slider" onChange={handlePriceChange} />
                     <span>{price}</span>
                     <label>Length</label>
-                    <input type="range" min="1" max="400" value={timeLength} class="slider" onChange={handleTimeChange} />
+                    <input type="range" min="1" max="400" value={timeLength} className="slider" onChange={handleTimeChange} />
                     <span>{timeLength}</span>
                 </div>
                 <div>

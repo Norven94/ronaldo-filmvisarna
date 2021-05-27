@@ -10,7 +10,7 @@ const MyBooking = () => {
         if (currentUser) {
             getMyBookings(currentUser._id)
         }
-    }, [currentUser])
+    }, [currentUser]) //eslint-disable-line
 
     const removeBooking = (bookingId) => {
         deleteBooking(bookingId, currentUser._id)

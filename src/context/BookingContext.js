@@ -46,7 +46,7 @@ const BookingProvider = (props) => {
             }))
             */
         }                
-    },[userBookings])
+    },[userBookings]) //eslint-disable-line
 
     const deleteBooking = async (bookingId, userId) => {
         await fetch(`/api/v1/users/${bookingId}/${userId}`, {
