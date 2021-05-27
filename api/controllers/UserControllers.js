@@ -1,6 +1,7 @@
 const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
 const Booking = require("../models/Booking");
+const Show = require("../models/Show");
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
@@ -86,8 +87,18 @@ const addBooking = async (req, res) => {
 };
 
 const getUserBookings = async (req, res) => {
-    let user = await User.findById(req.params.userId).populate("bookings").exec(); 
-    res.json(user);         
+    await User.findById(req.params.userId).populate({path: "bookings", populate: {path: "showId", populate: {path: "movieId"}}}).exec((err, result) => {
+        if (err) {
+            res.status(400).json({error: "Something went wrong"});
+            return;
+        }
+        if(!result) {
+            res.status(404).json({error: `User with id ${req.params.userId} does not exist`})
+            return;
+        }
+        console.log(result)
+        res.json(result);         
+    }); 
 }
 
 module.exports = {

@@ -1,30 +1,31 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import {UserContext} from '../context/UserContext' ;
 
 export const BookingContext = createContext();
 
 const BookingProvider = (props) => {
     const [seatingMap, setSeatingMap] = useState([]);
-    const [bookings, setBookings]= useState([]);
+    const [userBookings, setUserBookings]= useState();
+    const [userBookingsOld, setUserBookingsOld]= useState();
     const [booked, setBooked] = useState([{ row: 2, seatNumber: 9 }, { row: 4, seatNumber: 24 }]);
-    const [selected, setSelected] = useState([]);
-    const { currentUser } = useContext(UserContext);
+    const [selected, setSelected] = useState([]);    
     const [bookingsId, setBookingsId]= useState([]);
+    const today = new Date();
+
+    const getMyBookings = async (userId) => {
+        let bookingsData = await fetch(`/api/v1/users/bookings/${userId}`);
+        bookingsData = await bookingsData.json();
+        console.log(bookingsData)
+        setUserBookings(bookingsData)
+    }
 
     useEffect(() => {
-        if( currentUser) {
-            setBookingsId(currentUser.bookings)
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    
-
-
-
-
-    const getMyBookings = async () => {
-        
-    }
+        if (userBookings) {
+            setUserBookingsOld(userBookings.bookings.filter(booking => {
+                console.log(today)
+                return booking.showId.date < today
+            }))
+        }                
+    },[userBookings])
 
     const addBookingToUser = async () => {
 
@@ -71,7 +72,8 @@ const BookingProvider = (props) => {
         deleteBooking,
         getMyBookings,
         addBookingToUser,
-        bookings,
+        userBookings,
+        userBookingsOld,
         seatingMap,
         makeSeatingMap,
         selected, 
