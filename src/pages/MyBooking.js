@@ -1,47 +1,43 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BookingContext } from '../context/BookingContext';
 import { UserContext } from '../context/UserContext';
+import BookingCard from "../components/BookingCard";
+
+import "../scss/MyBookings.scss";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+
+const cross = <FontAwesomeIcon icon={faTimes} size={"2x"}/>;
+const arrowDown = <FontAwesomeIcon icon={faChevronDown} size={"1x"}/>;
+const arrowUp = <FontAwesomeIcon icon={faChevronUp} size={"1x"}/>;
 
 const MyBooking = () => {
-    const { userBookings, userBookingsOld, getMyBookings, deleteBooking } = useContext(BookingContext);
-    const { currentUser } = useContext(UserContext);
+    const { userBookings, userBookingsOld, getMyBookings } = useContext(BookingContext);
+    const { currentUser } = useContext(UserContext);    
 
     useEffect(() => {
         if (currentUser) {
             getMyBookings(currentUser._id)
         }
-    }, [currentUser]) //eslint-disable-line
-
-    const removeBooking = (bookingId) => {
-        deleteBooking(bookingId, currentUser._id)
-    }
+    }, [currentUser]) //eslint-disable-line    
 
     let newBookings;
 
     console.log(userBookings)
     if (userBookings.length !== 0) {
         newBookings = (
-            <div>
-                <h3>Your bookings</h3>
+            <div className="currentBookings">
+                <h2>Your bookings</h2>
                 {userBookings.bookings.map((booking, i) => (                    
-                    <div key={i}>
-                        {console.log(booking)}
-                        <span>{booking.showId.movieId.title} - {booking.showId.date}</span>
-                        <p>{booking.showId.time}</p>
-                        {booking.tickets.map((ticket, i) => (
-                            <div key={i}>
-                                <span>Row {ticket.rowNumber} / Seat {ticket.seatNumber}</span>
-                            </div>
-                        ))}
-                        <button onClick={() => removeBooking(booking._id)}>Remove</button>
-                    </div>
+                    <BookingCard booking={booking} key={i}/> 
                 ))}
             </div>
         )
     } else {
         newBookings = (
-            <div>
-                <h3>Your bookings</h3>
+            <div className="noBookings">
+                <h2>Your bookings</h2>
                 <p>You don't have any upcoming bookings</p>
             </div>
         )
@@ -53,34 +49,26 @@ const MyBooking = () => {
         console.log(userBookingsOld)
         oldBookings = (
             <div>
-                <h3>Old bookings</h3>
+                <h2>Old bookings</h2>
                 {userBookingsOld.map((booking, i) => (
-                    <div key={i}>
-                        <span>{booking.showId.movieId.title} - {booking.showId.date}</span>
-                        <p>{booking.showId.time}</p>
-                        {booking.tickets.map((ticket, i) => (
-                            <div key={i}>
-                                <span>Row {ticket.rowNumber} / Seat {ticket.seatNumber}</span>
-                            </div>
-                        ))}
-                    </div>
+                    <BookingCard booking={booking} key={i} old={true}/> 
                 ))}
             </div>
         )
     } else {
         oldBookings = (
-            <div>
-                <h3>Old bookings</h3>
+            <div className="noBookings">
+                <h2>Old bookings</h2>
                 <p>You dont have any old bookings registered</p>
             </div>
         )
     }
 
     return (
-        <>
+        <div className="bookings">
         {newBookings}
         {oldBookings}
-        </>
+        </div>
     );
 }
 
