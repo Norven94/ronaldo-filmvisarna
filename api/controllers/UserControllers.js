@@ -109,6 +109,42 @@ const getUserBookings = async (req, res) => {
     }); 
 }
 
+const deleteBookingById = async (req, res) => {
+    User.findById(req.params.userId).exec(async (err, result) => {
+        if (err) {
+            res.status(400).json({ error: "Something went wrong" });
+            return;
+        }
+      
+        if (!result) {
+        res
+            .status(404)
+            .json({ error: `User with id ${req.params.userId} does not exist` });
+        return;
+        }
+
+        //Check if booking exists
+        let exists = await Booking.exists({ _id: req.params.bookingId });
+
+        if (exists) {
+            await Booking.deleteOne({ _id: req.params.bookingId }).exec();
+            user = result;
+            let index = user.bookings.indexOf(req.params.bookingId)
+            user.bookings.splice(index, 1)
+            await user.save();
+            res.json({
+            message: `Booking with id ${req.params.bookingId} has been deleted and the booking was removed from the user with id: ${req.params.userId}`,
+        });
+        return;
+        } else {
+        res
+            .status(404)
+            .json({ error: `Booking with id ${req.params.bookingId} does not exist.` });
+        return;
+        }        
+    })
+}
+
 module.exports = {
     whoami,
     login,
@@ -116,6 +152,7 @@ module.exports = {
     registerUser,
     editUser,
     addBooking,
-    getUserBookings
+    getUserBookings,
     getAllUsers,
+    deleteBookingById
 }
