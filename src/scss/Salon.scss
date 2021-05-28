@@ -1,5 +1,8 @@
 @import "./variables.scss";
 
+
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -8,9 +11,28 @@
     .row {
         display: flex;
         justify-content: center;
-        width: 1200px;
         margin: 20px 0;
 
+        svg {
+            height: 40px;
+            width: 40px;
+            .default {
+                .cls-1 {
+                fill: #f2f2f3
+                }
+            }
+            .taken {
+                .cls-1 {
+                fill: $black;
+                }
+            }
+            .selected {
+                .cls-1 {
+                fill: $yellow-light;
+                }
+            }
+        }
+        /*
         .seat {
             background-color: $gray-medium; 
             margin: 5px;
@@ -28,5 +50,6 @@
                 color: $black;
             }
         }
+        */
     }
 }

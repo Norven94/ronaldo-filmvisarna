@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { BookingContext } from "../context/BookingContext";
 import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
+import SeatIcon from "../components/Seat";
 
 export default function Salon(props) {
     const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets, getBookedSeats } = useContext(BookingContext);    
@@ -59,23 +60,23 @@ export default function Salon(props) {
                         {seating.map((seat) => {                                
                             if (booked.find(b => b.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <p className="seat taken">
-                                        {seat.row}/{seat.seatNumber}
-                                    </p>
+                                    <div className="taken">
+                                        <SeatIcon />
+                                    </div>
                                 );
                             }
                             else if (selected.find(s => s.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <p className="seat selected" onClick={() => deselectSeat(seat.seatNumber)}>
-                                        {seat.row}/{seat.seatNumber}
-                                    </p>
+                                    <div className="selected">
+                                        <SeatIcon onClick={() => deselectSeat(seat.seatNumber)}/>
+                                    </div>
                                 );
                             }
                             else {
                                 return (
-                                    <p className="seat" onClick={() => selectSeat(seat.row, seat.seatNumber)}>
-                                        {seat.row}/{seat.seatNumber}
-                                    </p>
+                                    <div className="default">
+                                        <SeatIcon onClick={() => selectSeat(seat.row, seat.seatNumber)}/>
+                                    </div>
                                 );
                             }
                         })}
