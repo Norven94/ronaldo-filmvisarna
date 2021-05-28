@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { ShowContext } from "../context/ShowContext";
@@ -6,6 +6,7 @@ import { BookingContext } from "../context/BookingContext";
 import { UserContext } from "../context/UserContext";
 
 import TicketsQuantity from "../components/TicketsQuantity";
+import TicketSum from "../components/TicketSum";
 import Login from "../components/Login";
 import Salon from "../components/Salon";
 
@@ -13,7 +14,7 @@ import "../scss/BookingPage.scss";
 
 const BookingPage = (props) => {
   const history = useHistory();
-  const { currentShows } = useContext(ShowContext);
+  const { currentShow, getShowById } = useContext(ShowContext);
   const {
     setPrice,
     totalSum,
@@ -24,21 +25,13 @@ const BookingPage = (props) => {
     setTotalTickets,
     addBookingToUser,
   } = useContext(BookingContext);
-  const { currentUser, showLogin, setShowLogin } = useContext(UserContext);
-
+  const { currentUser, setShowLogin } = useContext(UserContext);
   const { showId } = props.match.params;
 
-  const getPrice = () => {
-    currentShows.map((show) => {
-      if (show._id === showId) {
-        setPrice(show.movieId.price);
-      }
-      return;
-    });
-  };
-
   useEffect(() => {
+    getShowById(showId);
     getPrice();
+    handleReset();
   }, []);
 
   const addNewBooking = () => {
@@ -54,7 +47,7 @@ const BookingPage = (props) => {
           Array(e.quantity).fill(e.ticketType)
         );
 
-        console.log(selected)
+        console.log(selected);
 
         //For each ticket type, create an object and push into info
         tickets.forEach((ticket, i) => {
@@ -67,16 +60,8 @@ const BookingPage = (props) => {
         });
 
         console.log(info);
-        /* handleReset(); */
         addBookingToUser(info);
-        setSelected([]);
-        setTotalTickets([
-          { ticketType: "Ordinary", quantity: 0 },
-          { ticketType: "Senior", quantity: 0 },
-          { ticketType: "Children", quantity: 0 },
-        ]);
-        setTotalSum(0)
-        history.push("/confirmation")
+        history.push("/confirmation");
 
         return;
       } else {
@@ -84,18 +69,32 @@ const BookingPage = (props) => {
         return <Login></Login>;
       }
     } else {
-      alert("You must add at least one ticket and choose one seat")
+      alert("You must add at least one ticket and choose one seat");
     }
   };
 
-  /*   const handleReset = () => {
-      setTotalSum(0);
-  
-    } 
-   */
+  const getPrice = () => {
+    currentShow.map((show) => {
+      if (show._id === showId) {
+        setPrice(show.movieId.price);
+      }
+      return;
+    });
+  };
+
+  const handleReset = () => {
+    setTotalTickets([
+      { ticketType: "Ordinary", quantity: 0 },
+      { ticketType: "Senior", quantity: 0 },
+      { ticketType: "Children", quantity: 0 },
+    ]);
+    setTotalSum(0);
+    setSelected([]);
+  };
+
   return (
     <div className="wrapper">
-      {currentShows.map((show) => {
+      {currentShow.map((show) => {
         if (show._id == showId) {
           return (
             <section className="booking" key={show._id}>
@@ -104,13 +103,15 @@ const BookingPage = (props) => {
                 <p>
                   {show.date}, {show.time}
                 </p>
-                <img src={show.movieId.coverImage} alt={show.movieId.title} />
+                <div>
+                  <img src={show.movieId.coverImage} alt={show.movieId.title} />
+                </div>
+                <p>{show.salonId.name}</p>
               </div>
               <div className="ticket">
-                <TicketsQuantity totalSum={totalSum}></TicketsQuantity>
-                <button onClick={() => addNewBooking()}>
-                  RESERVE TICKETS
-                </button>
+                <TicketsQuantity></TicketsQuantity>
+                <TicketSum totalSum={totalSum}></TicketSum>
+                <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
               </div>
               <div className="salon">
                 <Salon showId={showId} />

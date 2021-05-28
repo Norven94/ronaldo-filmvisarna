@@ -6,12 +6,12 @@ import SeatIcon from "../components/Seat";
 
 export default function Salon(props) {
     const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets, getBookedSeats } = useContext(BookingContext);    
-    const { currentShows } = useContext(ShowContext);
+    const { currentShow } = useContext(ShowContext);
     const [amountOfTickets, setAmountOfTickets] = useState(0)
 
     useEffect(() => {
         let salon;
-        currentShows.map((show) => {
+        currentShow.map((show) => {
             if (show._id === props.showId) {
                 console.log(show)
                 salon = show.salonId._id

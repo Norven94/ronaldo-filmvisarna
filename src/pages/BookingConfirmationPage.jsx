@@ -8,8 +8,8 @@ import ConfirmationTicket from "../components/ConfirmationTicket";
 const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
     const { confirmationDetails } = useContext(BookingContext);
-    console.log(confirmationDetails)
-    
+    console.log("confirmation details: ", confirmationDetails)
+
     const history = useHistory();
 
     //Reroute guard checks if you're logged in but only after whoami check.
@@ -23,7 +23,9 @@ const BookingConfirmationPage = () => {
             <h1>Booking confirmation</h1>
             <h2>Payment is still required at the Filmvisarna theatre.</h2>
             <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
-            <ConfirmationTicket />
+            {confirmationDetails && confirmationDetails.tickets.map((ticket, index) => (
+                <ConfirmationTicket details={ticket} key={index}/>
+            ))}
         </div>
     );
 }
