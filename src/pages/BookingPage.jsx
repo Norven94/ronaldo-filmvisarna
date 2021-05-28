@@ -16,14 +16,12 @@ const BookingPage = (props) => {
     BookingContext
   );
   const { currentUser, showLogin, setShowLogin } = useContext(UserContext);
-  const [currentShow, setCurrentShow] = useState();
 
   const { showId } = props.match.params;
 
-  const getCurrentShow = () => {
+  const getPrice = () => {
     currentShows.map((show) => {
       if (show._id === showId) {
-        setCurrentShow(show);
         setPrice(show.movieId.price);
       }
       return;
@@ -31,24 +29,35 @@ const BookingPage = (props) => {
   };
 
   useEffect(() => {
-    getCurrentShow();
+    getPrice();
   }, []);
 
   const addNewBooking = () => {
     if (currentUser) {
       let info = {
         showId: showId,
-        tickets: [
-          {
-            ticketType: "Children",
-            rowNumber: 3,
-            seatNumber: 3,
-          },
-        ],
+        tickets: [],
       };
-      addBookingToUser(info);
+
+      //Duplicate totalTickets Object by given quantity in order to send to the database
+      let tickets = totalTickets.flatMap((e) =>
+        Array(e.quantity).fill({ name: e.name })
+      );
+
+      //For each ticket type, create an object and push into info
+      tickets.forEach((ticket) => {
+        let Obj = {
+          ticketType: ticket,
+          rowNumber: 11, // This need to change
+          seatNumber: 11, // This need to change
+        };
+        info.tickets.push(Obj);
+      });
+
       console.log(info);
+      addBookingToUser(info);
       return;
+
     } else {
       setShowLogin(true);
       return <Login></Login>;
