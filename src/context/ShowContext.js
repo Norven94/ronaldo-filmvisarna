@@ -4,6 +4,7 @@ export const ShowContext = createContext();
 
 const ShowProvider = (props) => {
   const [currentShows, setCurrentShows] = useState([]);
+  const [currentShow, setCurrentShow] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getAllShowsByMovieId = async (movieId) => {
@@ -13,10 +14,18 @@ const ShowProvider = (props) => {
     setLoading(false);
   };
 
+  const getShowById = async (showId) => {
+    let show = await fetch(`/api/v1/shows/show/${showId}`);
+    show = await show.json();
+    setCurrentShow(show);
+  };
+
   const values = {
     getAllShowsByMovieId,
     currentShows,
     loading,
+    getShowById,
+    currentShow,
   };
 
   return (
