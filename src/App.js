@@ -14,6 +14,7 @@ import MyBooking from "./pages/MyBooking";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import BookingConfirmationPage from "./pages/BookingConfirmationPage";
 import Salon from "./components/Salon";
+import BookingPage from "./pages/BookingPage";
 
 import "./App.scss";
 
@@ -38,6 +39,12 @@ function App() {
                   <Route exact path="/confirmation" component={BookingConfirmationPage} />
                   {/*Temporary route, remove later */}
                   <Route exact path="/salon" component={Salon} />
+
+                  <Route
+                    exact
+                    path="/booking/:showId"
+                    component={BookingPage}
+                  />
                 </main>
               </BrowserRouter>
             </BookingProvider>

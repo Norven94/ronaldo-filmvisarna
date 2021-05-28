@@ -73,13 +73,13 @@ const addBooking = async (req, res) => {
     let newBooking = await Booking.create(req.body);
     console.log(newBooking)
     let user;
-    User.findById(req.params.userId).exec((err, result) => {
+    User.findById(req.session.user._id).exec((err, result) => {
         if (err) {
             res.status(400).json({ error: "Something went wrong" });
             return;
         }
         if (!result) {
-            res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
+            res.status(404).json({ error: `User with id ${req.session.user._id} does not exist` })
             return;
         }
         user = result;  
