@@ -94,33 +94,29 @@ const BookingPage = (props) => {
 
   return (
     <div className="wrapper">
-      {currentShow.map((show) => {
-        if (show._id == showId) {
-          return (
-            <section className="booking" key={show._id}>
-              <div className="movie">
-                <h1> {show.movieId.title}</h1>
-                <p>
-                  {show.date}, {show.time}
-                </p>
-                <div>
-                  <img src={show.movieId.coverImage} alt={show.movieId.title} />
-                </div>
-                <p>{show.salonId.name}</p>
+      {currentShow && currentShow.map((show) => {
+        return (
+          <section className="booking" key={show._id}>
+            <div className="movie">
+              <h1> {show.movieId.title}</h1>
+              <p>
+                {show.date}, {show.time}
+              </p>
+              <div>
+                <img src={show.movieId.coverImage} alt={show.movieId.title} />
               </div>
-              <div className="ticket">
-                <TicketsQuantity></TicketsQuantity>
-                <TicketSum totalSum={totalSum}></TicketSum>
-                <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
-              </div>
-              <div className="salon">
-                <Salon showId={showId} />
-              </div>
-            </section>
-          );
-        } else {
-          return null;
-        }
+              <p>{show.salonId.name}</p>
+            </div>
+            <div className="ticket">
+              <TicketsQuantity></TicketsQuantity>
+              <TicketSum totalSum={totalSum}></TicketSum>
+              <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
+            </div>
+            <div className="salon">
+              <Salon showId={showId} />
+            </div>
+          </section>
+        );
       })}
     </div>
   );
