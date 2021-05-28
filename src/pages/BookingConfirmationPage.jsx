@@ -1,11 +1,15 @@
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 import { UserContext } from "../context/UserContext";
+import { BookingContext } from "../context/BookingContext";
 import "../scss/BookingConfirmationPage.scss";
 import ConfirmationTicket from "../components/ConfirmationTicket";
 
 const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
+    const { confirmationDetails } = useContext(BookingContext);
+    console.log(confirmationDetails)
+    
     const history = useHistory();
 
     //Reroute guard checks if you're logged in but only after whoami check.

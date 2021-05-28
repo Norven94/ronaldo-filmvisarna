@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-/* import { useHistory } from "react-router-dom"; */
+import { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import { ShowContext } from "../context/ShowContext";
 import { BookingContext } from "../context/BookingContext";
@@ -7,14 +7,18 @@ import { UserContext } from "../context/UserContext";
 
 import TicketsQuantity from "../components/TicketsQuantity";
 import Login from "../components/Login";
+import Salon from "../components/Salon";
 
 import "../scss/BookingPage.scss";
 
 const BookingPage = (props) => {
+  const history = useHistory();
   const { currentShows } = useContext(ShowContext);
   const {
     setPrice,
     totalSum,
+    selected,
+    setSelected,
     setTotalSum,
     totalTickets,
     setTotalTickets,
@@ -38,43 +42,57 @@ const BookingPage = (props) => {
   }, []);
 
   const addNewBooking = () => {
-    if (currentUser) {
-      let info = {
-        showId: showId,
-        tickets: [],
-      };
-
-      //Compress the array of objects to an single list, then replace quantity with ticketType name
-      let tickets = totalTickets.flatMap((e) =>
-        Array(e.quantity).fill(e.ticketType)
-      );
-
-      //For each ticket type, create an object and push into info
-      tickets.forEach((ticket) => {
-        let details = {
-          ticketType: ticket,
-          rowNumber: 4444, // This need to change
-          seatNumber: 4444, // This need to change
+    if (selected.length !== 0) {
+      if (currentUser) {
+        let info = {
+          showId: showId,
+          tickets: [],
         };
-        info.tickets.push(details);
-      });
 
-      console.log(info);
-      /* handleReset(); */
-      addBookingToUser(info);
+        //Compress the array of objects to an single list, then replace quantity with ticketType name
+        let tickets = totalTickets.flatMap((e) =>
+          Array(e.quantity).fill(e.ticketType)
+        );
 
-      return;
+        console.log(selected)
+
+        //For each ticket type, create an object and push into info
+        tickets.forEach((ticket, i) => {
+          let details = {
+            ticketType: ticket,
+            rowNumber: selected[i].row,
+            seatNumber: selected[i].seatNumber,
+          };
+          info.tickets.push(details);
+        });
+
+        console.log(info);
+        /* handleReset(); */
+        addBookingToUser(info);
+        setSelected([]);
+        setTotalTickets([
+          { ticketType: "Ordinary", quantity: 0 },
+          { ticketType: "Senior", quantity: 0 },
+          { ticketType: "Children", quantity: 0 },
+        ]);
+        setTotalSum(0)
+        history.push("/confirmation")
+
+        return;
+      } else {
+        setShowLogin(true);
+        return <Login></Login>;
+      }
     } else {
-      setShowLogin(true);
-      return <Login></Login>;
+      alert("You must add at least one ticket and choose one seat")
     }
   };
 
-/*   const handleReset = () => {
-    setTotalSum(0);
-
-  } 
- */
+  /*   const handleReset = () => {
+      setTotalSum(0);
+  
+    } 
+   */
   return (
     <div className="wrapper">
       {currentShows.map((show) => {
@@ -94,7 +112,9 @@ const BookingPage = (props) => {
                   RESERVE TICKETS
                 </button>
               </div>
-              <div className="salon"> Salon Goes here</div>
+              <div className="salon">
+                <Salon showId={showId} />
+              </div>
             </section>
           );
         } else {
