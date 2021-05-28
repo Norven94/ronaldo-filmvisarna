@@ -39,6 +39,14 @@ const BookingPage = (props) => {
 
   useEffect(() => {
     getPrice();
+
+    setTotalTickets([
+      { ticketType: "Ordinary", quantity: 0 },
+      { ticketType: "Senior", quantity: 0 },
+      { ticketType: "Children", quantity: 0 },
+    ]);
+    setTotalSum(0);
+    setSelected([]);
   }, []);
 
   const addNewBooking = () => {
@@ -54,7 +62,7 @@ const BookingPage = (props) => {
           Array(e.quantity).fill(e.ticketType)
         );
 
-        console.log(selected)
+        console.log(selected);
 
         //For each ticket type, create an object and push into info
         tickets.forEach((ticket, i) => {
@@ -69,14 +77,7 @@ const BookingPage = (props) => {
         console.log(info);
         /* handleReset(); */
         addBookingToUser(info);
-        setSelected([]);
-        setTotalTickets([
-          { ticketType: "Ordinary", quantity: 0 },
-          { ticketType: "Senior", quantity: 0 },
-          { ticketType: "Children", quantity: 0 },
-        ]);
-        setTotalSum(0)
-        history.push("/confirmation")
+        history.push("/confirmation");
 
         return;
       } else {
@@ -84,7 +85,7 @@ const BookingPage = (props) => {
         return <Login></Login>;
       }
     } else {
-      alert("You must add at least one ticket and choose one seat")
+      alert("You must add at least one ticket and choose one seat");
     }
   };
 
@@ -108,9 +109,7 @@ const BookingPage = (props) => {
               </div>
               <div className="ticket">
                 <TicketsQuantity totalSum={totalSum}></TicketsQuantity>
-                <button onClick={() => addNewBooking()}>
-                  RESERVE TICKETS
-                </button>
+                <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
               </div>
               <div className="salon">
                 <Salon showId={showId} />
