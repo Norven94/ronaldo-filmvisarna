@@ -99,6 +99,16 @@ const BookingProvider = (props) => {
     setSeatingMap(seatingMap);
   };
 
+  const addBookingToUser = async (newBookingInfo) => {
+    await fetch(`/api/v1/users/add`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newBookingInfo),
+    });
+  };
+
   const values = {
     bookingsId,
     deleteBooking,
@@ -118,6 +128,7 @@ const BookingProvider = (props) => {
     setTotalTickets,
     price,
     setPrice,
+    addBookingToUser,
   };
 
   return (

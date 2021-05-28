@@ -29,6 +29,7 @@ const MovieDetailPage = (props) => {
     window.scrollTo(0, 0);
   };
 
+
   const renderMovieInfo = () => {
     return movies.map((movie) => {
       if (movie._id === movieId) {
