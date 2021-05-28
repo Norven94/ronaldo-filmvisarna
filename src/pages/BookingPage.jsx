@@ -41,23 +41,22 @@ const BookingPage = (props) => {
 
       //Duplicate totalTickets Object by given quantity in order to send to the database
       let tickets = totalTickets.flatMap((e) =>
-        Array(e.quantity).fill({ name: e.name })
+        Array(e.quantity).fill(e.ticketType)
       );
 
       //For each ticket type, create an object and push into info
       tickets.forEach((ticket) => {
-        let Obj = {
+        let details = {
           ticketType: ticket,
-          rowNumber: 11, // This need to change
-          seatNumber: 11, // This need to change
+          rowNumber: 1234, // This need to change
+          seatNumber: 1234, // This need to change
         };
-        info.tickets.push(Obj);
+        info.tickets.push(details);
       });
 
       console.log(info);
       addBookingToUser(info);
       return;
-
     } else {
       setShowLogin(true);
       return <Login></Login>;

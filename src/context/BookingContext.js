@@ -17,10 +17,10 @@ const BookingProvider = (props) => {
   const [totalSum, setTotalSum] = useState(0);
   const [price, setPrice] = useState();
   const [totalTickets, setTotalTickets] = useState([
-    { name: "Ordinary", quantity: 0 },
+    { ticketType: "Ordinary", quantity: 0 },
 
-    { name: "Senior", quantity: 0 },
-    { name: "Children", quantity: 0 },
+    { ticketType: "Senior", quantity: 0 },
+    { ticketType: "Children", quantity: 0 },
   ]);
 
   const getMyBookings = async (userId) => {

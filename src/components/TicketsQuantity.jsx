@@ -33,10 +33,10 @@ const TicketsQuantity = (props) => {
 
   const calculateTotal = () => {
     const totalPrice = totalTickets.reduce((total, ticket) => {
-      if (ticket.name === "Senior") {
+      if (ticket.ticketType === "Senior") {
         return total + ticket.quantity * price * 0.8;
       }
-      if (ticket.name === "Children") {
+      if (ticket.ticketType === "Children") {
         return total + ticket.quantity * price * 0.7;
       } else {
         return total + ticket.quantity * price;
@@ -47,10 +47,10 @@ const TicketsQuantity = (props) => {
   };
 
   const calculateTicketType = (type) => {
-    if (type.name === "Senior") {
+    if (type.ticketType === "Senior") {
       return type.quantity * price * 0.8;
     }
-    if (type.name === "Children") {
+    if (type.ticketType === "Children") {
       return Math.round(type.quantity * price * 0.7);
     } else {
       return type.quantity * price;
@@ -62,7 +62,7 @@ const TicketsQuantity = (props) => {
       <div className="ticketsCounterWrapper">
         {totalTickets.map((type, index) => (
           <div key={index} className="flex counter">
-            <p>{type.name}</p>
+            <p>{type.ticketType}</p>
             <div className="flex">
               <span onClick={() => handleDecrease(index)}>-</span>
               <span>{type.quantity}</span>
@@ -83,7 +83,7 @@ const TicketsQuantity = (props) => {
               <div className="flex ticketsOverview">
                 <div className="quantity">
                   <p>{type.quantity}</p>
-                  <p>{type.name}</p>
+                  <p>{type.ticketType}</p>
                 </div>
                 <div>
                   <p>{calculateTicketType(type)},-</p>
