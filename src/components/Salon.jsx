@@ -4,7 +4,7 @@ import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
 
 export default function Salon(props) {
-    const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets } = useContext(BookingContext);    
+    const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets, getBookedSeats } = useContext(BookingContext);    
     const { currentShows } = useContext(ShowContext);
     const [amountOfTickets, setAmountOfTickets] = useState(0)
 
@@ -18,6 +18,7 @@ export default function Salon(props) {
             return;
         });
         makeSeatingMap(salon);
+        getBookedSeats(props.showId)
     }, []);   
     
     useEffect(() => {
