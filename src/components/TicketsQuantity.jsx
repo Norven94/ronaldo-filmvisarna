@@ -11,6 +11,7 @@ const TicketsQuantity = (props) => {
     setTotalTickets,
     totalSum,
     setTotalSum,
+    selected
   } = useContext(BookingContext);
 
   const handleIncrease = (index) => {
@@ -25,6 +26,7 @@ const TicketsQuantity = (props) => {
     const addTickets = [...totalTickets];
     if (addTickets[index].quantity > 0) {
       addTickets[index].quantity--;
+      selected.pop();
     }
 
     setTotalTickets(addTickets);
