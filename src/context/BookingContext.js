@@ -135,7 +135,8 @@ const BookingProvider = (props) => {
     setPrice,
     addBookingToUser,
     confirmationDetails,
-    getBookedSeats
+    getBookedSeats,
+    formatDate
   };
 
   return (
