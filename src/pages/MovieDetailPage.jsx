@@ -26,6 +26,7 @@ const MovieDetailPage = (props) => {
 
   const handleClickToShowId = (showId) => {
     history.push(`/booking/${showId}`);
+    window.scrollTo(0, 0);
   };
 
   const renderMovieInfo = () => {
