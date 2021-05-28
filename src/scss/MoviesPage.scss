@@ -9,11 +9,11 @@
 .movieCards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     gap: 15px;
 }
 
-@media only screen and (min-width: 618px) {
+@media only screen and (min-width: 1060px){
     .movieCards{
         justify-content: space-between;
     }
