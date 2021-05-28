@@ -37,8 +37,6 @@ function App() {
                   <Route exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
                   <Route exact path="/confirmation" component={BookingConfirmationPage} />
-                  {/*Temporary route, remove later */}
-                  <Route exact path="/salon" component={Salon} />
 
                   <Route
                     exact

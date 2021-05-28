@@ -10,10 +10,7 @@ const BookingProvider = (props) => {
   const [userBookings, setUserBookings] = useState([]);
   const [userBookingsNew, setUserBookingsNew] = useState([]);
   const [userBookingsOld, setUserBookingsOld] = useState([]);
-  const [booked, setBooked] = useState([
-    { row: 2, seatNumber: 9 },
-    { row: 4, seatNumber: 24 },
-  ]);
+  const [booked, setBooked] = useState([]);
   const [selected, setSelected] = useState([]);
   const [bookingsId, setBookingsId] = useState([]);
   const { currentUser } = useContext(UserContext);
@@ -24,6 +21,7 @@ const BookingProvider = (props) => {
     { ticketType: "Senior", quantity: 0 },
     { ticketType: "Children", quantity: 0 },
   ]);
+  const [confirmationDetails, setConfirmationDetails] = useState([]);
 
   let today = new Date();
 
@@ -107,7 +105,14 @@ const BookingProvider = (props) => {
       },
       body: JSON.stringify(newBookingInfo),
     });
+    setConfirmationDetails(newBookingInfo);
   };
+
+  const getBookedSeats = async (showId) => {
+    let booked = await fetch(`/api/v1/salons/booked/${showId}`);
+    booked = await booked.json();
+    setBooked(booked);
+  }
 
   const values = {
     bookingsId,
@@ -129,6 +134,9 @@ const BookingProvider = (props) => {
     price,
     setPrice,
     addBookingToUser,
+    confirmationDetails,
+    getBookedSeats,
+    formatDate
   };
 
   return (
