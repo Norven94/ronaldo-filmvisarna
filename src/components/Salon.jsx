@@ -4,8 +4,9 @@ import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
 
 export default function Salon(props) {
-    const { seatingMap, makeSeatingMap, selected, setSelected, booked } = useContext(BookingContext);    
+    const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets } = useContext(BookingContext);    
     const { currentShows } = useContext(ShowContext);
+    const [amountOfTickets, setAmountOfTickets] = useState(0)
 
     useEffect(() => {
         let salon;
@@ -17,17 +18,30 @@ export default function Salon(props) {
             return;
         });
         makeSeatingMap(salon);
-    }, []);    
+    }, []);   
+    
+    useEffect(() => {
+        let total = 0;
+        for (let i = 0; i < totalTickets.length; i++) {
+            total += totalTickets[i].quantity
+        }   
+        setAmountOfTickets(total)
+    }, [totalTickets]);
 
     // Functions to select and deselect multiple seats 
     const selectSeat = (row, seatNumber) => {
-        let selectedSeats = {
-            row,
-            seatNumber,
-        };
-
-        setSelected([...selected, selectedSeats]);
-        console.log(selected)
+        if (selected.length < amountOfTickets) {
+            let selectedSeats = {
+                row,
+                seatNumber,
+            };
+    
+            setSelected([...selected, selectedSeats]);
+            console.log(selected)
+        }
+        else {
+            alert("you need to add more seats to select more seats");
+        }     
     };
 
     const deselectSeat = (seatNumber) => {
