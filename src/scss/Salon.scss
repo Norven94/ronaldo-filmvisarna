@@ -11,27 +11,33 @@
     .row {
         display: flex;
         justify-content: center;
-        margin: 20px 0;
+        margin: 10px 0;
+
+        .seat {
+            cursor: pointer;
+            margin: 0 10px;
+        }
 
         svg {
             height: 40px;
             width: 40px;
-            .default {
-                .cls-1 {
-                fill: #f2f2f3
-                }
-            }
-            .taken {
-                .cls-1 {
-                fill: $black;
-                }
-            }
-            .selected {
-                .cls-1 {
-                fill: $yellow-light;
-                }
+        }
+        .default {
+            .cls-1 {
+            fill: $gray-medium;                
             }
         }
+        .taken {
+            .cls-1 {
+            fill: $black;
+            }
+        }
+        .selected {
+            .cls-1 {
+            fill: $yellow-light;
+            }
+        }
+        
         /*
         .seat {
             background-color: $gray-medium; 

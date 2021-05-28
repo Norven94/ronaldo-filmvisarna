@@ -32,6 +32,7 @@ export default function Salon(props) {
 
     // Functions to select and deselect multiple seats 
     const selectSeat = (row, seatNumber) => {
+        console.log("clicked")
         if (selected.length < amountOfTickets) {
             let selectedSeats = {
                 row,
@@ -60,22 +61,22 @@ export default function Salon(props) {
                         {seating.map((seat) => {                                
                             if (booked.find(b => b.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <div className="taken">
+                                    <div className="seat taken">
                                         <SeatIcon />
                                     </div>
                                 );
                             }
                             else if (selected.find(s => s.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <div className="selected">
-                                        <SeatIcon onClick={() => deselectSeat(seat.seatNumber)}/>
+                                    <div className="seat selected" onClick={() => deselectSeat(seat.seatNumber)}>
+                                        <SeatIcon />
                                     </div>
                                 );
                             }
                             else {
                                 return (
-                                    <div className="default">
-                                        <SeatIcon onClick={() => selectSeat(seat.row, seat.seatNumber)}/>
+                                    <div className="seat default" onClick={() => selectSeat(seat.row, seat.seatNumber)}>
+                                        <SeatIcon />
                                     </div>
                                 );
                             }
