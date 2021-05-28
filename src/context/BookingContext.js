@@ -21,7 +21,7 @@ const BookingProvider = (props) => {
     { ticketType: "Senior", quantity: 0 },
     { ticketType: "Children", quantity: 0 },
   ]);
-  const [confirmationDetails, setConfirmationDetails] = useState([]);
+  const [confirmationDetails, setConfirmationDetails] = useState(null);
 
   let today = new Date();
 
