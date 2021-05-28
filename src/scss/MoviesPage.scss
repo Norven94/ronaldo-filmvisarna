@@ -13,6 +13,11 @@
     gap: 15px;
 }
 
+.movieCards::after{
+    content: "";
+    width: 255px;
+}
+
 @media only screen and (min-width: 1060px){
     .movieCards{
         justify-content: space-between;
