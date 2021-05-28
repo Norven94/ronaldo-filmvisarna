@@ -21,7 +21,7 @@ const Links = (props) => {
       <NavLink
         key={i}
         activeClassName={props.activeClassName}
-        to={item.to}
+        exact to={item.to}
       >
         {item.name}
       </NavLink>
