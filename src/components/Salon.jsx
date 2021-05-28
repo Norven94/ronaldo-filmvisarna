@@ -1,25 +1,47 @@
 import { useState, useEffect, useContext } from "react"
 import { BookingContext } from "../context/BookingContext";
+import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
 
 export default function Salon(props) {
-    const { seatingMap, makeSeatingMap, selected, setSelected, booked } = useContext(BookingContext);    
+    const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets } = useContext(BookingContext);    
+    const { currentShows } = useContext(ShowContext);
+    const [amountOfTickets, setAmountOfTickets] = useState(0)
 
     useEffect(() => {
-        //Temporary, this should be props.salonId later on that should be send down from booking page
-        let salonId = "60a65887fbb2a56a9a327a82";
-        makeSeatingMap(salonId);
-    }, []);    
+        let salon;
+        currentShows.map((show) => {
+            if (show._id === props.showId) {
+                console.log(show)
+                salon = show.salonId._id
+            }
+            return;
+        });
+        makeSeatingMap(salon);
+    }, []);   
+    
+    useEffect(() => {
+        let total = 0;
+        for (let i = 0; i < totalTickets.length; i++) {
+            total += totalTickets[i].quantity
+        }   
+        setAmountOfTickets(total)
+    }, [totalTickets]);
 
     // Functions to select and deselect multiple seats 
     const selectSeat = (row, seatNumber) => {
-        let selectedSeats = {
-            row,
-            seatNumber,
-        };
-
-        setSelected([...selected, selectedSeats]);
-        console.log(selected)
+        if (selected.length < amountOfTickets) {
+            let selectedSeats = {
+                row,
+                seatNumber,
+            };
+    
+            setSelected([...selected, selectedSeats]);
+            console.log(selected)
+        }
+        else {
+            alert("you need to add more seats to select more seats");
+        }     
     };
 
     const deselectSeat = (seatNumber) => {

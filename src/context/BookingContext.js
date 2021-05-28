@@ -24,6 +24,7 @@ const BookingProvider = (props) => {
     { ticketType: "Senior", quantity: 0 },
     { ticketType: "Children", quantity: 0 },
   ]);
+  const [confirmationDetails, setConfirmationDetails] = useState([]);
 
   let today = new Date();
 
@@ -107,6 +108,7 @@ const BookingProvider = (props) => {
       },
       body: JSON.stringify(newBookingInfo),
     });
+    setConfirmationDetails(newBookingInfo);
   };
 
   const values = {
@@ -129,6 +131,7 @@ const BookingProvider = (props) => {
     price,
     setPrice,
     addBookingToUser,
+    confirmationDetails
   };
 
   return (
