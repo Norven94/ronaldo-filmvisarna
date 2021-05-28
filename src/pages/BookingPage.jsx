@@ -7,12 +7,13 @@ import { UserContext } from "../context/UserContext";
 
 import TicketsQuantity from "../components/TicketsQuantity";
 import Login from "../components/Login";
+import Salon from "../components/Salon";
 
 import "../scss/BookingPage.scss";
 
 const BookingPage = (props) => {
   const { currentShows } = useContext(ShowContext);
-  const { setPrice, totalSum, totalTickets, addBookingToUser } = useContext(
+  const { setPrice, totalSum, totalTickets, addBookingToUser, selected } = useContext(
     BookingContext
   );
   const { currentUser, showLogin, setShowLogin } = useContext(UserContext);
@@ -45,12 +46,14 @@ const BookingPage = (props) => {
         Array(e.quantity).fill(e.ticketType)
       );
 
+      console.log(selected)
+
       //For each ticket type, create an object and push into info
-      tickets.forEach((ticket) => {
+      tickets.forEach((ticket, i) => {
         let details = {
           ticketType: ticket,
-          rowNumber: 1234, // This need to change
-          seatNumber: 1234, // This need to change
+          rowNumber: selected[i].row, // This need to change
+          seatNumber: selected[i].seatNumber, // This need to change
         };
         info.tickets.push(details);
       });
@@ -83,7 +86,9 @@ const BookingPage = (props) => {
                   RESERVE TICKETS
                 </button>
               </div>
-              <div className="salon"> Salon Goes here</div>
+              <div className="salon">
+                <Salon showId={showId} />
+              </div>
             </section>
           );
         } else {

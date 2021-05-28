@@ -1,14 +1,22 @@
 import { useState, useEffect, useContext } from "react"
 import { BookingContext } from "../context/BookingContext";
+import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
 
 export default function Salon(props) {
     const { seatingMap, makeSeatingMap, selected, setSelected, booked } = useContext(BookingContext);    
+    const { currentShows } = useContext(ShowContext);
 
     useEffect(() => {
-        //Temporary, this should be props.salonId later on that should be send down from booking page
-        let salonId = "60a65887fbb2a56a9a327a82";
-        makeSeatingMap(salonId);
+        let salon;
+        currentShows.map((show) => {
+            if (show._id === props.showId) {
+                console.log(show)
+                salon = show.salonId._id
+            }
+            return;
+        });
+        makeSeatingMap(salon);
     }, []);    
 
     // Functions to select and deselect multiple seats 
