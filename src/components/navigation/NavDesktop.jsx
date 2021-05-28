@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
-import { NavLink } from "react-router-dom";
 
 import Login from "../Login";
 import Links from "./NavLinks/Links";
@@ -14,58 +14,67 @@ import { faSmile } from "@fortawesome/free-solid-svg-icons";
 const smiley = <FontAwesomeIcon icon={faSmile} />;
 
 const NavDesktop = () => {
-  const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(
-    UserContext
-  );
+  const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(UserContext);
+  const [open, setOpen] = useState(false);
 
-  const [visible, setVisible] = useState(false);
+  const ref = useRef();
 
-  let visibility = "hide";
-
-  if (visible) {
-    visibility = "show";
-  }
-
-  // Functions
   const loginButtonHandler = () => {
     setShowLogin(true);
+    setOpen(false);
   };
 
   const logoutButtonHandler = () => {
     logoutUser();
   };
 
-  const toggleMenu = () => {
-    setVisible(!visible);
+  const handleClickOutside = (e) => {
+    if (ref?.current && !ref.current.contains(e.target)) {
+      setOpen(false);
+    }
   };
+
+  useEffect(() => {
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // Unbind the event listener
+    };
+  }, [ref]);
 
   return (
     <div>
-      <nav className="navWrapper">
+      <nav className="wrapper">
         <div className="logo">
-          <NavLink to="/home">FILMVISARNA</NavLink>
+          <Link to="/">FILMVISARNA</Link>
         </div>
+
         <Links activeClassName={"active"} className={"navItems"}></Links>
-        {currentUser ? (
-          <div className="dropdown">
-            <h3 onMouseUp={toggleMenu}>
+
+        {currentUser ? ( //If user is logged in this dropdown will show
+          <div ref={ref} className="dropdown">
+            <h3 onClick={() => setOpen(!open)}>
               {currentUser.name} {smiley}
             </h3>
-            <UserLinks
-              onMouseUp={toggleMenu}
-              onClick={logoutButtonHandler}
-              className={`${visibility} dropdownContent`}
-              btnName={"LOGOUT"}
-              btnClassName={"logout"}
-            ></UserLinks>
+
+            {open ? ( //Toggle Dropdown
+              <UserLinks
+                onClick={logoutButtonHandler}
+                className={"dropdownContent"}
+                btnName={"LOGOUT"}
+                btnClassName={"logout"}
+                linkHandler={() => setOpen(false)}
+              ></UserLinks>
+            ) : null}
           </div>
         ) : (
+          //If user is logged out this button will show
           <button className={"login"} onClick={loginButtonHandler}>
             LOGIN
           </button>
         )}
       </nav>
-      <Login />
+      {showLogin && <Login />}
     </div>
   );
 };

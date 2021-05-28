@@ -1,18 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import { useHistory } from "react-router";
 import { ReactComponent as Eyecon } from "../assets/eyecon.svg"
 import { ReactComponent as Eyeclosed } from "../assets/eyeclosed.svg"
 import "../scss/ProfilePage.scss";
 
 const ProfilePage = () => {
-    const { currentUser, setCurrentUser, logoutUser } = useContext(UserContext);
+    const { currentUser, setCurrentUser, logoutUser, eyeconStateHandler } = useContext(UserContext);
+    const history = useHistory();
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
-
-    useEffect(() => {
-        console.log("current user: ", currentUser);
-    }, [currentUser]);
 
     const editUser = (editInfo) => {
         fetch("/api/v1/users/update", {
@@ -42,23 +40,23 @@ const ProfilePage = () => {
         }
     }
 
-
     const removeErrors = () => {
         setEmailTaken(false);
         document.getElementById("editEmail").classList.remove("errorBorder");
     }
 
     const renderSuccess = () => {
-        setEditSuccess(true)
+        setEditSuccess(true);
         setTimeout(() => {
             setEditSuccess(false)
         }, 3000)
     }
 
-    const eyeconStateHandler = (type, state) => {
-        setEyeconState(state)
-        document.getElementById("editPassword").type = type
-    }
+    //Reroute guard checks if you're logged in but only after whoami check.
+    useEffect(() => {
+        if (currentUser === null) history.push("/")
+        // eslint-disable-next-line
+    }, [currentUser])
 
     return (
         <div className="profilePage">
@@ -70,7 +68,7 @@ const ProfilePage = () => {
                 </div>
                 <button className="logout" onClick={logoutUser}>Logout</button>
             </div>
-            <hr />
+            <div className="hr"></div>
             <div className="profileEdit">
                 <h2 className="title">Edit information</h2>
                 <form action="submit" onSubmit={editSubmitHandler}>
@@ -82,8 +80,8 @@ const ProfilePage = () => {
                     <label htmlFor="editPassword">Password:</label>
                     <div className="eyeconDiv">
                         <input type="password" id="editPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required />
-                        {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false)} />
-                            : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true)} />}
+                        {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false, setEyeconState, "editPassword")} />
+                            : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true, setEyeconState, "editPassword")} />}
                     </div>
                     <p>8-24 letters. At least one lower case, one upper case letter, one number, one special character.</p>
                     {editSuccess ? <p className="editSuccess">Your information updated successfully!</p> : <button>Save</button>}

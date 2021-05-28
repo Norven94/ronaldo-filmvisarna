@@ -1,0 +1,48 @@
+@import "./variables.scss";
+
+.booking {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "movie"
+    "ticket"
+    "salon";
+  grid-column-gap: 0.3rem;
+
+  .movie {
+    grid-area: movie;
+
+    h1 {
+      font-size: $desktop-big;
+    }
+
+    p {
+      color: $gray-medium;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .ticket {
+    grid-area: ticket;
+  }
+
+  .salon {
+    grid-area: salon;
+  }
+}
+
+@media (min-width: 992px) {
+  .booking {
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "movie salon "
+      "ticket salon";
+  }
+}
