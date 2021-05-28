@@ -20,6 +20,7 @@ const BookingPage = (props) => {
     selected,
     setSelected,
     setTotalSum,
+    setConfirmationDetails,
     totalTickets,
     setTotalTickets,
     addBookingToUser,
@@ -41,7 +42,7 @@ const BookingPage = (props) => {
     getPrice();
   }, []);
 
-  const addNewBooking = () => {
+  const addNewBooking = (show) => {
     if (selected.length !== 0) {
       if (currentUser) {
         let info = {
@@ -69,6 +70,7 @@ const BookingPage = (props) => {
         console.log(info);
         /* handleReset(); */
         addBookingToUser(info);
+        setConfirmationDetails([info, show]);
         setSelected([]);
         setTotalTickets([
           { ticketType: "Ordinary", quantity: 0 },
@@ -77,6 +79,7 @@ const BookingPage = (props) => {
         ]);
         setTotalSum(0)
         history.push("/confirmation")
+
 
         return;
       } else {
@@ -108,7 +111,7 @@ const BookingPage = (props) => {
               </div>
               <div className="ticket">
                 <TicketsQuantity totalSum={totalSum}></TicketsQuantity>
-                <button onClick={() => addNewBooking()}>
+                <button onClick={() => addNewBooking(show)}>
                   RESERVE TICKETS
                 </button>
               </div>
