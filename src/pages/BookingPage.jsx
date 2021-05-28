@@ -39,7 +39,8 @@ const BookingPage = (props) => {
         tickets: [],
       };
 
-      //Duplicate totalTickets Object by given quantity in order to send to the database
+      //Compress the array of objects to an single list, then replace quantity with ticketType name
+
       let tickets = totalTickets.flatMap((e) =>
         Array(e.quantity).fill(e.ticketType)
       );
