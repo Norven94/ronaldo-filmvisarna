@@ -12,9 +12,14 @@ import "../scss/BookingPage.scss";
 
 const BookingPage = (props) => {
   const { currentShows } = useContext(ShowContext);
-  const { setPrice, totalSum, totalTickets, addBookingToUser } = useContext(
-    BookingContext
-  );
+  const {
+    setPrice,
+    totalSum,
+    setTotalSum,
+    totalTickets,
+    setTotalTickets,
+    addBookingToUser,
+  } = useContext(BookingContext);
   const { currentUser, showLogin, setShowLogin } = useContext(UserContext);
 
   const { showId } = props.match.params;
@@ -40,7 +45,6 @@ const BookingPage = (props) => {
       };
 
       //Compress the array of objects to an single list, then replace quantity with ticketType name
-
       let tickets = totalTickets.flatMap((e) =>
         Array(e.quantity).fill(e.ticketType)
       );
@@ -49,14 +53,16 @@ const BookingPage = (props) => {
       tickets.forEach((ticket) => {
         let details = {
           ticketType: ticket,
-          rowNumber: 1234, // This need to change
-          seatNumber: 1234, // This need to change
+          rowNumber: 4444, // This need to change
+          seatNumber: 4444, // This need to change
         };
         info.tickets.push(details);
       });
 
       console.log(info);
+      /* handleReset(); */
       addBookingToUser(info);
+
       return;
     } else {
       setShowLogin(true);
@@ -64,6 +70,11 @@ const BookingPage = (props) => {
     }
   };
 
+/*   const handleReset = () => {
+    setTotalSum(0);
+
+  } 
+ */
   return (
     <div className="wrapper">
       {currentShows.map((show) => {
@@ -79,7 +90,7 @@ const BookingPage = (props) => {
               </div>
               <div className="ticket">
                 <TicketsQuantity totalSum={totalSum}></TicketsQuantity>
-                <button onClick={() => addNewBooking(show._id)}>
+                <button onClick={() => addNewBooking()}>
                   RESERVE TICKETS
                 </button>
               </div>
