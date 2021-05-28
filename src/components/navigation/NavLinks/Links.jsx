@@ -20,9 +20,8 @@ const Links = (props) => {
     return items.map((item, i) => (
       <NavLink
         key={i}
-        exact
         activeClassName={props.activeClassName}
-        to={item.to}
+        exact to={item.to}
       >
         {item.name}
       </NavLink>

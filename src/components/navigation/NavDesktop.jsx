@@ -1,4 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 
 import Login from "../Login";
@@ -45,7 +46,7 @@ const NavDesktop = () => {
     <div>
       <nav className="wrapper">
         <div className="logo">
-          <a href="/">FILMVISARNA</a>
+          <Link to="/">FILMVISARNA</Link>
         </div>
 
         <Links activeClassName={"active"} className={"navItems"}></Links>
