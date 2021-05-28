@@ -16,6 +16,7 @@ const BookingPage = (props) => {
   const {
     setPrice,
     totalSum,
+    selected,
     setTotalSum,
     totalTickets,
     setTotalTickets,
