@@ -15,6 +15,8 @@ router.get("/whoami", userControllers.whoami);
 router.get("/logout", userControllers.logout);
 
 
+router.delete("/:bookingId/:userId", userControllers.deleteBookingById);
+
 
 
 
