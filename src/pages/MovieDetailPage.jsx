@@ -1,7 +1,8 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { MovieContext } from "../context/MovieContext";
 import { ShowContext } from "../context/ShowContext";
+import { BookingContext } from "../context/BookingContext";
 
 import "../scss/MovieDetailPage.scss";
 
@@ -10,15 +11,22 @@ const MovieDetailPage = (props) => {
   const { currentShows, loading, getAllShowsByMovieId } = useContext(
     ShowContext
   );
+  const { formatDate } = useContext(BookingContext);
   const history = useHistory();
-  
   const goToShowsRef = useRef(null);
-
   const { movieId } = props.match.params;
+  const [shows, setShows] = useState([])
+  let today = new Date();
 
   useEffect(() => {
     getAllShowsByMovieId(movieId);
-  });
+  },[]);
+
+  useEffect(() => {
+    if(currentShows) {
+      setShows(currentShows.filter(show => show.date >= formatDate(today)));
+    }
+  },[currentShows])
 
   const goToShow = () => {
     goToShowsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -86,7 +94,7 @@ const MovieDetailPage = (props) => {
   };
 
   const renderShowsInfo = () => {
-    return currentShows.map((show) => {
+    return shows.map((show) => {
       if (show.movieId._id === movieId) {
         return (
           <section key={show._id} className="showDetails">
@@ -117,7 +125,7 @@ const MovieDetailPage = (props) => {
       <h2 ref={goToShowsRef} className="showsTitle">
         Shows
       </h2>
-      {currentShows && renderShowsInfo()}
+      {shows && renderShowsInfo()}
     </article>
   );
 };
