@@ -51,7 +51,7 @@ const NavDesktop = () => {
 
         <Links activeClassName={"active"} className={"navItems"}></Links>
 
-        {currentUser ? ( //If user is logged in this dropdown will show
+        {currentUser === "" ? <span>Loading...</span> : currentUser ? ( //If user is logged in this dropdown will show
           <div ref={ref} className="dropdown">
             <h3 onClick={() => setOpen(!open)}>
               {currentUser.name} {smiley}

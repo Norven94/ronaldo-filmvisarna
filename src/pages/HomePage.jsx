@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MovieContext } from "../context/MovieContext";
 
 import Hero from "../components/Hero";
@@ -8,7 +8,12 @@ import RecommendedMovies from "../components/RecommendedMovies";
 import NinetiesMovies from "../components/NinetiesMovies";
 
 const HomePage = () => {
-    const { movies } = useContext(MovieContext);
+    const { movies, getAllMovies } = useContext(MovieContext);
+
+    useEffect(() => {
+        getAllMovies();
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="homePage">
