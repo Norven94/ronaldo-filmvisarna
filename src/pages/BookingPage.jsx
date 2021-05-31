@@ -94,30 +94,40 @@ const BookingPage = (props) => {
 
   return (
     <div className="wrapper">
-      {currentShow && currentShow.map((show) => {
-        return (
-          <section className="booking" key={show._id}>
-            <div className="movie">
-              <h1> {show.movieId.title}</h1>
-              <p>
-                {show.date}, {show.time}
-              </p>
-              <div>
+      {currentShow &&
+        currentShow.map((show) => {
+          return (
+            <section className="booking" key={show._id}>
+              <div className="movie">
+                <h1> {show.movieId.title}</h1>
+                <p>
+                  {show.date}, {show.time}
+                </p>
                 <img src={show.movieId.coverImage} alt={show.movieId.title} />
               </div>
-              <p>{show.salonId.name}</p>
-            </div>
-            <div className="ticket">
-              <TicketsQuantity></TicketsQuantity>
-              <TicketSum totalSum={totalSum}></TicketSum>
-              <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
-            </div>
-            <div className="salon">
-              <Salon showId={showId} />
-            </div>
-          </section>
-        );
-      })}
+
+              <div className="quantity">
+                <TicketsQuantity></TicketsQuantity>
+              </div>
+
+              <div className="salon">
+                <Salon showId={showId} />
+              </div>
+
+              <div className="seats">
+                <p>{show.salonId.name}</p>
+              </div>
+
+              <div className="sum">
+                <TicketSum totalSum={totalSum}></TicketSum>
+              </div>
+
+              <div className="cta">
+                <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
+              </div>
+            </section>
+          );
+        })}
     </div>
   );
 };

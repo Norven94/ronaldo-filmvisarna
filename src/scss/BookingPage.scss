@@ -5,15 +5,14 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   grid-template-areas:
-    "movie"
-    "ticket"
-    "salon";
-  grid-column-gap: 0.3rem;
+    "movie" "quantity"
+    "salon" "seats" "sum" "cta";
 
   .movie {
     grid-area: movie;
+    padding: 0px;
+    margin: 0px;
 
     h1 {
       font-size: $desktop-big;
@@ -22,27 +21,57 @@
     p {
       color: $gray-medium;
     }
+  }
+
+  .img {
+    grid-area: img;
 
     img {
-      width: 100vw;
+      width: 100%;
     }
   }
 
-  .ticket {
-    grid-area: ticket;
+  .quantity {
+    grid-area: quantity;
   }
 
   .salon {
     grid-area: salon;
+  }
+
+  .seats {
+    grid-area: seats;
+  }
+
+  .sum {
+    grid-area: sum;
+  }
+
+  .cta {
+    grid-area: cta;
+  }
+}
+
+@media (min-width: 768px) {
+  .booking {
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      "movie quantity"
+      "salon salon"
+      "seats seats"
+      "sum sum"
+      "cta cta";
   }
 }
 
 @media (min-width: 992px) {
   .booking {
     grid-template-columns: 25% 75%;
-    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-      "movie salon "
-      "ticket salon";
+      "movie salon"
+      "quantity salon"
+      "seats salon"
+      "sum salon"
+      "cta salon";
   }
 }
