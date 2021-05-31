@@ -10,7 +10,7 @@ import UserLinks from "./NavLinks/UserLinks";
 import "../../scss/navigation/NavMobile.scss";
 
 const NavMobile = () => {
-  const {showLogin, setShowLogin, currentUser, logoutUser } = useContext(UserContext);
+  const { showLogin, setShowLogin, currentUser, logoutUser } = useContext(UserContext);
 
   const [open, setOpen] = useState(false);
 
