@@ -17,11 +17,19 @@ const Links = (props) => {
   ];
 
   const renderItems = () => {
-    return items.map((item) => <NavLink exact activeClassName={props.activeClassName}  to={item.to}>{item.name}</NavLink>);
+    return items.map((item, i) => (
+      <NavLink
+        key={i}
+        activeClassName={props.activeClassName}
+        exact to={item.to}
+      >
+        {item.name}
+      </NavLink>
+    ));
   };
 
   return (
-    <div onMouseUp={props.onMouseUp} className={props.className}>
+    <div className={props.className}>
       {renderItems()}
     </div>
   );

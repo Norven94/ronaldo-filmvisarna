@@ -1,0 +1,55 @@
+@import "./variables.scss";
+
+.ticketsCounterWrapper {
+  border-bottom: 1px solid $gray-light;
+  padding-bottom: 2rem;
+
+  .counter:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 0rem;
+  }
+
+  span {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  span:nth-child(odd) {
+    background: $gray-medium;
+    cursor: pointer;
+  }
+}
+
+.ticketSum {
+  padding-top: 2rem;
+  .quantity {
+    display: flex;
+
+    p:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .total {
+    padding-top: 0.5rem;
+    p {
+      font-size: $desktop-small;
+    }
+  }
+}
+
+// Remove this when implemented on booking page
+
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+}

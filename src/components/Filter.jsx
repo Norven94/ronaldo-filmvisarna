@@ -65,13 +65,14 @@ export default function Filter() {
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
-    
+
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
-    
+
         return [year, month, day].join('-');
     }
 
+    //eslint-disable-next-line
     const clearFilter = (e) => {
         e.preventDefault();
         setSearchString("");
@@ -104,15 +105,16 @@ export default function Filter() {
             console.log(settings);
             filterMovies(settings)
         }
+        //eslint-disable-next-line
     }, [price, timeLength, genre, age, language, date, searchString])
 
     useEffect(() => {
         setReset(false)
-    },[clearFilter])
+    }, [clearFilter])
 
     let genreContent;
     if (reset) {
-        genreContent = ( 
+        genreContent = (
             <div className="genres-container">
                 {allGenres.map((genre, i) => (
                     <div className="box" key={i}>
@@ -120,15 +122,15 @@ export default function Filter() {
                             id={genre}
                             value={genre}
                             type="checkbox"
-                            onChange={handleGenreChange} 
+                            onChange={handleGenreChange}
                             checked={false}
                         />
                         <span className="check"></span>
-                        <label for={genre}>{genre}</label>
+                        <label htmlFor={genre}>{genre}</label>
                     </div>
                 ))}
             </div>
-        )        
+        )
     } else {
         genreContent = (
             <div className="genres-container">
@@ -138,10 +140,10 @@ export default function Filter() {
                             id={genre}
                             value={genre}
                             type="checkbox"
-                            onChange={handleGenreChange} 
+                            onChange={handleGenreChange}
                         />
                         <span className="check"></span>
-                        <label for={genre}>{genre}</label>
+                        <label htmlFor={genre}>{genre}</label>
                     </div>
                 ))}
             </div>
@@ -153,41 +155,41 @@ export default function Filter() {
         formContent = (
             <form>
                 <div className="range-container">
-                <label>Price</label>
-                <input type="range" min="1" max="200" value={price} class="slider" onChange={handlePriceChange} />
-                <span>{price}</span>
-                <label>Length</label>
-                <input type="range" min="1" max="400" value={timeLength} class="slider" onChange={handleTimeChange} />                
-                <span>{timeLength}</span>
+                    <label>Price</label>
+                    <input type="range" min="1" max="200" value={price} className="slider" onChange={handlePriceChange} />
+                    <span>{price}</span>
+                    <label>Length</label>
+                    <input type="range" min="1" max="400" value={timeLength} className="slider" onChange={handleTimeChange} />
+                    <span>{timeLength}</span>
                 </div>
                 <div>
-                <label>Genre</label>  
-                {genreContent}              
+                    <label>Genre</label>
+                    {genreContent}
                 </div>
                 <div>
-                <div className="dropdowns-container">
-                    <div className="dropdown">
-                        <label>Age</label>
-                        <select onChange={handleAgeChange}>
-                            {allAges.map((age, i) => (
-                                <option key={i} value={age}>{age}</option>
-                            ))}
-                        </select>
+                    <div className="dropdowns-container">
+                        <div className="dropdown">
+                            <label>Age</label>
+                            <select onChange={handleAgeChange}>
+                                {allAges.map((age, i) => (
+                                    <option key={i} value={age}>{age}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="dropdown">
+                            <label>Language</label>
+                            <select onChange={handleLanguageChange}>
+                                {allLanguages.map((language, i) => (
+                                    <option key={i} value={language}>{language}</option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
-                    <div className="dropdown">
-                        <label>Language</label>
-                        <select onChange={handleLanguageChange}>
-                            {allLanguages.map((language, i) => (
-                                <option key={i} value={language}>{language}</option>
-                            ))}
-                        </select>
+                    <div className="datepicker-container">
+                        <label>Date</label>
+                        <DatePicker className="datepicker" selected={startDate} onChange={newDate => handleDateChange(newDate)} />
                     </div>
-                </div>
-                <div className="datepicker-container">
-                    <label>Date</label>
-                    <DatePicker className="datepicker" selected={startDate} onChange={newDate => handleDateChange(newDate)} />
-                </div>
-                <button className="clearFilter" onClick={clearFilter}>Clear filter</button>
+                    <button className="clearFilter" onClick={clearFilter}>Clear filter</button>
                 </div>
             </form>
         );
@@ -200,7 +202,7 @@ export default function Filter() {
             <input type="text" onChange={handleSearchChange} />
             <button className="openFilter" onClick={openFilter}>Filter</button>
             <>
-            {formContent}
+                {formContent}
             </>
         </div>
     )
