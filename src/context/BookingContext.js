@@ -105,7 +105,7 @@ const BookingProvider = (props) => {
       },
       body: JSON.stringify(newBookingInfo),
     });
-    setConfirmationDetails(newBookingInfo);
+
   };
 
   const getBookedSeats = async (showId) => {
@@ -131,10 +131,12 @@ const BookingProvider = (props) => {
     setTotalSum,
     totalTickets,
     setTotalTickets,
+    
     price,
     setPrice,
     addBookingToUser,
     confirmationDetails,
+    setConfirmationDetails,
     getBookedSeats,
     formatDate
   };

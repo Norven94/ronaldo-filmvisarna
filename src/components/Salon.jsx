@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from "react"
 import { BookingContext } from "../context/BookingContext";
 import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
+import SeatIcon from "../components/Seat";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Salon(props) {
     const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets, getBookedSeats } = useContext(BookingContext);    
@@ -31,6 +33,7 @@ export default function Salon(props) {
 
     // Functions to select and deselect multiple seats 
     const selectSeat = (row, seatNumber) => {
+        console.log("clicked")
         if (selected.length < amountOfTickets) {
             let selectedSeats = {
                 row,
@@ -41,7 +44,7 @@ export default function Salon(props) {
             console.log(selected)
         }
         else {
-            alert("you need to add more seats to select more seats");
+            toast.error("Add more tickets before you can select specific seat");
         }     
     };
 
@@ -53,29 +56,30 @@ export default function Salon(props) {
 
     return (
         <div className="container">
+            <Toaster />
             {seatingMap.map((seating, i) => {
                 return (
                     <div key={i} className="row">
                         {seating.map((seat) => {                                
                             if (booked.find(b => b.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <p className="seat taken">
-                                        {seat.row}/{seat.seatNumber}
-                                    </p>
+                                    <div className="seat taken">
+                                        <SeatIcon />
+                                    </div>
                                 );
                             }
                             else if (selected.find(s => s.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <p className="seat selected" onClick={() => deselectSeat(seat.seatNumber)}>
-                                        {seat.row}/{seat.seatNumber}
-                                    </p>
+                                    <div className="seat selected" onClick={() => deselectSeat(seat.seatNumber)}>
+                                        <SeatIcon />
+                                    </div>
                                 );
                             }
                             else {
                                 return (
-                                    <p className="seat" onClick={() => selectSeat(seat.row, seat.seatNumber)}>
-                                        {seat.row}/{seat.seatNumber}
-                                    </p>
+                                    <div className="seat default" onClick={() => selectSeat(seat.row, seat.seatNumber)}>
+                                        <SeatIcon />
+                                    </div>
                                 );
                             }
                         })}
