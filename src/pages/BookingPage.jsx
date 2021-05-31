@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 import { ShowContext } from "../context/ShowContext";
 import { BookingContext } from "../context/BookingContext";
@@ -72,7 +73,7 @@ const BookingPage = (props) => {
         return <Login></Login>;
       }
     } else {
-      alert("You must add at least one ticket and choose one seat");
+      toast.error("You must add at least one ticket and choose one seat")
     }
   };
 
@@ -97,6 +98,7 @@ const BookingPage = (props) => {
 
   return (
     <div className="wrapper">
+      <Toaster />
       {currentShow.map((show) => {
         if (show._id == showId) {
           return (
