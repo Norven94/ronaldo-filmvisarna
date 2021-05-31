@@ -62,8 +62,8 @@ const BookingPage = (props) => {
 
         console.log(info);
         addBookingToUser(info);
-        history.push("/confirmation");
         setConfirmationDetails([info, show]);
+        history.push("/confirmation");
 
 
         return;
@@ -114,7 +114,7 @@ const BookingPage = (props) => {
               <div className="ticket">
                 <TicketsQuantity></TicketsQuantity>
                 <TicketSum totalSum={totalSum}></TicketSum>
-                <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
+                <button onClick={() => addNewBooking(show)}>RESERVE TICKETS</button>
               </div>
               <div className="salon">
                 <Salon showId={showId} />
