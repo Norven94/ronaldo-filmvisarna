@@ -71,7 +71,6 @@ const editUser = async (req, res) => {
 
 const addBooking = async (req, res) => {
     let newBooking = await Booking.create(req.body);
-    console.log(newBooking)
     let user;
     User.findById(req.session.user._id).exec((err, result) => {
         if (err) {

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { BookingContext } from '../context/BookingContext';
 import { UserContext } from '../context/UserContext';
 import BookingCard from "../components/BookingCard";
@@ -6,7 +6,7 @@ import BookingCard from "../components/BookingCard";
 import "../scss/MyBookings.scss";
 
 const MyBooking = () => {
-    const { userBookings, userBookingsOld, userBookingsNew, getMyBookings } = useContext(BookingContext);
+    const { userBookingsOld, userBookingsNew, getMyBookings } = useContext(BookingContext);
     const { currentUser } = useContext(UserContext);
 
     useEffect(() => {
@@ -16,8 +16,6 @@ const MyBooking = () => {
     }, [currentUser]) //eslint-disable-line    
 
     let newBookings;
-
-    console.log(userBookings)
     if (userBookingsNew.length !== 0) {
         newBookings = (
             <div className="currentBookings">
@@ -37,9 +35,7 @@ const MyBooking = () => {
     }
 
     let oldBookings;
-    console.log(userBookingsOld)
     if (userBookingsOld.length !== 0) {
-        console.log(userBookingsOld)
         oldBookings = (
             <div>
                 <h2>Old bookings</h2>

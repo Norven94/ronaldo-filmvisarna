@@ -33,7 +33,6 @@ export default function Salon(props) {
 
     // Functions to select and deselect multiple seats 
     const selectSeat = (row, seatNumber) => {
-        console.log("clicked")
         if (selected.length < amountOfTickets) {
             let selectedSeats = {
                 row,
@@ -41,7 +40,6 @@ export default function Salon(props) {
             };
     
             setSelected([...selected, selectedSeats]);
-            console.log(selected)
         }
         else {
             toast.error("Add more tickets before you can select specific seat");
@@ -57,10 +55,10 @@ export default function Salon(props) {
     return (
         <div className="container">
             <Toaster />
-            {seatingMap.map((seating, i) => {
+            {seatingMap.map((row, i) => {
                 return (
                     <div key={i} className="row">
-                        {seating.map((seat) => {                                
+                        {row.map((seat) => {                                
                             if (booked.find(b => b.seatNumber === seat.seatNumber)) {
                                 return (
                                     <div className="seat taken">
