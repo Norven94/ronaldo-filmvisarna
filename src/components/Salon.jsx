@@ -44,7 +44,7 @@ export default function Salon(props) {
             console.log(selected)
         }
         else {
-            toast.error("Please select amount of tickets before selecting specific seat");
+            toast.error("Add more tickets before you can select specific seat");
         }     
     };
 
