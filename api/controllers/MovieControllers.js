@@ -11,7 +11,6 @@ const filterMovies = async (req, res) => {
         "gi"
       );
 
-    console.log(req.body)
     let movies = await Movie.find({
         ...req.body.price ? { "price": { $lte: req.body.price } } : {},
         ...req.body.timeLength ? { "timeLength": { $lte: req.body.timeLength } } : {},
@@ -23,7 +22,7 @@ const filterMovies = async (req, res) => {
             $or: [
                 { "artists": { $in: querySearch } },
                 { "director": { $in: querySearch } },
-                { "title": { $in: querySearch } }
+                { "title": querySearch }
             ]
         } : {},
     }).exec();

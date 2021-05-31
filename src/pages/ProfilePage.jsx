@@ -62,8 +62,7 @@ const ProfilePage = () => {
         <div className="profilePage">
             <div className="profileInfo">
                 <div>
-                    <h2>Profile of</h2>
-                    <h2>{currentUser?.name}</h2>
+                    <h2>Profile of <br /> {currentUser?.name}</h2>
                     <h3>{currentUser?.email}</h3>
                 </div>
                 <button className="logout" onClick={logoutUser}>Logout</button>

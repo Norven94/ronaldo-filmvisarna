@@ -14,8 +14,6 @@ export const NinetiesMovies = (props) => {
     let ninetiesMovies = "";
     if (movies) {ninetiesMovies = movies.filter((movie) => movie.year.startsWith("199") );}
 
-    console.log(ninetiesMovies);
-
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 1800 },
