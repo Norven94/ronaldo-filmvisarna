@@ -46,6 +46,7 @@ export const NinetiesMovies = (props) => {
                 responsive={responsive}
                 infinite={true}
                 draggable={false}
+                className = "carousel"
             >
                 {ninetiesMovies.map((ninetiesMovie) => {
                     return (
