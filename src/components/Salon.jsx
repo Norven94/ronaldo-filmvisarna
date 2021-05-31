@@ -3,6 +3,7 @@ import { BookingContext } from "../context/BookingContext";
 import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
 import SeatIcon from "../components/Seat";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Salon(props) {
     const { seatingMap, makeSeatingMap, selected, setSelected, booked, totalTickets, getBookedSeats } = useContext(BookingContext);    
@@ -43,7 +44,7 @@ export default function Salon(props) {
             console.log(selected)
         }
         else {
-            alert("you need to add more seats to select more seats");
+            toast.error("Add more tickets before you can select specific seat");
         }     
     };
 
@@ -55,6 +56,7 @@ export default function Salon(props) {
 
     return (
         <div className="container">
+            <Toaster />
             {seatingMap.map((seating, i) => {
                 return (
                     <div key={i} className="row">
