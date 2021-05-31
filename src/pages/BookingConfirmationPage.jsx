@@ -23,8 +23,8 @@ const BookingConfirmationPage = () => {
             <h1>Booking confirmation</h1>
             <h2>Payment is still required at the Filmvisarna theatre.</h2>
             <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
-            {confirmationDetails && confirmationDetails.tickets.map((ticket, index) => (
-                <ConfirmationTicket details={ticket} key={index}/>
+            {confirmationDetails && confirmationDetails[0].tickets.map((ticket, index) => (
+                <ConfirmationTicket ticketDetails={ticket} showDetails={confirmationDetails[1]} key={index}/>
             ))}
         </div>
     );
