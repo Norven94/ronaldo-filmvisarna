@@ -65,7 +65,7 @@ const MovieDetailPage = (props) => {
                 </p>
                 <p>
                   <span>Language: </span>
-                  {movie.language}
+                  {movie.language.join(", ")}
                 </p>
                 <p>
                   <span>Stars: </span>
