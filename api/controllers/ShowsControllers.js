@@ -96,7 +96,28 @@ const getShowsByMovieId = async (req, res) => {
   }
 };
 
+const getShowById = async (req, res) => {
+  let show;
+  try {
+    show = await Show.find({ _id: req.params.id })
+      .populate("movieId")
+      .populate("salonId")
+      .exec();
+
+    if (!show) {
+      res
+        .status(404)
+        .json({ error: `Show with id ${req.params.id} doesn't exist` });
+      return;
+    }
+    res.json(show);
+  } catch (err) {
+    res.status(400).json({ error: "Something went wrong.." });
+  }
+};
+
 module.exports = {
   createShows,
   getShowsByMovieId,
+  getShowById,
 };
