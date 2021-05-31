@@ -17,6 +17,7 @@ const BookingPage = (props) => {
   const { currentShow, getShowById } = useContext(ShowContext);
   const {
     setPrice,
+    price,
     totalSum,
     selected,
     setSelected,
@@ -28,9 +29,19 @@ const BookingPage = (props) => {
   const { currentUser, setShowLogin } = useContext(UserContext);
   const { showId } = props.match.params;
 
+  const getPrice = () => {
+    currentShow.map((show) => {
+      setPrice(show.movieId.price);
+      console.log(show.movieId.price);
+      return;
+    });
+  };
+
   useEffect(() => {
     getShowById(showId);
-    getPrice();
+    if (currentShow) {
+      getPrice();
+    }
     handleReset();
   }, []);
 
@@ -73,15 +84,6 @@ const BookingPage = (props) => {
     }
   };
 
-  const getPrice = () => {
-    currentShow.map((show) => {
-      if (show._id === showId) {
-        setPrice(show.movieId.price);
-      }
-      return;
-    });
-  };
-
   const handleReset = () => {
     setTotalTickets([
       { ticketType: "Ordinary", quantity: 0 },
@@ -119,7 +121,7 @@ const BookingPage = (props) => {
               </div>
 
               <div className="sum">
-                <TicketSum totalSum={totalSum}></TicketSum>
+                <TicketSum></TicketSum>
               </div>
 
               <div className="cta">

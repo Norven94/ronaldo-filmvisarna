@@ -21,6 +21,7 @@ const TicketSum = (props) => {
     if (type.ticketType === "Children") {
       return Math.round(type.quantity * price * 0.7);
     } else {
+      console.log(props.price);
       return type.quantity * price;
     }
   };
@@ -43,7 +44,7 @@ const TicketSum = (props) => {
         </div>
       ))}
       <div className="flex total">
-        <p>Total:</p> <p>{props.totalSum},-</p>
+        <p>Total:</p> <p>{totalSum},-</p>
       </div>
     </div>
   );

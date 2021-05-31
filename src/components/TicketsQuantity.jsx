@@ -6,11 +6,11 @@ import "../scss/TicketsQuantity.scss";
 
 const TicketsQuantity = (props) => {
   const {
-    price,
     totalTickets,
     setTotalTickets,
     setTotalSum,
     selected,
+    price,
   } = useContext(BookingContext);
 
   const handleIncrease = (index) => {
