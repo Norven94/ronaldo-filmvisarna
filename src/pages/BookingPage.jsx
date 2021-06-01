@@ -18,8 +18,6 @@ const BookingPage = (props) => {
   const { currentShow, getShowById } = useContext(ShowContext);
   const {
     setPrice,
-    price,
-    totalSum,
     selected,
     setSelected,
     setTotalSum,
@@ -106,6 +104,7 @@ const BookingPage = (props) => {
                 <p>
                   {show.date},{show.time}
                 </p>
+                <p> {show.salonId.name}</p>
                 <img src={show.movieId.coverImage} alt={show.movieId.title} />
               </div>
 
@@ -118,7 +117,13 @@ const BookingPage = (props) => {
               </div>
 
               <div className="seats">
-                <p>{show.salonId.name}</p>
+                {selected.map((s, index) => {
+                  <p key={index}>
+                  Seat:{s.seatNumber},
+                  </p>;
+                  console.log(s.seatNumber);
+                })}
+
               </div>
 
               <div className="sum">

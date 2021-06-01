@@ -11,8 +11,6 @@
 
   .movie {
     grid-area: movie;
-    padding: 0px;
-    margin: 0px;
 
     h1 {
       font-size: $desktop-big;
@@ -20,16 +18,17 @@
 
     p {
       color: $gray-medium;
+      padding: 0px;
+      margin: 0px;
     }
   }
 
-
-  .movie{
+  .movie {
     grid-area: movie;
-
 
     img {
       width: 100%;
+      margin-top: 0.5rem; 
     }
   }
 
@@ -53,8 +52,12 @@
     grid-area: cta;
   }
 
-    
-  .movie, .quantity, .salon, .seats, .sum, .cta {
+  .movie,
+  .quantity,
+  .salon,
+  .seats,
+  .sum,
+  .cta {
     margin-bottom: 1.5rem;
   }
 }
@@ -71,9 +74,8 @@
   }
 
   .salon {
-    margin-top: 2.5rem; 
+    margin-top: 2.5rem;
   }
-  
 }
 
 @media (min-width: 992px) {

@@ -14,6 +14,8 @@ const TicketSum = (props) => {
     selected,
   } = useContext(BookingContext);
 
+  
+
   const calculateTicketType = (type) => {
     if (type.ticketType === "Senior") {
       return type.quantity * price * 0.8;
@@ -25,6 +27,8 @@ const TicketSum = (props) => {
       return type.quantity * price;
     }
   };
+
+
 
   return (
     <div className="ticketSum">

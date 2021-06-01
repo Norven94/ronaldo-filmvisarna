@@ -29,7 +29,6 @@ const TicketsQuantity = (props) => {
     }
 
     setTotalTickets(addTickets);
- 
     calculateTotal();
   };
 
