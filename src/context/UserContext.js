@@ -22,7 +22,7 @@ const UserProvider = (props) => {
                     setCurrentUser(result.currentUser)
                     setLoginError(false)
                     setShowLogin(false)
-                    localStorage.setItem('isAuth', JSON.stringify(true));
+                    setIsAuth(true)
                 }
             })
     }
@@ -32,13 +32,18 @@ const UserProvider = (props) => {
             .then(response => response.json())
         // .then(result => { console.log(result) })        
         setCurrentUser(null);
-        localStorage.setItem('isAuth', JSON.stringify(false));
+        setIsAuth(false)
     }
 
     const whoami = () => {
         fetch("/api/v1/users/whoami")
             .then(response => response.json())
-            .then(result => setCurrentUser(result))
+            .then(result => {
+                setCurrentUser(result)
+                if (result) {
+                    setIsAuth(true)
+                }
+            })
     }
 
     const eyeconStateHandler = (type, state, setState, elementId) => {
@@ -49,6 +54,7 @@ const UserProvider = (props) => {
     //Checks the session on hard reload and updates login status.
     useEffect(() => {
         whoami()
+        console.log(isAuth)
     }, [])
 
     const values = {
