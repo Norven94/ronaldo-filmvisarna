@@ -36,7 +36,7 @@ const RegisterPage = () => {
         e.preventDefault();
         let newUserInfo = {};
         document.querySelectorAll("input").forEach(field => newUserInfo[field.name] = field.value);
-
+        console.log(newUserInfo);
         registerUser(newUserInfo);
     }
 
