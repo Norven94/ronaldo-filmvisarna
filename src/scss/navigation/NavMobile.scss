@@ -16,7 +16,7 @@
   }
 
   .logo {
-    z-index: 2000;
+   
     font-weight: bold;
     a {
       @media (min-width: 768px) {
@@ -39,6 +39,7 @@
   background: $background-gradient;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  z-index: 10000;
 
   .items {
     display: flex;

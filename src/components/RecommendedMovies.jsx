@@ -44,6 +44,7 @@ export const RecommendedMovies = (props) => {
                 responsive={responsive}
                 infinite={true}
                 draggable={false}
+                className = "carousel"
             >
                 {recommendedMovies.map((recommendedMovie) => {
                     return (
