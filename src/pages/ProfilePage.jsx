@@ -13,7 +13,7 @@ const ProfilePage = () => {
     const [eyeconState, setEyeconState] = useState(false);
 
     const editUser = (editInfo) => {
-        fetch("/api/v1/users/update", {
+        fetch(`/api/v1/users/update/${currentUser._id}`, {
             method: "PUT",
             headers: { "content-type": "application/json", },
             body: JSON.stringify(editInfo),
