@@ -54,7 +54,7 @@ export default function Salon(props) {
     }
 
     return (
-        <div className="container">
+        <div className="salonContainer">
             <Toaster />
             {seatingMap.map((row, i) => {
                 return (
