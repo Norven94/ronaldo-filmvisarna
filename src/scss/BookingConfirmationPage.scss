@@ -13,7 +13,7 @@
         margin-bottom: 3rem;
     }
 
-    .confirmationTicket{
+    .confirmationTicket {
         display: block;
         margin-bottom: 2rem;
         max-width: 700px;
@@ -24,36 +24,70 @@
 //-----------------
 //Ticket SVG styles
 //-----------------
-.cls-1 {
-    fill: #f2f2f3;
+.confirmationTicket {
+    .cls-1 {
+        fill: #f2f2f3;
+    }
+
+    .cls-2 {
+        font-size: 20px;
+        letter-spacing: 0em;
+    }
+
+    .cls-10,
+    .cls-14,
+    .cls-2,
+    .cls-7 {
+        fill: #231f20;
+        font-family: MyriadPro-Regular, Myriad Pro;
+    }
+
+    .cls-7 {
+        font-size: 12px;
+    }
+
+    .cls-10 {
+        font-size: 14px;
+    }
+
+    .cls-14 {
+        font-size: 18px;
+    }
+
+    .cls-18 {
+        font-family: MyriadPro-Bold, Myriad Pro;
+        font-weight: 700;
+    }
 }
 
-.cls-2 {
-    font-size: 20px;
-    letter-spacing: 0em;
-}
+.confirmationTicketSmall {
+    .cls-1 {
+        fill: #f2f2f3;
+    }
 
-.cls-10,
-.cls-14,
-.cls-2,
-.cls-7 {
-    fill: #231f20;
-    font-family: MyriadPro-Regular, Myriad Pro;
-}
+    .cls-2 {
+        font-size: 19px;
+    }
 
-.cls-7 {
-    font-size: 12px;
-}
+    .cls-10,
+    .cls-2,
+    .cls-7 {
+        fill: #231f20;
+        font-family: MyriadPro-Regular, Myriad Pro;
+    }
 
-.cls-10 {
-    font-size: 14px;
-}
+    .cls-7 {
+        font-size: 11px;
+    }
 
-.cls-14 {
-    font-size: 18px;
-}
+    .cls-10 {
+        font-size: 14px;
+    }
 
-.cls-18 {
-    font-family: MyriadPro-Bold, Myriad Pro;
-    font-weight: 700;
+    .cls-16,
+    .cls-20,
+    .cls-21 {
+        font-family: MyriadPro-Bold, Myriad Pro;
+        font-weight: 700;
+    }
 }
