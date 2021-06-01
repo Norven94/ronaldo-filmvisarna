@@ -28,24 +28,25 @@ const BookingPage = (props) => {
     setTotalTickets,
     addBookingToUser,
   } = useContext(BookingContext);
+
   const { currentUser, setShowLogin } = useContext(UserContext);
   const { showId } = props.match.params;
+
+  useEffect(() => {
+    getShowById(showId);
+    handleReset();
+  }, []);
+
+  useEffect(() => {
+    getPrice();
+  });
 
   const getPrice = () => {
     currentShow.map((show) => {
       setPrice(show.movieId.price);
-      console.log(show.movieId.price);
       return;
     });
   };
-
-  useEffect(() => {
-    getShowById(showId);
-    if (currentShow) {
-      getPrice();
-    }
-    handleReset();
-  }, []);
 
   const addNewBooking = (show) => {
     if (selected.length !== 0) {
@@ -60,8 +61,6 @@ const BookingPage = (props) => {
           Array(e.quantity).fill(e.ticketType)
         );
 
-        console.log(selected);
-
         //For each ticket type, create an object and push into info
         tickets.forEach((ticket, i) => {
           let details = {
@@ -71,8 +70,6 @@ const BookingPage = (props) => {
           };
           info.tickets.push(details);
         });
-
-        console.log(info);
         addBookingToUser(info);
         setConfirmationDetails([info, show]);
         history.push("/confirmation");
@@ -107,7 +104,7 @@ const BookingPage = (props) => {
               <div className="movie">
                 <h1> {show.movieId.title}</h1>
                 <p>
-                  {show.date}, {show.time}
+                  {show.date},{show.time}
                 </p>
                 <img src={show.movieId.coverImage} alt={show.movieId.title} />
               </div>

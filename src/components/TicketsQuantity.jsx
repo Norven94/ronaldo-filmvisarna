@@ -13,11 +13,11 @@ const TicketsQuantity = (props) => {
     price,
   } = useContext(BookingContext);
 
+
   const handleIncrease = (index) => {
     const addTickets = [...totalTickets];
     addTickets[index].quantity++;
     setTotalTickets(addTickets);
-
     calculateTotal();
   };
 
@@ -29,6 +29,7 @@ const TicketsQuantity = (props) => {
     }
 
     setTotalTickets(addTickets);
+ 
     calculateTotal();
   };
 
