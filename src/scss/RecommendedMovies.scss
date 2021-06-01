@@ -20,3 +20,6 @@
 .recommendedMovieCardImage:hover {
     filter: brightness(100%);
 }
+.carousel {
+    z-index: -3;
+}
