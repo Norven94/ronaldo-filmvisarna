@@ -59,7 +59,10 @@ const editUser = async (req, res) => {
     let userWithEmail = await User.findOne({ email: req.body.email });
 
     //User with your email exists but your id don't match? ERROR!
-    if (userWithEmail !== null && userWithEmail._id != req.body.userId) return res.status(400).json({ error: "User with that email already exists." });
+    if (userWithEmail !== null && userWithEmail._id != req.body.userId) {
+        console.log("error")
+        return res.status(400).json({ error: "User with that email already exists." });
+    } 
 
     //Encryption line
     req.body.password = encrypt(req.body.password);
@@ -72,13 +75,13 @@ const editUser = async (req, res) => {
 const addBooking = async (req, res) => {
     let newBooking = await Booking.create(req.body);
     let user;
-    User.findById(req.session.user._id).exec((err, result) => {
+    User.findById(req.params.userId).exec((err, result) => {
         if (err) {
             res.status(400).json({ error: "Something went wrong" });
             return;
         }
         if (!result) {
-            res.status(404).json({ error: `User with id ${req.session.user._id} does not exist` })
+            res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
             return;
         }
         user = result;  

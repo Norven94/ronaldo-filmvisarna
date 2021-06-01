@@ -38,6 +38,24 @@ app.use(
     })
 );
 
+//ACL setup
+app.use((req, res, next) => {
+  let params = req.path.match(/[\d\w]+$/);
+  if (req.path.match(/^\/api\/v1\/users\/bookings.*/) && req.method === "GET" 
+    || (req.path.match(/^\/api\/v1\/users\/add.*/) && req.method === "POST")
+    || (req.path.match(/^\/api\/v1\/users\/.*/) && req.method === "DELETE")
+    || (req.path.match(/^\/api\/v1\/users\/update.*/) && req.method === "PUT")
+    ) {    
+
+    if (req.session.user !== undefined && req.session.user._id === params[0]) {
+      return next();
+    } else {
+      return res.status(403).json({error: "You need to be logged in to the user that you want to access the data for"})
+    }
+  }
+  next();
+});
+
 //Routes
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/movies", movieRoutes);
