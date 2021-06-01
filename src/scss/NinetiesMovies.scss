@@ -20,6 +20,9 @@
 .ninetiesMovieCardImage:hover {
     filter: brightness(100%);
 }
-.carousel {
-    z-index: -3;
+.carousel{
+    z-index: 0;
+}
+.carousel button {
+    z-index:  1;
 }
