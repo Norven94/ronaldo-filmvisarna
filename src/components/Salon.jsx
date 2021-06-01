@@ -83,7 +83,7 @@ export default function Salon(props) {
                         })}
                     </div>
                 );
-            })}
+            }).reverse()}
         </div>
     );
 }
