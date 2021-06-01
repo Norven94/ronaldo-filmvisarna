@@ -98,7 +98,7 @@ const BookingProvider = (props) => {
   };
 
   const addBookingToUser = async (newBookingInfo) => {
-    await fetch(`/api/v1/users/add`, {
+    await fetch(`/api/v1/users/add/${currentUser._id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
