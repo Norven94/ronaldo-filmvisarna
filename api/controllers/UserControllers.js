@@ -60,7 +60,6 @@ const editUser = async (req, res) => {
 
     //User with your email exists but your id don't match? ERROR!
     if (userWithEmail !== null && userWithEmail._id != req.body.userId) {
-        console.log("error")
         return res.status(400).json({ error: "User with that email already exists." });
     } 
 
