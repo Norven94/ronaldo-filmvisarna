@@ -1,6 +1,7 @@
 @import "./variables.scss";
 
-.container {
+.salonContainer {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,16 +9,32 @@
     .row {
         display: flex;
         justify-content: center;
-        margin: 10px 0;
+        margin: 10px 0;        
 
         .seat {
             cursor: pointer;
-            margin: 0 10px;
+            margin: 0 5px;
+
+            @media #{$md} {
+                margin: 0 8px;
+            }
+            @media #{$xl} {
+                margin: 0 10px;
+            }
         }
 
         svg {
-            height: 30px;
-            width: 30px;
+            height: 15px;
+            width: 15px;
+
+            @media #{$md} {
+                height: 25px;
+                width: 25px;
+            }
+            @media #{$xl} {
+                height: 26px;
+                width: 26px;
+            }
         }
         .default {
             .cls-1 {
@@ -37,10 +54,16 @@
     }
 
     .screenContainer {        
-        margin-top: 60px;
-        width: 90%;
+        margin-top: 20px;
+        width: 300px;
         .cls-1 {
             fill: $gray-medium;
+        }
+        @media #{$md} {
+            width: 450px;
+        }
+        @media #{$xl} {
+            width: 550px;
         }
     }
 }
