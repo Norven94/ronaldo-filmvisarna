@@ -28,6 +28,7 @@ const RegisterPage = () => {
                     setTimeout(() => {
                         history.push("/");
                     }, 5000)
+                    localStorage.setItem('isAuth', JSON.stringify(true));
                 }
             })
     }

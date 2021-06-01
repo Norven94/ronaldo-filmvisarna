@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useLayoutEffect, useState } from "react";
 
 export const UserContext = createContext();
 
@@ -6,7 +6,7 @@ const UserProvider = (props) => {
     const [currentUser, setCurrentUser] = useState("");
     const [showLogin, setShowLogin] = useState(false);
     const [loginError, setLoginError] = useState(false);
-
+    const [isAuth, setIsAuth] = useState(false);
 
     const loginUser = (loginInfo) => {
         fetch("/api/v1/users/login", {
@@ -22,6 +22,7 @@ const UserProvider = (props) => {
                     setCurrentUser(result.currentUser)
                     setLoginError(false)
                     setShowLogin(false)
+                    localStorage.setItem('isAuth', JSON.stringify(true));
                 }
             })
     }
@@ -29,9 +30,9 @@ const UserProvider = (props) => {
     const logoutUser = () => {
         fetch("/api/v1/users/logout")
             .then(response => response.json())
-        // .then(result => { console.log(result) })
-
+        // .then(result => { console.log(result) })        
         setCurrentUser(null);
+        localStorage.setItem('isAuth', JSON.stringify(false));
     }
 
     const whoami = () => {
@@ -50,7 +51,6 @@ const UserProvider = (props) => {
         whoami()
     }, [])
 
-
     const values = {
         currentUser,
         setCurrentUser,
@@ -62,6 +62,8 @@ const UserProvider = (props) => {
         loginError,
         setLoginError,
         eyeconStateHandler,
+        isAuth, 
+        setIsAuth
     }
 
     return (
