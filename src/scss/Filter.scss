@@ -65,7 +65,8 @@
             }
             span {
                 position: absolute;
-                left: 45%;
+                left: 50%;
+                transform: translateX(-50%);
                 margin-top: 25px;
                 font-size: $mobile-tablet-big;
             }

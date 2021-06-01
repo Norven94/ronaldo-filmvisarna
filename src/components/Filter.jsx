@@ -155,12 +155,12 @@ export default function Filter() {
         formContent = (
             <form>
                 <div className="range-container">
-                    <label>Price</label>
+                    <label>Max price</label>
                     <input type="range" min="1" max="200" value={price} className="slider" onChange={handlePriceChange} />
-                    <span>{price}</span>
-                    <label>Length</label>
+                    <span>{price}:-</span>
+                    <label>Max length</label>
                     <input type="range" min="1" max="400" value={timeLength} className="slider" onChange={handleTimeChange} />
-                    <span>{timeLength}</span>
+                    <span>{timeLength}min</span>
                 </div>
                 <div>
                     <label>Genre</label>

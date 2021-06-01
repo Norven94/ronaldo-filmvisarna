@@ -20,13 +20,13 @@ const MovieDetailPage = (props) => {
 
   useEffect(() => {
     getAllShowsByMovieId(movieId);
-  },[]);
+  }, []);
 
   useEffect(() => {
-    if(currentShows) {
+    if (currentShows) {
       setShows(currentShows.filter(show => show.date >= formatDate(today)));
     }
-  },[currentShows])
+  }, [currentShows])
 
   const goToShow = () => {
     goToShowsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -61,11 +61,11 @@ const MovieDetailPage = (props) => {
               <div className="details">
                 <p>
                   <span>Director: </span>
-                  {movie.director}
+                  {movie.director.join(", ")}
                 </p>
                 <p>
                   <span>Language: </span>
-                  {movie.language}
+                  {movie.language.join(", ")}
                 </p>
                 <p>
                   <span>Stars: </span>

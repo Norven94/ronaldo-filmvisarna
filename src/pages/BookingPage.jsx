@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 import { ShowContext } from "../context/ShowContext";
 import { BookingContext } from "../context/BookingContext";
@@ -21,6 +22,7 @@ const BookingPage = (props) => {
     selected,
     setSelected,
     setTotalSum,
+    setConfirmationDetails,
     totalTickets,
     setTotalTickets,
     addBookingToUser,
@@ -34,7 +36,7 @@ const BookingPage = (props) => {
     handleReset();
   }, []);
 
-  const addNewBooking = () => {
+  const addNewBooking = (show) => {
     if (selected.length !== 0) {
       if (currentUser) {
         let info = {
@@ -61,7 +63,9 @@ const BookingPage = (props) => {
 
         console.log(info);
         addBookingToUser(info);
+        setConfirmationDetails([info, show]);
         history.push("/confirmation");
+
 
         return;
       } else {
@@ -69,7 +73,7 @@ const BookingPage = (props) => {
         return <Login></Login>;
       }
     } else {
-      alert("You must add at least one ticket and choose one seat");
+      toast.error("You must add at least one ticket and choose one seat")
     }
   };
 
@@ -94,6 +98,7 @@ const BookingPage = (props) => {
 
   return (
     <div className="wrapper">
+      <Toaster />
       {currentShow.map((show) => {
         if (show._id == showId) {
           return (
@@ -111,7 +116,7 @@ const BookingPage = (props) => {
               <div className="ticket">
                 <TicketsQuantity></TicketsQuantity>
                 <TicketSum totalSum={totalSum}></TicketSum>
-                <button onClick={() => addNewBooking()}>RESERVE TICKETS</button>
+                <button onClick={() => addNewBooking(show)}>RESERVE TICKETS</button>
               </div>
               <div className="salon">
                 <Salon showId={showId} />
