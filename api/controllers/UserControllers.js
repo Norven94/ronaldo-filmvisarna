@@ -48,6 +48,10 @@ const registerUser = async (req, res) => {
     //Encryption line
     req.body.password = encrypt(req.body.password);
 
+    //Initiating session
+    req.session.user = req.body;
+    req.session.user.password = undefined;
+
     //Creating user
     let newUser = await User.create(req.body);
     newUser.password = undefined;

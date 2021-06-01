@@ -5,7 +5,7 @@ import "../scss/RegisterPage.scss";
 
 const RegisterPage = () => {
     const history = useHistory();
-    const { setCurrentUser } = useContext(UserContext);
+    const { setCurrentUser, loginUser } = useContext(UserContext);
 
     const [registerError, setRegisterError] = useState(false);
     const [registerConfirmation, setRegisterConfirmation] = useState(false);
