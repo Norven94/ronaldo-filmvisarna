@@ -9,17 +9,16 @@ const Hero = (props) => {
     // creating an array with the popular movies
     let movies = props.data;
     let popularMovies = "";
-    if (movies) {popularMovies = movies.filter((movie) => movie.popular === true);}
-    
+    if (movies) { popularMovies = movies.filter((movie) => movie.popular === true); }
 
-    return(
+    return (
         <div className="hero">
             <Carousel className="carouselWrapper">
                 {popularMovies.map((popularMovie) => {
                     return (
                         <Carousel.Item className="carouselItem" key={popularMovie._id}>
-                                <img className="carouselImage" src={popularMovie.heroImage} alt={popularMovie.title} />
                             <Link to={`/movie/${popularMovie._id}`} >
+                                <img className="carouselImage" src={popularMovie.heroImage} alt={popularMovie.title} />
                                 <Carousel.Caption className="carouselCaption">
                                     <h2> {popularMovie.title} </h2>
                                     <span> {popularMovie.genre.join(", ")} /</span>

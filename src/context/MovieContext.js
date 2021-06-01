@@ -31,7 +31,6 @@ const MovieProvider = (props) => {
             body: JSON.stringify(filterSettings)
         })
         filterResult = await filterResult.json();
-        console.log(filterResult)
         setMovies(filterResult);
     }
 

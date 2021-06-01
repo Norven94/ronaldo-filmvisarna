@@ -10,7 +10,7 @@
     margin-bottom: 30px;
 }
 
-.bookings{
+.bookings {
     h2 {
         font-size: $mobile-tablet-h2;
         text-align: center;
@@ -23,8 +23,8 @@
     .bookingContainer {
         margin-top: 20px;
         display: flex;
-        flex-direction: column;     
-        border-right: 2px solid $white;   
+        flex-direction: column;
+        border-right: 2px solid $white;
 
         .bookingDescription {
             h3 {
@@ -35,28 +35,33 @@
                     font-size: $all-h3;
                 }
             }
-            .removeBtn {                
+            .removeBtn {
                 margin-right: 10px;
                 float: right;
                 .fa-times {
                     height: 20px;
                     color: #ff6d6d;
                 }
+                svg {
+                    cursor: pointer;
+                }
             }
             p {
                 margin: 0;
             }
-            .moreDetails {                
+            .moreDetails {
                 font-size: $mobile-tablet-small;
+                cursor: pointer;
 
                 @media #{$md} {
                     font-size: $desktop-small;
                 }
             }
-            .fa-sort-down, .fa-sort-up {
+            .fa-sort-down,
+            .fa-sort-up {
                 height: 18px;
-            }        
-        }            
+            }
+        }
 
         .ticketDetailsBox {
             margin-top: 10px;
@@ -66,7 +71,7 @@
             .ticketType {
                 font-size: $mobile-tablet-small;
                 display: block;
-                
+
                 @media #{$md} {
                     font-size: $desktop-small;
                 }
@@ -74,9 +79,9 @@
             p {
                 margin: 0;
             }
-        }        
+        }
     }
-    
+
     .noBookings {
         p {
             text-align: center;
