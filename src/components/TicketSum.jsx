@@ -14,8 +14,6 @@ const TicketSum = (props) => {
     selected,
   } = useContext(BookingContext);
 
-  
-
   const calculateTicketType = (type) => {
     if (type.ticketType === "Senior") {
       return type.quantity * price * 0.8;
@@ -27,8 +25,6 @@ const TicketSum = (props) => {
       return type.quantity * price;
     }
   };
-
-
 
   return (
     <div className="ticketSum">
@@ -48,7 +44,8 @@ const TicketSum = (props) => {
         </div>
       ))}
       <div className="flex total">
-        <p>Total:</p> <p>{totalSum},-</p>
+        <p>Total:</p>
+        <p>{totalSum},-</p>
       </div>
     </div>
   );
