@@ -1,15 +1,9 @@
 import "../scss/BookingConfirmationPage.scss"
 
 const ConfirmationTicketSmall = (props) => {
-    const { ticketDetails, showDetails } = props;
+    const { ticketDetails, showDetails, calculatePrice } = props;
     console.log("ticketDetails: ", ticketDetails);
     console.log("showDetails: ", showDetails);
-
-    const calculatePrice = (ticketType, price) => {
-        if (ticketType === "Children") return price * 0.7 + "kr";
-        if (ticketType === "Senior") return price * 0.8 + "kr";
-        return price + "kr";
-    }
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 249.53 101.93" className="confirmationTicketSmall">
