@@ -3,6 +3,7 @@ import { BookingContext } from "../context/BookingContext";
 import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
 import SeatIcon from "../components/Seat";
+import Screen from "../components/Screen";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Salon(props) {
@@ -53,7 +54,7 @@ export default function Salon(props) {
     }
 
     return (
-        <div className="container">
+        <div className="salonContainer">
             <Toaster />
             {seatingMap.map((row, i) => {
                 return (
@@ -80,10 +81,13 @@ export default function Salon(props) {
                                     </div>
                                 );
                             }
-                        })}
+                        })}                        
                     </div>
                 );
-            })}
+            }).reverse()}
+            <div className="screenContainer">
+                <Screen/>
+            </div>
         </div>
     );
 }

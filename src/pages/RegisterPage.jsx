@@ -5,7 +5,7 @@ import "../scss/RegisterPage.scss";
 
 const RegisterPage = () => {
     const history = useHistory();
-    const { setCurrentUser, loginUser } = useContext(UserContext);
+    const { setCurrentUser, loginUser, setIsAuth } = useContext(UserContext);
 
     const [registerError, setRegisterError] = useState(false);
     const [registerConfirmation, setRegisterConfirmation] = useState(false);
@@ -28,6 +28,7 @@ const RegisterPage = () => {
                     setTimeout(() => {
                         history.push("/");
                     }, 5000)
+                    setIsAuth(true)
                 }
             })
     }

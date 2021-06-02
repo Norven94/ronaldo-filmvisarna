@@ -24,12 +24,19 @@
     }
 
     img {
-      width: 100vw;
+      width: 100%;
     }
   }
 
   .ticket {
     grid-area: ticket;
+
+    button {
+      padding: 10px 20px;
+      background-color: $yellow;
+      border: none;
+      border-radius: 10px;
+    }
   }
 
   .salon {
