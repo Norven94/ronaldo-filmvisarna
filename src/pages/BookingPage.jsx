@@ -12,6 +12,10 @@ import Login from "../components/Login";
 import Salon from "../components/Salon";
 
 import "../scss/BookingPage.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+
+const backButton = <FontAwesomeIcon icon={faChevronLeft} size={"2x"}/>;
 
 const BookingPage = (props) => {
   const history = useHistory();
@@ -92,14 +96,20 @@ const BookingPage = (props) => {
     setSelected([]);
   };
 
+  const returnToMovie = () => {
+    history.goBack();
+  }
+
   return (
-    <div className="wrapper">
+    <div className="wrapper">            
       <Toaster />
       {currentShow.map((show) => {
         if (show._id == showId) {
           return (
             <section className="booking" key={show._id}>
+              
               <div className="movie">
+                <i className="backButton" onClick={returnToMovie}>{backButton}</i>
                 <h1> {show.movieId.title}</h1>
                 <p>
                   {show.date},{show.time}

@@ -74,6 +74,7 @@ const editUser = async (req, res) => {
 
     //Edit user
     let updatedUser = await User.findByIdAndUpdate(req.body.userId, req.body, { new: true }).exec();
+    updatedUser.password = undefined;
     return res.status(200).json(updatedUser);
 }
 
