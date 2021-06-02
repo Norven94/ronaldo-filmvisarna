@@ -24,12 +24,12 @@
         }
 
         svg {
-            height: 15px;
-            width: 15px;
+            height: 12px;
+            width: 12px;
 
             @media #{$md} {
-                height: 25px;
-                width: 25px;
+                height: 20px;
+                width: 20px;
             }
             @media #{$xl} {
                 height: 26px;

@@ -37,6 +37,10 @@ export const NinetiesMovies = (props) => {
         }
     };
 
+    const handleClick = () => {
+        window.scrollTo(0,0);
+    }
+
     return (
         <div className="ninetiesMovies">
             <h3>Back to the 1990s</h3>
@@ -48,10 +52,12 @@ export const NinetiesMovies = (props) => {
             >
                 {ninetiesMovies.map((ninetiesMovie) => {
                     return (
-                        <div className="ninetiesMovieCard" key={ninetiesMovie._id}>
-                            <Link to={`/movie/${ninetiesMovie._id}`}>
-                                <img className="ninetiesMovieCardImage" src={ninetiesMovie.coverImage} alt={ninetiesMovie.title}/>
-                            </Link>
+                        <div className="ninetiesMovieCard" key={ninetiesMovie._id} onClick = {handleClick}>
+                           
+                                <Link to={`/movie/${ninetiesMovie._id}`}>
+                                    <img className="ninetiesMovieCardImage" src={ninetiesMovie.coverImage} alt={ninetiesMovie.title}/>
+                                </Link>
+                            
                         </div>
                     )
                 })}

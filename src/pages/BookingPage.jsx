@@ -12,13 +12,16 @@ import Login from "../components/Login";
 import Salon from "../components/Salon";
 
 import "../scss/BookingPage.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+
+const backButton = <FontAwesomeIcon icon={faChevronLeft} size={"2x"}/>;
 
 const BookingPage = (props) => {
   const history = useHistory();
   const { currentShow, getShowById } = useContext(ShowContext);
   const {
     setPrice,
-    totalSum,
     selected,
     setSelected,
     setTotalSum,
@@ -27,14 +30,25 @@ const BookingPage = (props) => {
     setTotalTickets,
     addBookingToUser,
   } = useContext(BookingContext);
+
   const { currentUser, setShowLogin } = useContext(UserContext);
   const { showId } = props.match.params;
 
   useEffect(() => {
     getShowById(showId);
-    getPrice();
     handleReset();
   }, []);
+
+  useEffect(() => {
+    getPrice();
+  });
+
+  const getPrice = () => {
+    currentShow.map((show) => {
+      setPrice(show.movieId.price);
+      return;
+    });
+  };
 
   const addNewBooking = (show) => {
     if (selected.length !== 0) {
@@ -49,8 +63,6 @@ const BookingPage = (props) => {
           Array(e.quantity).fill(e.ticketType)
         );
 
-        console.log(selected);
-
         //For each ticket type, create an object and push into info
         tickets.forEach((ticket, i) => {
           let details = {
@@ -60,12 +72,9 @@ const BookingPage = (props) => {
           };
           info.tickets.push(details);
         });
-
-        console.log(info);
         addBookingToUser(info);
         setConfirmationDetails([info, show]);
         history.push("/confirmation");
-
 
         return;
       } else {
@@ -73,17 +82,8 @@ const BookingPage = (props) => {
         return <Login></Login>;
       }
     } else {
-      toast.error("You must add at least one ticket and choose one seat")
+      toast.error("You must add at least one ticket and choose one seat");
     }
-  };
-
-  const getPrice = () => {
-    currentShow.map((show) => {
-      if (show._id === showId) {
-        setPrice(show.movieId.price);
-      }
-      return;
-    });
   };
 
   const handleReset = () => {
@@ -96,35 +96,72 @@ const BookingPage = (props) => {
     setSelected([]);
   };
 
+  const returnToMovie = () => {
+    history.goBack();
+  }
+
   return (
-    <div className="wrapper">
+    <div className="wrapper">            
       <Toaster />
       {currentShow.map((show) => {
         if (show._id == showId) {
           return (
             <section className="booking" key={show._id}>
+              
               <div className="movie">
+                <i className="backButton" onClick={returnToMovie}>{backButton}</i>
                 <h1> {show.movieId.title}</h1>
                 <p>
-                  {show.date}, {show.time}
+                  {show.date},{show.time}
                 </p>
-                <div>
-                  <img src={show.movieId.coverImage} alt={show.movieId.title} />
-                </div>
-                <p>{show.salonId.name}</p>
+                <p> {show.salonId.name}</p>
+                <img src={show.movieId.coverImage} alt={show.movieId.title} />
               </div>
-              <div className="ticket">
+
+              <div className="quantity">
                 <TicketsQuantity></TicketsQuantity>
-                <TicketSum totalSum={totalSum}></TicketSum>
-                <button onClick={() => addNewBooking(show)}>RESERVE TICKETS</button>
               </div>
+
               <div className="salon">
+                <div className="showcase">
+                  <div>
+                    <p className="occupied"></p>
+                    <p> N/A</p>
+                  </div>
+                  <div>
+                    <p className="available"></p>
+                    <p> Available</p>
+                  </div>
+                  <div>
+                    <p className="selected"></p>
+                    <p> Selected</p>
+                  </div>
+                </div>
+
                 <Salon showId={showId} />
+              </div>
+
+              <div className="seats">
+                <p>Selected seats: </p>
+                {selected.map((s, index) => (
+                  <div className="selectedSeats" key={index}>
+                    <p>R{s.row}/</p>
+                    <p>S{s.seatNumber}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="sum">
+                <TicketSum></TicketSum>
+              </div>
+
+              <div className="cta">
+                <button onClick={() => addNewBooking(show)}>
+                  RESERVE TICKETS
+                </button>
               </div>
             </section>
           );
-        } else {
-          return null;
         }
       })}
     </div>
