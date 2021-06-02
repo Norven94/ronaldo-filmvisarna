@@ -21,7 +21,6 @@ const TicketSum = (props) => {
     if (type.ticketType === "Children") {
       return Math.round(type.quantity * price * 0.7);
     } else {
-      console.log(props.price);
       return type.quantity * price;
     }
   };
@@ -43,6 +42,14 @@ const TicketSum = (props) => {
           ) : null}
         </div>
       ))}
+
+ {/*      <div>
+       <p>Seats:</p>
+        {selected.map((s, index) => {
+          <p key={index}> Seat:{s.seatNumber},</p>;
+          console.log(s.seatNumber);
+        })}
+      </div> */}
       <div className="flex total">
         <p>Total:</p>
         <p>{totalSum},-</p>
