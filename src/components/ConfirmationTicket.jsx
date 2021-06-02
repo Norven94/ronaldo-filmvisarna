@@ -28,13 +28,13 @@ const ConfirmationTicket = (props) => {
                 <text className="cls-10" transform="translate(105.53 91.18)">
                     {showDetails.date} {showDetails.time}
                 </text>
-                <text className="cls-14" transform="translate(292.12 30)">
+                <text className="cls-14" transform="translate(292.12 40)">
                     <tspan className="cls-15">Row</tspan>
                     <tspan className="cls-18" x="15" y="15.6" textAnchor="middle">
                         {ticketDetails.rowNumber}
                     </tspan>
                 </text>
-                <text className="cls-14" transform="translate(292.12 65)">
+                <text className="cls-14" transform="translate(292.12 75)">
                     <tspan className="cls-15">Seat</tspan>
                     <tspan className="cls-18" x="15" y="15.6" textAnchor="middle">
                         {ticketDetails.seatNumber}
