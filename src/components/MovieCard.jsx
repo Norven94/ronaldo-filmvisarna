@@ -11,12 +11,13 @@ const MovieCard = (props) => {
         <img src={props.movie.coverImage} alt="movie poster" />
       </div>
 
-      <div className="movieTitle">
-        <span> {props.movie.title} </span>
-      </div>
 
       <div className="movieInfo">
-        <span>{props.movie.genre.join(", ")} / </span>
+        <div className="movieTitle">
+          <span> {props.movie.title} </span>
+        </div>
+        <span>{props.movie.genre.join(", ")} </span>
+        <br></br>
         <span>{props.movie.timeLength} min / </span>
         <span>{props.movie.price} kr</span>
       </div>
