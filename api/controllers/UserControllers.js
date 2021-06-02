@@ -50,7 +50,13 @@ const registerUser = async (req, res) => {
 
     //Creating user
     let newUser = await User.create(req.body);
+    
+    //Making sure no passwords return to front end.
     newUser.password = undefined;
+
+    //Initiating session
+    req.session.user = newUser;
+
     return res.status(200).json({ message: "New user created!", user: newUser });
 }
 
@@ -59,7 +65,9 @@ const editUser = async (req, res) => {
     let userWithEmail = await User.findOne({ email: req.body.email });
 
     //User with your email exists but your id don't match? ERROR!
-    if (userWithEmail !== null && userWithEmail._id != req.body.userId) return res.status(400).json({ error: "User with that email already exists." });
+    if (userWithEmail !== null && userWithEmail._id != req.body.userId) {
+        return res.status(400).json({ error: "User with that email already exists." });
+    } 
 
     //Encryption line
     req.body.password = encrypt(req.body.password);
@@ -71,37 +79,36 @@ const editUser = async (req, res) => {
 
 const addBooking = async (req, res) => {
     let newBooking = await Booking.create(req.body);
-    console.log(newBooking)
     let user;
-    User.findById(req.session.user._id).exec((err, result) => {
+    User.findById(req.params.userId).exec((err, result) => {
         if (err) {
             res.status(400).json({ error: "Something went wrong" });
             return;
         }
         if (!result) {
-            res.status(404).json({ error: `User with id ${req.session.user._id} does not exist` })
+            res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
             return;
         }
-        user = result;  
+        user = result;
         user.bookings.push(newBooking._id);
-        user.save();  
-        res.json(user);         
+        user.save();
+        res.json(user);
     });
 };
 
 const getUserBookings = async (req, res) => {
-    await User.findById(req.params.userId).populate({path: "bookings", populate: {path: "showId", populate: {path: "movieId"}}}).exec((err, result) => {
+    await User.findById(req.params.userId).populate({ path: "bookings", populate: { path: "showId", populate: { path: "movieId" } } }).exec((err, result) => {
         if (err) {
-            res.status(400).json({error: "Something went wrong"});
+            res.status(400).json({ error: "Something went wrong" });
             return;
         }
-        if(!result) {
-            res.status(404).json({error: `User with id ${req.params.userId} does not exist`})
+        if (!result) {
+            res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
             return;
         }
         console.log(result)
-        res.json(result);         
-    }); 
+        res.json(result);
+    });
 }
 
 const deleteBookingById = async (req, res) => {
@@ -110,12 +117,12 @@ const deleteBookingById = async (req, res) => {
             res.status(400).json({ error: "Something went wrong" });
             return;
         }
-      
+
         if (!result) {
-        res
-            .status(404)
-            .json({ error: `User with id ${req.params.userId} does not exist` });
-        return;
+            res
+                .status(404)
+                .json({ error: `User with id ${req.params.userId} does not exist` });
+            return;
         }
 
         //Check if booking exists
@@ -128,15 +135,15 @@ const deleteBookingById = async (req, res) => {
             user.bookings.splice(index, 1)
             await user.save();
             res.json({
-            message: `Booking with id ${req.params.bookingId} has been deleted and the booking was removed from the user with id: ${req.params.userId}`,
-        });
-        return;
+                message: `Booking with id ${req.params.bookingId} has been deleted and the booking was removed from the user with id: ${req.params.userId}`,
+            });
+            return;
         } else {
-        res
-            .status(404)
-            .json({ error: `Booking with id ${req.params.bookingId} does not exist.` });
-        return;
-        }        
+            res
+                .status(404)
+                .json({ error: `Booking with id ${req.params.bookingId} does not exist.` });
+            return;
+        }
     })
 }
 

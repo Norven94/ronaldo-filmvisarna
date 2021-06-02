@@ -11,15 +11,15 @@ const MoviesPage = () => {
 
   const history = useHistory();
 
-  useEffect(() => {
-    getAllMovies();
-    // eslint-disable-next-line
-  }, []);
-
   const handleClickToMovieId = (movieId) => {
     history.push(`/movie/${movieId}`);
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    getAllMovies();
+    // eslint-disable-next-line
+  }, []);
 
   let allMovies = "";
   if (movies) {

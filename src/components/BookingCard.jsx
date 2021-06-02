@@ -25,7 +25,6 @@ export default function BookingCard (props) {
 
     return (
         <div className="bookingContainer">
-            {console.log(props.booking)}
             <div className="bookingDescription">
                 <div>
                 <h3>{props.booking.showId.movieId.title}</h3><span className="date"> - {props.booking.showId.date}</span>

@@ -13,7 +13,7 @@ const ProfilePage = () => {
     const [eyeconState, setEyeconState] = useState(false);
 
     const editUser = (editInfo) => {
-        fetch("/api/v1/users/update", {
+        fetch(`/api/v1/users/update/${currentUser._id}`, {
             method: "PUT",
             headers: { "content-type": "application/json", },
             body: JSON.stringify(editInfo),
@@ -52,18 +52,11 @@ const ProfilePage = () => {
         }, 3000)
     }
 
-    //Reroute guard checks if you're logged in but only after whoami check.
-    useEffect(() => {
-        if (currentUser === null) history.push("/")
-        // eslint-disable-next-line
-    }, [currentUser])
-
     return (
         <div className="profilePage">
             <div className="profileInfo">
                 <div>
-                    <h2>Profile of</h2>
-                    <h2>{currentUser?.name}</h2>
+                    <h2>Profile of <br /> {currentUser?.name}</h2>
                     <h3>{currentUser?.email}</h3>
                 </div>
                 <button className="logout" onClick={logoutUser}>Logout</button>
