@@ -1,10 +1,11 @@
 @import "./variables.scss";
 
 .ticketsCounterWrapper {
-  .counter:not(:last-child) {
+  .counter {
     margin-bottom: 1rem;
   }
-
+  /*   border-bottom: 1px solid $gray-medium;
+ */
   p {
     margin: 0rem;
   }
@@ -24,19 +25,15 @@
 }
 
 .ticketSum {
-
   .quantity {
     display: flex;
     p:not(:last-child) {
       margin-right: 0.5rem;
     }
   }
-
-  .total {
-    padding-top: 0.5rem;
-    p {
-      font-size: $desktop-small;
-    }
+  margin-bottom: 3rem;
+  @media (min-width: 768px) {
+    margin-bottom: 0rem;
   }
 }
 
