@@ -2,8 +2,6 @@ import "../scss/BookingConfirmationPage.scss"
 
 const ConfirmationTicket = (props) => {
     const { ticketDetails, showDetails, calculatePrice } = props;
-    console.log("ticketDetails: ", ticketDetails);
-    console.log("showDetails: ", showDetails);
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 101.93" className="confirmationTicket">
