@@ -68,7 +68,7 @@ const ProfilePage = () => {
                     <label htmlFor="editName">Full name:</label>
                     <input type="text" id="editName" name="name" required defaultValue={currentUser?.name} />
                     <label htmlFor="editEmail">E-mail:</label>
-                    <input type="email" id="editEmail" name="email" required defaultValue={currentUser?.email} onChange={removeErrors} />
+                    <input type="email" id="editEmail" name="email" required defaultValue={currentUser?.email} onChange={removeErrors} pattern="^[\w\d\.\-]+\@[\w\d]+\.[\w\d]+$"/>
                     {emailTaken && <p className="errorText">Email address already in use.</p>}
                     <label htmlFor="editPassword">Password:</label>
                     <div className="eyeconDiv">
