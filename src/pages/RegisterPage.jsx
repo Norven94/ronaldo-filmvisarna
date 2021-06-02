@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { ReactComponent as Eyecon } from "../assets/eyecon.svg"
+import { ReactComponent as Eyeclosed } from "../assets/eyeclosed.svg"
 import "../scss/RegisterPage.scss";
 
 const RegisterPage = () => {
     const history = useHistory();
-    const { setCurrentUser, loginUser, setIsAuth } = useContext(UserContext);
+    const { setCurrentUser, setIsAuth, eyeconStateHandler } = useContext(UserContext);
 
     const [registerError, setRegisterError] = useState(false);
     const [registerConfirmation, setRegisterConfirmation] = useState(false);
+    const [eyeconState, setEyeconState] = useState(false);
     const [counter, setCounter] = useState(4);
 
     const registerUser = (newUserInfo) => {
@@ -77,7 +80,11 @@ const RegisterPage = () => {
                         <label htmlFor="registerEmail">E-mail:</label>
                         <input type="email" id="registerEmail" name="email" required onChange={() => setRegisterError(false)} />
                         <label htmlFor="registerPassword">Password:</label>
-                        <input type="text" id="registerPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required />
+                        <div className="eyeconDiv">
+                            <input type="password" id="registerPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required />
+                            {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false, setEyeconState, "registerPassword")} />
+                                : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true, setEyeconState, "registerPassword")} />}
+                        </div>
                         <p>8-24 letters. At least one lower case, one upper case letter, one number, one special character.</p>
                         {registerError && <p className="error">User with that email already exists.</p>}
                         <button>Create account</button>
