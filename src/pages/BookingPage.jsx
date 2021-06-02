@@ -113,17 +113,32 @@ const BookingPage = (props) => {
               </div>
 
               <div className="salon">
+                <div className="showcase">
+                  <div>
+                    <p className="occupied"></p>
+                    <p> N/A</p>
+                  </div>
+                  <div>
+                    <p className="available"></p>
+                    <p> Available</p>
+                  </div>
+                  <div>
+                    <p className="selected"></p>
+                    <p> Selected</p>
+                  </div>
+                </div>
+
                 <Salon showId={showId} />
               </div>
 
               <div className="seats">
-                {selected.map((s, index) => {
-                  <p key={index}>
-                  Seat:{s.seatNumber},
-                  </p>;
-                  console.log(s.seatNumber);
-                })}
-
+                <p>Selected seats: </p>
+                {selected.map((s, index) => (
+                  <div className="selectedSeats" key={index}>
+                    <p>R{s.row}/</p>
+                    <p>S{s.seatNumber}</p>
+                  </div>
+                ))}
               </div>
 
               <div className="sum">
