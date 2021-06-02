@@ -11,10 +11,10 @@ import ProfilePage from "./pages/ProfilePage";
 import MoviesPage from "./pages/MoviesPage";
 import HomePage from "./pages/HomePage";
 import MyBooking from "./pages/MyBooking";
+import BookingPage from "./pages/BookingPage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import BookingConfirmationPage from "./pages/BookingConfirmationPage";
-import Salon from "./components/Salon";
-import BookingPage from "./pages/BookingPage";
+import RouteGuard from "./components/RouteGuard";
 
 import "./App.scss";
 
@@ -32,9 +32,9 @@ function App() {
                   <Route exact path="/home" component={HomePage} />
                   <Route exact path="/movies" component={MoviesPage} />
                   <Route exact path="/movie/:movieId" component={MovieDetailPage} />
-                  <Route exact path="/bookings" component={MyBooking} />
+                  <RouteGuard exact path="/bookings" component={MyBooking} />
                   <Route exact path="/register" component={RegisterPage} />
-                  <Route exact path="/settings" component={ProfilePage} />
+                  <RouteGuard exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
                   <Route exact path="/confirmation" component={BookingConfirmationPage} />
 
