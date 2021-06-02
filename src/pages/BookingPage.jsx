@@ -188,7 +188,7 @@ const BookingPage = (props) => {
                     )}
 
                     {summaryOpen ? (
-                      <div className="ticketSum">
+                      <div className="sum">
                         <TicketSum></TicketSum>
                       </div>
                     ) : null}

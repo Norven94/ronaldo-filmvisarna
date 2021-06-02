@@ -5,13 +5,10 @@
     margin-bottom: 1rem;
   }
 
-  /*  @media (min-width: 992px) {
+  @media (min-width: 992px) {
     border-bottom: 1px solid $gray-medium;
-
-  
-  } */
-  &:last-child {
-    padding-bottom: 2rem;
+    width: 100%;
+    padding-bottom: 1rem;
   }
 
   p {
@@ -39,9 +36,12 @@
       margin-right: 0.5rem;
     }
   }
-  margin-bottom: 3rem;
-  @media (min-width: 768px) {
-    margin-bottom: 0rem;
+  margin-bottom: 0rem;
+  width: 85vw;
+  margin: 0 auto;
+
+  @media (min-width: 992px) {
+    width: 100%;
   }
 }
 

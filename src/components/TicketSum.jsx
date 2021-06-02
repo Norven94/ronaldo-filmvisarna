@@ -32,8 +32,8 @@ const TicketSum = (props) => {
           {type.quantity > 0 ? (
             <div className="ticketsOverview flex">
               <div className="quantity">
-                <p>{type.quantity} x</p>
-                <p>{type.ticketType}</p>
+                <p>{type.quantity} x </p>
+                <p> {type.ticketType}</p>
               </div>
               <div>
                 <p>{calculateTicketType(type)},-</p>
