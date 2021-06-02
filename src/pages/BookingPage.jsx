@@ -128,29 +128,28 @@ const BookingPage = (props) => {
               <i className="backButton" onClick={returnToMovie}>
                 {backButton}
               </i>
+
               <div className="movie">
+                <h1>{show.movieId.title}</h1>
                 <div className="details">
-                  <p className="subheading">Movie</p>
-                  <p>{show.movieId.title}</p>
-                </div>
+                  <div>
+                    <p className="subheading">Salon</p>
+                    <p>{show.salonId.name}</p>
+                  </div>
 
-                <div className="details">
-                  <p className="subheading">Salon</p>
-                  <p>{show.salonId.name}</p>
-                </div>
-
-                <div className="details">
-                  <p className="subheading">Date</p>
-                  <p>{show.date}</p>
-                </div>
-                <div className="details">
-                  <p className="subheading">Time</p>
-                  <p>{show.time}</p>
+                  <div>
+                    <p className="subheading">Time</p>
+                    <p>
+                      {show.date} {show.time}
+                    </p>
+                  </div>
                 </div>
               </div>
+
               <div className="quantity">
                 <TicketsQuantity></TicketsQuantity>
               </div>
+
               <div className="salon">
                 <div className="showcase">
                   <div>
@@ -168,6 +167,7 @@ const BookingPage = (props) => {
                 </div>
                 <Salon showId={showId} />
               </div>
+
               <div className="seats">
                 <p className="heading">Selected Seats: </p>
                 {selected.map((s, index) => (
@@ -177,6 +177,7 @@ const BookingPage = (props) => {
                   </div>
                 ))}
               </div>
+
               <div>
                 {width < breakpoint ? (
                   <div className="cta">
@@ -187,7 +188,7 @@ const BookingPage = (props) => {
                     )}
 
                     {summaryOpen ? (
-                      <div className="ticketType">
+                      <div className="ticketSum">
                         <TicketSum></TicketSum>
                       </div>
                     ) : null}
@@ -200,17 +201,22 @@ const BookingPage = (props) => {
                   </div>
                 ) : (
                   <div className="bookingSum">
-                    <TicketSum></TicketSum>
-                    <div className="totalSum">
+                    <div className="ticketSum">
+                      <TicketSum></TicketSum>
+                    </div>
+
+                    <div className="total">
                       <p>Total</p>
                       <p>{totalSum},-</p>
                     </div>
-                    <button className="sumBtn" onClick={() => addNewBooking(show)}>
+                    <button
+                      className="sumBtn"
+                      onClick={() => addNewBooking(show)}
+                    >
                       MAKE RESERVATION
                     </button>
                   </div>
                 )}
-                {/* End width ternary */}
               </div>
             </section>
           );

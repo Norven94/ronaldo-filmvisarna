@@ -1,6 +1,7 @@
 @import "./variables.scss";
 
 .booking {
+  margin-top: 2rem;
   width: 100%;
   height: 100%;
   display: grid;
@@ -15,6 +16,10 @@
     "salon"
     "cta";
 
+  /*  & > * {
+    margin-bottom: 2.5rem;
+  } */
+
   button {
     padding: 10px 10px;
     background-color: $yellow;
@@ -26,6 +31,7 @@
   }
 
   .backButton {
+    margin-bottom: 2.5rem;
     grid-area: backButton;
     font-size: 12px;
     cursor: pointer;
@@ -38,22 +44,26 @@
 
   .movie {
     grid-area: movie;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    h1 {
+      font-size: $all-h3;
+      margin-bottom: 1rem;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
 
     p {
       padding: 0px;
       margin: 0px;
     }
 
-    img {
-      width: 100%;
-    }
-
     .subheading {
       font-size: $mobile-tablet-small;
       color: $gray-medium;
+      font-weight: 400;
     }
 
     @media #{$md} {
@@ -69,9 +79,14 @@
 .salon {
   grid-area: salon;
   margin-bottom: 10rem;
+
   .showcase {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 1.3rem;
+
     div {
       display: flex;
       align-items: center;
@@ -114,6 +129,9 @@
   .selectedSeats {
     display: flex;
     margin-right: 10px;
+    p:first-child {
+      margin-left: 10px;
+    }
   }
 }
 
@@ -126,7 +144,7 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 
@@ -140,63 +158,56 @@
     align-items: center;
   }
 
-  .total,
-  .ticketType {
+  /*   .total {
     width: 85vw;
     margin: 0 auto;
-  }
+  } */
 }
 
 @media #{$md} {
   .booking {
+    grid-gap: 2rem;
     grid-template-columns: 30% 70%;
     grid-template-areas:
       "backButton backButton"
-      "movie movie"
-      "quantity quantity"
-      "seats seats"
-      "salon salon"
-      "cta cta ";
-
-    .salon {
-      .showcase {
-        justify-content: space-around;
-        margin: 1.5rem 0rem;
-      }
-    }
+      "movie salon"
+      "quantity salon"
+      "seats salon"
+      "cta salon";
 
     .movie {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      background: #1d1d1d;
-      border-radius: 10px;
-      margin: 3rem 0rem;
-      padding: 0.5rem 0rem;
+      .details {
+        margin: 0px;
+      flex-direction: column;
+      }
     }
   }
 }
 
 @media #{$lg} {
   .booking {
-    width: 100%;
-
     grid-template-areas:
       "backButton backButton"
-      "movie movie"
+      "movie salon"
       "quantity salon"
       "seats salon"
-      "cta salon ";
+      "cta salon";
 
     .sumBtn {
       width: 100%;
     }
 
     .bookingSum {
-      .totalSum {
+      .total,
+      .ticketSum {
+        width: 100%;
         display: flex;
         justify-content: space-between;
       }
+    }
+
+    .quantity {
+      width: 550px;
     }
   }
 }

@@ -4,8 +4,16 @@
   .counter {
     margin-bottom: 1rem;
   }
-  /*   border-bottom: 1px solid $gray-medium;
- */
+
+  /*  @media (min-width: 992px) {
+    border-bottom: 1px solid $gray-medium;
+
+  
+  } */
+  &:last-child {
+    padding-bottom: 2rem;
+  }
+
   p {
     margin: 0rem;
   }

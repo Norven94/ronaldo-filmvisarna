@@ -30,7 +30,7 @@ const TicketSum = (props) => {
       {totalTickets.map((type, index) => (
         <div key={index}>
           {type.quantity > 0 ? (
-            <div className="flex ticketsOverview">
+            <div className="ticketsOverview flex">
               <div className="quantity">
                 <p>{type.quantity} x</p>
                 <p>{type.ticketType}</p>
