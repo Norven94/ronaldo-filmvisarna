@@ -27,12 +27,6 @@ const BookingConfirmationPage = () => {
 
     const history = useHistory();
 
-    //Reroute guard checks if you're logged in but only after whoami check.
-    useEffect(() => {
-        if (currentUser === null) history.push("/")
-        // eslint-disable-next-line
-    }, [currentUser])
-
     return (
         <div className="bookingConfirmation">
             <h1>Booking confirmation</h1>

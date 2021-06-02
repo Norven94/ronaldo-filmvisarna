@@ -36,7 +36,7 @@ function App() {
                   <Route exact path="/register" component={RegisterPage} />
                   <RouteGuard exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
-                  <Route exact path="/confirmation" component={BookingConfirmationPage} />
+                  <RouteGuard exact path="/confirmation" component={BookingConfirmationPage} />
 
                   <Route
                     exact
