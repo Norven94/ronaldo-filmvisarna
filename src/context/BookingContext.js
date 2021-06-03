@@ -21,7 +21,7 @@ const BookingProvider = (props) => {
     { ticketType: "Senior", quantity: 0 },
     { ticketType: "Children", quantity: 0 },
   ]);
-  const [confirmationDetails, setConfirmationDetails] = useState(null);
+  const [confirmationDetails, setConfirmationDetails] = useState("");
 
   let today = new Date();
 
@@ -114,6 +114,21 @@ const BookingProvider = (props) => {
     setBooked(booked);
   }
 
+  //Set Local storage to remember last booking
+  useEffect(() => {
+    if (confirmationDetails && currentUser) localStorage.setItem("lastBooking", JSON.stringify([...confirmationDetails, currentUser]))
+  }, [confirmationDetails])
+
+  //Get from Local storage on hard reload.
+  useEffect(() => {
+    let storageItem = JSON.parse(localStorage.getItem("lastBooking"));
+
+    if (currentUser && currentUser?._id === storageItem[2]._id) {
+      setConfirmationDetails([storageItem[0], storageItem[1]])
+    } else if (currentUser) setConfirmationDetails(null)
+
+  }, [currentUser])
+
   const values = {
     bookingsId,
     deleteBooking,
@@ -131,7 +146,7 @@ const BookingProvider = (props) => {
     setTotalSum,
     totalTickets,
     setTotalTickets,
-    
+
     price,
     setPrice,
     addBookingToUser,
