@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
-import { useHistory } from "react-router";
 import { ReactComponent as Eyecon } from "../assets/eyecon.svg"
 import { ReactComponent as Eyeclosed } from "../assets/eyeclosed.svg"
 import "../scss/ProfilePage.scss";
 
 const ProfilePage = () => {
     const { currentUser, setCurrentUser, logoutUser, eyeconStateHandler } = useContext(UserContext);
-    const history = useHistory();
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
