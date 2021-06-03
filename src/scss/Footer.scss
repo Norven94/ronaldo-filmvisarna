@@ -1,0 +1,36 @@
+@import "./variables.scss";
+
+footer {
+  margin-top: 4rem;
+  height: 5vh;
+  font-size: $mobile-tablet-small;
+
+  .footer {
+    width: 85vw;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .social {
+      padding: 0.5rem;
+      a {
+        margin-right: 5px;
+        color: $gray-light;
+      }
+    }
+
+    .copyright {
+      p {
+        color: $gray-medium;
+        font-size: $mobile-tablet-small;
+      }
+    }
+
+    @media (min-width: 992px) {
+      width: 75vw;
+    }
+  }
+}

@@ -15,6 +15,7 @@ import BookingPage from "./pages/BookingPage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import BookingConfirmationPage from "./pages/BookingConfirmationPage";
 import RouteGuard from "./components/RouteGuard";
+import Footer from "./components/Footer";
 
 import "./App.scss";
 
@@ -31,12 +32,20 @@ function App() {
                   <Route exact path="/" component={HomePage} />
                   <Route exact path="/home" component={HomePage} />
                   <Route exact path="/movies" component={MoviesPage} />
-                  <Route exact path="/movie/:movieId" component={MovieDetailPage} />
+                  <Route
+                    exact
+                    path="/movie/:movieId"
+                    component={MovieDetailPage}
+                  />
                   <RouteGuard exact path="/bookings" component={MyBooking} />
                   <Route exact path="/register" component={RegisterPage} />
                   <RouteGuard exact path="/settings" component={ProfilePage} />
                   <Route exact path="/about" component={AboutPage} />
-                  <Route exact path="/confirmation" component={BookingConfirmationPage} />
+                  <Route
+                    exact
+                    path="/confirmation"
+                    component={BookingConfirmationPage}
+                  />
 
                   <Route
                     exact
@@ -44,6 +53,8 @@ function App() {
                     component={BookingPage}
                   />
                 </main>
+
+                <Footer />
               </BrowserRouter>
             </BookingProvider>
           </ShowProvider>
