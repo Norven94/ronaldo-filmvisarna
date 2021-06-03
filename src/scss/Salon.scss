@@ -1,69 +1,69 @@
 @import "./variables.scss";
 
 .salonContainer {
-    margin-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
 
-    .row {
-        display: flex;
-        justify-content: center;
-        margin: 10px 0;        
+    .seat {
+      cursor: pointer;
+      margin: 0 5px;
 
-        .seat {
-            cursor: pointer;
-            margin: 0 5px;
-
-            @media #{$md} {
-                margin: 0 8px;
-            }
-            @media #{$xl} {
-                margin: 0 10px;
-            }
-        }
-
-        svg {
-            height: 12px;
-            width: 12px;
-
-            @media #{$md} {
-                height: 20px;
-                width: 20px;
-            }
-            @media #{$xl} {
-                height: 26px;
-                width: 26px;
-            }
-        }
-        .default {
-            .cls-1 {
-            fill: $gray-medium;                
-            }
-        }
-        .taken {
-            .cls-1 {
-            fill: $black;
-            }
-        }
-        .selected {
-            .cls-1 {
-            fill: $yellow-light;
-            }
-        }        
+      @media #{$md} {
+        margin: 0 5px;
+      }
+      @media #{$xl} {
+        margin: 0 10px;
+      }
     }
 
-    .screenContainer {        
-        margin-top: 20px;
-        width: 300px;
-        .cls-1 {
-            fill: $gray-medium;
-        }
-        @media #{$md} {
-            width: 450px;
-        }
-        @media #{$xl} {
-            width: 550px;
-        }
+    svg {
+      height: 12px;
+      width: 12px;
+
+      @media #{$md} {
+        height: 20px;
+        width: 20px;
+      }
+      @media #{$xl} {
+        height: 26px;
+        width: 26px;
+      }
     }
+    .default {
+      .cls-1 {
+        fill: $gray-medium;
+      }
+    }
+    .taken {
+      .cls-1 {
+        fill: $black;
+      }
+    }
+    .selected {
+      .cls-1 {
+        fill: $yellow-light;
+      }
+    }
+  }
+
+  .screenContainer {
+    margin-top: 20px;
+    width: 300px;
+    .cls-1 {
+      fill: $gray-medium;
+    }
+    @media #{$md} {
+      width: 400px;
+    }
+    @media #{$xl} {
+      width: 550px;
+    }
+  }
 }

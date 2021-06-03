@@ -15,7 +15,7 @@ import "../scss/BookingPage.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
-const backButton = <FontAwesomeIcon icon={faChevronLeft} size={"2x"}/>;
+const backButton = <FontAwesomeIcon icon={faChevronLeft} size={"2x"} />;
 
 const BookingPage = (props) => {
   const history = useHistory();
@@ -29,10 +29,20 @@ const BookingPage = (props) => {
     totalTickets,
     setTotalTickets,
     addBookingToUser,
+    totalSum,
   } = useContext(BookingContext);
 
   const { currentUser, setShowLogin } = useContext(UserContext);
+  const [summaryOpen, setSummaryOpen] = useState(false); // Opens booking details
+
   const { showId } = props.match.params;
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 992;
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
 
   useEffect(() => {
     getShowById(showId);
@@ -96,26 +106,40 @@ const BookingPage = (props) => {
     setSelected([]);
   };
 
+  const openSummary = () => {
+    setSummaryOpen(!summaryOpen);
+  };
+
   const returnToMovie = () => {
     history.goBack();
-  }
+  };
 
   return (
-    <div className="wrapper">            
+    <div className="wrapper">
       <Toaster />
       {currentShow.map((show) => {
         if (show._id == showId) {
           return (
             <section className="booking" key={show._id}>
-              
+              <i className="backButton" onClick={returnToMovie}>
+                {backButton}
+              </i>
+
               <div className="movie">
-                <i className="backButton" onClick={returnToMovie}>{backButton}</i>
-                <h1> {show.movieId.title}</h1>
-                <p>
-                  {show.date},{show.time}
-                </p>
-                <p> {show.salonId.name}</p>
-                <img src={show.movieId.coverImage} alt={show.movieId.title} />
+                <h1>{show.movieId.title}</h1>
+                <div className="details">
+                  <div>
+                    <p>Salon</p>
+                    <p>{show.salonId.name}</p>
+                  </div>
+
+                  <div>
+                    <p>Time</p>
+                    <p>
+                      {show.date} {show.time}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="quantity">
@@ -128,13 +152,15 @@ const BookingPage = (props) => {
                     <p className="occupied"></p>
                     <p> N/A</p>
                   </div>
+
                   <div>
                     <p className="available"></p>
                     <p> Available</p>
                   </div>
+
                   <div>
                     <p className="selected"></p>
-                    <p> Selected</p>
+                    <p>Selected</p>
                   </div>
                 </div>
 
@@ -142,23 +168,55 @@ const BookingPage = (props) => {
               </div>
 
               <div className="seats">
-                <p>Selected seats: </p>
+                <p className="heading">Selected Seats: </p>
                 {selected.map((s, index) => (
                   <div className="selectedSeats" key={index}>
-                    <p>R{s.row}/</p>
+                    <p> R{s.row}-</p>
                     <p>S{s.seatNumber}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="sum">
-                <TicketSum></TicketSum>
-              </div>
+              <div>
+                {width < breakpoint ? (
+                  <div className="cta">
+                    {summaryOpen ? (
+                      <p onClick={openSummary}>Hide Details</p>
+                    ) : (
+                      <p onClick={openSummary}>Show Details</p>
+                    )}
 
-              <div className="cta">
-                <button onClick={() => addNewBooking(show)}>
-                  RESERVE TICKETS
-                </button>
+                    {summaryOpen ? (
+                      <div className="sum">
+                        <TicketSum></TicketSum>
+                      </div>
+                    ) : null}
+
+                    <div className="total">
+                      <div>Total {totalSum},-</div>
+                      <button onClick={() => addNewBooking(show)}>
+                        MAKE RESERVATION
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bookingSum">
+                    <div className="ticketSum">
+                      <TicketSum></TicketSum>
+                    </div>
+
+                    <div className="total">
+                      <p>Total</p>
+                      <p>{totalSum},-</p>
+                    </div>
+                    <button
+                      className="sumBtn"
+                      onClick={() => addNewBooking(show)}
+                    >
+                      MAKE RESERVATION
+                    </button>
+                  </div>
+                )}
               </div>
             </section>
           );
