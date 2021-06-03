@@ -20,7 +20,18 @@ const getDateArray = (start, end) => {
     return arr;
   }
 
+const validatePassword = (password) => {
+    if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/.test(password)) return true;
+    return false;
+}
+
+const validateEmail = (email) => {
+  return email.includes(email.match(/^[\w\d\.\-]+\@[\w\d]+\.[\w\d]+$/));
+};
+
 module.exports = {
     formatDate,
-    getDateArray
+    getDateArray,
+    validatePassword,
+    validateEmail
 };
