@@ -9,7 +9,6 @@ import ConfirmationTicketSmall from "../components/ConfirmationTicketSmall";
 const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
     const { confirmationDetails } = useContext(BookingContext);
-    console.log("confirmation details: ", confirmationDetails)
 
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 992;
@@ -29,24 +28,27 @@ const BookingConfirmationPage = () => {
 
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
-        if (currentUser === null) history.push("/")
-        // eslint-disable-next-line
-    }, [currentUser])
+        if (currentUser === null || confirmationDetails === null) history.push("/")
+    }, [currentUser, confirmationDetails]) //eslint-disable-line
 
     return (
-        <div className="bookingConfirmation">
-            <h1>Booking confirmation</h1>
-            <h2>Payment is still required at the Filmvisarna theatre.</h2>
-            <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
-            {confirmationDetails && width >= breakpoint &&
-                confirmationDetails[0].tickets.map((ticket, index) => (
-                    <ConfirmationTicket ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
-                ))}
+        <div>
+            {confirmationDetails &&
+                <div className="bookingConfirmation">
+                    <h1>Booking confirmation</h1>
+                    <h2>Payment is still required at the Filmvisarna theatre.</h2>
+                    <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
+                    {confirmationDetails && width >= breakpoint &&
+                        confirmationDetails[0].tickets.map((ticket, index) => (
+                            <ConfirmationTicket ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
+                        ))}
 
-            {confirmationDetails && width < breakpoint &&
-                confirmationDetails[0].tickets.map((ticket, index) => (
-                    <ConfirmationTicketSmall ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
-                ))}
+                    {confirmationDetails && width < breakpoint &&
+                        confirmationDetails[0].tickets.map((ticket, index) => (
+                            <ConfirmationTicketSmall ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
+                        ))}
+                </div>
+            }
         </div>
     );
 }
