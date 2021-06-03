@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   grid-template-columns: 1fr;
-  font-weight: 200;
+  font-weight: 300;
   grid-template-areas:
     "backButton"
     "movie"
@@ -53,7 +53,7 @@
     .details {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin: 2rem 0rem;
       p:nth-child(1) {
         font-size: $mobile-tablet-small;
         color: $gray-medium;
@@ -64,6 +64,7 @@
 
   .quantity {
     grid-area: quantity;
+    margin: 1rem 0rem;
   }
 }
 
@@ -112,9 +113,10 @@
   grid-area: seats;
   display: flex;
   flex-wrap: wrap;
+  margin: 1rem 0rem;
 
   p {
-    font-weight: normal;
+    font-weight: 200;
   }
 
   .selectedSeats {
@@ -165,13 +167,17 @@
 
     .movie {
       .details {
-        margin: 0px;
+        margin: 0rem;
         flex-direction: column;
       }
     }
 
     .salon {
-      margin-bottom: 0px;
+      margin-bottom: 0rem;
+    }
+
+    .seats {
+      margin: 0rem;
     }
   }
 }
