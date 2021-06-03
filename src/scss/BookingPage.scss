@@ -27,7 +27,7 @@
   }
 
   .backButton {
-    margin-bottom: 2.5rem;
+    margin: 2.5rem 0rem;
     grid-area: backButton;
     font-size: 12px;
     cursor: pointer;
@@ -40,15 +40,9 @@
 
   .movie {
     grid-area: movie;
+
     h1 {
       font-size: $all-h3;
-      height: 100%;
-    }
-
-    .details {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2.5rem;
     }
 
     p {
@@ -56,14 +50,15 @@
       margin: 0px;
     }
 
-    .subheading {
-      font-size: $mobile-tablet-small;
-      color: $gray-medium;
-      font-weight: 400;
-    }
-
-    @media #{$md} {
-      font-size: 14px;
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      p:nth-child(1) {
+        font-size: $mobile-tablet-small;
+        color: $gray-medium;
+        font-weight: 400;
+      }
     }
   }
 
@@ -81,7 +76,7 @@
     justify-content: space-around;
     width: 300px;
     margin: 0 auto;
-    margin-top: 1.3rem;
+    margin-top: 1.5rem;
 
     div {
       display: flex;
@@ -118,7 +113,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  .heading {
+  p {
     font-weight: normal;
   }
 
@@ -159,7 +154,7 @@
 
 @media #{$md} {
   .booking {
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     grid-template-columns: 30% 70%;
     grid-template-areas:
       "backButton backButton"
@@ -173,6 +168,10 @@
         margin: 0px;
         flex-direction: column;
       }
+    }
+
+    .salon {
+      margin-bottom: 0px;
     }
   }
 }

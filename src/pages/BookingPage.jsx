@@ -14,12 +14,8 @@ import Salon from "../components/Salon";
 import "../scss/BookingPage.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const backButton = <FontAwesomeIcon icon={faChevronLeft} size={"2x"} />;
-const downButton = <FontAwesomeIcon icon={faChevronDown} size={"2x"} />;
-const upButton = <FontAwesomeIcon icon={faChevronUp} size={"2x"} />;
 
 const BookingPage = (props) => {
   const history = useHistory();
@@ -37,7 +33,9 @@ const BookingPage = (props) => {
   } = useContext(BookingContext);
 
   const { currentUser, setShowLogin } = useContext(UserContext);
-  const [summaryOpen, setSummaryOpen] = useState(false);
+  const [summaryOpen, setSummaryOpen] = useState(false); // Opens booking details
+
+  const { showId } = props.match.params;
 
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 992;
@@ -45,8 +43,6 @@ const BookingPage = (props) => {
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
-
-  const { showId } = props.match.params;
 
   useEffect(() => {
     getShowById(showId);
@@ -133,12 +129,12 @@ const BookingPage = (props) => {
                 <h1>{show.movieId.title}</h1>
                 <div className="details">
                   <div>
-                    <p className="subheading">Salon</p>
+                    <p>Salon</p>
                     <p>{show.salonId.name}</p>
                   </div>
 
                   <div>
-                    <p className="subheading">Time</p>
+                    <p>Time</p>
                     <p>
                       {show.date} {show.time}
                     </p>
@@ -156,15 +152,18 @@ const BookingPage = (props) => {
                     <p className="occupied"></p>
                     <p> N/A</p>
                   </div>
+
                   <div>
                     <p className="available"></p>
                     <p> Available</p>
                   </div>
+
                   <div>
                     <p className="selected"></p>
                     <p>Selected</p>
                   </div>
                 </div>
+
                 <Salon showId={showId} />
               </div>
 
@@ -192,6 +191,7 @@ const BookingPage = (props) => {
                         <TicketSum></TicketSum>
                       </div>
                     ) : null}
+
                     <div className="total">
                       <div>Total {totalSum},-</div>
                       <button onClick={() => addNewBooking(show)}>
