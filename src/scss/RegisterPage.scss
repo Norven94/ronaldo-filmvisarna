@@ -1,0 +1,78 @@
+@import "./variables.scss";
+
+.registerPage{
+    height: 100%;
+
+    h1{
+        text-align: center;
+    }
+
+    input, label, p {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    form {
+        display: block;
+        margin: 0 auto;
+        width: 60%;
+        min-width: 280px;
+        max-width: 500px;
+    }
+
+    input{
+        height: 34px;
+        padding-left: 6px;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+
+    .eyeconDiv {
+        position: relative;
+    }
+
+    .eyecon {
+        position: absolute;
+        height: 24px;
+        width: 38px;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    #registerPassword{
+        margin-bottom: 0;
+    }
+
+    button{
+        font-family: "poppins", sans-serif;
+        display: block;
+        margin: 2rem auto 0 auto;
+        background-color: $yellow;
+        cursor: pointer;
+        padding: 10px;
+        width: 150px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none
+    }
+    
+    button:active{
+        background-color: $yellow-dark;
+    }
+
+    .error{
+        text-align: center;
+        background-color: rgb(155, 0, 0);
+        color: rgb(255, 255, 255);
+        padding: 0.5rem;
+        margin: 1.5rem auto;
+    }
+}
+
+.confirmationDiv{
+    p{
+        text-align: center;
+    }
+}

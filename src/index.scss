@@ -1,0 +1,48 @@
+@import "./scss/variables.scss";
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  color: $white;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  background: $background-gradient;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-size: $mobile-tablet-h1;
+  @media (min-width: 992px) {
+    font-size: $desktop-h1;
+  }
+}
+
+h2 {
+  font-size: $mobile-tablet-h1;
+  @media (min-width: 992px) {
+    font-size: $desktop-h2;
+  }
+}
+
+h3 {
+  font-size: $all-h3;
+}
+
+p {
+  font-size: $mobile-tablet-small;
+  @media (min-width: 992px) {
+    font-size: $desktop-small;
+  }
+}
+
+button{
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+@import "./variables.scss";
+
+.ticketsCounterWrapper {
+  .counter {
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    border-bottom: 1px solid $gray-medium;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+
+  p {
+    margin: 0rem;
+  }
+
+  span {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  span:nth-child(odd) {
+    background: $gray-medium;
+    cursor: pointer;
+  }
+}
+
+.ticketSum {
+  .quantity {
+    display: flex;
+    p:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+  margin-bottom: 0rem;
+  width: 85vw;
+  margin: 0 auto;
+
+  @media (min-width: 992px) {
+    width: 100%;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,107 @@
+@import "./variables.scss";
+
+.login{
+    .overlay{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.705);
+        cursor: pointer;
+    }
+
+    .loginDiv{
+        background-color: $gray-dark;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 600px;
+        min-height: 380px;
+        color: white;
+        cursor: initial;
+        box-shadow: 2px 2px 5px black;
+    }
+
+    h2{
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    form {
+        display: block;
+        margin: 0 auto;
+        width: 60%;
+        min-width: 280px;
+    }
+
+    input{
+        display: block;
+        margin: 0 auto 1.5rem auto;
+        padding-left: 6px;
+        border-radius: 5px;
+        height: 34px;
+    }
+    
+    label{
+        display: block;
+    }
+
+    .eyeconDiv {
+        position: relative;
+    }
+
+    .eyecon {
+        position: absolute;
+        height: 24px;
+        width: 38px;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    button{
+        font-family: "poppins", sans-serif;
+        background-color: $yellow;
+        cursor: pointer;
+        display: block;
+        margin: 2rem auto 2rem auto;
+        padding: 10px;
+        width: 150px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+    }
+
+    button:active{
+        background-color: $yellow-dark;
+    }
+
+    .error{
+        text-align: center;
+        background-color: rgb(155, 0, 0);
+        color: rgb(255, 255, 255);
+        padding: 0.5rem;
+    }
+
+    .register{
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        margin: 1rem auto;
+    }
+
+    span{
+        color: $yellow;
+        font-weight: bold;
+    }
+
+    input, label, .register{
+        width: 100%;
+        min-width: 250px;
+    }
+
+    
+}

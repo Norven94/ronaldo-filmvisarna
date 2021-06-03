@@ -1,0 +1,211 @@
+@import "./variables.scss";
+
+.booking {
+  margin-top: 2rem;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  font-weight: 300;
+  grid-template-areas:
+    "backButton"
+    "movie"
+    "quantity"
+    "seats"
+    "salon"
+    "cta";
+
+  button {
+    padding: 10px 10px;
+    background-color: $yellow;
+    border: none;
+    width: 50%;
+    border-radius: 10px;
+    margin: 1rem 0rem;
+    font-size: $mobile-tablet-small;
+  }
+
+  .backButton {
+    margin: 2.5rem 0rem;
+    grid-area: backButton;
+    font-size: 12px;
+    cursor: pointer;
+    color: $white;
+    transition: 0.3s;
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  .movie {
+    grid-area: movie;
+
+    h1 {
+      font-size: $all-h3;
+    }
+
+    p {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 0rem;
+      p:nth-child(1) {
+        font-size: $mobile-tablet-small;
+        color: $gray-medium;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .quantity {
+    grid-area: quantity;
+    margin: 1rem 0rem;
+  }
+}
+
+.salon {
+  grid-area: salon;
+  margin-bottom: 10rem;
+
+  .showcase {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      p:first-child {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        padding-right: 3px;
+      }
+
+      p:last-child {
+        margin-left: 5px;
+      }
+
+      .occupied {
+        background-color: $black;
+      }
+
+      .available {
+        background-color: $gray-medium;
+      }
+
+      .selected {
+        background-color: $yellow-light;
+      }
+    }
+  }
+}
+
+.seats {
+  grid-area: seats;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0rem;
+
+  p {
+    font-weight: 200;
+  }
+
+  .selectedSeats {
+    display: flex;
+    margin-right: 10px;
+    p:first-child {
+      margin-left: 10px;
+    }
+  }
+}
+
+.cta {
+  grid-area: cta;
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  p {
+    text-align: center;
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85vw;
+    margin: 0 auto;
+  }
+}
+
+@media #{$md} {
+  .booking {
+    grid-gap: 1rem;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:
+      "backButton backButton"
+      "movie salon"
+      "quantity salon"
+      "seats salon"
+      "cta cta";
+
+    .movie {
+      .details {
+        margin: 0rem;
+        flex-direction: column;
+      }
+    }
+
+    .salon {
+      margin-bottom: 0rem;
+    }
+
+    .seats {
+      margin: 0rem;
+    }
+  }
+}
+
+@media #{$lg} {
+  .booking {
+    .sumBtn {
+      width: 100%;
+    }
+
+    .bookingSum {
+      .total,
+      .sum {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .movie {
+      h1 {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    .details {
+      & > * {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}

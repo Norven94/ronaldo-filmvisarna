@@ -1,0 +1,94 @@
+@import "./variables.scss";
+
+.bookingConfirmation {
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 3rem;
+    }
+
+    .confirmationTicket,
+    .confirmationTicketSmall {
+        display: block;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem auto;
+    }
+}
+
+//-----------------
+//Ticket SVG styles
+//-----------------
+.confirmationTicket {
+    .cls-1 {
+        fill: #f2f2f3;
+    }
+
+    .cls-2 {
+        font-size: 18px;
+        letter-spacing: 0em;
+    }
+
+    .cls-10,
+    .cls-14,
+    .cls-2,
+    .cls-7 {
+        fill: #231f20;
+        font-family: MyriadPro-Regular, Myriad Pro;
+    }
+
+    .cls-7 {
+        font-size: 12px;
+    }
+
+    .cls-10 {
+        font-size: 14px;
+    }
+
+    .cls-14 {
+        font-size: 18px;
+    }
+
+    .cls-18 {
+        font-family: MyriadPro-Bold, Myriad Pro;
+        font-weight: 700;
+    }
+}
+
+.confirmationTicketSmall {
+    .cls-1 {
+        fill: #f2f2f3;
+    }
+
+    .cls-2 {
+        font-size: 19px;
+    }
+
+    .cls-10,
+    .cls-2,
+    .cls-7 {
+        fill: #231f20;
+        font-family: MyriadPro-Regular, Myriad Pro;
+    }
+
+    .cls-7 {
+        font-size: 11px;
+    }
+
+    .cls-10 {
+        font-size: 14px;
+    }
+
+    .cls-16,
+    .cls-20,
+    .cls-21 {
+        font-family: MyriadPro-Bold, Myriad Pro;
+        font-weight: 700;
+    }
+}
