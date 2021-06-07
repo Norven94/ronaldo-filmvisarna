@@ -20,7 +20,7 @@ export default function BookingCard (props) {
     const [moreDetails, setMoreDetails] = useState(false)    
 
     const removeBooking = (bookingId) => {
-        deleteBooking(bookingId, currentUser._id)
+        deleteBooking(bookingId, currentUser._id);
     }
 
     const toggleMoreDetails = () => {
@@ -48,7 +48,7 @@ export default function BookingCard (props) {
 
                 
                 {close => (
-                    <div className="modalContent">Are you sure you want to cancel your booking?
+                    <div className="modalContent">Are you sure you want to cancel your ticket reservation for {props.booking.showId.movieId.title} {props.booking.showId.date}?
                         <div className="modalBtns">
                             <button className="modalButton" onClick={() => removeBooking(props.booking._id)}>Yes, cancel it</button>
                             <button className="modalButton" onClick={close} >No, keep it</button>
