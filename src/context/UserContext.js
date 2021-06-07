@@ -3,7 +3,7 @@ import { createContext, useEffect, useLayoutEffect, useState } from "react";
 export const UserContext = createContext();
 
 const UserProvider = (props) => {
-    const [currentUser, setCurrentUser] = useState("");
+    const [currentUser, setCurrentUser] = useState(undefined);
     const [showLogin, setShowLogin] = useState(false);
     const [loginError, setLoginError] = useState(false);
     const [isAuth, setIsAuth] = useState(false);
