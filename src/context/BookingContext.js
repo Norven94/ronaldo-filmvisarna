@@ -98,14 +98,15 @@ const BookingProvider = (props) => {
   };
 
   const addBookingToUser = async (newBookingInfo) => {
-    await fetch(`/api/v1/users/add/${currentUser._id}`, {
+    let updatedUser = await fetch(`/api/v1/users/add/${currentUser._id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(newBookingInfo),
     });
-
+    updatedUser = await updatedUser.json();
+    return updatedUser;
   };
 
   const getBookedSeats = async (showId) => {

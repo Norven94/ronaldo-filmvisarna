@@ -60,7 +60,7 @@ const BookingPage = (props) => {
     });
   };
 
-  const addNewBooking = (show) => {
+  const addNewBooking = async (show) => {
     if (selected.length !== 0) {
       if (currentUser) {
         let info = {
@@ -82,7 +82,9 @@ const BookingPage = (props) => {
           };
           info.tickets.push(details);
         });
+        
         addBookingToUser(info);
+        
         setConfirmationDetails([info, show]);
         history.push("/confirmation");
 
