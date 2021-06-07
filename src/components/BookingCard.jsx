@@ -45,12 +45,16 @@ export default function BookingCard (props) {
                     modal
                     nested
                 >
+
+                
+                {close => (
                     <div className="modalContent">Are you sure you want to cancel your booking?
                         <div className="modalBtns">
-                            <button className="modalButton" onClick={() => removeBooking(props.booking._id)}>Yes</button>
-                            <button className="modalButton">No</button>
+                            <button className="modalButton" onClick={() => removeBooking(props.booking._id)}>Yes, cancel it</button>
+                            <button className="modalButton" onClick={close} >No, keep it</button>
                         </div>
                     </div>
+                )}
                 </Popup>
 
                 <p>{props.booking.showId.time}</p>
