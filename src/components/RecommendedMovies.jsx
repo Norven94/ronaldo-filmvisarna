@@ -50,12 +50,10 @@ export const RecommendedMovies = (props) => {
             >
                 {recommendedMovies.map((recommendedMovie) => {
                     return (
-                        <div className="recommendedMovieCard" key={recommendedMovie._id}>
-                            <div onClick = {handleClick}>
+                        <div className="recommendedMovieCard" key={recommendedMovie._id} onClick = {handleClick}>
                                 <Link to={`/movie/${recommendedMovie._id}`}>
                                     <img className="recommendedMovieCardImage" src={recommendedMovie.coverImage} alt={recommendedMovie.title}/>
                                 </Link>
-                            </div>
                         </div>
                     )
                 })}

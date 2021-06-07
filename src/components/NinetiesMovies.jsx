@@ -52,12 +52,12 @@ export const NinetiesMovies = (props) => {
             >
                 {ninetiesMovies.map((ninetiesMovie) => {
                     return (
-                        <div className="ninetiesMovieCard" key={ninetiesMovie._id}>
-                            <div onClick = {handleClick}>
+                        <div className="ninetiesMovieCard" key={ninetiesMovie._id} onClick = {handleClick}>
+                           
                                 <Link to={`/movie/${ninetiesMovie._id}`}>
                                     <img className="ninetiesMovieCardImage" src={ninetiesMovie.coverImage} alt={ninetiesMovie.title}/>
                                 </Link>
-                            </div>
+                            
                         </div>
                     )
                 })}

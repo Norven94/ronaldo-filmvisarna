@@ -2,11 +2,7 @@ const encrypt = require("../Encrypt.js");
 const User = require("../models/Users");
 const Booking = require("../models/Booking");
 const Show = require("../models/Show");
-
-const validatePassword = (password) => {
-    if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$/.test(password)) return true;
-    return false;
-}
+const utils = require("../core/utilities");
 
 const whoami = (req, res) => {
     res.json(req.session.user || null);
@@ -39,12 +35,14 @@ const logout = (req, res) => {
 
 const registerUser = async (req, res) => {
     //Checking if password is ok
-    if (!validatePassword(req.body.password)) return res.status(400).json({ failed: "Password not valid" })
+    if (!utils.validatePassword(req.body.password)) return res.status(400).json({ failed: "Password not valid" });
+    //Checking if email is ok
+    if (!utils.validateEmail(req.body.email)) return res.status(400).json({ failed: "Email not valid" });
 
     //Checking if user exists
     let userExists = await User.exists({ email: req.body.email });
     if (userExists) return res.status(400).json({ error: "User with that email already exists." });
-
+    
     //Encryption line
     req.body.password = encrypt(req.body.password);
 
@@ -61,6 +59,11 @@ const registerUser = async (req, res) => {
 }
 
 const editUser = async (req, res) => {
+    //Checking if password is ok
+    if (!utils.validatePassword(req.body.password)) return res.status(400).json({ failed: "Password not valid" });
+    //Checking if email is ok
+    if (!utils.validateEmail(req.body.email)) return res.status(400).json({ failed: "Email not valid" });
+    
     //Checking if email exists
     let userWithEmail = await User.findOne({ email: req.body.email });
 
@@ -74,6 +77,7 @@ const editUser = async (req, res) => {
 
     //Edit user
     let updatedUser = await User.findByIdAndUpdate(req.body.userId, req.body, { new: true }).exec();
+    updatedUser.password = undefined;
     return res.status(200).json(updatedUser);
 }
 

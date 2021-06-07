@@ -1,11 +1,14 @@
 @import "./variables.scss";
 
 .ticketsCounterWrapper {
-  border-bottom: 1px solid $gray-light;
-  padding-bottom: 2rem;
-
-  .counter:not(:last-child) {
+  .counter {
     margin-bottom: 1rem;
+  }
+
+  @media (min-width: 992px) {
+    border-bottom: 1px solid $gray-medium;
+    width: 100%;
+    padding-bottom: 1rem;
   }
 
   p {
@@ -27,25 +30,20 @@
 }
 
 .ticketSum {
-  padding-top: 2rem;
   .quantity {
     display: flex;
-
     p:not(:last-child) {
       margin-right: 0.5rem;
     }
   }
+  margin-bottom: 0rem;
+  width: 85vw;
+  margin: 0 auto;
 
-  .total {
-    padding-top: 0.5rem;
-    p {
-      font-size: $desktop-small;
-    }
+  @media (min-width: 992px) {
+    width: 100%;
   }
 }
-
-// Remove this when implemented on booking page
-
 
 .flex {
   display: flex;
