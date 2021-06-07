@@ -4,17 +4,25 @@
     margin: 1rem 0 2rem 0; 
     max-width: 255px;
     cursor: pointer;
+    filter: brightness(85%);
+    transition: 0.3s;
+}
+
+.movieCard:hover {
+    filter: brightness(100%);
 }
 
 .movieTitle {
-    color: $white;
-    font-size: $mobile-tablet-h2;
+    color: $gray-light;
+    font-size: $desktop-big;
     font-weight: bold;
+    margin: 0.5rem 0 0 0;
 }
 
 .movieInfo {
-    color: $white;
-    font-size: $mobile-tablet-big;
+    color: $gray-medium;
+    font-size: $desktop-small;
+    margin: 0rem 1rem 0rem 0rem;
 }
 
 .imageContainer {

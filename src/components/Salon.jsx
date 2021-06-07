@@ -22,7 +22,7 @@ export default function Salon(props) {
         });
         makeSeatingMap(salon);
         getBookedSeats(props.showId)
-    }, []);   
+    }, []);   //eslint-disable-line
     
     useEffect(() => {
         let total = 0;
@@ -54,29 +54,29 @@ export default function Salon(props) {
     }
 
     return (
-        <div className="container">
+        <div className="salonContainer">
             <Toaster />
             {seatingMap.map((row, i) => {
                 return (
                     <div key={i} className="row">
-                        {row.map((seat) => {                                
+                        {row.map((seat, i) => {                                
                             if (booked.find(b => b.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <div className="seat taken">
+                                    <div className="seat taken" key={i}>
                                         <SeatIcon />
                                     </div>
                                 );
                             }
                             else if (selected.find(s => s.seatNumber === seat.seatNumber)) {
                                 return (
-                                    <div className="seat selected" onClick={() => deselectSeat(seat.seatNumber)}>
+                                    <div className="seat selected" onClick={() => deselectSeat(seat.seatNumber)} key={i}>
                                         <SeatIcon />
                                     </div>
                                 );
                             }
                             else {
                                 return (
-                                    <div className="seat default" onClick={() => selectSeat(seat.row, seat.seatNumber)}>
+                                    <div className="seat default" onClick={() => selectSeat(seat.row, seat.seatNumber)} key={i}>
                                         <SeatIcon />
                                     </div>
                                 );
