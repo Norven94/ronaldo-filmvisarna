@@ -20,17 +20,16 @@ const UserProvider = (props) => {
                     setLoginError(true)
                 } else {
                     setCurrentUser(result.currentUser)
-                    setLoginError(false)
-                    setShowLogin(false)
                     setIsAuth(true)
+                    setLoginError(false)
+                    setShowLogin(false)                    
                 }
             })
     }
 
     const logoutUser = () => {
         fetch("/api/v1/users/logout")
-            .then(response => response.json())
-        // .then(result => { console.log(result) })        
+            .then(response => response.json())     
         setCurrentUser(null);
         setIsAuth(false)
     }
@@ -38,10 +37,12 @@ const UserProvider = (props) => {
     const whoami = () => {
         fetch("/api/v1/users/whoami")
             .then(response => response.json())
-            .then(result => {
-                setCurrentUser(result)
+            .then(result => {                
                 if (result) {
                     setIsAuth(true)
+                    setCurrentUser(result)                    
+                } else {
+                    setCurrentUser(null)
                 }
             })
     }
@@ -54,7 +55,6 @@ const UserProvider = (props) => {
     //Checks the session on hard reload and updates login status.
     useEffect(() => {
         whoami()
-        console.log(isAuth)
     }, [])
 
     const values = {

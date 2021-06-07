@@ -28,7 +28,7 @@ const BookingConfirmationPage = () => {
 
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
-        if (currentUser === null || confirmationDetails === null) history.push("/")
+        if (currentUser === undefined || confirmationDetails === null) history.push("/")
     }, [currentUser, confirmationDetails]) //eslint-disable-line
 
     return (
