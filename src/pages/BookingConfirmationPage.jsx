@@ -46,7 +46,7 @@ const BookingConfirmationPage = () => {
                     <h1>Booking confirmation</h1>
                     <h2>Payment is still required at the Filmvisarna theatre.</h2>
                     <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
-                    <h2>Booking Id: {currentUser.bookings[currentUser.bookings.length - 1]}</h2>
+                    <h3>Booking Id: {currentUser.bookings[currentUser.bookings.length - 1]}</h3>
                     {confirmationDetails && width >= breakpoint &&
                         confirmationDetails[0].tickets.map((ticket, index) => (
                             <ConfirmationTicket ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
