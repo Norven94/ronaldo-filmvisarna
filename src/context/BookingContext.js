@@ -98,14 +98,15 @@ const BookingProvider = (props) => {
   };
 
   const addBookingToUser = async (newBookingInfo) => {
-    await fetch(`/api/v1/users/add/${currentUser._id}`, {
+    let updatedUser = await fetch(`/api/v1/users/add/${currentUser._id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(newBookingInfo),
     });
-
+    updatedUser = await updatedUser.json();
+    return updatedUser;
   };
 
   const getBookedSeats = async (showId) => {
@@ -119,13 +120,13 @@ const BookingProvider = (props) => {
     if (confirmationDetails && currentUser) localStorage.setItem("lastBooking", JSON.stringify([...confirmationDetails, currentUser]))
   }, [confirmationDetails])
 
-  //Get from Local storage on hard reload.
+  //Get from Local storage on hard reload and when user updates.
   useEffect(() => {
     let storageItem = JSON.parse(localStorage.getItem("lastBooking"));
 
-    if (currentUser && storageItem && currentUser?._id === storageItem[2]._id) {
+    if (currentUser && storageItem && currentUser._id == storageItem[2]._id) {
       setConfirmationDetails([storageItem[0], storageItem[1]])
-    } else if (currentUser) setConfirmationDetails(null)
+    }
 
   }, [currentUser])
 
