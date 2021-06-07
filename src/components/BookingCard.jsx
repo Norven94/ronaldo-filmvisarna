@@ -34,10 +34,6 @@ export default function BookingCard (props) {
                 <h3>{props.booking.showId.movieId.title}</h3><span className="date"> - {props.booking.showId.date}</span>
                 </div>
 
-                {/* {props.old ? "" : 
-                <span className="removeBtn" onClick={() => removeBooking(props.booking._id)}>{cross}
-                </span>} */}
-
                 <Popup
                     trigger={props.old ? "" : 
                     <span className="removeBtn" >{cross}
@@ -45,16 +41,14 @@ export default function BookingCard (props) {
                     modal
                     nested
                 >
-
-                
-                {close => (
-                    <div className="modalContent">Are you sure you want to cancel your ticket reservation for {props.booking.showId.movieId.title} {props.booking.showId.date}?
-                        <div className="modalBtns">
-                            <button className="modalButton" onClick={() => removeBooking(props.booking._id)}>Yes, cancel it</button>
-                            <button className="modalButton" onClick={close} >No, keep it</button>
+                    {close => (
+                        <div className="modalContent">Are you sure you want to cancel your ticket reservation for {props.booking.showId.movieId.title} {props.booking.showId.date}?
+                            <div className="modalBtns">
+                                <button className="modalButton" onClick={() => {close(); removeBooking(props.booking._id)}}>Yes, cancel it</button>
+                                <button className="modalButton" onClick={() => close()} >No, keep it</button>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
                 </Popup>
 
                 <p>{props.booking.showId.time}</p>
