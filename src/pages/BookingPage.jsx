@@ -32,7 +32,7 @@ const BookingPage = (props) => {
     totalSum,
   } = useContext(BookingContext);
 
-  const { currentUser, setShowLogin } = useContext(UserContext);
+  const { currentUser, setShowLogin, setCurrentUser } = useContext(UserContext);
   const [summaryOpen, setSummaryOpen] = useState(false); // Opens booking details
 
   const { showId } = props.match.params;
@@ -82,8 +82,9 @@ const BookingPage = (props) => {
           };
           info.tickets.push(details);
         });
-        
-        addBookingToUser(info);
+
+        let updatedUser = await addBookingToUser(info);
+        setCurrentUser(updatedUser);
         
         setConfirmationDetails([info, show]);
         history.push("/confirmation");

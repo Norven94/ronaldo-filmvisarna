@@ -25,24 +25,15 @@ const BookingConfirmationPage = () => {
         return window.removeEventListener("resize", () => setWidth(window.innerWidth));
     }, []);
 
-
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
-        if (currentUser === null || confirmationDetails === null) history.push("/")
-    }, [currentUser, confirmationDetails]) //eslint-disable-line
-
-    useEffect(() => {
-        if (currentUser && confirmationDetails) {
-
-            console.log("confirmationDetails: ", confirmationDetails[1]);
-            console.log("currentUser: ", currentUser.bookings[currentUser.bookings.length - 1]);
-        }
-    }, [confirmationDetails])
+        if (currentUser === null) history.push("/")
+    }, [currentUser]) //eslint-disable-line
 
     return (
-        <div>
-            {confirmationDetails && currentUser &&
-                <div className="bookingConfirmation">
+        <div className="bookingConfirmation">
+            {currentUser && confirmationDetails ?
+                <div>
                     <h1>Booking confirmation</h1>
                     <h2>Payment is still required at the Filmvisarna theatre.</h2>
                     <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
@@ -57,7 +48,8 @@ const BookingConfirmationPage = () => {
                             <ConfirmationTicketSmall ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
                         ))}
                 </div>
-            }
+            :
+            <h2>No recent booking confirmation to show.</h2>}
         </div>
     );
 }
