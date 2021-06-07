@@ -123,7 +123,7 @@ const BookingProvider = (props) => {
   useEffect(() => {
     let storageItem = JSON.parse(localStorage.getItem("lastBooking"));
 
-    if (currentUser && currentUser?._id === storageItem[2]._id) {
+    if (currentUser && storageItem && currentUser?._id === storageItem[2]._id) {
       setConfirmationDetails([storageItem[0], storageItem[1]])
     } else if (currentUser) setConfirmationDetails(null)
 
