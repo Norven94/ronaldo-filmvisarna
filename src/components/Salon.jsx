@@ -15,15 +15,16 @@ export default function Salon(props) {
     booked,
     totalTickets,
     getBookedSeats,
+    amountOfTickets, 
+    setAmountOfTickets
   } = useContext(BookingContext);
   const { currentShow } = useContext(ShowContext);
-  const [amountOfTickets, setAmountOfTickets] = useState(0);
+  
 
   useEffect(() => {
     let salon;
     currentShow.map((show) => {
       if (show._id === props.showId) {
-        console.log(show);
         salon = show.salonId._id;
       }
       return;

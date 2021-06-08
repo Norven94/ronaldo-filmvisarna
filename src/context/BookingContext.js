@@ -22,6 +22,7 @@ const BookingProvider = (props) => {
     { ticketType: "Children", quantity: 0 },
   ]);
   const [confirmationDetails, setConfirmationDetails] = useState("");
+  const [amountOfTickets, setAmountOfTickets] = useState(0);
 
   let today = new Date();
 
@@ -40,13 +41,11 @@ const BookingProvider = (props) => {
   const getMyBookings = async (userId) => {
     let bookingsData = await fetch(`/api/v1/users/bookings/${userId}`);
     bookingsData = await bookingsData.json();
-    console.log(bookingsData);
     setUserBookings(bookingsData);
   };
 
   useEffect(() => {
     if (userBookings.length !== 0) {
-      console.log(userBookings);
       today = formatDate(today);
       setUserBookingsOld(
         userBookings.bookings.filter((booking) => {
@@ -56,7 +55,6 @@ const BookingProvider = (props) => {
 
       setUserBookingsNew(
         userBookings.bookings.filter((booking) => {
-          console.log(booking);
           return booking.showId.date >= formatDate(today);
         })
       );
@@ -147,6 +145,8 @@ const BookingProvider = (props) => {
     setTotalSum,
     totalTickets,
     setTotalTickets,
+    amountOfTickets, 
+    setAmountOfTickets,
 
     price,
     setPrice,
