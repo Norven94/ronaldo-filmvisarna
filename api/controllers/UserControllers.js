@@ -110,7 +110,6 @@ const getUserBookings = async (req, res) => {
             res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
             return;
         }
-        console.log(result)
         res.json(result);
     });
 }
