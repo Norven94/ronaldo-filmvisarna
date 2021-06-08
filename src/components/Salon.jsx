@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { BookingContext } from "../context/BookingContext";
 import { ShowContext } from "../context/ShowContext";
 import "../scss/Salon.scss";
@@ -27,6 +27,7 @@ export default function Salon(props) {
       if (show._id === props.showId) {
         salon = show.salonId._id;
       }
+      // eslint-disable-next-line array-callback-return
       return;
     });
     makeSeatingMap(salon);
@@ -39,6 +40,7 @@ export default function Salon(props) {
       total += totalTickets[i].quantity;
     }
     setAmountOfTickets(total);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalTickets]);
 
   // Functions to select and deselect multiple seats

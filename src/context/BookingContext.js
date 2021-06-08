@@ -12,7 +12,7 @@ const BookingProvider = (props) => {
   const [userBookingsOld, setUserBookingsOld] = useState([]);
   const [booked, setBooked] = useState([]);
   const [selected, setSelected] = useState([]);
-  const [bookingsId, setBookingsId] = useState([]);
+  const [bookingsId] = useState([]);
   const { currentUser } = useContext(UserContext);
   const [totalSum, setTotalSum] = useState(0);
   const [price, setPrice] = useState();
@@ -47,6 +47,7 @@ const BookingProvider = (props) => {
 
   useEffect(() => {
     if (userBookings.length !== 0) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       today = formatDate(today);
       setUserBookingsOld(
         userBookings.bookings.filter((booking) => {
@@ -123,10 +124,12 @@ const BookingProvider = (props) => {
   useEffect(() => {
     let storageItem = JSON.parse(localStorage.getItem("lastBooking"));
     if(currentUser) {
+      // eslint-disable-next-line eqeqeq
       if (currentUser.bookings.length != 0 && !confirmationDetails && storageItem && currentUser._id == storageItem[2]._id) {
         setConfirmationDetails([storageItem[0], storageItem[1]]);
       }
     } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   const values = {
