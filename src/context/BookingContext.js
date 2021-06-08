@@ -21,6 +21,7 @@ const BookingProvider = (props) => {
     { ticketType: "Senior", quantity: 0 },
     { ticketType: "Children", quantity: 0 },
   ]);
+
   const [confirmationDetails, setConfirmationDetails] = useState("");
 
   let today = new Date();
@@ -40,13 +41,11 @@ const BookingProvider = (props) => {
   const getMyBookings = async (userId) => {
     let bookingsData = await fetch(`/api/v1/users/bookings/${userId}`);
     bookingsData = await bookingsData.json();
-    console.log(bookingsData);
     setUserBookings(bookingsData);
   };
 
   useEffect(() => {
     if (userBookings.length !== 0) {
-      console.log(userBookings);
       today = formatDate(today);
       setUserBookingsOld(
         userBookings.bookings.filter((booking) => {
@@ -56,7 +55,6 @@ const BookingProvider = (props) => {
 
       setUserBookingsNew(
         userBookings.bookings.filter((booking) => {
-          console.log(booking);
           return booking.showId.date >= formatDate(today);
         })
       );
@@ -117,7 +115,10 @@ const BookingProvider = (props) => {
 
   //Set Local storage to remember last booking
   useEffect(() => {
-    if (confirmationDetails && currentUser) localStorage.setItem("lastBooking", JSON.stringify([...confirmationDetails, currentUser]))
+    if (confirmationDetails) {
+      localStorage.setItem("lastBooking", JSON.stringify([...confirmationDetails, currentUser]))
+    }
+
   }, [confirmationDetails])
 
   //Get from Local storage on hard reload and when user updates.
@@ -127,7 +128,6 @@ const BookingProvider = (props) => {
     if (currentUser && storageItem && currentUser._id == storageItem[2]._id) {
       setConfirmationDetails([storageItem[0], storageItem[1]])
     }
-
   }, [currentUser])
 
   const values = {
