@@ -78,6 +78,7 @@ const editUser = async (req, res) => {
     //Edit user
     let updatedUser = await User.findByIdAndUpdate(req.body.userId, req.body, { new: true }).exec();
     updatedUser.password = undefined;
+    req.session.user = updatedUser;
     return res.status(200).json(updatedUser);
 }
 
@@ -96,6 +97,8 @@ const addBooking = async (req, res) => {
         user = result;
         user.bookings.push(newBooking._id);
         user.save();
+
+        req.session.user = user;
         res.json(user);
     });
 };
@@ -110,7 +113,6 @@ const getUserBookings = async (req, res) => {
             res.status(404).json({ error: `User with id ${req.params.userId} does not exist` })
             return;
         }
-        console.log(result)
         res.json(result);
     });
 }
@@ -138,6 +140,7 @@ const deleteBookingById = async (req, res) => {
             let index = user.bookings.indexOf(req.params.bookingId)
             user.bookings.splice(index, 1)
             await user.save();
+            req.session.user = user;
             res.json({
                 message: `Booking with id ${req.params.bookingId} has been deleted and the booking was removed from the user with id: ${req.params.userId}`,
             });

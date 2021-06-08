@@ -9,12 +9,24 @@ const Login = () => {
   const { showLogin, setShowLogin, loginUser, loginError, setLoginError, eyeconStateHandler } = useContext(UserContext);
   const history = useHistory();
   const [eyeconState, setEyeconState] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setLoginError(false);
+
+  };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setLoginError(false);
+  }
+  
   const submitLoginHandler = (e) => {
     e.preventDefault();
     const loginInfo = {
-      email: document.getElementById("loginEmail").value,
-      password: document.getElementById("loginPassword").value,
+      email,
+      password
     };
     loginUser(loginInfo);
   };
@@ -40,10 +52,14 @@ const Login = () => {
               <h2>Login</h2>
               <form action="submit" onSubmit={submitLoginHandler}>
                 <label htmlFor="loginEmail">E-mail:</label>
-                <input type="email" id="loginEmail" required onChange={() => setLoginError(false)} />
+                <input type="email" id="loginEmail" required onChange={
+                     handleEmailChange } 
+                   />
                 <label htmlFor="loginPassword">Password:</label>
                 <div className="eyeconDiv">
-                  <input type="password" id="loginPassword" required onChange={() => setLoginError(false)} />
+                  <input type="password" id="loginPassword" required onChange={
+                       handlePasswordChange} 
+                      />
                   {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false, setEyeconState, "loginPassword")} />
                     : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true, setEyeconState, "loginPassword")} />}
                 </div>

@@ -8,7 +8,8 @@ import ConfirmationTicketSmall from "../components/ConfirmationTicketSmall";
 
 const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
-    const { confirmationDetails } = useContext(BookingContext);
+    const { confirmationDetails, setConfirmationDetails } = useContext(BookingContext);
+    const history = useHistory();
 
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 992;
@@ -19,12 +20,17 @@ const BookingConfirmationPage = () => {
         return price + "kr";
     }
 
-    useEffect(() => {
+    useEffect(() => {        
         window.addEventListener("resize", () => setWidth(window.innerWidth));
         return window.removeEventListener("resize", () => setWidth(window.innerWidth));
+    }, []);   
+    
+    useEffect(() => {
+        return () => {
+            localStorage.removeItem("lastBooking");
+            setConfirmationDetails("");
+        }
     }, []);
-
-    const history = useHistory();
 
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
@@ -32,12 +38,13 @@ const BookingConfirmationPage = () => {
     }, [currentUser, confirmationDetails]) //eslint-disable-line
 
     return (
-        <div>
-            {confirmationDetails &&
-                <div className="bookingConfirmation">
+        <div className="bookingConfirmation">
+            {currentUser && confirmationDetails ?
+                <div>
                     <h1>Booking confirmation</h1>
                     <h2>Payment is still required at the Filmvisarna theatre.</h2>
                     <h2>You can view your bookings  under “Bookings” in the user tab.</h2>
+                    <h3>Booking Id: {currentUser.bookings[currentUser.bookings.length - 1]}</h3>
                     {confirmationDetails && width >= breakpoint &&
                         confirmationDetails[0].tickets.map((ticket, index) => (
                             <ConfirmationTicket ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
@@ -48,7 +55,8 @@ const BookingConfirmationPage = () => {
                             <ConfirmationTicketSmall ticketDetails={ticket} showDetails={confirmationDetails[1]} calculatePrice={calculatePrice} key={index} />
                         ))}
                 </div>
-            }
+            :
+            <h2>No recent booking confirmation to show.</h2>}
         </div>
     );
 }

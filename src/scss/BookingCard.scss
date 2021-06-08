@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+.modalContent {
+    background-color: $black;
+    margin: 2rem;
+    padding: 3rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modalBtns {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.modalButton {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    border: 0;
+
+    background-color: $yellow;
+    cursor: pointer;
+}
+
+.modalButton:active {
+    background-color: $yellow-dark;
+}
