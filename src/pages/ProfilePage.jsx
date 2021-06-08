@@ -9,6 +9,21 @@ const ProfilePage = () => {
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
+    const [ email, setEmail] = useState("");
+    const [ name, setName] = useState("");
+    const [ password, setPassword] = useState("");
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        removeErrors();
+        
+    };
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    };
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
     const editUser = (editInfo) => {
         fetch(`/api/v1/users/update/${currentUser._id}`, {
@@ -64,13 +79,13 @@ const ProfilePage = () => {
                 <h2 className="title">Edit information</h2>
                 <form action="submit" onSubmit={editSubmitHandler}>
                     <label htmlFor="editName">Full name:</label>
-                    <input type="text" id="editName" name="name" required defaultValue={currentUser?.name} />
+                    <input type="text" id="editName" name="name" required defaultValue={currentUser?.name} onChange ={ handleNameChange} />
                     <label htmlFor="editEmail">E-mail:</label>
-                    <input type="email" id="editEmail" name="email" required defaultValue={currentUser?.email} onChange={removeErrors} pattern="^[\w\d\.\-]+\@[\w\d]+\.[\w\d]+$"/>
+                    <input type="email" id="editEmail" name="email" required defaultValue={currentUser?.email} onChange={handleEmailChange} pattern="^[\w\d\.\-]+\@[\w\d]+\.[\w\d]+$"/>
                     {emailTaken && <p className="errorText">Email address already in use.</p>}
                     <label htmlFor="editPassword">Password:</label>
                     <div className="eyeconDiv">
-                        <input type="password" id="editPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required />
+                        <input type="password" id="editPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required onChange = {handlePasswordChange}/>
                         {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false, setEyeconState, "editPassword")} />
                             : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true, setEyeconState, "editPassword")} />}
                     </div>
