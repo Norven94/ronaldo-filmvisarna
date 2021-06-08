@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
     const [ email, setEmail] = useState("");
-    const [ name, setName] = useState("");
+    const [ name, setName] = useState(currentUser?.name);
     const [ password, setPassword] = useState("");
 
     const handleEmailChange = (e) => {
@@ -46,9 +46,12 @@ const ProfilePage = () => {
     const editSubmitHandler = (e) => {
         if (currentUser) {
             e.preventDefault();
-            let editUserInfo = { userId: currentUser._id };
-            document.querySelectorAll("input").forEach(field => editUserInfo[field.name] = field.value);
-
+            let editUserInfo = { 
+                userId: currentUser._id,
+                email,
+                name,
+                password
+            };
             editUser(editUserInfo);
         }
     }

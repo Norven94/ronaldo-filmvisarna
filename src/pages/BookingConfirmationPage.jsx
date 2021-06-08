@@ -20,9 +20,13 @@ const BookingConfirmationPage = () => {
         return price + "kr";
     }
 
-    useEffect(() => {
+    useEffect(() => {        
         window.addEventListener("resize", () => setWidth(window.innerWidth));
         return window.removeEventListener("resize", () => setWidth(window.innerWidth));
+    }, []);   
+    
+    useEffect(() => {
+        return () => localStorage.removeItem("lastBooking")
     }, []);
 
     //Reroute guard checks if you're logged in but only after whoami check.
