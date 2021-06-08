@@ -8,7 +8,6 @@ import  "../scss/RecommendedMovies.scss";
 
 // receive props from parent Home component for movie data
 export const RecommendedMovies = (props) => {
-
     // create array with the recommended movies
     let movies = props.data;
     let recommendedMovies = "";
@@ -36,6 +35,9 @@ export const RecommendedMovies = (props) => {
             items: 1
         }
     };
+    const handleClick = () => {
+        window.scrollTo(0,0);
+    }
 
     return (
         <div className="recommendedMovies">
@@ -44,13 +46,14 @@ export const RecommendedMovies = (props) => {
                 responsive={responsive}
                 infinite={true}
                 draggable={false}
+                className = "carousel"
             >
                 {recommendedMovies.map((recommendedMovie) => {
                     return (
-                        <div className="recommendedMovieCard" key={recommendedMovie._id}>
-                            <Link to={`/movie/${recommendedMovie._id}`}>
-                                <img className="recommendedMovieCardImage" src={recommendedMovie.coverImage} alt={recommendedMovie.title}/>
-                            </Link>
+                        <div className="recommendedMovieCard" key={recommendedMovie._id} onClick = {handleClick}>
+                                <Link to={`/movie/${recommendedMovie._id}`}>
+                                    <img className="recommendedMovieCardImage" src={recommendedMovie.coverImage} alt={recommendedMovie.title}/>
+                                </Link>
                         </div>
                     )
                 })}

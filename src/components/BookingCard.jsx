@@ -3,6 +3,10 @@ import "../scss/MyBookings.scss";
 import { BookingContext } from '../context/BookingContext';
 import { UserContext } from '../context/UserContext';
 
+import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
+import "../scss/BookingCard.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,7 +20,7 @@ export default function BookingCard (props) {
     const [moreDetails, setMoreDetails] = useState(false)    
 
     const removeBooking = (bookingId) => {
-        deleteBooking(bookingId, currentUser._id)
+        deleteBooking(bookingId, currentUser._id);
     }
 
     const toggleMoreDetails = () => {
@@ -29,10 +33,30 @@ export default function BookingCard (props) {
                 <div>
                 <h3>{props.booking.showId.movieId.title}</h3><span className="date"> - {props.booking.showId.date}</span>
                 </div>
-                {props.old ? "" : <span className="removeBtn" onClick={() => removeBooking(props.booking._id)}>{cross}</span>}
+
+                <Popup
+                    trigger={props.old ? "" : 
+                    <span className="removeBtn" >{cross}
+                    </span>}
+                    modal
+                    nested
+                >
+                    {close => (
+                        <div className="modalContent">Are you sure you want to cancel your ticket reservation for {props.booking.showId.movieId.title} {props.booking.showId.date}?
+                            <div className="modalBtns">
+                                <button className="modalButton" onClick={() => {close(); removeBooking(props.booking._id)}}>Yes, cancel it</button>
+                                <button className="modalButton" onClick={() => close()} >No, keep it</button>
+                            </div>
+                        </div>
+                    )}
+                </Popup>
+
                 <p>{props.booking.showId.time}</p>
                 <span className="moreDetails" onClick={toggleMoreDetails}>Details {moreDetails ? arrowUp : arrowDown}</span>
             </div>
+
+
+
             {moreDetails && 
             <div className="ticketDetailsBox">
                 {props.booking.tickets.map((ticket, i) => (

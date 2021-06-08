@@ -1,7 +1,6 @@
 @import "./variables.scss";
 
 .login{
-
     .overlay{
         display: flex;
         justify-content: center;
@@ -57,7 +56,7 @@
     .eyecon {
         position: absolute;
         height: 24px;
-        width: 43px;
+        width: 38px;
         top: 5px;
         right: 5px;
         cursor: pointer;
@@ -69,10 +68,10 @@
         cursor: pointer;
         display: block;
         margin: 2rem auto 2rem auto;
-        height: 2rem;
-        width: 8rem;
-        font-weight: bold;
-        border-radius: 5px;
+        padding: 10px;
+        width: 150px;
+        text-transform: uppercase;
+        border-radius: 10px;
         border: none;
     }
 
@@ -103,4 +102,6 @@
         width: 100%;
         min-width: 250px;
     }
+
+    
 }

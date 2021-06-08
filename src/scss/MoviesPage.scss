@@ -3,24 +3,11 @@
 .moviesPage {
     height: 100%;
     font-family: Poppins;
-    margin: auto;
+   
 }
 
 .movieCards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 15px;
-    margin-top: 2rem;
-}
-
-.movieCards::after{
-    content: "";
-    width: 255px;
-}
-
-@media only screen and (min-width: 1060px){
-    .movieCards{
-        justify-content: space-between;
-    }
+    justify-content: center;
 }

@@ -67,7 +67,7 @@
     .eyecon {
         position: absolute;
         height: 24px;
-        width: 43px;
+        width: 38px;
         top: 5px;
         right: 5px;
         cursor: pointer;
@@ -97,10 +97,10 @@
         margin: 2rem auto 0 auto;
         background-color: $yellow;
         cursor: pointer;
-        height: 2rem;
-        width: 8rem;
-        font-weight: bold;
-        border-radius: 5px;
+        padding: 10px;
+        width: 150px;
+        text-transform: uppercase;
+        border-radius: 10px;
         border: none;
     }
 

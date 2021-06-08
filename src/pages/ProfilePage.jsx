@@ -1,19 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
-import { useHistory } from "react-router";
 import { ReactComponent as Eyecon } from "../assets/eyecon.svg"
 import { ReactComponent as Eyeclosed } from "../assets/eyeclosed.svg"
 import "../scss/ProfilePage.scss";
 
 const ProfilePage = () => {
     const { currentUser, setCurrentUser, logoutUser, eyeconStateHandler } = useContext(UserContext);
-    const history = useHistory();
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
 
     const editUser = (editInfo) => {
-        fetch("/api/v1/users/update", {
+        fetch(`/api/v1/users/update/${currentUser._id}`, {
             method: "PUT",
             headers: { "content-type": "application/json", },
             body: JSON.stringify(editInfo),
@@ -52,12 +50,6 @@ const ProfilePage = () => {
         }, 3000)
     }
 
-    //Reroute guard checks if you're logged in but only after whoami check.
-    useEffect(() => {
-        if (currentUser === null) history.push("/")
-        // eslint-disable-next-line
-    }, [currentUser])
-
     return (
         <div className="profilePage">
             <div className="profileInfo">
@@ -74,7 +66,7 @@ const ProfilePage = () => {
                     <label htmlFor="editName">Full name:</label>
                     <input type="text" id="editName" name="name" required defaultValue={currentUser?.name} />
                     <label htmlFor="editEmail">E-mail:</label>
-                    <input type="email" id="editEmail" name="email" required defaultValue={currentUser?.email} onChange={removeErrors} />
+                    <input type="email" id="editEmail" name="email" required defaultValue={currentUser?.email} onChange={removeErrors} pattern="^[\w\d\.\-]+\@[\w\d]+\.[\w\d]+$"/>
                     {emailTaken && <p className="errorText">Email address already in use.</p>}
                     <label htmlFor="editPassword">Password:</label>
                     <div className="eyeconDiv">
