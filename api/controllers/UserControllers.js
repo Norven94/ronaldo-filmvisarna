@@ -96,6 +96,8 @@ const addBooking = async (req, res) => {
         user = result;
         user.bookings.push(newBooking._id);
         user.save();
+
+        req.session.user = user;
         res.json(user);
     });
 };
@@ -137,6 +139,7 @@ const deleteBookingById = async (req, res) => {
             let index = user.bookings.indexOf(req.params.bookingId)
             user.bookings.splice(index, 1)
             await user.save();
+            req.session.user = user;
             res.json({
                 message: `Booking with id ${req.params.bookingId} has been deleted and the booking was removed from the user with id: ${req.params.userId}`,
             });

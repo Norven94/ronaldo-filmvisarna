@@ -69,7 +69,7 @@ export default function Salon(props) {
       {seatingMap
         .map((row, i) => {
           return (
-            <div className="salonWrapper">
+            <div className="salonWrapper" key={i}>
               <span className="rowNumber">{row[i].row}</span>
               <div key={i} className="row">
                 {row.map((seat, i) => {
