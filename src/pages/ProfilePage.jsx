@@ -9,7 +9,7 @@ const ProfilePage = () => {
     const [emailTaken, setEmailTaken] = useState(false);
     const [editSuccess, setEditSuccess] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
-    const [ email, setEmail] = useState("");
+    const [ email, setEmail] = useState(currentUser?.email);
     const [ name, setName] = useState(currentUser?.name);
     const [ password, setPassword] = useState("");
 

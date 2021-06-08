@@ -69,7 +69,7 @@ const BookingProvider = (props) => {
         "content-type": "application/json",
       },
     });
-    getMyBookings(currentUser._id);    
+    getMyBookings(currentUser._id);
   };
 
   const makeSeatingMap = async (salonId) => {
@@ -122,10 +122,11 @@ const BookingProvider = (props) => {
   //Get from Local storage on hard reload and when user updates.
   useEffect(() => {
     let storageItem = JSON.parse(localStorage.getItem("lastBooking"));
-
-    if (currentUser && currentUser.bookings.length != 0 && !confirmationDetails && storageItem && currentUser._id == storageItem[2]._id) {
-      setConfirmationDetails([storageItem[0], storageItem[1]]);
-    }
+    if(currentUser) {
+      if (currentUser.bookings.length != 0 && !confirmationDetails && storageItem && currentUser._id == storageItem[2]._id) {
+        setConfirmationDetails([storageItem[0], storageItem[1]]);
+      }
+    } 
   }, [currentUser]);
 
   const values = {

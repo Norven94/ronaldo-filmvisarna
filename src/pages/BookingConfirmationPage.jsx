@@ -8,7 +8,7 @@ import ConfirmationTicketSmall from "../components/ConfirmationTicketSmall";
 
 const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
-    const { confirmationDetails } = useContext(BookingContext);
+    const { confirmationDetails, setConfirmationDetails } = useContext(BookingContext);
     const history = useHistory();
 
     const [width, setWidth] = useState(window.innerWidth);
@@ -26,7 +26,10 @@ const BookingConfirmationPage = () => {
     }, []);   
     
     useEffect(() => {
-        return () => localStorage.removeItem("lastBooking")
+        return () => {
+            localStorage.removeItem("lastBooking");
+            setConfirmationDetails("");
+        }
     }, []);
 
     //Reroute guard checks if you're logged in but only after whoami check.
