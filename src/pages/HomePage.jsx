@@ -3,7 +3,6 @@ import { MovieContext } from "../context/MovieContext";
 
 import Hero from "../components/Hero";
 
-import "../scss/HomePage.scss";
 import RecommendedMovies from "../components/RecommendedMovies";
 import NinetiesMovies from "../components/NinetiesMovies";
 
