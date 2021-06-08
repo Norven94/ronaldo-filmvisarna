@@ -22,6 +22,7 @@ const BookingProvider = (props) => {
     { ticketType: "Children", quantity: 0 },
   ]);
   const [confirmationDetails, setConfirmationDetails] = useState("");
+  const [amountOfTickets, setAmountOfTickets] = useState(0);
 
   let today = new Date();
 
@@ -147,6 +148,8 @@ const BookingProvider = (props) => {
     setTotalSum,
     totalTickets,
     setTotalTickets,
+    amountOfTickets, 
+    setAmountOfTickets,
 
     price,
     setPrice,
