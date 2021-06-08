@@ -36,7 +36,6 @@ p {
 
 .aboutInfo-2 {
     width: 100%;
-    // display: flex;
     justify-content: space-around;
     margin-bottom: 2rem;
 }
@@ -68,7 +67,6 @@ p {
 @media (min-width: 768px) {
     .aboutInfo-2 {
         display: flex;
-        // border: 1px solid green;
     }
 }
 
