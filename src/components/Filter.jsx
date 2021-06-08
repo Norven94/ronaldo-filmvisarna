@@ -102,7 +102,6 @@ export default function Filter() {
                 date,
                 searchString
             }
-            console.log(settings);
             filterMovies(settings)
         }
         //eslint-disable-next-line

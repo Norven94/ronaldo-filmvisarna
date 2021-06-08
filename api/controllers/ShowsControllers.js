@@ -70,7 +70,6 @@ const createShows = async (req, res) => {
         });
       });
     }
-    console.log(allShows);
     await Show.create(allShows);
     res.send("Ok");
   }

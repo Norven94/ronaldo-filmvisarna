@@ -4,8 +4,6 @@ import { UserContext } from "../context/UserContext";
 
 const RouteGuard = ({ component: Component, ...rest }) => {
     const { currentUser, isAuth } = useContext(UserContext);
-    // console.log("is authenticated", isAuth)
-    // console.log("active user",currentUser)
 
     if (currentUser === undefined) {
         return null
