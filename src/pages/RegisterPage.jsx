@@ -13,6 +13,21 @@ const RegisterPage = () => {
     const [registerConfirmation, setRegisterConfirmation] = useState(false);
     const [eyeconState, setEyeconState] = useState(false);
     const [counter, setCounter] = useState(4);
+    const [ email, setEmail] = useState("");
+    const [ name, setName] = useState("");
+    const [ password, setPassword] = useState("");
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        setRegisterError(false);
+    };
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    };
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
 
     const registerUser = (newUserInfo) => {
         fetch("/api/v1/users/register", {
@@ -38,8 +53,8 @@ const RegisterPage = () => {
 
     const registerSubmitHandler = (e) => {
         e.preventDefault();
-        let newUserInfo = {};
-        document.querySelectorAll("input").forEach(field => newUserInfo[field.name] = field.value);
+        let newUserInfo = {name, email, password};
+        console.log(newUserInfo);
         registerUser(newUserInfo);
     }
 
@@ -75,12 +90,12 @@ const RegisterPage = () => {
                     <h1>Register account</h1>
                     <form action="submit" onSubmit={registerSubmitHandler}>
                         <label htmlFor="registerName">Full name:</label>
-                        <input type="text" id="registerName" name="name" required />
+                        <input type="text" id="registerName" name="name" required onChange = { handleNameChange}/>
                         <label htmlFor="registerEmail">E-mail:</label>
-                        <input type="email" id="registerEmail" name="email" required onChange={() => setRegisterError(false)} />
+                        <input type="email" id="registerEmail" name="email" required onChange={ handleEmailChange} />
                         <label htmlFor="registerPassword">Password:</label>
                         <div className="eyeconDiv">
-                            <input type="password" id="registerPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required />
+                            <input type="password" id="registerPassword" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,24}$" required onChange = {handlePasswordChange}/>
                             {eyeconState ? <Eyecon className="eyecon" onClick={() => eyeconStateHandler("password", false, setEyeconState, "registerPassword")} />
                                 : <Eyeclosed className="eyecon" onClick={() => eyeconStateHandler("text", true, setEyeconState, "registerPassword")} />}
                         </div>
