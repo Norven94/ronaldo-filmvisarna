@@ -69,7 +69,7 @@ const BookingProvider = (props) => {
         "content-type": "application/json",
       },
     });
-    getMyBookings(currentUser._id);
+    getMyBookings(currentUser._id);    
   };
 
   const makeSeatingMap = async (salonId) => {
