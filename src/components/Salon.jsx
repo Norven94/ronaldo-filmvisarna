@@ -25,7 +25,6 @@ export default function Salon(props) {
     let salon;
     currentShow.map((show) => {
       if (show._id === props.showId) {
-        console.log(show);
         salon = show.salonId._id;
       }
       return;
