@@ -29,7 +29,7 @@ const RegisterPage = () => {
                     setRegisterError(false)
                     setRegisterConfirmation(true)
                     setTimeout(() => {
-                        history.push("/");
+                        if (document.location.href.endsWith("/register")) history.push("/");
                     }, 5000)
                     setIsAuth(true)
                 }
