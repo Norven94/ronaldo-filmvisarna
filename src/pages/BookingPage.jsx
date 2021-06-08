@@ -85,7 +85,8 @@ const BookingPage = (props) => {
 
         let updatedUser = await addBookingToUser(info);
         setCurrentUser(updatedUser);
-        
+        console.log("updatedUser: ", updatedUser);
+
         setConfirmationDetails([info, show]);
         history.push("/confirmation");
 
