@@ -30,6 +30,7 @@ const BookingConfirmationPage = () => {
             localStorage.removeItem("lastBooking");
             setConfirmationDetails("");
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //Reroute guard checks if you're logged in but only after whoami check.

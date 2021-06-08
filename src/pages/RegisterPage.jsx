@@ -54,7 +54,6 @@ const RegisterPage = () => {
     const registerSubmitHandler = (e) => {
         e.preventDefault();
         let newUserInfo = {name, email, password};
-        console.log(newUserInfo);
         registerUser(newUserInfo);
     }
 
