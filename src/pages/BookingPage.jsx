@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
@@ -30,6 +32,7 @@ const BookingPage = (props) => {
     setTotalTickets,
     addBookingToUser,
     totalSum,
+    amountOfTickets,
   } = useContext(BookingContext);
 
   const { currentUser, setShowLogin, setCurrentUser } = useContext(UserContext);
@@ -47,6 +50,7 @@ const BookingPage = (props) => {
   useEffect(() => {
     getShowById(showId);
     handleReset();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -62,37 +66,41 @@ const BookingPage = (props) => {
 
   const addNewBooking = async (show) => {
     if (selected.length !== 0) {
-      if (currentUser) {
-        let info = {
-          showId: showId,
-          tickets: [],
-        };
-
-        //Compress the array of objects to an single list, then replace quantity with ticketType name
-        let tickets = totalTickets.flatMap((e) =>
-          Array(e.quantity).fill(e.ticketType)
-        );
-
-        //For each ticket type, create an object and push into info
-        tickets.forEach((ticket, i) => {
-          let details = {
-            ticketType: ticket,
-            rowNumber: selected[i].row,
-            seatNumber: selected[i].seatNumber,
+      if (selected.length === amountOfTickets) {
+        if (currentUser) {
+          let info = {
+            showId: showId,
+            tickets: [],
           };
-          info.tickets.push(details);
-        });
 
-        let updatedUser = await addBookingToUser(info);
-        setCurrentUser(updatedUser);
-        
-        setConfirmationDetails([info, show]);
-        history.push("/confirmation");
+          //Compress the array of objects to an single list, then replace quantity with ticketType name
+          let tickets = totalTickets.flatMap((e) =>
+            Array(e.quantity).fill(e.ticketType)
+          );
 
-        return;
+          //For each ticket type, create an object and push into info
+          tickets.forEach((ticket, i) => {
+            let details = {
+              ticketType: ticket,
+              rowNumber: selected[i].row,
+              seatNumber: selected[i].seatNumber,
+            };
+            info.tickets.push(details);
+          });
+
+          let updatedUser = await addBookingToUser(info);
+          setCurrentUser(updatedUser);
+
+          setConfirmationDetails([info, show]);
+          history.push("/confirmation");
+
+          return;
+        } else {
+          setShowLogin(true);
+          return <Login></Login>;
+        }
       } else {
-        setShowLogin(true);
-        return <Login></Login>;
+        toast.error("You must select as many seats as tickets");
       }
     } else {
       toast.error("You must add at least one ticket and choose one seat");

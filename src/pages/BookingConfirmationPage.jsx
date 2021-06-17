@@ -8,7 +8,7 @@ import ConfirmationTicketSmall from "../components/ConfirmationTicketSmall";
 
 const BookingConfirmationPage = () => {
     const { currentUser } = useContext(UserContext);
-    const { confirmationDetails } = useContext(BookingContext);
+    const { confirmationDetails, setConfirmationDetails } = useContext(BookingContext);
     const history = useHistory();
 
     const [width, setWidth] = useState(window.innerWidth);
@@ -20,14 +20,22 @@ const BookingConfirmationPage = () => {
         return price + "kr";
     }
 
-    useEffect(() => {
+    useEffect(() => {        
         window.addEventListener("resize", () => setWidth(window.innerWidth));
         return window.removeEventListener("resize", () => setWidth(window.innerWidth));
+    }, []);   
+    
+    useEffect(() => {
+        return () => {
+            localStorage.removeItem("lastBooking");
+            setConfirmationDetails("");
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //Reroute guard checks if you're logged in but only after whoami check.
     useEffect(() => {
-        if (currentUser === undefined || confirmationDetails === null) history.push("/")
+        if (currentUser === null || confirmationDetails === null) history.push("/")
     }, [currentUser, confirmationDetails]) //eslint-disable-line
 
     return (

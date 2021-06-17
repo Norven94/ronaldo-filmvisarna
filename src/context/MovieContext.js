@@ -22,7 +22,6 @@ const MovieProvider = (props) => {
     };
 
     const filterMovies = async (filterSettings) => {
-        console.log(filterSettings)
         let filterResult = await fetch("/api/v1/movies", {
             method: "POST",
             headers: {

@@ -50,7 +50,6 @@ app.use((req, res, next) => {
     if (req.session.user !== undefined && req.session.user._id === params[0]) {
       return next();
     } else {
-      console.log("something went wrong")
       return res.status(403).json({error: "You need to be logged in to the user that you want to access the data for"})
     }
   }

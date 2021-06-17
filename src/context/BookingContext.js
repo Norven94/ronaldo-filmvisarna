@@ -12,7 +12,7 @@ const BookingProvider = (props) => {
   const [userBookingsOld, setUserBookingsOld] = useState([]);
   const [booked, setBooked] = useState([]);
   const [selected, setSelected] = useState([]);
-  const [bookingsId, setBookingsId] = useState([]);
+  const [bookingsId] = useState([]);
   const { currentUser } = useContext(UserContext);
   const [totalSum, setTotalSum] = useState(0);
   const [price, setPrice] = useState();
@@ -21,7 +21,9 @@ const BookingProvider = (props) => {
     { ticketType: "Senior", quantity: 0 },
     { ticketType: "Children", quantity: 0 },
   ]);
+
   const [confirmationDetails, setConfirmationDetails] = useState("");
+  const [amountOfTickets, setAmountOfTickets] = useState(0);
 
   let today = new Date();
 
@@ -40,13 +42,12 @@ const BookingProvider = (props) => {
   const getMyBookings = async (userId) => {
     let bookingsData = await fetch(`/api/v1/users/bookings/${userId}`);
     bookingsData = await bookingsData.json();
-    console.log(bookingsData);
     setUserBookings(bookingsData);
   };
 
   useEffect(() => {
     if (userBookings.length !== 0) {
-      console.log(userBookings);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       today = formatDate(today);
       setUserBookingsOld(
         userBookings.bookings.filter((booking) => {
@@ -56,7 +57,6 @@ const BookingProvider = (props) => {
 
       setUserBookingsNew(
         userBookings.bookings.filter((booking) => {
-          console.log(booking);
           return booking.showId.date >= formatDate(today);
         })
       );
@@ -117,18 +117,20 @@ const BookingProvider = (props) => {
 
   //Set Local storage to remember last booking
   useEffect(() => {
-    if (confirmationDetails && currentUser) localStorage.setItem("lastBooking", JSON.stringify([...confirmationDetails, currentUser]))
-  }, [confirmationDetails])
+    if (confirmationDetails) localStorage.setItem("lastBooking", JSON.stringify([...confirmationDetails, currentUser]));
+  }, [confirmationDetails, currentUser]);
 
   //Get from Local storage on hard reload and when user updates.
   useEffect(() => {
     let storageItem = JSON.parse(localStorage.getItem("lastBooking"));
-
-    if (currentUser && storageItem && currentUser._id == storageItem[2]._id) {
-      setConfirmationDetails([storageItem[0], storageItem[1]])
-    }
-
-  }, [currentUser])
+    if(currentUser) {
+      // eslint-disable-next-line eqeqeq
+      if (currentUser.bookings.length != 0 && !confirmationDetails && storageItem && currentUser._id == storageItem[2]._id) {
+        setConfirmationDetails([storageItem[0], storageItem[1]]);
+      }
+    } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser]);
 
   const values = {
     bookingsId,
@@ -147,6 +149,8 @@ const BookingProvider = (props) => {
     setTotalSum,
     totalTickets,
     setTotalTickets,
+    amountOfTickets, 
+    setAmountOfTickets,
 
     price,
     setPrice,
