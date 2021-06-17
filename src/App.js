@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { BrowserRouter, Route, useHistory } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import MovieProvider from "./context/MovieContext";
 import UserProvider from "./context/UserContext";
 import BookingProvider from "./context/BookingContext";
