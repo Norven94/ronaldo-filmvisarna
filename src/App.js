@@ -1,5 +1,4 @@
-import { useEffect } from "react"
-import { BrowserRouter, Route, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MovieProvider from "./context/MovieContext";
 import UserProvider from "./context/UserContext";
 import BookingProvider from "./context/BookingContext";
@@ -15,6 +14,7 @@ import MyBooking from "./pages/MyBooking";
 import BookingPage from "./pages/BookingPage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import BookingConfirmationPage from "./pages/BookingConfirmationPage";
+import ErrorPage from "./pages/ErrorPage";
 import RouteGuard from "./components/RouteGuard";
 
 import "./App.scss";
@@ -29,6 +29,7 @@ function App() {
               <BrowserRouter>
                 <Navbar />
                 <main className="main">
+                <Switch>
                   <Route exact path="/" component={HomePage} />
                   <Route exact path="/home" component={HomePage} />
                   <Route exact path="/movies" component={MoviesPage} />
@@ -44,6 +45,8 @@ function App() {
                     path="/booking/:showId"
                     component={BookingPage}
                   />
+                  <Route render={() => <ErrorPage />} />
+                  </Switch>
                 </main>
               </BrowserRouter>
             </BookingProvider>
