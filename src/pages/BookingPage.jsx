@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
@@ -48,6 +50,7 @@ const BookingPage = (props) => {
   useEffect(() => {
     getShowById(showId);
     handleReset();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

@@ -7,11 +7,7 @@ import "../scss/TicketsQuantity.scss";
 const TicketSum = (props) => {
   const {
     price,
-    totalTickets,
-    setTotalTickets,
-    totalSum,
-    setTotalSum,
-    selected,
+    totalTickets
   } = useContext(BookingContext);
 
   const calculateTicketType = (type) => {
